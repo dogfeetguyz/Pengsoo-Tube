@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C72767605DF172FEBC195BB /* Pods_Pengsoo_Tube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1057ADE1B03F83881288FFED /* Pods_Pengsoo_Tube.framework */; };
+		BDB698328EDB81CF59C14F87 /* Pods_Pengsoo_TubeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DED306D22B0E20A4F1E80D1 /* Pods_Pengsoo_TubeTests.framework */; };
 		FADEDB1424285E770071C1BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB1324285E770071C1BB /* AppDelegate.swift */; };
 		FADEDB1624285E770071C1BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB1524285E770071C1BB /* SceneDelegate.swift */; };
 		FADEDB1824285E770071C1BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB1724285E770071C1BB /* ViewController.swift */; };
@@ -15,6 +17,18 @@
 		FADEDB2024285E7A0071C1BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADEDB1F24285E7A0071C1BB /* Assets.xcassets */; };
 		FADEDB2324285E7A0071C1BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADEDB2124285E7A0071C1BB /* LaunchScreen.storyboard */; };
 		FADEDB2E24285E7A0071C1BB /* Pengsoo_TubeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB2D24285E7A0071C1BB /* Pengsoo_TubeTests.swift */; };
+		FADEDB3C242868A20071C1BB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB3B242868A20071C1BB /* HomeViewModel.swift */; };
+		FADEDB3E242868FB0071C1BB /* ViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB3D242868FB0071C1BB /* ViewModelDelegate.swift */; };
+		FADEDB4024286A6D0071C1BB /* YoutubeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB3F24286A6D0071C1BB /* YoutubeListModel.swift */; };
+		FADEDB4224286AD60071C1BB /* YoutubeSnippetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB4124286AD60071C1BB /* YoutubeSnippetModel.swift */; };
+		FADEDB4424286CE60071C1BB /* YoutubeVideoIdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB4324286CE60071C1BB /* YoutubeVideoIdModel.swift */; };
+		FADEDB4624286E130071C1BB /* YoutubeItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB4524286E130071C1BB /* YoutubeItemModel.swift */; };
+		FADEDB4824286F040071C1BB /* YoutubeThumbnailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB4724286F040071C1BB /* YoutubeThumbnailsModel.swift */; };
+		FADEDB4A24286F100071C1BB /* YoutubeThumbnailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB4924286F100071C1BB /* YoutubeThumbnailModel.swift */; };
+		FADEDB4D2428717A0071C1BB /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB4C2428717A0071C1BB /* AppConstants.swift */; };
+		FADEDB56242890DC0071C1BB /* pengsooList_page2.json in Resources */ = {isa = PBXBuildFile; fileRef = FADEDB53242890DB0071C1BB /* pengsooList_page2.json */; };
+		FADEDB57242890DC0071C1BB /* pengsooList_page3.json in Resources */ = {isa = PBXBuildFile; fileRef = FADEDB54242890DB0071C1BB /* pengsooList_page3.json */; };
+		FADEDB58242890DC0071C1BB /* pengsooList_page1.json in Resources */ = {isa = PBXBuildFile; fileRef = FADEDB55242890DC0071C1BB /* pengsooList_page1.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +42,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1057ADE1B03F83881288FFED /* Pods_Pengsoo_Tube.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pengsoo_Tube.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DED306D22B0E20A4F1E80D1 /* Pods_Pengsoo_TubeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pengsoo_TubeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A42FF04C5E71F3D1C1BE289 /* Pods-Pengsoo-TubeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pengsoo-TubeTests.release.xcconfig"; path = "Target Support Files/Pods-Pengsoo-TubeTests/Pods-Pengsoo-TubeTests.release.xcconfig"; sourceTree = "<group>"; };
+		B12FCB09F2BAC94E7CF20721 /* Pods-Pengsoo-TubeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pengsoo-TubeTests.debug.xcconfig"; path = "Target Support Files/Pods-Pengsoo-TubeTests/Pods-Pengsoo-TubeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C47C63B31EBCC4E6A750E899 /* Pods-Pengsoo-Tube.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pengsoo-Tube.debug.xcconfig"; path = "Target Support Files/Pods-Pengsoo-Tube/Pods-Pengsoo-Tube.debug.xcconfig"; sourceTree = "<group>"; };
+		E703FF0BF36D7A707D6614CE /* Pods-Pengsoo-Tube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pengsoo-Tube.release.xcconfig"; path = "Target Support Files/Pods-Pengsoo-Tube/Pods-Pengsoo-Tube.release.xcconfig"; sourceTree = "<group>"; };
 		FADEDB1024285E770071C1BB /* Pengsoo-Tube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pengsoo-Tube.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADEDB1324285E770071C1BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADEDB1524285E770071C1BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +60,18 @@
 		FADEDB2924285E7A0071C1BB /* Pengsoo-TubeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pengsoo-TubeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADEDB2D24285E7A0071C1BB /* Pengsoo_TubeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pengsoo_TubeTests.swift; sourceTree = "<group>"; };
 		FADEDB2F24285E7A0071C1BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FADEDB3B242868A20071C1BB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		FADEDB3D242868FB0071C1BB /* ViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelDelegate.swift; sourceTree = "<group>"; };
+		FADEDB3F24286A6D0071C1BB /* YoutubeListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeListModel.swift; sourceTree = "<group>"; };
+		FADEDB4124286AD60071C1BB /* YoutubeSnippetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeSnippetModel.swift; sourceTree = "<group>"; };
+		FADEDB4324286CE60071C1BB /* YoutubeVideoIdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeVideoIdModel.swift; sourceTree = "<group>"; };
+		FADEDB4524286E130071C1BB /* YoutubeItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeItemModel.swift; sourceTree = "<group>"; };
+		FADEDB4724286F040071C1BB /* YoutubeThumbnailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeThumbnailsModel.swift; sourceTree = "<group>"; };
+		FADEDB4924286F100071C1BB /* YoutubeThumbnailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeThumbnailModel.swift; sourceTree = "<group>"; };
+		FADEDB4C2428717A0071C1BB /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		FADEDB53242890DB0071C1BB /* pengsooList_page2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pengsooList_page2.json; sourceTree = "<group>"; };
+		FADEDB54242890DB0071C1BB /* pengsooList_page3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pengsooList_page3.json; sourceTree = "<group>"; };
+		FADEDB55242890DC0071C1BB /* pengsooList_page1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pengsooList_page1.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C72767605DF172FEBC195BB /* Pods_Pengsoo_Tube.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,18 +87,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDB698328EDB81CF59C14F87 /* Pods_Pengsoo_TubeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		439DD0C3D8B87EEEC02652BC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C47C63B31EBCC4E6A750E899 /* Pods-Pengsoo-Tube.debug.xcconfig */,
+				E703FF0BF36D7A707D6614CE /* Pods-Pengsoo-Tube.release.xcconfig */,
+				B12FCB09F2BAC94E7CF20721 /* Pods-Pengsoo-TubeTests.debug.xcconfig */,
+				6A42FF04C5E71F3D1C1BE289 /* Pods-Pengsoo-TubeTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FA817EDBDBF8563024BACAF0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1057ADE1B03F83881288FFED /* Pods_Pengsoo_Tube.framework */,
+				1DED306D22B0E20A4F1E80D1 /* Pods_Pengsoo_TubeTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FADEDB0724285E770071C1BB = {
 			isa = PBXGroup;
 			children = (
 				FADEDB1224285E770071C1BB /* Pengsoo-Tube */,
 				FADEDB2C24285E7A0071C1BB /* Pengsoo-TubeTests */,
 				FADEDB1124285E770071C1BB /* Products */,
+				439DD0C3D8B87EEEC02652BC /* Pods */,
+				FA817EDBDBF8563024BACAF0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +137,10 @@
 		FADEDB1224285E770071C1BB /* Pengsoo-Tube */ = {
 			isa = PBXGroup;
 			children = (
+				FADEDB4B242871620071C1BB /* Common */,
+				FADEDB39242866F70071C1BB /* View */,
+				FADEDB3A242866FC0071C1BB /* ViewModel */,
+				FADEDB38242866C20071C1BB /* Model */,
 				FADEDB1324285E770071C1BB /* AppDelegate.swift */,
 				FADEDB1524285E770071C1BB /* SceneDelegate.swift */,
 				FADEDB1724285E770071C1BB /* ViewController.swift */,
@@ -96,10 +156,58 @@
 		FADEDB2C24285E7A0071C1BB /* Pengsoo-TubeTests */ = {
 			isa = PBXGroup;
 			children = (
+				FADEDB4E242887730071C1BB /* Resources */,
 				FADEDB2D24285E7A0071C1BB /* Pengsoo_TubeTests.swift */,
 				FADEDB2F24285E7A0071C1BB /* Info.plist */,
 			);
 			path = "Pengsoo-TubeTests";
+			sourceTree = "<group>";
+		};
+		FADEDB38242866C20071C1BB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FADEDB3F24286A6D0071C1BB /* YoutubeListModel.swift */,
+				FADEDB4124286AD60071C1BB /* YoutubeSnippetModel.swift */,
+				FADEDB4324286CE60071C1BB /* YoutubeVideoIdModel.swift */,
+				FADEDB4524286E130071C1BB /* YoutubeItemModel.swift */,
+				FADEDB4724286F040071C1BB /* YoutubeThumbnailsModel.swift */,
+				FADEDB4924286F100071C1BB /* YoutubeThumbnailModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FADEDB39242866F70071C1BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FADEDB3A242866FC0071C1BB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FADEDB3B242868A20071C1BB /* HomeViewModel.swift */,
+				FADEDB3D242868FB0071C1BB /* ViewModelDelegate.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FADEDB4B242871620071C1BB /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FADEDB4C2428717A0071C1BB /* AppConstants.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		FADEDB4E242887730071C1BB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FADEDB55242890DC0071C1BB /* pengsooList_page1.json */,
+				FADEDB53242890DB0071C1BB /* pengsooList_page2.json */,
+				FADEDB54242890DB0071C1BB /* pengsooList_page3.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,9 +217,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FADEDB3224285E7A0071C1BB /* Build configuration list for PBXNativeTarget "Pengsoo-Tube" */;
 			buildPhases = (
+				62C46E873FA55C097BC0F654 /* [CP] Check Pods Manifest.lock */,
 				FADEDB0C24285E770071C1BB /* Sources */,
 				FADEDB0D24285E770071C1BB /* Frameworks */,
 				FADEDB0E24285E770071C1BB /* Resources */,
+				54EDA5E8306F1CD7AC60BE98 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,9 +236,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FADEDB3524285E7A0071C1BB /* Build configuration list for PBXNativeTarget "Pengsoo-TubeTests" */;
 			buildPhases = (
+				82698A5BB5737C846183F70D /* [CP] Check Pods Manifest.lock */,
 				FADEDB2524285E7A0071C1BB /* Sources */,
 				FADEDB2624285E7A0071C1BB /* Frameworks */,
 				FADEDB2724285E7A0071C1BB /* Resources */,
+				AE2CD301B3BAF358BFC1ED34 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -193,19 +305,112 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FADEDB57242890DC0071C1BB /* pengsooList_page3.json in Resources */,
+				FADEDB56242890DC0071C1BB /* pengsooList_page2.json in Resources */,
+				FADEDB58242890DC0071C1BB /* pengsooList_page1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		54EDA5E8306F1CD7AC60BE98 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pengsoo-Tube/Pods-Pengsoo-Tube-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pengsoo-Tube/Pods-Pengsoo-Tube-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pengsoo-Tube/Pods-Pengsoo-Tube-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62C46E873FA55C097BC0F654 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pengsoo-Tube-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82698A5BB5737C846183F70D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pengsoo-TubeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE2CD301B3BAF358BFC1ED34 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pengsoo-TubeTests/Pods-Pengsoo-TubeTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pengsoo-TubeTests/Pods-Pengsoo-TubeTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pengsoo-TubeTests/Pods-Pengsoo-TubeTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FADEDB0C24285E770071C1BB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FADEDB4A24286F100071C1BB /* YoutubeThumbnailModel.swift in Sources */,
+				FADEDB4624286E130071C1BB /* YoutubeItemModel.swift in Sources */,
 				FADEDB1824285E770071C1BB /* ViewController.swift in Sources */,
+				FADEDB3E242868FB0071C1BB /* ViewModelDelegate.swift in Sources */,
+				FADEDB4824286F040071C1BB /* YoutubeThumbnailsModel.swift in Sources */,
+				FADEDB4424286CE60071C1BB /* YoutubeVideoIdModel.swift in Sources */,
 				FADEDB1424285E770071C1BB /* AppDelegate.swift in Sources */,
+				FADEDB4024286A6D0071C1BB /* YoutubeListModel.swift in Sources */,
 				FADEDB1624285E770071C1BB /* SceneDelegate.swift in Sources */,
+				FADEDB3C242868A20071C1BB /* HomeViewModel.swift in Sources */,
+				FADEDB4D2428717A0071C1BB /* AppConstants.swift in Sources */,
+				FADEDB4224286AD60071C1BB /* YoutubeSnippetModel.swift in Sources */,
 				FADEDB1E24285E770071C1BB /* Pengsoo_Tube.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,7 +503,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -352,7 +557,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -364,6 +569,7 @@
 		};
 		FADEDB3324285E7A0071C1BB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C47C63B31EBCC4E6A750E899 /* Pods-Pengsoo-Tube.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -377,11 +583,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 			};
 			name = Debug;
 		};
 		FADEDB3424285E7A0071C1BB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E703FF0BF36D7A707D6614CE /* Pods-Pengsoo-Tube.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -395,18 +603,20 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 			};
 			name = Release;
 		};
 		FADEDB3624285E7A0071C1BB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B12FCB09F2BAC94E7CF20721 /* Pods-Pengsoo-TubeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B78Z6M42G4;
 				INFOPLIST_FILE = "Pengsoo-TubeTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -417,18 +627,20 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pengsoo-Tube.app/Pengsoo-Tube";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 			};
 			name = Debug;
 		};
 		FADEDB3724285E7A0071C1BB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A42FF04C5E71F3D1C1BE289 /* Pods-Pengsoo-TubeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B78Z6M42G4;
 				INFOPLIST_FILE = "Pengsoo-TubeTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -439,6 +651,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pengsoo-Tube.app/Pengsoo-Tube";
+				TVOS_DEPLOYMENT_TARGET = 13.0;
 			};
 			name = Release;
 		};
