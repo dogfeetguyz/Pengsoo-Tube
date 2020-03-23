@@ -1,0 +1,491 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FADEDB1424285E770071C1BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB1324285E770071C1BB /* AppDelegate.swift */; };
+		FADEDB1624285E770071C1BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB1524285E770071C1BB /* SceneDelegate.swift */; };
+		FADEDB1824285E770071C1BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB1724285E770071C1BB /* ViewController.swift */; };
+		FADEDB1B24285E770071C1BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADEDB1924285E770071C1BB /* Main.storyboard */; };
+		FADEDB1E24285E770071C1BB /* Pengsoo_Tube.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB1C24285E770071C1BB /* Pengsoo_Tube.xcdatamodeld */; };
+		FADEDB2024285E7A0071C1BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADEDB1F24285E7A0071C1BB /* Assets.xcassets */; };
+		FADEDB2324285E7A0071C1BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADEDB2124285E7A0071C1BB /* LaunchScreen.storyboard */; };
+		FADEDB2E24285E7A0071C1BB /* Pengsoo_TubeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB2D24285E7A0071C1BB /* Pengsoo_TubeTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FADEDB2A24285E7A0071C1BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FADEDB0824285E770071C1BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FADEDB0F24285E770071C1BB;
+			remoteInfo = "Pengsoo-Tube";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FADEDB1024285E770071C1BB /* Pengsoo-Tube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pengsoo-Tube.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FADEDB1324285E770071C1BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FADEDB1524285E770071C1BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FADEDB1724285E770071C1BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FADEDB1A24285E770071C1BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FADEDB1D24285E770071C1BB /* Pengsoo_Tube.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pengsoo_Tube.xcdatamodel; sourceTree = "<group>"; };
+		FADEDB1F24285E7A0071C1BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FADEDB2224285E7A0071C1BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FADEDB2424285E7A0071C1BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FADEDB2924285E7A0071C1BB /* Pengsoo-TubeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pengsoo-TubeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FADEDB2D24285E7A0071C1BB /* Pengsoo_TubeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pengsoo_TubeTests.swift; sourceTree = "<group>"; };
+		FADEDB2F24285E7A0071C1BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FADEDB0D24285E770071C1BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FADEDB2624285E7A0071C1BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FADEDB0724285E770071C1BB = {
+			isa = PBXGroup;
+			children = (
+				FADEDB1224285E770071C1BB /* Pengsoo-Tube */,
+				FADEDB2C24285E7A0071C1BB /* Pengsoo-TubeTests */,
+				FADEDB1124285E770071C1BB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FADEDB1124285E770071C1BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FADEDB1024285E770071C1BB /* Pengsoo-Tube.app */,
+				FADEDB2924285E7A0071C1BB /* Pengsoo-TubeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FADEDB1224285E770071C1BB /* Pengsoo-Tube */ = {
+			isa = PBXGroup;
+			children = (
+				FADEDB1324285E770071C1BB /* AppDelegate.swift */,
+				FADEDB1524285E770071C1BB /* SceneDelegate.swift */,
+				FADEDB1724285E770071C1BB /* ViewController.swift */,
+				FADEDB1924285E770071C1BB /* Main.storyboard */,
+				FADEDB1F24285E7A0071C1BB /* Assets.xcassets */,
+				FADEDB2124285E7A0071C1BB /* LaunchScreen.storyboard */,
+				FADEDB2424285E7A0071C1BB /* Info.plist */,
+				FADEDB1C24285E770071C1BB /* Pengsoo_Tube.xcdatamodeld */,
+			);
+			path = "Pengsoo-Tube";
+			sourceTree = "<group>";
+		};
+		FADEDB2C24285E7A0071C1BB /* Pengsoo-TubeTests */ = {
+			isa = PBXGroup;
+			children = (
+				FADEDB2D24285E7A0071C1BB /* Pengsoo_TubeTests.swift */,
+				FADEDB2F24285E7A0071C1BB /* Info.plist */,
+			);
+			path = "Pengsoo-TubeTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FADEDB0F24285E770071C1BB /* Pengsoo-Tube */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FADEDB3224285E7A0071C1BB /* Build configuration list for PBXNativeTarget "Pengsoo-Tube" */;
+			buildPhases = (
+				FADEDB0C24285E770071C1BB /* Sources */,
+				FADEDB0D24285E770071C1BB /* Frameworks */,
+				FADEDB0E24285E770071C1BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pengsoo-Tube";
+			productName = "Pengsoo-Tube";
+			productReference = FADEDB1024285E770071C1BB /* Pengsoo-Tube.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FADEDB2824285E7A0071C1BB /* Pengsoo-TubeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FADEDB3524285E7A0071C1BB /* Build configuration list for PBXNativeTarget "Pengsoo-TubeTests" */;
+			buildPhases = (
+				FADEDB2524285E7A0071C1BB /* Sources */,
+				FADEDB2624285E7A0071C1BB /* Frameworks */,
+				FADEDB2724285E7A0071C1BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FADEDB2B24285E7A0071C1BB /* PBXTargetDependency */,
+			);
+			name = "Pengsoo-TubeTests";
+			productName = "Pengsoo-TubeTests";
+			productReference = FADEDB2924285E7A0071C1BB /* Pengsoo-TubeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FADEDB0824285E770071C1BB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Yejun Park";
+				TargetAttributes = {
+					FADEDB0F24285E770071C1BB = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					FADEDB2824285E7A0071C1BB = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = FADEDB0F24285E770071C1BB;
+					};
+				};
+			};
+			buildConfigurationList = FADEDB0B24285E770071C1BB /* Build configuration list for PBXProject "Pengsoo-Tube" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FADEDB0724285E770071C1BB;
+			productRefGroup = FADEDB1124285E770071C1BB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FADEDB0F24285E770071C1BB /* Pengsoo-Tube */,
+				FADEDB2824285E7A0071C1BB /* Pengsoo-TubeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FADEDB0E24285E770071C1BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FADEDB2324285E7A0071C1BB /* LaunchScreen.storyboard in Resources */,
+				FADEDB2024285E7A0071C1BB /* Assets.xcassets in Resources */,
+				FADEDB1B24285E770071C1BB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FADEDB2724285E7A0071C1BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FADEDB0C24285E770071C1BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FADEDB1824285E770071C1BB /* ViewController.swift in Sources */,
+				FADEDB1424285E770071C1BB /* AppDelegate.swift in Sources */,
+				FADEDB1624285E770071C1BB /* SceneDelegate.swift in Sources */,
+				FADEDB1E24285E770071C1BB /* Pengsoo_Tube.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FADEDB2524285E7A0071C1BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FADEDB2E24285E7A0071C1BB /* Pengsoo_TubeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FADEDB2B24285E7A0071C1BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FADEDB0F24285E770071C1BB /* Pengsoo-Tube */;
+			targetProxy = FADEDB2A24285E7A0071C1BB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FADEDB1924285E770071C1BB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FADEDB1A24285E770071C1BB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FADEDB2124285E7A0071C1BB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FADEDB2224285E7A0071C1BB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FADEDB3024285E7A0071C1BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FADEDB3124285E7A0071C1BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FADEDB3324285E7A0071C1BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B78Z6M42G4;
+				INFOPLIST_FILE = "Pengsoo-Tube/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "kr.dogfeetguyz.Pengsoo-Tube";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FADEDB3424285E7A0071C1BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B78Z6M42G4;
+				INFOPLIST_FILE = "Pengsoo-Tube/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "kr.dogfeetguyz.Pengsoo-Tube";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FADEDB3624285E7A0071C1BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B78Z6M42G4;
+				INFOPLIST_FILE = "Pengsoo-TubeTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "kr.dogfeetguyz.Pengsoo-TubeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pengsoo-Tube.app/Pengsoo-Tube";
+			};
+			name = Debug;
+		};
+		FADEDB3724285E7A0071C1BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B78Z6M42G4;
+				INFOPLIST_FILE = "Pengsoo-TubeTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "kr.dogfeetguyz.Pengsoo-TubeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pengsoo-Tube.app/Pengsoo-Tube";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FADEDB0B24285E770071C1BB /* Build configuration list for PBXProject "Pengsoo-Tube" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FADEDB3024285E7A0071C1BB /* Debug */,
+				FADEDB3124285E7A0071C1BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FADEDB3224285E7A0071C1BB /* Build configuration list for PBXNativeTarget "Pengsoo-Tube" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FADEDB3324285E7A0071C1BB /* Debug */,
+				FADEDB3424285E7A0071C1BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FADEDB3524285E7A0071C1BB /* Build configuration list for PBXNativeTarget "Pengsoo-TubeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FADEDB3624285E7A0071C1BB /* Debug */,
+				FADEDB3724285E7A0071C1BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FADEDB1C24285E770071C1BB /* Pengsoo_Tube.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FADEDB1D24285E770071C1BB /* Pengsoo_Tube.xcdatamodel */,
+			);
+			currentVersion = FADEDB1D24285E770071C1BB /* Pengsoo_Tube.xcdatamodel */;
+			path = Pengsoo_Tube.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FADEDB0824285E770071C1BB /* Project object */;
+}
