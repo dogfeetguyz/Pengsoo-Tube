@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6C72767605DF172FEBC195BB /* Pods_Pengsoo_Tube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1057ADE1B03F83881288FFED /* Pods_Pengsoo_Tube.framework */; };
 		BDB698328EDB81CF59C14F87 /* Pods_Pengsoo_TubeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DED306D22B0E20A4F1E80D1 /* Pods_Pengsoo_TubeTests.framework */; };
+		FAD709F12429B11300E48D31 /* HeaderImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD709F02429B11300E48D31 /* HeaderImageModel.swift */; };
+		FAD709F32429B14200E48D31 /* BrandingSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD709F22429B14200E48D31 /* BrandingSettingsModel.swift */; };
 		FADEDB1424285E770071C1BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB1324285E770071C1BB /* AppDelegate.swift */; };
 		FADEDB1624285E770071C1BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB1524285E770071C1BB /* SceneDelegate.swift */; };
 		FADEDB1824285E770071C1BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB1724285E770071C1BB /* ViewController.swift */; };
@@ -16,7 +18,7 @@
 		FADEDB1E24285E770071C1BB /* Pengsoo_Tube.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB1C24285E770071C1BB /* Pengsoo_Tube.xcdatamodeld */; };
 		FADEDB2024285E7A0071C1BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADEDB1F24285E7A0071C1BB /* Assets.xcassets */; };
 		FADEDB2324285E7A0071C1BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADEDB2124285E7A0071C1BB /* LaunchScreen.storyboard */; };
-		FADEDB2E24285E7A0071C1BB /* Pengsoo_TubeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB2D24285E7A0071C1BB /* Pengsoo_TubeTests.swift */; };
+		FADEDB2E24285E7A0071C1BB /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB2D24285E7A0071C1BB /* HomeViewModelTests.swift */; };
 		FADEDB3C242868A20071C1BB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB3B242868A20071C1BB /* HomeViewModel.swift */; };
 		FADEDB3E242868FB0071C1BB /* ViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB3D242868FB0071C1BB /* ViewModelDelegate.swift */; };
 		FADEDB4024286A6D0071C1BB /* YoutubeListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB3F24286A6D0071C1BB /* YoutubeListModel.swift */; };
@@ -48,6 +50,8 @@
 		B12FCB09F2BAC94E7CF20721 /* Pods-Pengsoo-TubeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pengsoo-TubeTests.debug.xcconfig"; path = "Target Support Files/Pods-Pengsoo-TubeTests/Pods-Pengsoo-TubeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C47C63B31EBCC4E6A750E899 /* Pods-Pengsoo-Tube.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pengsoo-Tube.debug.xcconfig"; path = "Target Support Files/Pods-Pengsoo-Tube/Pods-Pengsoo-Tube.debug.xcconfig"; sourceTree = "<group>"; };
 		E703FF0BF36D7A707D6614CE /* Pods-Pengsoo-Tube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pengsoo-Tube.release.xcconfig"; path = "Target Support Files/Pods-Pengsoo-Tube/Pods-Pengsoo-Tube.release.xcconfig"; sourceTree = "<group>"; };
+		FAD709F02429B11300E48D31 /* HeaderImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderImageModel.swift; sourceTree = "<group>"; };
+		FAD709F22429B14200E48D31 /* BrandingSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandingSettingsModel.swift; sourceTree = "<group>"; };
 		FADEDB1024285E770071C1BB /* Pengsoo-Tube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pengsoo-Tube.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADEDB1324285E770071C1BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADEDB1524285E770071C1BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,7 +62,7 @@
 		FADEDB2224285E7A0071C1BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FADEDB2424285E7A0071C1BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FADEDB2924285E7A0071C1BB /* Pengsoo-TubeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pengsoo-TubeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FADEDB2D24285E7A0071C1BB /* Pengsoo_TubeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pengsoo_TubeTests.swift; sourceTree = "<group>"; };
+		FADEDB2D24285E7A0071C1BB /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		FADEDB2F24285E7A0071C1BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FADEDB3B242868A20071C1BB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FADEDB3D242868FB0071C1BB /* ViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelDelegate.swift; sourceTree = "<group>"; };
@@ -157,7 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				FADEDB4E242887730071C1BB /* Resources */,
-				FADEDB2D24285E7A0071C1BB /* Pengsoo_TubeTests.swift */,
+				FADEDB2D24285E7A0071C1BB /* HomeViewModelTests.swift */,
 				FADEDB2F24285E7A0071C1BB /* Info.plist */,
 			);
 			path = "Pengsoo-TubeTests";
@@ -172,6 +176,8 @@
 				FADEDB4524286E130071C1BB /* YoutubeItemModel.swift */,
 				FADEDB4724286F040071C1BB /* YoutubeThumbnailsModel.swift */,
 				FADEDB4924286F100071C1BB /* YoutubeThumbnailModel.swift */,
+				FAD709F02429B11300E48D31 /* HeaderImageModel.swift */,
+				FAD709F22429B14200E48D31 /* BrandingSettingsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -402,6 +408,7 @@
 				FADEDB4A24286F100071C1BB /* YoutubeThumbnailModel.swift in Sources */,
 				FADEDB4624286E130071C1BB /* YoutubeItemModel.swift in Sources */,
 				FADEDB1824285E770071C1BB /* ViewController.swift in Sources */,
+				FAD709F32429B14200E48D31 /* BrandingSettingsModel.swift in Sources */,
 				FADEDB3E242868FB0071C1BB /* ViewModelDelegate.swift in Sources */,
 				FADEDB4824286F040071C1BB /* YoutubeThumbnailsModel.swift in Sources */,
 				FADEDB4424286CE60071C1BB /* YoutubeVideoIdModel.swift in Sources */,
@@ -409,6 +416,7 @@
 				FADEDB4024286A6D0071C1BB /* YoutubeListModel.swift in Sources */,
 				FADEDB1624285E770071C1BB /* SceneDelegate.swift in Sources */,
 				FADEDB3C242868A20071C1BB /* HomeViewModel.swift in Sources */,
+				FAD709F12429B11300E48D31 /* HeaderImageModel.swift in Sources */,
 				FADEDB4D2428717A0071C1BB /* AppConstants.swift in Sources */,
 				FADEDB4224286AD60071C1BB /* YoutubeSnippetModel.swift in Sources */,
 				FADEDB1E24285E770071C1BB /* Pengsoo_Tube.xcdatamodeld in Sources */,
@@ -419,7 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FADEDB2E24285E7A0071C1BB /* Pengsoo_TubeTests.swift in Sources */,
+				FADEDB2E24285E7A0071C1BB /* HomeViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

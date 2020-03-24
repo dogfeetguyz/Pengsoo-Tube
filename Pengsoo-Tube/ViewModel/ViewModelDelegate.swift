@@ -9,6 +9,7 @@
 import Foundation
 
 protocol ViewModelDelegate: class {
-    func reloadTable()
-    func showError(error: ViewModelDelegateError)
+    func reloadTable(type: HomeViewRequestType)
+    func reloadHeader()
+    func showError(type: HomeViewRequestType, error: ViewModelDelegateError)
 }

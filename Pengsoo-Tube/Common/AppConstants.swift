@@ -10,28 +10,41 @@ import Foundation
 
 struct AppConstants {
     
-    static let baseUrl          : String = "https://www.googleapis.com/youtube/v3/search?part=snippet"
+    static let baseUrl              : String = "https://www.googleapis.com/youtube/v3/"
+    static let partSnippet          : String = "playlistItems?part=snippet"
+    static let partBranding         : String = "channels?part=brandingSettings"
     
-    static let keyApiKey        : String = "key"
-    static let keyMaxResult     : String = "maxResults"
-    static let keyOrder         : String = "order"
-    static let keyType          : String = "type"
-    static let keyChannelId     : String = "channelId"
-    static let keyKeyword       : String = "q"
-    static let keyPageToken     : String = "pageToken"
+    static let keyApiKey            : String = "key"
+    static let keyMaxResult         : String = "maxResults"
+    static let keyPlaylistId        : String = "playlistId"
+    static let keyBrandingId        : String = "id"
+    static let keyPageToken         : String = "pageToken"
     
-    static let valueApiKey      : String = Bundle.main.object(forInfoDictionaryKey: "GoogleSecretKey") as! String
-    static let valueMaxResult   : Int = 50
-    static let valueOrder       : String = "date"
-    static let valueType        : String = "video"
-    static let valueChannelId   : String = "UCtckgmUcpzqGnzcs7xEqMzQ"
-    static let valueKeyword     : String = "펭수"
+    static let valueApiKey          : String = Bundle.main.object(forInfoDictionaryKey: "GoogleSecretKey") as! String
+    static let valueMaxResult       : Int = 50
+    static let valuePlaylistGiantTV : String = "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas"
+    static let valuePlaylistYoutube : String = "PLeq1C1537EvH7jR04Gr5dUYf2wNTyXSg9"
+    static let valuePlaylistOutside : String = "PLwGaGJBBtgFedaczbgXOOppykqRkVZ787"
+    static let valueBrandingId      : String = "UCtckgmUcpzqGnzcs7xEqMzQ"
+    
+    
+//    static let keyOrder             : String = "order"
+//    static let keyKeyword           : String = "q"
+//    static let keyType              : String = "type"
+//    static let valueOrder           : String = "date"
+//    static let valueKeyword         : String = "펭수"
+//    static let valueType            : String = "video"
 }
 
-public enum ViewModelDelegateError: Int {
-    /// Use kilogram for a routine
-    case networkError = 0
-    
-    /// Use pound for a routine
-    case noItems = 1
+enum ViewModelDelegateError: Int {
+    case noError = 0
+    case networkError = 1
+    case noItems = 2
+}
+
+enum HomeViewRequestType: Int {
+    case header = 0
+    case pengsooTv = 1
+    case pengsooYoutube = 2
+    case pengsooOutside = 3
 }

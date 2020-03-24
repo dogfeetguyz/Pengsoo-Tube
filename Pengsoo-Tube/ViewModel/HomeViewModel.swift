@@ -11,45 +11,136 @@ import AlamofireObjectMapper
 
 class HomeViewModel {
     
-    var nextPageToken: String = ""
-    var listItems:[YoutubeItemModel] = []
+    var tvNextPageToken: String = ""
+    var tvListItems: [YoutubeItemModel] = []
+    
+    var youtubeNextPageToken: String = ""
+    var youtubeListItems: [YoutubeItemModel] = []
+    
+    var outsideNextPageToken: String = ""
+    var outsideListItems: [YoutubeItemModel] = []
+    
+    var headerUrl: String = ""
+    
     weak var delegate: ViewModelDelegate?
     
-    func getPengsooTvList() {
-        getPengsooTvList(isInitial: true)
+    func getPengsooTvList(type: HomeViewRequestType) {
+        getPengsooTvList(type:type, isInitial: true)
     }
     
-    func getPengsooTvList(isInitial: Bool) {
+    func getPengsooTvList(type: HomeViewRequestType, isInitial: Bool) {
+        
         if checkNetwork() {
             var parameters: Parameters = Parameters()
-            parameters[AppConstants.keyType] = AppConstants.valueType
-            parameters[AppConstants.keyOrder] = AppConstants.valueOrder
+            if isInitial {
+                if type == .pengsooTv {
+                    tvNextPageToken = ""
+                    tvListItems.removeAll()
+                } else if type == .pengsooYoutube {
+                    youtubeNextPageToken = ""
+                    youtubeListItems.removeAll()
+                } else if type == .pengsooOutside {
+                    outsideNextPageToken = ""
+                    outsideListItems.removeAll()
+                }
+            } else {
+                if type == .pengsooTv && tvNextPageToken.count > 0 {
+                    parameters[AppConstants.keyPageToken] = tvNextPageToken
+                } else if type == .pengsooYoutube && youtubeNextPageToken.count > 0 {
+                    parameters[AppConstants.keyPageToken] = youtubeNextPageToken
+                } else if type == .pengsooOutside && outsideNextPageToken.count > 0 {
+                    parameters[AppConstants.keyPageToken] = outsideNextPageToken
+                } else {
+                    self.delegate?.showError(type:type, error: .noItems)
+                    return
+                }
+            }
+            
+            if type == .pengsooTv {
+                parameters[AppConstants.keyPlaylistId] = AppConstants.valuePlaylistGiantTV
+            } else if type == .pengsooYoutube {
+                parameters[AppConstants.keyPlaylistId] = AppConstants.valuePlaylistYoutube
+            } else if type == .pengsooOutside {
+                parameters[AppConstants.keyPlaylistId] = AppConstants.valuePlaylistOutside
+            }
+            
             parameters[AppConstants.keyMaxResult] = AppConstants.valueMaxResult
-            parameters[AppConstants.keyChannelId] = AppConstants.valueChannelId
-            if !isInitial && nextPageToken.count > 0 { parameters[AppConstants.keyPageToken] = nextPageToken }
             parameters[AppConstants.keyApiKey] = AppConstants.valueApiKey
             
             Alamofire
-                .request(AppConstants.baseUrl, method: .get, parameters: parameters)
+                .request(AppConstants.baseUrl + AppConstants.partSnippet, method: .get, parameters: parameters)
                 .validate()
                 .responseObject(completionHandler: { (response: DataResponse<YoutubeListModel>) in
                     switch response.result {
                     case .success(let youtubeListItem):
                         if youtubeListItem.items.count == 0 {
-                            self.nextPageToken = ""
-                            self.delegate?.showError(error: .noItems)
+                            if type == .pengsooTv {
+                                self.tvNextPageToken = ""
+                            } else if type == .pengsooYoutube {
+                                self.youtubeNextPageToken = ""
+                            } else if type == .pengsooOutside {
+                                self.outsideNextPageToken = ""
+                            }
+                            self.delegate?.showError(type:type, error: .noItems)
                         } else {
-                            self.nextPageToken = youtubeListItem.nextPageToken
-                            self.listItems.append(contentsOf: youtubeListItem.items)
-                            self.delegate?.reloadTable()
+                            if type == .pengsooTv {
+                                self.tvNextPageToken = youtubeListItem.nextPageToken
+                                self.tvListItems.append(contentsOf: youtubeListItem.items)
+                            } else if type == .pengsooYoutube {
+                                self.youtubeNextPageToken = youtubeListItem.nextPageToken
+                                self.youtubeListItems.append(contentsOf: youtubeListItem.items)
+                            } else if type == .pengsooOutside {
+                                self.outsideNextPageToken = youtubeListItem.nextPageToken
+                                self.outsideListItems.append(contentsOf: youtubeListItem.items)
+                            }
+                            self.delegate?.reloadTable(type:type)
                         }
                     case .failure(let error):
                         print(error)
-                        self.delegate?.showError(error: .networkError)
+                        self.delegate?.showError(type:type, error: .networkError)
                     }
                 })
         } else {
-            self.delegate?.showError(error: .networkError)
+            self.delegate?.showError(type:type, error: .networkError)
+        }
+    }
+    
+    func getHeaderInfo() {
+        if checkNetwork() {
+            var parameters: Parameters = Parameters()
+            parameters[AppConstants.keyBrandingId] = AppConstants.valueBrandingId
+            parameters[AppConstants.keyApiKey] = AppConstants.valueApiKey
+            
+            Alamofire
+                .request(AppConstants.baseUrl + AppConstants.partBranding, method: .get, parameters: parameters)
+                .validate()
+                .responseObject(completionHandler: { (response: DataResponse<YoutubeListModel>) in
+                    switch response.result {
+                    case .success(let youtubeListItem):
+                        if youtubeListItem.items.count == 0 {
+                            self.delegate?.showError(type:.header, error: .noItems)
+                        } else {
+                            if youtubeListItem.items[0].brandingSettings.image.bannerMobileHdImageUrl.count > 0 {
+                                self.headerUrl = youtubeListItem.items[0].brandingSettings.image.bannerMobileHdImageUrl
+                            } else if youtubeListItem.items[0].brandingSettings.image.bannerMobileMediumHdImageUrl.count > 0 {
+                                self.headerUrl = youtubeListItem.items[0].brandingSettings.image.bannerMobileMediumHdImageUrl
+                            } else if youtubeListItem.items[0].brandingSettings.image.bannerMobileLowImageUrl.count > 0 {
+                                self.headerUrl = youtubeListItem.items[0].brandingSettings.image.bannerMobileLowImageUrl
+                            } else if youtubeListItem.items[0].brandingSettings.image.bannerMobileImageUrl.count > 0 {
+                                self.headerUrl = youtubeListItem.items[0].brandingSettings.image.bannerMobileImageUrl
+                            } else {
+                                self.delegate?.showError(type:.header, error: .noItems)
+                                return
+                            }
+                            self.delegate?.reloadHeader()
+                        }
+                    case .failure(let error):
+                        print(error)
+                        self.delegate?.showError(type:.header, error: .networkError)
+                    }
+                })
+        } else {
+            self.delegate?.showError(type:.header, error: .networkError)
         }
     }
     
