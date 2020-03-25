@@ -40,11 +40,15 @@ enum ViewModelDelegateError: Int {
     case noError = 0
     case networkError = 1
     case noItems = 2
+    case fail = 3
 }
 
-enum HomeViewRequestType: Int {
+enum RequestType: Int {
     case header = 0
     case pengsooTv = 1
     case pengsooYoutube = 2
     case pengsooOutside = 3
+    case mylist = 4
+    case recentList = 5
+    case mylistList = 6
 }

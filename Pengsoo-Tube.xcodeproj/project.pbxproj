@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		6C72767605DF172FEBC195BB /* Pods_Pengsoo_Tube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1057ADE1B03F83881288FFED /* Pods_Pengsoo_Tube.framework */; };
 		BDB698328EDB81CF59C14F87 /* Pods_Pengsoo_TubeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DED306D22B0E20A4F1E80D1 /* Pods_Pengsoo_TubeTests.framework */; };
+		FA1A162F2429FD6D00740ADE /* MypageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A162E2429FD6D00740ADE /* MypageViewModel.swift */; };
+		FA1A166A242ADCE300740ADE /* Recent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1669242ADCE300740ADE /* Recent+CoreDataProperties.swift */; };
+		FA1A166B242ADCE300740ADE /* MyVideo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1665242ADCE200740ADE /* MyVideo+CoreDataClass.swift */; };
+		FA1A166C242ADCE300740ADE /* Recent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1668242ADCE300740ADE /* Recent+CoreDataClass.swift */; };
+		FA1A166D242ADCE300740ADE /* Mylist+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1664242ADCE200740ADE /* Mylist+CoreDataProperties.swift */; };
+		FA1A166E242ADCE300740ADE /* Mylist+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1666242ADCE200740ADE /* Mylist+CoreDataClass.swift */; };
+		FA1A166F242ADCE300740ADE /* MyVideo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1667242ADCE300740ADE /* MyVideo+CoreDataProperties.swift */; };
+		FA1A1671242AE79C00740ADE /* MypageViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1670242AE79C00740ADE /* MypageViewModelTests.swift */; };
 		FAD709F12429B11300E48D31 /* HeaderImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD709F02429B11300E48D31 /* HeaderImageModel.swift */; };
 		FAD709F32429B14200E48D31 /* BrandingSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD709F22429B14200E48D31 /* BrandingSettingsModel.swift */; };
 		FADEDB1424285E770071C1BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB1324285E770071C1BB /* AppDelegate.swift */; };
@@ -50,6 +58,14 @@
 		B12FCB09F2BAC94E7CF20721 /* Pods-Pengsoo-TubeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pengsoo-TubeTests.debug.xcconfig"; path = "Target Support Files/Pods-Pengsoo-TubeTests/Pods-Pengsoo-TubeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C47C63B31EBCC4E6A750E899 /* Pods-Pengsoo-Tube.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pengsoo-Tube.debug.xcconfig"; path = "Target Support Files/Pods-Pengsoo-Tube/Pods-Pengsoo-Tube.debug.xcconfig"; sourceTree = "<group>"; };
 		E703FF0BF36D7A707D6614CE /* Pods-Pengsoo-Tube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pengsoo-Tube.release.xcconfig"; path = "Target Support Files/Pods-Pengsoo-Tube/Pods-Pengsoo-Tube.release.xcconfig"; sourceTree = "<group>"; };
+		FA1A162E2429FD6D00740ADE /* MypageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewModel.swift; sourceTree = "<group>"; };
+		FA1A1664242ADCE200740ADE /* Mylist+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Mylist+CoreDataProperties.swift"; path = "/Users/yejunpark/Workspace/Pengsoo-Tube/Pengsoo-Tube/Model/Mylist+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		FA1A1665242ADCE200740ADE /* MyVideo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MyVideo+CoreDataClass.swift"; path = "/Users/yejunpark/Workspace/Pengsoo-Tube/Pengsoo-Tube/Model/MyVideo+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		FA1A1666242ADCE200740ADE /* Mylist+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Mylist+CoreDataClass.swift"; path = "/Users/yejunpark/Workspace/Pengsoo-Tube/Pengsoo-Tube/Model/Mylist+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		FA1A1667242ADCE300740ADE /* MyVideo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MyVideo+CoreDataProperties.swift"; path = "/Users/yejunpark/Workspace/Pengsoo-Tube/Pengsoo-Tube/Model/MyVideo+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		FA1A1668242ADCE300740ADE /* Recent+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Recent+CoreDataClass.swift"; path = "/Users/yejunpark/Workspace/Pengsoo-Tube/Pengsoo-Tube/Model/Recent+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		FA1A1669242ADCE300740ADE /* Recent+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Recent+CoreDataProperties.swift"; path = "/Users/yejunpark/Workspace/Pengsoo-Tube/Pengsoo-Tube/Model/Recent+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		FA1A1670242AE79C00740ADE /* MypageViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewModelTests.swift; sourceTree = "<group>"; };
 		FAD709F02429B11300E48D31 /* HeaderImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderImageModel.swift; sourceTree = "<group>"; };
 		FAD709F22429B14200E48D31 /* BrandingSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandingSettingsModel.swift; sourceTree = "<group>"; };
 		FADEDB1024285E770071C1BB /* Pengsoo-Tube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pengsoo-Tube.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +178,7 @@
 			children = (
 				FADEDB4E242887730071C1BB /* Resources */,
 				FADEDB2D24285E7A0071C1BB /* HomeViewModelTests.swift */,
+				FA1A1670242AE79C00740ADE /* MypageViewModelTests.swift */,
 				FADEDB2F24285E7A0071C1BB /* Info.plist */,
 			);
 			path = "Pengsoo-TubeTests";
@@ -170,6 +187,12 @@
 		FADEDB38242866C20071C1BB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FA1A1665242ADCE200740ADE /* MyVideo+CoreDataClass.swift */,
+				FA1A1667242ADCE300740ADE /* MyVideo+CoreDataProperties.swift */,
+				FA1A1666242ADCE200740ADE /* Mylist+CoreDataClass.swift */,
+				FA1A1664242ADCE200740ADE /* Mylist+CoreDataProperties.swift */,
+				FA1A1668242ADCE300740ADE /* Recent+CoreDataClass.swift */,
+				FA1A1669242ADCE300740ADE /* Recent+CoreDataProperties.swift */,
 				FADEDB3F24286A6D0071C1BB /* YoutubeListModel.swift */,
 				FADEDB4124286AD60071C1BB /* YoutubeSnippetModel.swift */,
 				FADEDB4324286CE60071C1BB /* YoutubeVideoIdModel.swift */,
@@ -193,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				FADEDB3B242868A20071C1BB /* HomeViewModel.swift */,
+				FA1A162E2429FD6D00740ADE /* MypageViewModel.swift */,
 				FADEDB3D242868FB0071C1BB /* ViewModelDelegate.swift */,
 			);
 			path = ViewModel;
@@ -405,21 +429,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA1A166F242ADCE300740ADE /* MyVideo+CoreDataProperties.swift in Sources */,
 				FADEDB4A24286F100071C1BB /* YoutubeThumbnailModel.swift in Sources */,
 				FADEDB4624286E130071C1BB /* YoutubeItemModel.swift in Sources */,
 				FADEDB1824285E770071C1BB /* ViewController.swift in Sources */,
 				FAD709F32429B14200E48D31 /* BrandingSettingsModel.swift in Sources */,
 				FADEDB3E242868FB0071C1BB /* ViewModelDelegate.swift in Sources */,
 				FADEDB4824286F040071C1BB /* YoutubeThumbnailsModel.swift in Sources */,
+				FA1A166C242ADCE300740ADE /* Recent+CoreDataClass.swift in Sources */,
+				FA1A166E242ADCE300740ADE /* Mylist+CoreDataClass.swift in Sources */,
+				FA1A166D242ADCE300740ADE /* Mylist+CoreDataProperties.swift in Sources */,
 				FADEDB4424286CE60071C1BB /* YoutubeVideoIdModel.swift in Sources */,
 				FADEDB1424285E770071C1BB /* AppDelegate.swift in Sources */,
 				FADEDB4024286A6D0071C1BB /* YoutubeListModel.swift in Sources */,
 				FADEDB1624285E770071C1BB /* SceneDelegate.swift in Sources */,
 				FADEDB3C242868A20071C1BB /* HomeViewModel.swift in Sources */,
+				FA1A166B242ADCE300740ADE /* MyVideo+CoreDataClass.swift in Sources */,
 				FAD709F12429B11300E48D31 /* HeaderImageModel.swift in Sources */,
 				FADEDB4D2428717A0071C1BB /* AppConstants.swift in Sources */,
 				FADEDB4224286AD60071C1BB /* YoutubeSnippetModel.swift in Sources */,
 				FADEDB1E24285E770071C1BB /* Pengsoo_Tube.xcdatamodeld in Sources */,
+				FA1A162F2429FD6D00740ADE /* MypageViewModel.swift in Sources */,
+				FA1A166A242ADCE300740ADE /* Recent+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FADEDB2E24285E7A0071C1BB /* HomeViewModelTests.swift in Sources */,
+				FA1A1671242AE79C00740ADE /* MypageViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

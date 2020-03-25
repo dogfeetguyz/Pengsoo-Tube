@@ -24,11 +24,11 @@ class HomeViewModel {
     
     weak var delegate: ViewModelDelegate?
     
-    func getPengsooTvList(type: HomeViewRequestType) {
+    func getPengsooTvList(type: RequestType) {
         getPengsooTvList(type:type, isInitial: true)
     }
     
-    func getPengsooTvList(type: HomeViewRequestType, isInitial: Bool) {
+    func getPengsooTvList(type: RequestType, isInitial: Bool) {
         
         if checkNetwork() {
             var parameters: Parameters = Parameters()

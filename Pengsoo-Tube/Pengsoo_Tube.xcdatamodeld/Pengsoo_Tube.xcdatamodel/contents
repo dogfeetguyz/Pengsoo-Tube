@@ -1,4 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Mylist" representedClassName="Mylist" syncable="YES">
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="videos" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="MyVideo" inverseName="inPlaylist" inverseEntity="MyVideo"/>
+    </entity>
+    <entity name="MyVideo" representedClassName="MyVideo" syncable="YES">
+        <attribute name="channelTitle" optional="YES" attributeType="String"/>
+        <attribute name="publishedAt" optional="YES" attributeType="String"/>
+        <attribute name="thumbnailDefault" optional="YES" attributeType="String"/>
+        <attribute name="thumbnailHigh" optional="YES" attributeType="String"/>
+        <attribute name="thumbnailMedium" optional="YES" attributeType="String"/>
+        <attribute name="videoDescription" optional="YES" attributeType="String"/>
+        <attribute name="videoId" optional="YES" attributeType="String"/>
+        <attribute name="videoTitle" optional="YES" attributeType="String"/>
+        <relationship name="inPlaylist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Mylist" inverseName="videos" inverseEntity="Mylist"/>
+    </entity>
+    <entity name="Recent" representedClassName="Recent" syncable="YES">
+        <attribute name="channelTitle" optional="YES" attributeType="String"/>
+        <attribute name="publishedAt" optional="YES" attributeType="String"/>
+        <attribute name="thumbnailDefault" optional="YES" attributeType="String"/>
+        <attribute name="thumbnailHigh" optional="YES" attributeType="String"/>
+        <attribute name="thumbnailMedium" optional="YES" attributeType="String"/>
+        <attribute name="videoDescription" optional="YES" attributeType="String"/>
+        <attribute name="videoId" optional="YES" attributeType="String"/>
+        <attribute name="videoTitle" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="MyVideo" positionX="-380.56640625" positionY="260.7734375" width="128" height="178"/>
+        <element name="Recent" positionX="-54" positionY="45" width="128" height="163"/>
+        <element name="Mylist" positionX="-143.83203125" positionY="350.734375" width="128" height="88"/>
+    </elements>
 </model>

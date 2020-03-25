@@ -140,7 +140,7 @@ class Pengsoo_TubeTests: XCTestCase {
 }
 
 extension Pengsoo_TubeTests: ViewModelDelegate {
-    func reloadTable(type: HomeViewRequestType) {
+    func reloadTable(type: RequestType) {
         expectation!.fulfill()
         errorOccurred = .noError
     }
@@ -150,7 +150,7 @@ extension Pengsoo_TubeTests: ViewModelDelegate {
         errorOccurred = .noError
     }
     
-    func showError(type: HomeViewRequestType, error: ViewModelDelegateError) {
+    func showError(type: RequestType, error: ViewModelDelegateError, message: String) {
         expectation!.fulfill()
         errorOccurred = error
     }
