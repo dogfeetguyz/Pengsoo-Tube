@@ -49,6 +49,6 @@ enum RequestType: Int {
     case pengsooYoutube = 2
     case pengsooOutside = 3
     case mylist = 4
-    case recentList = 5
-    case mylistList = 6
+    case recentDetail = 5
+    case mylistDetail = 6
 }

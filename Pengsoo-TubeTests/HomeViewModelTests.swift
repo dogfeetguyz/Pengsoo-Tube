@@ -133,6 +133,23 @@ class Pengsoo_TubeTests: XCTestCase {
         XCTAssertGreaterThan(sut.headerUrl.count, 0)
     }
     
+    func testAddToMyList() {
+        sut.getPengsooTvList(type: .pengsooTv)
+        waitForThreeSeconds()
+        XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
+        
+        let mypageViewModel = MypageViewModel()
+        mypageViewModel.createPlaylist(title: "test_playlist1")
+        
+        sut.addToMylist(at: 0, listOf: .pengsooTv, toMylist: mypageViewModel.mylistItems.last!)
+        XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
+        
+        mypageViewModel.getMylist()
+        XCTAssertEqual(mypageViewModel.mylistItems.last!.videos?.count, 1)
+        
+        mypageViewModel.deletePlaylist(at: mypageViewModel.mylistItems.count-1)
+    }
+    
     func waitForThreeSeconds() {
         expectation = XCTestExpectation(description: "wait until the request completed")
         wait(for: [expectation!], timeout: 3)
@@ -147,6 +164,11 @@ extension Pengsoo_TubeTests: ViewModelDelegate {
     
     func reloadHeader() {
         expectation!.fulfill()
+        errorOccurred = .noError
+    }
+    
+    func success(message: String) {
+        // local call -> no waiting time needed
         errorOccurred = .noError
     }
     

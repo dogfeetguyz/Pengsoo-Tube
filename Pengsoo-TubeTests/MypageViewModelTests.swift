@@ -93,6 +93,10 @@ extension MypageViewModelTests: ViewModelDelegate {
         errorOccurred = .noError
     }
     
+    func success(message: String) {
+        errorOccurred = .noError
+    }
+    
     func showError(type: RequestType, error: ViewModelDelegateError, message: String) {
         errorOccurred = error
     }

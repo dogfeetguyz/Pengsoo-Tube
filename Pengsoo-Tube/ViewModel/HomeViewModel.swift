@@ -8,6 +8,8 @@
 
 import Alamofire
 import AlamofireObjectMapper
+import CoreData
+import UIKit
 
 class HomeViewModel {
     
@@ -141,6 +143,46 @@ class HomeViewModel {
                 })
         } else {
             self.delegate?.showError(type:.header, error: .networkError)
+        }
+    }
+    
+    func addToMylist(at: Int, listOf: RequestType, toMylist: Mylist) {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            let managedOC = appDelegate.persistentContainer.viewContext
+
+            let entity = NSEntityDescription.entity(forEntityName: String(describing: MyVideo.self ), in: managedOC)
+            let myVideo = MyVideo(entity: entity!, insertInto: managedOC)
+            
+            var youtubeItem: YoutubeItemModel?
+            if listOf == .pengsooTv {
+                youtubeItem = tvListItems[at]
+            } else if listOf == .pengsooYoutube {
+                youtubeItem = youtubeListItems[at]
+            } else if listOf == .pengsooOutside {
+                youtubeItem = outsideListItems[at]
+            } else {
+                delegate?.showError(type: .mylist, error: .fail, message: "Something went wrong. Please try again.")
+                return
+            }
+            myVideo.channelTitle = youtubeItem!.snippet.channelTitle
+            myVideo.publishedAt = youtubeItem!.snippet.publishedAt
+            myVideo.thumbnailHigh = youtubeItem!.snippet.thumbnails.high.url
+            myVideo.thumbnailMedium = youtubeItem!.snippet.thumbnails.medium.url
+            myVideo.thumbnailDefault = youtubeItem!.snippet.thumbnails.small.url
+            myVideo.videoTitle = youtubeItem!.snippet.title
+            myVideo.videoDescription = youtubeItem!.snippet.description
+            myVideo.videoId = youtubeItem!.id.videoId
+            myVideo.inPlaylist = toMylist
+            
+            toMylist.addToVideos(myVideo)
+            do {
+                try managedOC.save()
+                delegate?.success()
+            } catch {
+                delegate?.showError(type: .mylist, error: .fail, message: "Something went wrong. Please try again.")
+            }
+        } else {
+            delegate?.showError(type: .mylist, error: .fail, message: "Something went wrong. Please try again.")
         }
     }
     

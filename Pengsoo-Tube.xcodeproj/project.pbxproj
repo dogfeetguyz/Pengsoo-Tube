@@ -17,6 +17,8 @@
 		FA1A166E242ADCE300740ADE /* Mylist+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1666242ADCE200740ADE /* Mylist+CoreDataClass.swift */; };
 		FA1A166F242ADCE300740ADE /* MyVideo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1667242ADCE300740ADE /* MyVideo+CoreDataProperties.swift */; };
 		FA1A1671242AE79C00740ADE /* MypageViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1670242AE79C00740ADE /* MypageViewModelTests.swift */; };
+		FA1A1673242B099400740ADE /* MylistDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1672242B099400740ADE /* MylistDetailViewModel.swift */; };
+		FA1A1675242B169000740ADE /* MylistDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1674242B169000740ADE /* MylistDetailViewModelTests.swift */; };
 		FAD709F12429B11300E48D31 /* HeaderImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD709F02429B11300E48D31 /* HeaderImageModel.swift */; };
 		FAD709F32429B14200E48D31 /* BrandingSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD709F22429B14200E48D31 /* BrandingSettingsModel.swift */; };
 		FADEDB1424285E770071C1BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB1324285E770071C1BB /* AppDelegate.swift */; };
@@ -66,6 +68,8 @@
 		FA1A1668242ADCE300740ADE /* Recent+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Recent+CoreDataClass.swift"; path = "/Users/yejunpark/Workspace/Pengsoo-Tube/Pengsoo-Tube/Model/Recent+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		FA1A1669242ADCE300740ADE /* Recent+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Recent+CoreDataProperties.swift"; path = "/Users/yejunpark/Workspace/Pengsoo-Tube/Pengsoo-Tube/Model/Recent+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		FA1A1670242AE79C00740ADE /* MypageViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewModelTests.swift; sourceTree = "<group>"; };
+		FA1A1672242B099400740ADE /* MylistDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MylistDetailViewModel.swift; sourceTree = "<group>"; };
+		FA1A1674242B169000740ADE /* MylistDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MylistDetailViewModelTests.swift; sourceTree = "<group>"; };
 		FAD709F02429B11300E48D31 /* HeaderImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderImageModel.swift; sourceTree = "<group>"; };
 		FAD709F22429B14200E48D31 /* BrandingSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandingSettingsModel.swift; sourceTree = "<group>"; };
 		FADEDB1024285E770071C1BB /* Pengsoo-Tube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pengsoo-Tube.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +183,7 @@
 				FADEDB4E242887730071C1BB /* Resources */,
 				FADEDB2D24285E7A0071C1BB /* HomeViewModelTests.swift */,
 				FA1A1670242AE79C00740ADE /* MypageViewModelTests.swift */,
+				FA1A1674242B169000740ADE /* MylistDetailViewModelTests.swift */,
 				FADEDB2F24285E7A0071C1BB /* Info.plist */,
 			);
 			path = "Pengsoo-TubeTests";
@@ -217,6 +222,7 @@
 			children = (
 				FADEDB3B242868A20071C1BB /* HomeViewModel.swift */,
 				FA1A162E2429FD6D00740ADE /* MypageViewModel.swift */,
+				FA1A1672242B099400740ADE /* MylistDetailViewModel.swift */,
 				FADEDB3D242868FB0071C1BB /* ViewModelDelegate.swift */,
 			);
 			path = ViewModel;
@@ -435,6 +441,7 @@
 				FADEDB1824285E770071C1BB /* ViewController.swift in Sources */,
 				FAD709F32429B14200E48D31 /* BrandingSettingsModel.swift in Sources */,
 				FADEDB3E242868FB0071C1BB /* ViewModelDelegate.swift in Sources */,
+				FA1A1673242B099400740ADE /* MylistDetailViewModel.swift in Sources */,
 				FADEDB4824286F040071C1BB /* YoutubeThumbnailsModel.swift in Sources */,
 				FA1A166C242ADCE300740ADE /* Recent+CoreDataClass.swift in Sources */,
 				FA1A166E242ADCE300740ADE /* Mylist+CoreDataClass.swift in Sources */,
@@ -459,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FADEDB2E24285E7A0071C1BB /* HomeViewModelTests.swift in Sources */,
+				FA1A1675242B169000740ADE /* MylistDetailViewModelTests.swift in Sources */,
 				FA1A1671242AE79C00740ADE /* MypageViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
