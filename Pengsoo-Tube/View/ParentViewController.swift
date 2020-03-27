@@ -29,7 +29,6 @@ class ParentViewController: UIViewController {
     private var isPresented: Bool = false
     private var isPaused: Bool = false
     private var isEnded: Bool = false
-    private var isMoving: Bool = false
     private var currentItem: YoutubeItemModel?
     
     override func viewDidLoad() {
@@ -68,7 +67,7 @@ class ParentViewController: UIViewController {
     private func setup() {
         if self.movin != nil { return }
         
-        self.movin = Movin(1.0, TimingCurve(curve: .easeInOut, dampingRatio: 1))
+        self.movin = Movin(1.0, TimingCurve(curve: .easeInOut, dampingRatio: 0.8))
         
         let modal = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PlayerViewController") as! PlayerViewController
         modal.view.layoutIfNeeded()
@@ -83,59 +82,44 @@ class ParentViewController: UIViewController {
             self.containerVC!.tabBar.mvn.alpha.from(1.0).to(0.0),
             ])
         
-        let presentGesture = GestureAnimating(self.miniPlayerView, .top, self.view.frame.size)
-        presentGesture.panCompletionThresholdRatio = 0.1
         let dismissGesture = GestureAnimating(modal.view, .bottom, modal.view.frame.size)
         dismissGesture.panCompletionThresholdRatio = 0.1
         
-        let transition = Transition(self.movin!, self.containerVC!, modal, GestureTransitioning(.present, presentGesture, dismissGesture))
+        let transition = Transition(self.movin!, self.containerVC!, modal, GestureTransitioning(.present, nil, dismissGesture))
         transition.customContainerViewSetupHandler = { [unowned self] type, containerView in
-            print("ViewSetupHandler")
-            if !self.isMoving {
-                self.isMoving = true
-                
-                if type.isPresenting {
-                    if self.isEnded {
-                        Util.loadCachedImage(url: self.getThumbnailImageUrl()) { (image) in
-                            self.modalVC?.replayButton.isHidden = false
-                            self.modalVC?.replayButton.setBackgroundImage(image, for: .normal)
-                            self.modalVC?.replayButton.layoutIfNeeded()
-                            self.modalVC?.replayButton.subviews.first?.contentMode = .scaleAspectFill
-                        }
-                    }
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        self.miniPlayerView.isHidden = true
-                        self.miniPlayerPlayerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width)
-                        self.miniPlayerPlayerView.layoutIfNeeded()
-                        
-                        containerView.addSubview(modal.view)
-                        containerView.addSubview(self.containerVC!.tabBar)
-                        modal.view.layoutIfNeeded()
-                        self.modalVC!.setPlayerView(view: self.miniPlayerPlayerView)
-                        
-                        self.containerVC?.beginAppearanceTransition(false, animated: false)
-                        modal.beginAppearanceTransition(true, animated: false)
-                    }
-                } else {
-                    self.miniPlayerPlayerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width*(9.0/16.0))
-                    self.miniPlayerPlayerView.layoutIfNeeded()
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        self.containerVC?.beginAppearanceTransition(true, animated: false)
-                        modal.beginAppearanceTransition(false, animated: false)
+            if type.isPresenting {
+                if self.isEnded {
+                    Util.loadCachedImage(url: self.getThumbnailImageUrl()) { (image) in
+                        self.modalVC?.replayButton.isHidden = false
+                        self.modalVC?.replayButton.setBackgroundImage(image, for: .normal)
+                        self.modalVC?.replayButton.layoutIfNeeded()
+                        self.modalVC?.replayButton.subviews.first?.contentMode = .scaleAspectFill
                     }
                 }
+                
+                self.miniPlayerView.isHidden = true
+                self.miniPlayerPlayerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width)
+                self.miniPlayerPlayerView.layoutIfNeeded()
+                
+                containerView.addSubview(modal.view)
+                containerView.addSubview(self.containerVC!.tabBar)
+                modal.view.layoutIfNeeded()
+                self.modalVC!.setPlayerView(view: self.miniPlayerPlayerView)
+                
+                self.containerVC?.beginAppearanceTransition(false, animated: false)
+                modal.beginAppearanceTransition(true, animated: false)
+            } else {
+                self.containerVC?.beginAppearanceTransition(true, animated: false)
+                modal.beginAppearanceTransition(false, animated: false)
             }
         }
         
         transition.customContainerViewCompletionHandler = { [unowned self] type, didComplete, containerView in
-            print("ViewCompletionHandler")
-            self.isMoving = false
+            self.containerVC?.endAppearanceTransition()
+            modal.endAppearanceTransition()
             
             if type.isDismissing {
                 if didComplete {
-                    print("complete dismiss")
                     //complete dismiss
                     self.setPlayerView()
                     modal.view.removeFromSuperview()
@@ -150,67 +134,17 @@ class ParentViewController: UIViewController {
                     self.modalVC = nil
                     
                     self.setup()
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        self.setPlayerView()
-                        modal.view.removeFromSuperview()
-                        self.containerVC?.tabBar.removeFromSuperview()
-                        self.containerVC?.view.addSubview(self.containerVC!.tabBar)
-                        self.containerVC?.tabBar.alpha = 1.0
-                        self.containerVC!.view.alpha = 1.0
-                        
-                        self.miniPlayerView.isHidden = false
-                        self.isPresented = false
-                        self.movin = nil
-                        self.modalVC = nil
-                        
-                        self.setup()
-                    }
                 } else {
-                    print("cancel dismiss")
                     //cancel dismiss
                 }
             } else {
                 if didComplete {
-                    print("complete present")
                     //complete present
-                    
                     self.miniPlayerPlayerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width)
                     self.miniPlayerPlayerView.layoutIfNeeded()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        self.miniPlayerPlayerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width)
-                        self.miniPlayerPlayerView.layoutIfNeeded()
-                    }
                 } else {
-                    print("cancel present")
                     //cancel present
-                    self.setPlayerView()
-                    modal.view.removeFromSuperview()
-                    self.containerVC?.tabBar.removeFromSuperview()
-                    self.containerVC?.view.addSubview(self.containerVC!.tabBar)
-                    self.containerVC?.tabBar.alpha = 1.0
-                    self.containerVC!.view.alpha = 1.0
-                    
-                    self.miniPlayerView.isHidden = false
-                    self.isPresented = false
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        self.setPlayerView()
-                        modal.view.removeFromSuperview()
-                        self.containerVC?.tabBar.removeFromSuperview()
-                        self.containerVC?.view.addSubview(self.containerVC!.tabBar)
-                        self.containerVC?.tabBar.alpha = 1.0
-                        self.containerVC!.view.alpha = 1.0
-                        
-                        self.miniPlayerView.isHidden = false
-                        self.isPresented = false
-                    }
                 }
-            }
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                self.containerVC?.endAppearanceTransition()
-                modal.endAppearanceTransition()
             }
         }
         
