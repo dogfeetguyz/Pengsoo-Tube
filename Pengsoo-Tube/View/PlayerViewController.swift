@@ -34,3 +34,15 @@ class PlayerViewController: UIViewController {
         youtubeView.play()
     }
 }
+
+
+
+
+//let youtubeId = "SxTYjptEzZs"
+//var youtubeUrl = NSURL(string:"youtube://\(youtubeId)")!
+//if UIApplication.sharedApplication().canOpenURL(url){
+//        UIApplication.sharedApplication().openURL(url)
+//} else{
+//        youtubeUrl = NSURL(string:"https://www.youtube.com/watch?v=\(youtubeId)")!
+//        UIApplication.sharedApplication().openURL(url)
+//}

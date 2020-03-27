@@ -254,8 +254,8 @@
                                     <segue destination="aRX-Bz-oMU" kind="embed" identifier="TabBarControllerSegue" id="21K-lH-vKJ"/>
                                 </connections>
                             </containerView>
-                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xhw-Sc-u28">
-                                <rect key="frame" x="0.0" y="733" width="414" height="80"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xhw-Sc-u28">
+                                <rect key="frame" x="0.0" y="816" width="414" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YzH-FY-QIK">
                                         <rect key="frame" x="147" y="5" width="162" height="70"/>
@@ -351,6 +351,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="0o9-fR-EH3" firstAttribute="top" secondItem="lHF-dk-Kg1" secondAttribute="top" id="57o-e8-ugk"/>
+                            <constraint firstAttribute="bottom" secondItem="xhw-Sc-u28" secondAttribute="bottom" id="61E-1e-pf1"/>
                             <constraint firstAttribute="trailing" secondItem="xhw-Sc-u28" secondAttribute="trailing" id="GKx-yp-7z3"/>
                             <constraint firstItem="xhw-Sc-u28" firstAttribute="leading" secondItem="lHF-dk-Kg1" secondAttribute="leading" id="Vqd-C7-Il4"/>
                             <constraint firstAttribute="trailing" secondItem="0o9-fR-EH3" secondAttribute="trailing" id="cqT-xk-wZl"/>
@@ -369,6 +370,7 @@
                         <outlet property="miniPlayerReplayButton" destination="Cgx-K5-BvQ" id="4cs-Id-7O8"/>
                         <outlet property="miniPlayerTitle" destination="YzH-FY-QIK" id="fta-au-jVD"/>
                         <outlet property="miniPlayerView" destination="xhw-Sc-u28" id="Ui6-t1-cCa"/>
+                        <outlet property="miniplayerBottomConstraint" destination="61E-1e-pf1" id="Sog-aD-RWn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Hz-oG-YSf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

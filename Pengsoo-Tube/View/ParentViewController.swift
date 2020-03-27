@@ -21,6 +21,7 @@ class ParentViewController: UIViewController {
     @IBOutlet weak var miniPlayerReplayButton: UIButton!
     @IBOutlet weak var miniPlayerLayerView: UIView!
     @IBOutlet weak var miniPlayerPlayerView: YoutubePlayerView!
+    @IBOutlet weak var miniplayerBottomConstraint: NSLayoutConstraint!
     
     var containerVC: UITabBarController?
     
@@ -48,7 +49,7 @@ class ParentViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(onVideoPlay(_:)), name: AppConstants.notification_show_miniplayer, object: nil)
-        NSLayoutConstraint(item: self.view!, attribute: .bottom, relatedBy: .equal, toItem: miniPlayerView, attribute: .bottom, multiplier: 1, constant: containerVC!.tabBar.frame.height).isActive = true
+        miniplayerBottomConstraint.constant = containerVC!.tabBar.frame.height
         self.miniPlayerView.layoutIfNeeded()
     }
     
