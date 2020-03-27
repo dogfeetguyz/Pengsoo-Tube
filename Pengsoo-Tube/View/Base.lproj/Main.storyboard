@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aRX-Bz-oMU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YrZ-4a-7dI">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -22,7 +22,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJ3-GH-4jL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="291" y="312"/>
+            <point key="canvasLocation" x="310" y="312"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Jeg-N4-aPx">
@@ -38,7 +38,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="irJ-dQ-vPv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="981" y="312"/>
+            <point key="canvasLocation" x="1043" y="312"/>
         </scene>
         <!--Library-->
         <scene sceneID="CeX-9h-xuK">
@@ -73,7 +73,7 @@
         <!--Home-->
         <scene sceneID="9sB-Q1-KFi">
             <objects>
-                <viewController id="HjZ-2V-EsE" customClass="ViewController" customModule="Pengsoo_Tube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HjZ-2V-EsE" customClass="ViewController" customModule="Peng_Ha_Tube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FJl-dv-NdD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,12 +82,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <imageView key="tableHeaderView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="keN-Hc-zPh">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="119"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HomeTableViewCell" id="upf-wa-187" customClass="HomeTableViewCell" customModule="Pengsoo_Tube" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="148" width="414" height="283"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HomeTableViewCell" id="upf-wa-187" customClass="HomeTableViewCell" customModule="Peng_Ha_Tube" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="147" width="414" height="283"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="upf-wa-187" id="gdd-DP-EIk">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="283"/>
@@ -109,13 +109,13 @@
                                                                 <constraint firstAttribute="width" secondItem="mDS-p3-t38" secondAttribute="height" multiplier="16:9" id="9MF-q7-45u"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A6Z-bx-GQo" customClass="InsetLabel" customModule="Pengsoo_Tube" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A6Z-bx-GQo" customClass="InsetLabel" customModule="Peng_Ha_Tube" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="243" width="414" height="0.0"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SU5-wx-oap" customClass="InsetLabel" customModule="Pengsoo_Tube" customModuleProvider="target">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SU5-wx-oap" customClass="InsetLabel" customModule="Peng_Ha_Tube" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="243" width="414" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="Uhi-6L-hIn"/>
@@ -181,12 +181,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eud-8w-lIw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="291" y="-344"/>
+            <point key="canvasLocation" x="290" y="-366"/>
         </scene>
         <!--Player View Controller-->
         <scene sceneID="LYu-Nl-nID">
             <objects>
-                <viewController storyboardIdentifier="PlayerViewController" automaticallyAdjustsScrollViewInsets="NO" id="Wed-Me-ui3" customClass="PlayerViewController" customModule="Pengsoo_Tube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayerViewController" automaticallyAdjustsScrollViewInsets="NO" id="Wed-Me-ui3" customClass="PlayerViewController" customModule="Peng_Ha_Tube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J3S-hU-UTZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -214,15 +214,15 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jir-SJ-xfg">
-                                <rect key="frame" x="334" y="0.0" width="80" height="80"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="MAo-MS-dIG"/>
-                                    <constraint firstAttribute="width" constant="80" id="bEk-0o-DTt"/>
                                 </constraints>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="jir-SJ-xfg" firstAttribute="leading" secondItem="ueH-tP-S4X" secondAttribute="leading" id="ETp-pR-thU"/>
                             <constraint firstItem="ueH-tP-S4X" firstAttribute="trailing" secondItem="tpx-gK-iNs" secondAttribute="trailing" id="NBz-4Q-Oa8"/>
                             <constraint firstItem="tpx-gK-iNs" firstAttribute="leading" secondItem="ueH-tP-S4X" secondAttribute="leading" id="VdK-wc-lDc"/>
                             <constraint firstItem="ueH-tP-S4X" firstAttribute="trailing" secondItem="jir-SJ-xfg" secondAttribute="trailing" id="lmK-FM-7zh"/>
@@ -238,24 +238,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yzG-IO-5ib" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="978" y="-315"/>
+            <point key="canvasLocation" x="1043" y="-358"/>
         </scene>
         <!--Home-->
         <scene sceneID="bbl-Dr-wh7">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Hz-oG-YSf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController id="YrZ-4a-7dI" customClass="ParentViewController" customModule="Pengsoo_Tube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YrZ-4a-7dI" customClass="ParentViewController" customModule="Peng_Ha_Tube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lHF-dk-Kg1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0o9-fR-EH3">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <connections>
-                                    <segue destination="HjZ-2V-EsE" kind="embed" id="uAV-5k-V9Y"/>
+                                    <segue destination="aRX-Bz-oMU" kind="embed" identifier="TabBarControllerSegue" id="21K-lH-vKJ"/>
                                 </connections>
                             </containerView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xhw-Sc-u28">
+                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xhw-Sc-u28">
                                 <rect key="frame" x="0.0" y="733" width="414" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YzH-FY-QIK">
@@ -356,9 +355,9 @@
                             <constraint firstItem="xhw-Sc-u28" firstAttribute="leading" secondItem="lHF-dk-Kg1" secondAttribute="leading" id="Vqd-C7-Il4"/>
                             <constraint firstAttribute="trailing" secondItem="0o9-fR-EH3" secondAttribute="trailing" id="cqT-xk-wZl"/>
                             <constraint firstAttribute="bottom" secondItem="0o9-fR-EH3" secondAttribute="bottom" id="wC6-pJ-1ad"/>
-                            <constraint firstAttribute="bottom" secondItem="xhw-Sc-u28" secondAttribute="bottom" id="wuD-Lq-kBA"/>
                             <constraint firstItem="0o9-fR-EH3" firstAttribute="leading" secondItem="lHF-dk-Kg1" secondAttribute="leading" id="zqg-xb-M0a"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="O1D-bf-Lkw"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="9g1-eZ-nnh"/>
                     <connections>
@@ -372,8 +371,9 @@
                         <outlet property="miniPlayerView" destination="xhw-Sc-u28" id="Ui6-t1-cCa"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Hz-oG-YSf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-488.40579710144931" y="-315.40178571428572"/>
+            <point key="canvasLocation" x="-1271" y="-366"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="w7n-lp-k01">
@@ -387,13 +387,13 @@
                         <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="YrZ-4a-7dI" kind="relationship" relationship="viewControllers" id="dIW-1j-2HB"/>
+                        <segue destination="HjZ-2V-EsE" kind="relationship" relationship="viewControllers" id="z6V-1p-dMf"/>
                         <segue destination="CPS-Pr-mle" kind="relationship" relationship="viewControllers" id="XLX-Dd-xGP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Hx-nT-Irp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1366" y="9"/>
+            <point key="canvasLocation" x="-487" y="-366"/>
         </scene>
     </scenes>
     <resources>
