@@ -35,7 +35,7 @@ class Pengsoo_TubeTests: XCTestCase {
             return HTTPStubsResponse(error:notConnectedError)
         }
 
-        sut.getPengsooTvList(type: .pengsooOutside)
+        sut.getPengsooList(type: .pengsooOutside)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.networkError)
     }
@@ -50,17 +50,17 @@ class Pengsoo_TubeTests: XCTestCase {
 //                headers: [ "Content-Type": "application/json; charset=UTF-8"]
 //            )
 //        }
-        sut.getPengsooTvList(type: .pengsooTv)
+        sut.getPengsooList(type: .pengsooTv)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
     }
     
     func testRequestPengsooTVListNext() {
-        sut.getPengsooTvList(type: .pengsooTv)
+        sut.getPengsooList(type: .pengsooTv)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
 
-        sut.getPengsooTvList(type: .pengsooTv, isInitial:false)
+        sut.getPengsooList(type: .pengsooTv, isInitial:false)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
     }
@@ -70,23 +70,23 @@ class Pengsoo_TubeTests: XCTestCase {
             return HTTPStubsResponse(error: NSError(domain: "Error", code: 400, userInfo: [:]))
         }
 
-        sut.getPengsooTvList(type: .pengsooTv)
+        sut.getPengsooList(type: .pengsooTv)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.networkError)
     }
     
     func testRequestPengsooYoutubeList() {
-        sut.getPengsooTvList(type: .pengsooYoutube)
+        sut.getPengsooList(type: .pengsooYoutube)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
     }
     
     func testRequestPengsooYoutubeListNext() {
-        sut.getPengsooTvList(type: .pengsooYoutube)
+        sut.getPengsooList(type: .pengsooYoutube)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
 
-        sut.getPengsooTvList(type: .pengsooYoutube, isInitial:false)
+        sut.getPengsooList(type: .pengsooYoutube, isInitial:false)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
     }
@@ -96,23 +96,23 @@ class Pengsoo_TubeTests: XCTestCase {
             return HTTPStubsResponse(error: NSError(domain: "Error", code: 400, userInfo: [:]))
         }
 
-        sut.getPengsooTvList(type: .pengsooYoutube)
+        sut.getPengsooList(type: .pengsooYoutube)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.networkError)
     }
     
     func testRequestPengsooOutsideList() {
-        sut.getPengsooTvList(type: .pengsooOutside)
+        sut.getPengsooList(type: .pengsooOutside)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
     }
     
     func testRequestPengsooOutsideListNext() {
-        sut.getPengsooTvList(type: .pengsooOutside)
+        sut.getPengsooList(type: .pengsooOutside)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
 
-        sut.getPengsooTvList(type: .pengsooOutside, isInitial:false)
+        sut.getPengsooList(type: .pengsooOutside, isInitial:false)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
     }
@@ -122,7 +122,7 @@ class Pengsoo_TubeTests: XCTestCase {
             return HTTPStubsResponse(error: NSError(domain: "Error", code: 400, userInfo: [:]))
         }
 
-        sut.getPengsooTvList(type: .pengsooOutside)
+        sut.getPengsooList(type: .pengsooOutside)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.networkError)
     }
@@ -134,7 +134,7 @@ class Pengsoo_TubeTests: XCTestCase {
     }
     
     func testAddToMyList() {
-        sut.getPengsooTvList(type: .pengsooTv)
+        sut.getPengsooList(type: .pengsooTv)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
         

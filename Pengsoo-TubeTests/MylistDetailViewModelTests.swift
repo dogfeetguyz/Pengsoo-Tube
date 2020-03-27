@@ -33,7 +33,7 @@ class MylistDetailViewModelTests: XCTestCase {
         }
         
         let homeViewModel = HomeViewModel()
-        homeViewModel.getPengsooTvList(type: .pengsooTv)
+        homeViewModel.getPengsooList(type: .pengsooTv)
         
         _ = XCTWaiter.wait(for: [expectation(description: "Test after 1 seconds")], timeout: 1.0)
         for i in 0 ..< 5 {

@@ -16,6 +16,7 @@ struct YoutubeSnippetModel {
     var channelTitle: String = ""
     var liveBroadcastContent: String = ""
     var thumbnails: YoutubeThumbnailsModel = YoutubeThumbnailsModel()
+    var resourceId: YoutubeVideoIdModel = YoutubeVideoIdModel()
 }
 
 extension YoutubeSnippetModel: Mappable {
@@ -29,6 +30,7 @@ extension YoutubeSnippetModel: Mappable {
         channelTitle <- map["channelTitle"]
         liveBroadcastContent <- map["liveBroadcastContent"]
         thumbnails <- map["thumbnails"]
+        resourceId <- map["resourceId"]
     }
 }
 
@@ -57,5 +59,9 @@ extension YoutubeSnippetModel: Mappable {
    },
    "channelTitle": "자이언트 펭TV",
    "liveBroadcastContent": "none"
+   "resourceId": {
+    "kind": "youtube#video",
+    "videoId": "eLJ_mmyj_XI"
+   }
   }
  */

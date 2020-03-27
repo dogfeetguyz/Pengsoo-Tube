@@ -23,7 +23,7 @@ extension YoutubeVideoIdModel: Mappable {
 }
 
 /*
- "id": {
+ "resourceId": {
   "kind": "youtube#video",
   "videoId": "2-pqvr566Vk"
  },

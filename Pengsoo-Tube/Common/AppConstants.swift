@@ -27,6 +27,9 @@ struct AppConstants {
     static let valuePlaylistOutside : String = "PLwGaGJBBtgFedaczbgXOOppykqRkVZ787"
     static let valueBrandingId      : String = "UCtckgmUcpzqGnzcs7xEqMzQ"
     
+    static let notification_show_miniplayer: NSNotification.Name = NSNotification.Name(rawValue: "notification_show_miniplayer")
+    static let notification_userInfo_currentPlayingItem: String = "currentPlayingItem"
+    static let notification_userInfo_headerImgUrl: String = "headerImgUrl"
     
 //    static let keyOrder             : String = "order"
 //    static let keyKeyword           : String = "q"

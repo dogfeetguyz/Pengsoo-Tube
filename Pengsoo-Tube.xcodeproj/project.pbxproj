@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6C72767605DF172FEBC195BB /* Pods_Pengsoo_Tube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1057ADE1B03F83881288FFED /* Pods_Pengsoo_Tube.framework */; };
 		BDB698328EDB81CF59C14F87 /* Pods_Pengsoo_TubeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DED306D22B0E20A4F1E80D1 /* Pods_Pengsoo_TubeTests.framework */; };
+		FA015DEE242C6A15007CBDBC /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA015DED242C6A15007CBDBC /* HomeTableViewCell.swift */; };
+		FA13DC11242C7CE20031826A /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13DC10242C7CE20031826A /* InsetLabel.swift */; };
 		FA1A162F2429FD6D00740ADE /* MypageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A162E2429FD6D00740ADE /* MypageViewModel.swift */; };
 		FA1A166A242ADCE300740ADE /* Recent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1669242ADCE300740ADE /* Recent+CoreDataProperties.swift */; };
 		FA1A166B242ADCE300740ADE /* MyVideo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1665242ADCE200740ADE /* MyVideo+CoreDataClass.swift */; };
@@ -41,6 +43,9 @@
 		FADEDB56242890DC0071C1BB /* pengsooList_page2.json in Resources */ = {isa = PBXBuildFile; fileRef = FADEDB53242890DB0071C1BB /* pengsooList_page2.json */; };
 		FADEDB57242890DC0071C1BB /* pengsooList_page3.json in Resources */ = {isa = PBXBuildFile; fileRef = FADEDB54242890DB0071C1BB /* pengsooList_page3.json */; };
 		FADEDB58242890DC0071C1BB /* pengsooList_page1.json in Resources */ = {isa = PBXBuildFile; fileRef = FADEDB55242890DC0071C1BB /* pengsooList_page1.json */; };
+		FAE95C72242D85B8003AD3AD /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE95C71242D85B8003AD3AD /* Util.swift */; };
+		FAF59120242CC13200EED00B /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5911F242CC13200EED00B /* ParentViewController.swift */; };
+		FAF59122242CC9B100EED00B /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF59121242CC9B100EED00B /* PlayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +65,8 @@
 		B12FCB09F2BAC94E7CF20721 /* Pods-Pengsoo-TubeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pengsoo-TubeTests.debug.xcconfig"; path = "Target Support Files/Pods-Pengsoo-TubeTests/Pods-Pengsoo-TubeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C47C63B31EBCC4E6A750E899 /* Pods-Pengsoo-Tube.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pengsoo-Tube.debug.xcconfig"; path = "Target Support Files/Pods-Pengsoo-Tube/Pods-Pengsoo-Tube.debug.xcconfig"; sourceTree = "<group>"; };
 		E703FF0BF36D7A707D6614CE /* Pods-Pengsoo-Tube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pengsoo-Tube.release.xcconfig"; path = "Target Support Files/Pods-Pengsoo-Tube/Pods-Pengsoo-Tube.release.xcconfig"; sourceTree = "<group>"; };
+		FA015DED242C6A15007CBDBC /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		FA13DC10242C7CE20031826A /* InsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
 		FA1A162E2429FD6D00740ADE /* MypageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewModel.swift; sourceTree = "<group>"; };
 		FA1A1664242ADCE200740ADE /* Mylist+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Mylist+CoreDataProperties.swift"; path = "/Users/yejunpark/Workspace/Pengsoo-Tube/Pengsoo-Tube/Model/Mylist+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		FA1A1665242ADCE200740ADE /* MyVideo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MyVideo+CoreDataClass.swift"; path = "/Users/yejunpark/Workspace/Pengsoo-Tube/Pengsoo-Tube/Model/MyVideo+CoreDataClass.swift"; sourceTree = "<absolute>"; };
@@ -72,7 +79,7 @@
 		FA1A1674242B169000740ADE /* MylistDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MylistDetailViewModelTests.swift; sourceTree = "<group>"; };
 		FAD709F02429B11300E48D31 /* HeaderImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderImageModel.swift; sourceTree = "<group>"; };
 		FAD709F22429B14200E48D31 /* BrandingSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandingSettingsModel.swift; sourceTree = "<group>"; };
-		FADEDB1024285E770071C1BB /* Pengsoo-Tube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pengsoo-Tube.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FADEDB1024285E770071C1BB /* Peng-Ha Tube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Peng-Ha Tube.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADEDB1324285E770071C1BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADEDB1524285E770071C1BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FADEDB1724285E770071C1BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +103,9 @@
 		FADEDB53242890DB0071C1BB /* pengsooList_page2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pengsooList_page2.json; sourceTree = "<group>"; };
 		FADEDB54242890DB0071C1BB /* pengsooList_page3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pengsooList_page3.json; sourceTree = "<group>"; };
 		FADEDB55242890DC0071C1BB /* pengsooList_page1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pengsooList_page1.json; sourceTree = "<group>"; };
+		FAE95C71242D85B8003AD3AD /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		FAF5911F242CC13200EED00B /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
+		FAF59121242CC9B100EED00B /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,7 +162,7 @@
 		FADEDB1124285E770071C1BB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FADEDB1024285E770071C1BB /* Pengsoo-Tube.app */,
+				FADEDB1024285E770071C1BB /* Peng-Ha Tube.app */,
 				FADEDB2924285E7A0071C1BB /* Pengsoo-TubeTests.xctest */,
 			);
 			name = Products;
@@ -167,8 +177,6 @@
 				FADEDB38242866C20071C1BB /* Model */,
 				FADEDB1324285E770071C1BB /* AppDelegate.swift */,
 				FADEDB1524285E770071C1BB /* SceneDelegate.swift */,
-				FADEDB1724285E770071C1BB /* ViewController.swift */,
-				FADEDB1924285E770071C1BB /* Main.storyboard */,
 				FADEDB1F24285E7A0071C1BB /* Assets.xcassets */,
 				FADEDB2124285E7A0071C1BB /* LaunchScreen.storyboard */,
 				FADEDB2424285E7A0071C1BB /* Info.plist */,
@@ -213,6 +221,11 @@
 		FADEDB39242866F70071C1BB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FADEDB1724285E770071C1BB /* ViewController.swift */,
+				FA015DED242C6A15007CBDBC /* HomeTableViewCell.swift */,
+				FAF59121242CC9B100EED00B /* PlayerViewController.swift */,
+				FAF5911F242CC13200EED00B /* ParentViewController.swift */,
+				FADEDB1924285E770071C1BB /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -232,6 +245,8 @@
 			isa = PBXGroup;
 			children = (
 				FADEDB4C2428717A0071C1BB /* AppConstants.swift */,
+				FA13DC10242C7CE20031826A /* InsetLabel.swift */,
+				FAE95C71242D85B8003AD3AD /* Util.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -265,7 +280,7 @@
 			);
 			name = "Pengsoo-Tube";
 			productName = "Pengsoo-Tube";
-			productReference = FADEDB1024285E770071C1BB /* Pengsoo-Tube.app */;
+			productReference = FADEDB1024285E770071C1BB /* Peng-Ha Tube.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FADEDB2824285E7A0071C1BB /* Pengsoo-TubeTests */ = {
@@ -441,12 +456,17 @@
 				FADEDB1824285E770071C1BB /* ViewController.swift in Sources */,
 				FAD709F32429B14200E48D31 /* BrandingSettingsModel.swift in Sources */,
 				FADEDB3E242868FB0071C1BB /* ViewModelDelegate.swift in Sources */,
+				FA015DEE242C6A15007CBDBC /* HomeTableViewCell.swift in Sources */,
 				FA1A1673242B099400740ADE /* MylistDetailViewModel.swift in Sources */,
+				FAF59120242CC13200EED00B /* ParentViewController.swift in Sources */,
 				FADEDB4824286F040071C1BB /* YoutubeThumbnailsModel.swift in Sources */,
 				FA1A166C242ADCE300740ADE /* Recent+CoreDataClass.swift in Sources */,
+				FAE95C72242D85B8003AD3AD /* Util.swift in Sources */,
 				FA1A166E242ADCE300740ADE /* Mylist+CoreDataClass.swift in Sources */,
 				FA1A166D242ADCE300740ADE /* Mylist+CoreDataProperties.swift in Sources */,
 				FADEDB4424286CE60071C1BB /* YoutubeVideoIdModel.swift in Sources */,
+				FAF59122242CC9B100EED00B /* PlayerViewController.swift in Sources */,
+				FA13DC11242C7CE20031826A /* InsetLabel.swift in Sources */,
 				FADEDB1424285E770071C1BB /* AppDelegate.swift in Sources */,
 				FADEDB4024286A6D0071C1BB /* YoutubeListModel.swift in Sources */,
 				FADEDB1624285E770071C1BB /* SceneDelegate.swift in Sources */,
@@ -628,7 +648,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "kr.dogfeetguyz.Pengsoo-Tube";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Peng-Ha Tube";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TVOS_DEPLOYMENT_TARGET = 13.0;
@@ -648,7 +668,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "kr.dogfeetguyz.Pengsoo-Tube";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Peng-Ha Tube";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TVOS_DEPLOYMENT_TARGET = 13.0;
@@ -674,7 +694,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pengsoo-Tube.app/Pengsoo-Tube";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Peng-Ha Tube.app/Peng-Ha Tube";
 				TVOS_DEPLOYMENT_TARGET = 13.0;
 			};
 			name = Debug;
@@ -698,7 +718,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pengsoo-Tube.app/Pengsoo-Tube";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Peng-Ha Tube.app/Peng-Ha Tube";
 				TVOS_DEPLOYMENT_TARGET = 13.0;
 			};
 			name = Release;

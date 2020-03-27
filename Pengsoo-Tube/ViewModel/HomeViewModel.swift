@@ -26,11 +26,11 @@ class HomeViewModel {
     
     weak var delegate: ViewModelDelegate?
     
-    func getPengsooTvList(type: RequestType) {
-        getPengsooTvList(type:type, isInitial: true)
+    func getPengsooList(type: RequestType) {
+        getPengsooList(type:type, isInitial: true)
     }
     
-    func getPengsooTvList(type: RequestType, isInitial: Bool) {
+    func getPengsooList(type: RequestType, isInitial: Bool) {
         
         if checkNetwork() {
             var parameters: Parameters = Parameters()
@@ -69,10 +69,9 @@ class HomeViewModel {
             parameters[AppConstants.keyMaxResult] = AppConstants.valueMaxResult
             parameters[AppConstants.keyApiKey] = AppConstants.valueApiKey
             
-            Alamofire
-                .request(AppConstants.baseUrl + AppConstants.partSnippet, method: .get, parameters: parameters)
+            AF.request(AppConstants.baseUrl + AppConstants.partSnippet, method: .get, parameters: parameters)
                 .validate()
-                .responseObject(completionHandler: { (response: DataResponse<YoutubeListModel>) in
+                .responseObject(completionHandler: { (response: AFDataResponse<YoutubeListModel>) in
                     switch response.result {
                     case .success(let youtubeListItem):
                         if youtubeListItem.items.count == 0 {
@@ -85,15 +84,22 @@ class HomeViewModel {
                             }
                             self.delegate?.showError(type:type, error: .noItems)
                         } else {
+                            var items: Array<YoutubeItemModel> = []
+                            for item in youtubeListItem.items {
+                                if item.snippet.title != "Private video" {
+                                    items.append(item)
+                                }
+                            }
+                            
                             if type == .pengsooTv {
                                 self.tvNextPageToken = youtubeListItem.nextPageToken
-                                self.tvListItems.append(contentsOf: youtubeListItem.items)
+                                self.tvListItems.append(contentsOf: items)
                             } else if type == .pengsooYoutube {
                                 self.youtubeNextPageToken = youtubeListItem.nextPageToken
-                                self.youtubeListItems.append(contentsOf: youtubeListItem.items)
+                                self.youtubeListItems.append(contentsOf: items)
                             } else if type == .pengsooOutside {
                                 self.outsideNextPageToken = youtubeListItem.nextPageToken
-                                self.outsideListItems.append(contentsOf: youtubeListItem.items)
+                                self.outsideListItems.append(contentsOf: items)
                             }
                             self.delegate?.reloadTable(type:type)
                         }
@@ -113,10 +119,9 @@ class HomeViewModel {
             parameters[AppConstants.keyBrandingId] = AppConstants.valueBrandingId
             parameters[AppConstants.keyApiKey] = AppConstants.valueApiKey
             
-            Alamofire
-                .request(AppConstants.baseUrl + AppConstants.partBranding, method: .get, parameters: parameters)
+            AF.request(AppConstants.baseUrl + AppConstants.partBranding, method: .get, parameters: parameters)
                 .validate()
-                .responseObject(completionHandler: { (response: DataResponse<YoutubeListModel>) in
+                .responseObject(completionHandler: { (response: AFDataResponse<YoutubeListModel>) in
                     switch response.result {
                     case .success(let youtubeListItem):
                         if youtubeListItem.items.count == 0 {
@@ -171,7 +176,7 @@ class HomeViewModel {
             myVideo.thumbnailDefault = youtubeItem!.snippet.thumbnails.small.url
             myVideo.videoTitle = youtubeItem!.snippet.title
             myVideo.videoDescription = youtubeItem!.snippet.description
-            myVideo.videoId = youtubeItem!.id.videoId
+            myVideo.videoId = youtubeItem!.snippet.resourceId.videoId
             myVideo.inPlaylist = toMylist
             
             toMylist.addToVideos(myVideo)
