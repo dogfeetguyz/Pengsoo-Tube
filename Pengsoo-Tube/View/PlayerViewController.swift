@@ -21,10 +21,11 @@ class PlayerViewController: UIViewController {
     }
     
     func setPlayerView(view: YoutubePlayerView) {
-        self.youtubeView = view
-        self.youtubeView.frame = self.playerView.bounds
+        self.view.layoutIfNeeded()
         self.playerView.layoutIfNeeded()
         
+        self.youtubeView = view
+        self.youtubeView.frame = self.playerView.bounds
         self.playerView.insertSubview(self.youtubeView, belowSubview: self.replayButton)
         self.youtubeView.layoutIfNeeded()
     }

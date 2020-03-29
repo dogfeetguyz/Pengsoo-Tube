@@ -35,6 +35,8 @@ class ParentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        miniPlayerPlayerView.backgroundColor = .clear
+        
         miniPlayerView.layer.shadowColor = UIColor.black.cgColor
         miniPlayerView.layer.shadowOpacity = 0.1
         miniPlayerView.layer.shadowOffset = CGSize(width: 0, height: -10)
@@ -98,9 +100,9 @@ class ParentViewController: UIViewController {
                     }
                 }
                 
-                self.miniPlayerView.isHidden = true
-                self.miniPlayerPlayerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width)
+                self.miniPlayerPlayerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height*(9.0/16.0))
                 self.miniPlayerPlayerView.layoutIfNeeded()
+                self.miniPlayerView.isHidden = true
                 
                 containerView.addSubview(modal.view)
                 containerView.addSubview(self.containerVC!.tabBar)
@@ -141,7 +143,7 @@ class ParentViewController: UIViewController {
             } else {
                 if didComplete {
                     //complete present
-                    self.miniPlayerPlayerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width)
+                    self.miniPlayerPlayerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width*(9.0/16.0))
                     self.miniPlayerPlayerView.layoutIfNeeded()
                 } else {
                     //cancel present
@@ -292,6 +294,10 @@ extension ParentViewController: YoutubePlayerViewDelegate {
     }
     
     func playerView(_ playerView: YoutubePlayerView, didPlayTime time: Float) {
+    }
+    
+    func playerViewPreferredBackgroundColor(_ playerView: YoutubePlayerView) -> UIColor {
+        return .clear
     }
     
     func playerViewPreferredInitialLoadingView(_ playerView: YoutubePlayerView) -> UIView? {
