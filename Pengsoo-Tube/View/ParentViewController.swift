@@ -81,6 +81,7 @@ class ParentViewController: UIViewController {
         self.movin!.addAnimations([
             self.containerVC!.view.mvn.alpha.from(1).to(0.6),
             modal.view.mvn.point.from(miniPlayerOrigin).to(endModalOrigin),
+            modal.view.mvn.cornerRadius.from(0.0).to(10.0),
 //            self.miniPlayerPlayerView.webView.mvn.size.from(miniPlayerLayerView.frame.size).to(modal.playerView.frame.size),
             self.containerVC!.tabBar.mvn.alpha.from(1.0).to(0.0),
             ])
@@ -100,14 +101,14 @@ class ParentViewController: UIViewController {
                     }
                 }
                 
-                self.miniPlayerPlayerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height*(9.0/16.0))
-                self.miniPlayerPlayerView.layoutIfNeeded()
+//                self.miniPlayerPlayerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width)
+//                self.miniPlayerPlayerView.layoutIfNeeded()
+                self.modalVC!.setPlayerView(view: self.miniPlayerPlayerView)
                 self.miniPlayerView.isHidden = true
                 
                 containerView.addSubview(modal.view)
                 containerView.addSubview(self.containerVC!.tabBar)
                 modal.view.layoutIfNeeded()
-                self.modalVC!.setPlayerView(view: self.miniPlayerPlayerView)
                 
                 self.containerVC?.beginAppearanceTransition(false, animated: false)
                 modal.beginAppearanceTransition(true, animated: false)
@@ -143,8 +144,7 @@ class ParentViewController: UIViewController {
             } else {
                 if didComplete {
                     //complete present
-                    self.miniPlayerPlayerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width*(9.0/16.0))
-                    self.miniPlayerPlayerView.layoutIfNeeded()
+                    self.modalVC!.youtubeView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width*16/9)
                 } else {
                     //cancel present
                 }
@@ -175,6 +175,8 @@ class ParentViewController: UIViewController {
     
     func openPlayer() {
         self.setup()
+
+        self.miniPlayerPlayerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width*16/9)
         
         DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
             guard let modalViewController = self.modalVC else { return }
@@ -284,6 +286,8 @@ extension ParentViewController: YoutubePlayerViewDelegate {
         } else if state == .paused {
             isPaused = true
             miniPlayerPauseButton.setImage(Image(systemName: "play.fill"), for: .normal)
+        } else {
+            print("Player State: \(state)")
         }
     }
     

@@ -8,6 +8,8 @@
 
 import UIKit
 
+let HomeTableViewCellID = "HomeTableViewCell"
+
 class HomeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var thumbnailImageView: UIImageView!
@@ -15,15 +17,10 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: InsetLabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }
