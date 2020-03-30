@@ -10,7 +10,7 @@
 import XCTest
 import OHHTTPStubs
 
-class MylistDetailViewModelTests: XCTestCase {
+class PlaylistDetailViewModelTests: XCTestCase {
     
     var sut: LibraryDetailViewModel!
     var delegate: ViewModelDelegate!
@@ -37,11 +37,11 @@ class MylistDetailViewModelTests: XCTestCase {
         
         _ = XCTWaiter.wait(for: [expectation(description: "Test after 1 seconds")], timeout: 1.0)
         for i in 0 ..< 5 {
-            homeViewModel.addToMylist(at: i, listOf: .pengsooTv, toMylist: mypageViewModel.mylistItems.last!)
+            homeViewModel.addToPlaylist(at: i, listOf: .pengsooTv, toPlaylist: mypageViewModel.playlistItems.last!)
         }
-        mypageViewModel.getMylist()
+        mypageViewModel.getPlaylist()
         
-        sut = LibraryDetailViewModel(mylistItem: mypageViewModel.mylistItems.last!)
+        sut = LibraryDetailViewModel(playlistItem: mypageViewModel.playlistItems.last!)
         
         sut.delegate = self
         errorOccurred = .noError
@@ -49,31 +49,31 @@ class MylistDetailViewModelTests: XCTestCase {
 
     override func tearDown() {
         sut = nil
-        mypageViewModel.deletePlaylist(at: mypageViewModel.mylistItems.count-1)
+        mypageViewModel.deletePlaylist(at: mypageViewModel.playlistItems.count-1)
         mypageViewModel = nil
         HTTPStubs.removeAllStubs()
     }
 
     func testDeleteItem() {
-        let oldCount = sut.mylistItem.videos?.count ?? 0
+        let oldCount = sut.playlistItem.videos?.count ?? 0
         sut.deleteItem(at: 0)
         
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
-        XCTAssertEqual(oldCount - 1, sut.mylistItem.videos?.count)
+        XCTAssertEqual(oldCount - 1, sut.playlistItem.videos?.count)
     }
     
     func replaceItem() {
         let oldIndex = 0
         let newIndex = 3
-        let idForOldIndex = (sut.mylistItem.videos?[oldIndex] as! MyVideo).videoId
+        let idForOldIndex = (sut.playlistItem.videos?[oldIndex] as! MyVideo).videoId
         sut.moveItem(from: oldIndex, to: newIndex)
         
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
-        XCTAssertEqual(idForOldIndex, (sut.mylistItem.videos?[newIndex] as! MyVideo).videoId)
+        XCTAssertEqual(idForOldIndex, (sut.playlistItem.videos?[newIndex] as! MyVideo).videoId)
     }
 }
 
-extension MylistDetailViewModelTests: ViewModelDelegate {
+extension PlaylistDetailViewModelTests: ViewModelDelegate {
     func success(type: RequestType, message: String) {
         errorOccurred = .noError
     }

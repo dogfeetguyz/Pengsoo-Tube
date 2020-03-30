@@ -11,25 +11,25 @@ import UIKit
 
 class LibraryDetailViewModel {
         
-    var mylistItem: Mylist
+    var playlistItem: Mylist
     weak var delegate: ViewModelDelegate?
     
-    init(mylistItem: Mylist) {
-        self.mylistItem = mylistItem
+    init(playlistItem: Mylist) {
+        self.playlistItem = playlistItem
     }
     
     func deleteItem(at: Int) {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             let managedOC = appDelegate.persistentContainer.viewContext
-            mylistItem.removeFromVideos(at: at)
+            playlistItem.removeFromVideos(at: at)
             do {
                 try managedOC.save()
-                delegate?.success(type: .mylistDetailDelete)
+                delegate?.success(type: .playlistDetailDelete)
             } catch {
-                delegate?.showError(type: .mylistDetailDelete, error: .fail, message: "Something went wrong. Please try again.")
+                delegate?.showError(type: .playlistDetailDelete, error: .fail, message: "Something went wrong. Please try again.")
             }
         } else {
-            delegate?.showError(type: .mylistDetailDelete, error: .fail, message: "Something went wrong. Please try again.")
+            delegate?.showError(type: .playlistDetailDelete, error: .fail, message: "Something went wrong. Please try again.")
         }
     }
     
@@ -37,7 +37,7 @@ class LibraryDetailViewModel {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             let managedOC = appDelegate.persistentContainer.viewContext
             
-            let previouVideoItem = mylistItem.videos![from] as! MyVideo
+            let previouVideoItem = playlistItem.videos![from] as! MyVideo
             let entity = NSEntityDescription.entity(forEntityName: String(describing: MyVideo.self ), in: managedOC)
             let newVideoItem = MyVideo(entity: entity!, insertInto: managedOC)
             newVideoItem.channelTitle = previouVideoItem.channelTitle
@@ -51,37 +51,37 @@ class LibraryDetailViewModel {
             newVideoItem.inPlaylist = previouVideoItem.inPlaylist
             
             if from < to {
-                mylistItem.insertIntoVideos(newVideoItem, at: to)
-                mylistItem.removeFromVideos(at: from)
+                playlistItem.insertIntoVideos(newVideoItem, at: to)
+                playlistItem.removeFromVideos(at: from)
             } else {
-                mylistItem.removeFromVideos(at: from)
-                mylistItem.insertIntoVideos(newVideoItem, at: to)
+                playlistItem.removeFromVideos(at: from)
+                playlistItem.insertIntoVideos(newVideoItem, at: to)
             }
             
             do {
                 try managedOC.save()
-                delegate?.success(type: .mylistDetail)
+                delegate?.success(type: .playlistDetail)
             } catch {
-                delegate?.showError(type: .mylistDetail, error: .fail, message: "Something went wrong. Please try again.")
+                delegate?.showError(type: .playlistDetail, error: .fail, message: "Something went wrong. Please try again.")
             }
         } else {
-            delegate?.showError(type: .mylistDetail, error: .fail, message: "Something went wrong. Please try again.")
+            delegate?.showError(type: .playlistDetail, error: .fail, message: "Something went wrong. Please try again.")
         }
     }
     
-    func deleteMylist() {
+    func deletePlaylist() {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             let managedOC = appDelegate.persistentContainer.viewContext
-            managedOC.delete(mylistItem)
+            managedOC.delete(playlistItem)
             
             do {
                 try managedOC.save()
-                delegate?.success(type: .mylistDelete)
+                delegate?.success(type: .playlistDelete)
             } catch {
-                delegate?.showError(type: .mylistDelete, error: .fail, message: "Something went wrong. Please try again.")
+                delegate?.showError(type: .playlistDelete, error: .fail, message: "Something went wrong. Please try again.")
             }
         } else {
-            delegate?.showError(type: .mylistDelete, error: .fail, message: "Something went wrong. Please try again.")
+            delegate?.showError(type: .playlistDelete, error: .fail, message: "Something went wrong. Please try again.")
         }
     }
 }

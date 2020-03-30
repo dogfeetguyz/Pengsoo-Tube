@@ -26,34 +26,34 @@ class MypageViewModelTests: XCTestCase {
         sut = nil
     }
 
-    func testCreateMylist() {
+    func testCreatePlaylist() {
         let title = "playlist1"
-        let oldListCount = sut.mylistItems.count
+        let oldListCount = sut.playlistItems.count
         sut.createPlaylist(title: title)
         
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
-        XCTAssertGreaterThan(sut.mylistItems.count, oldListCount)
-        XCTAssertEqual(sut.mylistItems.last?.title, title)
+        XCTAssertGreaterThan(sut.playlistItems.count, oldListCount)
+        XCTAssertEqual(sut.playlistItems.last?.title, title)
         
         sut.deletePlaylist(at: oldListCount)
     }
     
-    func testDeleteMylist() {
+    func testDeletePlaylist() {
         let title = "test_playlist1"
         sut.createPlaylist(title: title)
-        let newListCount = sut.mylistItems.count
+        let newListCount = sut.playlistItems.count
 
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
         
         sut.deletePlaylist(at: newListCount-1)
 
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
-        XCTAssertGreaterThan(newListCount, sut.mylistItems.count)
+        XCTAssertGreaterThan(newListCount, sut.playlistItems.count)
     }
     
-    func testUpdateMylist() {
+    func testUpdatePlaylist() {
         let title = "test_playlist1"
-        let oldListCount = sut.mylistItems.count
+        let oldListCount = sut.playlistItems.count
         sut.createPlaylist(title: title)
 
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
@@ -61,22 +61,22 @@ class MypageViewModelTests: XCTestCase {
         let newTitle = "new test_playlist1"
         sut.updatePlaylist(at: oldListCount, newTitle: newTitle)
         
-        XCTAssertEqual(sut.mylistItems.last?.title, newTitle)
+        XCTAssertEqual(sut.playlistItems.last?.title, newTitle)
         
         sut.deletePlaylist(at: oldListCount)
     }
     
-    func testLoadMylist() {
-        let oldListCount = sut.mylistItems.count
+    func testLoadPlaylist() {
+        let oldListCount = sut.playlistItems.count
         let random = Int.random(in: Range(5 ... 10))
         for i in 0 ..< random {
             sut.createPlaylist(title: "test_playlist\(i)")
             XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
         }
         
-        sut.getMylist()
+        sut.getPlaylist()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
-        XCTAssertEqual(oldListCount + random, sut.mylistItems.count)
+        XCTAssertEqual(oldListCount + random, sut.playlistItems.count)
         
         for _ in Range(0 ... random) {
             sut.deletePlaylist(at: oldListCount)

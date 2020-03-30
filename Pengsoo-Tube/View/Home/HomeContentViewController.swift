@@ -44,8 +44,8 @@ class HomeContentViewController: UIViewController {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
-            
         }
+        alertController.addAction(cancelAction)
         
         let watchOnYoutubeAction = UIAlertAction(title: "Watch on Youtube", style: .default) { _ in
             if self.viewModel != nil {
@@ -55,22 +55,44 @@ class HomeContentViewController: UIViewController {
                 }
             }
         }
+        alertController.addAction(watchOnYoutubeAction)
         
         let addToNewListAction = UIAlertAction(title: "Add to New Playlist", style: .default) { _ in
+            let title = "New Playlist"
+            let message = "Please input a name for a new playlist"
+            let cancelButtonTitle = "Cancel"
+            let otherButtonTitle = "OK"
             
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            
+            alertController.addTextField { _ in
+            }
+
+            let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { _ in
+            }
+            
+            let otherAction = UIAlertAction(title: otherButtonTitle, style: .default) { _ in
+                guard let textField = alertController.textFields?.first else { return }
+                self.viewModel?.addtoNewPlaylist(title: textField.text!, at: index, listOf: self.requestType!)
+            }
+            
+            alertController.addAction(cancelAction)
+            alertController.addAction(otherAction)
+            
+            self.present(alertController, animated: true, completion: nil)
         }
-        
-        alertController.addAction(cancelAction)
-        alertController.addAction(watchOnYoutubeAction)
         alertController.addAction(addToNewListAction)
         
-//        for mylist in libraryViewModel.mylistItems {
-//            if let title = mylist.title {
-//                let addToAction = UIAlertAction(title: "Add to \(title)", style: .default) { _ in
-//                }
-//                alertController.addAction(addToAction)
-//            }
-//        }
+        if let playlistItems = viewModel?.getPlaylistItems() {
+            for playlist in playlistItems {
+                if let title = playlist.title {
+                    let addToAction = UIAlertAction(title: "Add to \(title)", style: .default) { _ in
+                        self.viewModel?.addToPlaylist(at: index, listOf: self.requestType!, toPlaylist: playlist)
+                    }
+                    alertController.addAction(addToAction)
+                }
+            }
+        }
         
         if let popoverPresentationController = alertController.popoverPresentationController {
             let selectedCell = tableView.cellForRow(at: IndexPath(row: index, section: 0))!

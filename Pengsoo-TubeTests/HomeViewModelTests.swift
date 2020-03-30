@@ -135,18 +135,53 @@ class Pengsoo_TubeTests: XCTestCase {
     }
     
     func testGetItemsListForRequestType() {
-        XCTAssertTrue(false)
+        let tvListItems = sut.getItemsList(for: .pengsooTv)
+        XCTAssertEqual(tvListItems, sut.tvListItems)
+        
+        let youtubeListItems = sut.getItemsList(for: .pengsooYoutube)
+        XCTAssertEqual(youtubeListItems, sut.youtubeListItems)
+        
+        let outsideListItems = sut.getItemsList(for: .pengsooOutside)
+        XCTAssertEqual(outsideListItems, sut.outsideListItems)
     }
     
-    func getMylistItems() {
-        XCTAssertTrue(false)
+    func testGetPlaylistItems() {
+        let items = sut.getPlaylistItems()
+        XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
+        
+        let mypageViewModel = LibraryViewModel()
+        mypageViewModel.getPlaylist()
+        
+        XCTAssertEqual(items, mypageViewModel.playlistItems)
     }
     
-    func testCreateMyList() {
-        XCTAssertTrue(false)
+    func testAddtoNewPlaylist() {
+        let items = sut.getPlaylistItems()
+        
+        stub(condition: isHost("www.googleapis.com")) { _ in
+            let stubPath = OHPathForFile("pengsooList_page1.json", type(of: self))!
+
+            return HTTPStubsResponse(
+                fileAtPath: stubPath,
+                statusCode: 200,
+                headers: [ "Content-Type": "application/json; charset=UTF-8"]
+            )
+        }
+        
+        sut.dispatchPengsooList(type: .pengsooTv)
+        waitForThreeSeconds()
+        sut.addtoNewPlaylist(title: "test playlist 1", at: 0, listOf: .pengsooTv)
+        XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
+        
+        let mypageViewModel = LibraryViewModel()
+        mypageViewModel.getPlaylist()
+        
+        XCTAssertEqual(items!.count + 1, mypageViewModel.playlistItems.count)
+        
+        mypageViewModel.deletePlaylist(at: mypageViewModel.playlistItems.count-1)
     }
     
-    func testAddToMyList() {
+    func testAddToPlayList() {
         sut.dispatchPengsooList(type: .pengsooTv)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
@@ -154,13 +189,13 @@ class Pengsoo_TubeTests: XCTestCase {
         let mypageViewModel = LibraryViewModel()
         mypageViewModel.createPlaylist(title: "test_playlist1")
         
-        sut.addToMylist(at: 0, listOf: .pengsooTv, toMylist: mypageViewModel.mylistItems.last!)
+        sut.addToPlaylist(at: 0, listOf: .pengsooTv, toPlaylist: mypageViewModel.playlistItems.last!)
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
         
-        mypageViewModel.getMylist()
-        XCTAssertEqual(mypageViewModel.mylistItems.last!.videos?.count, 1)
+        mypageViewModel.getPlaylist()
+        XCTAssertEqual(mypageViewModel.playlistItems.last!.videos?.count, 1)
         
-        mypageViewModel.deletePlaylist(at: mypageViewModel.mylistItems.count-1)
+        mypageViewModel.deletePlaylist(at: mypageViewModel.playlistItems.count-1)
     }
     
     func waitForThreeSeconds() {

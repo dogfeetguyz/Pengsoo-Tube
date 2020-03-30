@@ -166,19 +166,52 @@ class HomeViewModel {
         }
     }
     
-    func getMyListItems() -> [Mylist]? {
+    func getPlaylistItems() -> [Mylist]? {
         let libraryViewModel = LibraryViewModel()
-        libraryViewModel.getMylist()
+        libraryViewModel.getPlaylist()
         
-        return libraryViewModel.mylistItems
+        return libraryViewModel.playlistItems
     }
     
-    func createMyList(title: String) {
-        let libraryViewModel = LibraryViewModel()
-        libraryViewModel.createPlaylist(title: title)
+    func addtoNewPlaylist(title: String, at: Int, listOf: RequestType) {
+        
+        if title.count == 0 {
+            delegate?.showError(type: .playlistCreate, error: .fail, message: "Please enter a name.")
+            return
+        } else {
+
+            let libraryViewModel = LibraryViewModel()
+            libraryViewModel.getPlaylist()
+            
+            for playlist in libraryViewModel.playlistItems {
+                if playlist.title == title {
+                    delegate?.showError(type: .playlistCreate, error: .fail, message: "The name you entered already exists.\nPlease enter another name.")
+                    return
+                }
+            }
+
+            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                let managedOC = appDelegate.persistentContainer.viewContext
+
+                let entity = NSEntityDescription.entity(forEntityName: String(describing: Mylist.self ), in: managedOC)
+                let playlist = Mylist(entity: entity!, insertInto: managedOC)
+                playlist.updatedAt = Date()
+                playlist.title = title
+                
+                do {
+                    try managedOC.save()
+                    libraryViewModel.playlistItems.append(playlist)
+                    addToPlaylist(at: at, listOf: listOf, toPlaylist: playlist)
+                } catch {
+                    delegate?.showError(type: .playlistCreate, error: .fail, message: "Something went wrong. Please try again.")
+                }
+            } else {
+                delegate?.showError(type: .playlistCreate, error: .fail, message: "Something went wrong. Please try again.")
+            }
+        }
     }
     
-    func addToMylist(at: Int, listOf: RequestType, toMylist: Mylist) {
+    func addToPlaylist(at: Int, listOf: RequestType, toPlaylist: Mylist) {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             let managedOC = appDelegate.persistentContainer.viewContext
 
@@ -193,7 +226,7 @@ class HomeViewModel {
             } else if listOf == .pengsooOutside {
                 youtubeItem = outsideListItems[at]
             } else {
-                delegate?.showError(type: .mylist, error: .fail, message: "Something went wrong. Please try again.")
+                delegate?.showError(type: .playlistUpdate, error: .fail, message: "Something went wrong. Please try again.")
                 return
             }
             myVideo.channelTitle = youtubeItem!.snippet.channelTitle
@@ -204,17 +237,17 @@ class HomeViewModel {
             myVideo.videoTitle = youtubeItem!.snippet.title
             myVideo.videoDescription = youtubeItem!.snippet.description
             myVideo.videoId = youtubeItem!.snippet.resourceId.videoId
-            myVideo.inPlaylist = toMylist
+            myVideo.inPlaylist = toPlaylist
             
-            toMylist.addToVideos(myVideo)
+            toPlaylist.addToVideos(myVideo)
             do {
                 try managedOC.save()
-                delegate?.success(type: .mylist)
+                delegate?.success(type: .playlistUpdate)
             } catch {
-                delegate?.showError(type: .mylist, error: .fail, message: "Something went wrong. Please try again.")
+                delegate?.showError(type: .playlistUpdate, error: .fail, message: "Something went wrong. Please try again.")
             }
         } else {
-            delegate?.showError(type: .mylist, error: .fail, message: "Something went wrong. Please try again.")
+            delegate?.showError(type: .playlistUpdate, error: .fail, message: "Something went wrong. Please try again.")
         }
     }
     

@@ -47,12 +47,14 @@ enum RequestType: Int {
     case pengsooTv
     case pengsooYoutube
     case pengsooOutside
-    case mylist
-    case mylistDelete
+    case playlist
+    case playlistCreate
+    case playlistDelete
+    case playlistUpdate
     case recentDetail
     case recentDetailDelete
-    case mylistDetail
-    case mylistDetailDelete
+    case playlistDetail
+    case playlistDetailDelete
     
 }
 
