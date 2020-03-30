@@ -32,12 +32,7 @@ struct AppConstants {
     static let notification_userInfo_headerImgUrl: String = "headerImgUrl"
     
     static let home_tab_titles = ["Giant Peng TV", "Youtube Only", "Collaboration"]
-//    static let keyOrder             : String = "order"
-//    static let keyKeyword           : String = "q"
-//    static let keyType              : String = "type"
-//    static let valueOrder           : String = "date"
-//    static let valueKeyword         : String = "펭수"
-//    static let valueType            : String = "video"
+    static let home_tab_types = [RequestType.pengsooTv, RequestType.pengsooYoutube, RequestType.pengsooOutside]
 }
 
 enum ViewModelDelegateError: Int {
@@ -49,10 +44,19 @@ enum ViewModelDelegateError: Int {
 
 enum RequestType: Int {
     case header = 0
-    case pengsooTv = 1
-    case pengsooYoutube = 2
-    case pengsooOutside = 3
-    case mylist = 4
-    case recentDetail = 5
-    case mylistDetail = 6
+    case pengsooTv
+    case pengsooYoutube
+    case pengsooOutside
+    case mylist
+    case mylistDelete
+    case recentDetail
+    case recentDetailDelete
+    case mylistDetail
+    case mylistDetailDelete
+    
+}
+
+enum DragDirection {
+    case Up
+    case Down
 }

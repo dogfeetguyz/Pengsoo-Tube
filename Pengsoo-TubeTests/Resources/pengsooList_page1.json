@@ -1,58 +1,21 @@
 {
- "kind": "youtube#searchListResponse",
- "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/DlZ2ttIIDDk1y5NIR7MoGpLy-xc\"",
+ "kind": "youtube#playlistItemListResponse",
+ "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/kKpH9xyR--W_eFuZSF3rFwLDCFU\"",
  "nextPageToken": "CDIQAA",
- "regionCode": "AU",
  "pageInfo": {
-  "totalResults": 277,
+  "totalResults": 107,
   "resultsPerPage": 50
  },
  "items": [
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/JZDfDWjREmt-gFxMm-UOGhKrpW0\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "2-pqvr566Vk"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/OSEZ1wwsD1UzM7l_uDV53mt---Q\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy5FQjcyRDZBMEMyNTY3OTdE",
    "snippet": {
-    "publishedAt": "2020-03-20T09:00:05.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "[미방송분] 펭TV에서 못다 한 이야기 대방출! (feat. 컬링펭수, 화훼펭수) | ENG CC",
-    "description": "펭-하! 그동안 제작진 외장하드에 쌓여있던 미방송분 대방출합니당 (23일, 27일도 기대해주세용!)",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/2-pqvr566Vk/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/2-pqvr566Vk/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/2-pqvr566Vk/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/_HqDWisuaRvgR3zTJyYNIjQkJdA\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "WYsXVxapHZs"
-   },
-   "snippet": {
-    "publishedAt": "2020-03-16T07:00:05.000Z",
+    "publishedAt": "2020-03-13T06:39:27.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[Ep.99] (리얼) 남극 펭귄, 한국 1년 차 후기 | 쿠키영상 (ENG)",
-    "description": "펭수소원 #펭수시 다들 2주 후에 바여~~ ============================ [MUSIC INFO] 1. True Romance (엔딩 테마)_CITIZENS!_뷰티 인사이드 OST 2.",
+    "description": "#펭수소원 #펭수시 \n다들 2주 후에 바여~~\n\n============================\n[MUSIC INFO]\n1. True Romance (엔딩 테마)_CITIZENS!_뷰티 인사이드 OST\n2. 사랑해 그리고 기억해_god\n3. Haydn _ String Quartet No.17 In F Major Op.3-5 `Serenade` Hob.III_17 - II. Andante Cantabile _Janacek Quartet\n4. 알록달록 (inst )_잔나비_구여친클럽 OST\n5. 꿈꾸는 마파도_김준석_마파도 OST\n6. 낯선 비_티어라이너\n7. Pray For Me_Kendrick Lamar, The Weeknd\n8. Englishman In New York_Sting\n9. Profile_Various Artists_자체발광 오피스 OST\n10. Fat Donkey_Various Artists_서른이지만 열일곱입니다 OST\n11. 전남자친구_TOM_72초TV 오구실 OST\n12. 쉬어요_성시경\n13. 따뜻한 겨울라떼_티어라이너_치즈인더트랩 OST\n14. 킬러!__방준석_럭키 OST\n15. Toxic_Britney Spears\n16. Sunny_Boney M\n17. 우리의 슬픔이 마주칠 때 with 강아솔_전진희\n18. Defeated Clown_Hildur Gudnadottir_조커 OST\n19. 너랑 나_아이유\n20. Take Me On_솔튼페이퍼_남자친구 OST\n===========================",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/WYsXVxapHZs/default.jpg",
@@ -68,24 +31,36 @@
       "url": "https://i.ytimg.com/vi/WYsXVxapHZs/hqdefault.jpg",
       "width": 480,
       "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/WYsXVxapHZs/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/WYsXVxapHZs/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 0,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "WYsXVxapHZs"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/S5DIdbwMUCxw_yGjbzvPniwWKpw\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "fE7PEWOII7k"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/ckz8Yk-iymbUfijVG_hDahd-ItE\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy4wMEMyQTBBOTUwNTM0OUFG",
    "snippet": {
-    "publishedAt": "2020-03-13T12:00:17.000Z",
+    "publishedAt": "2020-03-13T04:43:35.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "[Ep.98] &#39;펭수 시급ssul&#39;논란에 대해 답해 드리겠습니다!! (ENG)",
-    "description": "펭수시급설 #펭수활명쏭   #펭수얼마? 10살 펭귄은 하루에 얼마나 벌까? (feat. 소화가 안될 땐 같이 불러요~ 펭수활명쏭  ) ------------------------------...",
+    "title": "[Ep.98] '펭수 시급ssul'논란에 대해 답해 드리겠습니다!! (ENG)",
+    "description": "#펭수시급설 #펭수활명쏭🎶  #펭수얼마?\n10살 펭귄은 하루에 얼마나 벌까? \n\n(feat. 소화가 안될 땐 같이 불러요~ 펭수활명쏭🎵)\n---------------------------------\n1. 사계_노래를 찾는 사람들\n2. 두근 두근_Various Artists_질투의 화신 OST\n3. Sanctus_Libera\n4. METEOR_창모\n5. 재회_The Soundtrack Kings_뷰티 인사이드 OST\n6. No! No! No!_Various Artists_질투의 화신 OST\n7. 비만클리닉_Various Artists_역도요정 김복주 OST\n8. Time Is Running Out_Muse\n9. Intro_장영규_타짜 OST\n10. 락빌라 그녀들_Various Artists_질투의 화신 OST\n11. That's What I Like_Bruno Mars\n12. 베토벤_ 바이올린 소나타 제5번 작품24 '봄', 제1악장\n13. Twinkle_소녀시대-태티서\n14. ねこバス (고양이버스) ( 이웃집 토토로  중에서)_Kazumi Tateishi Trio\n15. 미워도 다시 한번 (Original ver.)_바이브\n16. 인생극장 (Inst)_남궁연\n17. 어느 작은 골목길에서_개미_더 패키지 OST\n18. 追跡のサンバ   추적 삼바   Tuiseki Sannba_Yoshikawa Kei_비터 블러드 OST\n19. Early In The Morning (2004 Digital Remaster)_Cliff Richard\n20. 옴마니반메훔_범철스님\n21. No Direction_Rachael Yamagata_봄밤 OST\n22. 생일 축하곡 (Acid House Remix)_TURBO\n23. 고양이 (Inst.)_선우정아\n24. Merci Chérie_Franck Pourcel(이종환의 별이 빛나는 밤에_시그널 음악)",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/fE7PEWOII7k/default.jpg",
@@ -101,24 +76,36 @@
       "url": "https://i.ytimg.com/vi/fE7PEWOII7k/hqdefault.jpg",
       "width": 480,
       "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/fE7PEWOII7k/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/fE7PEWOII7k/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 1,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "fE7PEWOII7k"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/hVD9JWTvhOh7c3gnHxoGKqvxDHc\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "eA6AMHFXofc"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/5IjiG1NIf9uxbHDGUsEeXMpA4Iw\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy44M0Q5MzQ0QTcwQzFDMjc5",
    "snippet": {
-    "publishedAt": "2020-03-09T07:00:06.000Z",
+    "publishedAt": "2020-03-09T06:14:55.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[EP.97] 펭TV에 싸움 났습니다...(ENG)",
-    "description": "선관위 대빵을 향한 2인자들의 치열한 권력투쟁 ------------------------------------------------------- 1. 드러나는 관계_강미미_VIP OST 2. MY NAME IS KOO_개미_열혈사...",
+    "description": "#선관위\n대빵을 향한 2인자들의 치열한 권력투쟁 \n-------------------------------------------------------\n1. 드러나는 관계_강미미_VIP OST\n2. MY NAME IS KOO_개미_열혈사제 OST\n3. Game Of Thrones_Ramin Djawadi_왕좌의 게임 OST\n4. Zza Zza Com mi Zza Zza Zza (Do Jae's Serenade)_Various Artists_뷰티 인사이드 OST\n5. 총을 겨누다_남혜승, 박상희_시카고 타자기 OST\n6. Elgar 5 Military Marches, Op.39, `Pomp And Circumstance` _James Judd\n7. 화분_알렉스\n8. 지옥의 문_정재일_기생충 OST\n9. 찹쌀떡EDM리믹스_사포\n10. 환희의 도주_달파란, 장영규_좋은놈 나쁜놈 이상한놈 OST\n11. 형사 정재곤_조영욱_무뢰한 OST\n12. 追跡のサンバ   추적 삼바   Tuiseki Sannba_Yoshikawa Kei_비터 블러드 OST\n13. The Godfather Waltz_The City Of Prague Philharmonic Orchestra_대부 OST\n14. 유생들의 나날_성균관 스캔들 OST\n15. Fantasy_브이2\n16. 아낌없이 주는 나무 (Generous...)_문희준\n17. 거슈인 (핫토리 다카유키 편곡)_ 랩소디 인 블루_노다메 칸타빌레 OST\n18. 내일 (inst.)_한희정_미생 OST\n19. Circle of Life_Carmen Twillie_라이온 킹 OST\n20. Cockroacheeessss_데드 버튼즈",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/eA6AMHFXofc/default.jpg",
@@ -134,24 +121,36 @@
       "url": "https://i.ytimg.com/vi/eA6AMHFXofc/hqdefault.jpg",
       "width": 480,
       "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/eA6AMHFXofc/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/eA6AMHFXofc/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 2,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "eA6AMHFXofc"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/Df28aaxy9buAQk9cVMAL-TA5Cr4\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "GmAv7EislGs"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/Nq6cfTRwYdYvUjOG8r08ELp1NVk\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy5EN0U0NTk3NzIwMjUxN0M3",
    "snippet": {
-    "publishedAt": "2020-03-06T12:00:02.000Z",
+    "publishedAt": "2020-03-06T10:10:51.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[EP.96] 펭생 첫 배우 도전! | 펭수X스토브리그 | 쿠키 有 (ENG CC)",
-    "description": "차기작은 남극에서도 개봉 예정입니다 96화 음원 1. 큐사인 (Inst.)_이원석_스토브리그 OST 2. Joy (Inst.)_Andy Platts 3. Man in a movie_DAY6 4. Blinding ...",
+    "description": "차기작은 남극에서도 개봉 예정입니다 \n\n\n\n\n96화 음원 \n\n1. 큐사인 (Inst.)_이원석_스토브리그 OST \n2. Joy (Inst.)_Andy Platts\n3. Man in a movie_DAY6\n4. Blinding Lights_The Weeknd\n5. 청춘의 꿈_조영욱_비열한 거리 OST\n6. 샛별_레인보우 노트\n7. 하루 끝_아이유\n8. FIGHTER INST_개미_열혈사제 OST\n9. Big Sleep_Unknown_신세계 OST\n10. Cuckoo_잔나비_두번째 스무살 OST\n11. EXTREME GOOTHAM CITY_박윤서_열혈사제 OST\n12. Error다, 애라_Various Artists_쌈, 마이웨이 OST\n13. Bright Sight_박세준, 우지훈_안녕 드라큘라 OST\n14. Drive It Like You Stole It_Sing Street_싱 스트리트 OST\n15. He's Ready_임미현_국민 여러분! OST\n16. 힐링이 필요해 (October Rain)_윤건\n17. 패션 70 (Main Theme)_이필호_패션 70's OST\n18. Cavatina (카바티나)_Masatoshi Taruishi\n19. 우리끼리_조영욱_범죄와의 전쟁 OST\n20. If I Had You_Adam Lambert",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/GmAv7EislGs/default.jpg",
@@ -167,57 +166,72 @@
       "url": "https://i.ytimg.com/vi/GmAv7EislGs/hqdefault.jpg",
       "width": 480,
       "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/GmAv7EislGs/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/GmAv7EislGs/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 3,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "GmAv7EislGs"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/5yHUm-2pb1KPi39Amco7yJh1p9s\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "ay9NNkBnaJM"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/UgI6NjO9eucyofTSmMA6k78eQ7s\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy5BQzRBQzNEOTgzNTU2QkZB",
    "snippet": {
-    "publishedAt": "2020-03-01T08:00:02.000Z",
+    "publishedAt": "2020-03-06T06:43:25.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "[직캠] 펭수팀 댄스배틀 무편집 풀샷",
-    "description": "펭수 vs 임문식이 뜨거웠던 댄스 배틀! 펭수팀 댄스 직캠 버전입니다. 펭수 찹쌀떡 리믹스 https://www.youtube.com/watch?v=T4R3whhiZMk.",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/ay9NNkBnaJM/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/ay9NNkBnaJM/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/ay9NNkBnaJM/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
+    "title": "Private video",
+    "description": "This video is private.",
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 4,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "cD8uI6XtLBw"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/2eu-XwNbkxr2yLWDLAG5eki4Xdg\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "m2aCuC-LU2E"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/tHNOndvNok_g6DOGDm9xGgA0Ne4\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy4zNEMzQ0FDREY1MkE1RkQ1",
    "snippet": {
-    "publishedAt": "2020-02-28T12:00:09.000Z",
+    "publishedAt": "2020-03-06T04:58:23.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "Private video",
+    "description": "This video is private.",
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 5,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "ApxQtiuNpNc"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/AIYIZRy84PyvdNCh3okUH1H0w1M\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy45MEI3NjgzMTVFQkZGODYx",
+   "snippet": {
+    "publishedAt": "2020-02-28T08:23:52.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[EP.94-95] 펭수 리더십 논란 해명하겠습니다 feat. 댄스배틀 (ENG CC)",
-    "description": "밖에서 보지 마세요 눈물샘 주의 94,95화 음원 1. 월화수목금토일_제이레빗 2. WANT_태민 3. MOVE_태민 4. Doctor kim sa boo (Ending Title)_전창엽, 마마고릴라...",
+    "description": "밖에서 보지 마세요 눈물샘 주의\n\n\n\n94,95화 음원\n\n1. 월화수목금토일_제이레빗\n2. WANT_태민\n3. MOVE_태민\n4. Doctor kim sa boo (Ending Title)_전창엽, 마마고릴라\n5. Error다, 애라_Various Artists_쌈, 마이웨이 OST\n6. Never Stop_Chilly Gonzales\n7. One Two Cha Cha Cha (From _Shalimar_)_Usha Uthup\n8. Black Swan_방탄소년단\n9. The Avengers_Alan Silvestri\n10. 안동역에서_진성\n11. 티키타카 (Feat. Deepflow, 우탄, 넉살, ODEE)_VMC\n12. 하이든_ 현악 4중주 F장조, Hob. III_17 (Op. 3-5) '세레나데', 2악장_Janacek Quartet\n13. 짜파구리_정재일_기생충 OST\n14. MISTY_개미, 이건영_미스티 OST\n15. Resolver_Yoshimata Ryo_하늘에서 내리는 1억개의 별 OST\n16. Everybody Wants To Rule The World_Lorde\n17. 펭수 찹쌀떡 리믹스 \n https://www.youtube.com/watch?v=T4R3whhiZMk\n\n18. Swindler VS Police_박정은_국민 여러분! OST\n19. 내가 웃는게 아니야 (With Ali)_리쌍\n20. 어른_Sondia_나의 아저씨 OST\n21. Candy (캔디)_H O T\n22. Runnin'_Adam Lambert\n23. If You Crump Stand Up_Edit\n24. Get Me The GI Joes_Henry Jackman_G.I. Joe\n25. 연결고리 (feat. MC Meta)_일리네어 레코즈\n26. 사소한 것에서_AKMU\n27. Summer_Calvin Harris\n28. 걸어가네 (inst.)_제제\n29. 큐사인_이원석_스토브리그 OST \n30. Map Of The Problematique_Muse",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/m2aCuC-LU2E/default.jpg",
@@ -233,57 +247,36 @@
       "url": "https://i.ytimg.com/vi/m2aCuC-LU2E/hqdefault.jpg",
       "width": 480,
       "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/m2aCuC-LU2E/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/m2aCuC-LU2E/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 6,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "m2aCuC-LU2E"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/cKJbi32AMrYH8EneUkGrVCBEylA\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "0mwaVT8UUc0"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/eQVr6x5fbH_TiYSfzjlaJf8ksdg\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy5ENjg3MEUyQ0IzODMzQThB",
    "snippet": {
-    "publishedAt": "2020-02-28T11:06:53.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "2020년 첫 라이브",
-    "description": "우리의 사랑이 이루어지는 시간 20:20.",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/0mwaVT8UUc0/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/0mwaVT8UUc0/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/0mwaVT8UUc0/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/ophPD8tEwanTYASDjYI6ZpbCv1I\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "v7XpDzgUQbg"
-   },
-   "snippet": {
-    "publishedAt": "2020-02-21T12:00:12.000Z",
+    "publishedAt": "2020-02-21T08:26:10.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[Ep.93]  펭수 친정 EBS 클라쓰 보여드리겠습니다",
-    "description": "다 박재영 탓입니다 ============================ [MUSIC INFO] 1. Dream Is Collapsing (from '인셉션, Inception')_London Music Works_The Best of Hans ...",
+    "description": "다 박재영 탓입니다\n\n\n============================\n[MUSIC INFO]\n\n1. Dream Is Collapsing (from '인셉션, Inception')_London Music Works_The Best of Hans Zimmer \n2. 서실장 작업준비_김준석_타짜 OST\n3. Operation Plan_개미, 박정환, 이윤정_레버리지 _ 사기조작단 OST\n4. Vivaldi_ The Four Seasons (사계), Violin Concerto No. 2 In G Minor _Summer_ - III. Presto_Royal Philharmonic Orchestra, Jonathan Carney\n5. Episode V - The Imperial March (Darth Vader's Theme)_John Williams_스타워즈 OST\n6. 둘만의 세상으로 가_Crush_사랑의 불시착 OST \n7. The Whole Nine Yards_Yoshimata Ryo_냉정과 열정사이 OST\n8. 챔피언_조수미\n9. Only The Beginning of The Adventure_Harry Gregson-Williams_나니아 연대기 _ 사자, 마녀 그리고 옷장 OST\n10. Go West (Radio Edit)_Pet Shop Boys\n11. Elgar：Military March No.1 in D Major, Op.39 'Pomp And Circumstance(위풍당당 행진곡')_Slovak Radio Symphony\n12. Mission of destiny_이동준_아이리스 OST\n\n===========================",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/v7XpDzgUQbg/default.jpg",
@@ -299,24 +292,36 @@
       "url": "https://i.ytimg.com/vi/v7XpDzgUQbg/hqdefault.jpg",
       "width": 480,
       "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/v7XpDzgUQbg/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/v7XpDzgUQbg/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 7,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "v7XpDzgUQbg"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/yX-_4b5Y4gzoHMW-U4fny7kJz4U\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "nrlHwjBGc9k"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/koTGK28zge8RI15RG-7yNj9Of6c\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy41MzJFNEYxODEyNzA0QUUx",
    "snippet": {
-    "publishedAt": "2020-02-17T07:00:07.000Z",
+    "publishedAt": "2020-02-17T05:56:01.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[Ep.92] 지각해서 펭수 PD 잘렸습니다",
-    "description": "흡연은 질병입니다. 치료는 펭수입니다. ============================ [MUSIC INFO] 1. Squeeze _Various Artists_김비서가 왜 그럴까 OST 2. 너 눈깔이 왜 ...",
+    "description": "흡연은 질병입니다. 치료는 펭수입니다.\n\n============================\n[MUSIC INFO] \n\n1. Squeeze _Various Artists_김비서가 왜 그럴까 OST\n2. 너 눈깔이 왜 또 이랴_ _유민호_동백꽃 필 무렵 OST\n3. Operation Plan_개미, 박정환, 이윤정_레버리지 _ 사기조작단 OST\n4. Big Fake_이윤정_레버리지 _ 사기조작단 OST\n5. 쇼팽 Etude op.10-4\n6. 친절한 금자씨_조영욱_친절한 금자씨 OST\n7. Angry Ira_Various Artists_결혼전야 OST\n8. Prologue (inst )_Frank Wildhorn_지킬 앤 하이드\n9. George Valentin-Ludovic Bource-아티스트 OST\n10. Main Title (The Godfather Waltz)_Rota\n11. Shake it, Shake it!_Various Artists_라디오로맨스 OST\n12. 불타오르네 (FIRE)_방탄소년단\n13. Making Shadow_오준성_주군의 태양 OST\n14. 중2병 (feat. C Jamm)_비와이\n15. Brothers In Arms (Extended Version)_Junkie XL_매드맥스_ 분노의 도로 OST\n16. 유혹의 소나타 (Sampling Fur Elise, L.van Beethoven)_아이비\n17. 찌질하고 처량한_Various Artists_질투의 화신  OST\n18. 아보카도 패밀리_이태현_빅포레스트 OST\n19. Dad Jokes_Warak_레버리지 _ 사기조작단 OST\n20. 야영_정재일_기생충 OST\n21. 고래를 위하여 (Prod. Nutty, STAFFONLY)_강민수 (AQUINAS), 이진우 ($IGA A)_고등래퍼3 팀대항전 Part 1\n22. 부끄러움은 너의 몫_이루리_러블리 호러블리  OST\n23. 지못미_Various Artists_역도요정 김복주 OST\n24. The Phantom Of The Opera_Andrew Lloyd Webber\n25. Feels So Good_ Chuck Mangione\n26. Niccolò Paganini - Caprice No. 24\n\n============================",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/nrlHwjBGc9k/default.jpg",
@@ -332,24 +337,36 @@
       "url": "https://i.ytimg.com/vi/nrlHwjBGc9k/hqdefault.jpg",
       "width": 480,
       "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/nrlHwjBGc9k/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/nrlHwjBGc9k/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 8,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "nrlHwjBGc9k"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/lHe_BcrWV6N0XlJ6uYP0vlf8Uzw\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "DoMTrkTVcFg"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/oiLtNqiRNCSqSbWAvrC5hnVKbJw\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy5BRUVCN0E0MzEwQzAwNjMy",
    "snippet": {
-    "publishedAt": "2020-02-14T12:00:05.000Z",
+    "publishedAt": "2020-02-14T08:06:04.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[EP.91] 펭수 선생님 되어뜸미다!!!!!!!!(feat. 피리부는 펭수)(쿠키영상有 귀욤주의)",
-    "description": "펭수는 선생님이 되었어요@.@ --------------------------- [MUSIC INFO] 1. Blitzkrieg Bop_Ramones_Ramones 2. Ryo Yoshimata Best Collection ~Korean Favorite ...",
+    "description": "펭수는 선생님이 되었어요@.@\n\n---------------------------\n[MUSIC INFO]\n1. Blitzkrieg Bop_Ramones_Ramones \n2. Ryo Yoshimata Best Collection ~Korean Favorite Songs~ - 4 Elation\n3. 일요일 아침_정재일_기생충 OST\n4. 모여라_카더가든_[Vol.46] 유희열의 스케치북 _ 스물다섯 번째 목소리 '유스케 X 카더가든'\n5. 짜파구리_정재일_기생충 OST\n6. 인싸아싸 (Inssa Assa)_터보트로닉\n7. Hug Me (feat. Gaeko)_Crush\n8. 야망의 냄새_myunDo\n9. Into the Unknown (Panic! At The Disco Version)_Panic! At The Disco_Frozen 2 (겨울왕국 2 OST)\n10. Dear (영화  아저씨  삽입곡)-매드 소울 차일드\n11. I'd Do Anything_Simple Plan\n12. Do It !_솔루션스\n13. 오르막길 (feat. 정인)_윤종신\n14. 지못미_Various Artists_역도요정 김복주 OST\n15. 스승의 은혜_안젤로_두사부일체 OST",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/DoMTrkTVcFg/default.jpg",
@@ -365,90 +382,36 @@
       "url": "https://i.ytimg.com/vi/DoMTrkTVcFg/hqdefault.jpg",
       "width": 480,
       "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/DoMTrkTVcFg/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/DoMTrkTVcFg/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 9,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "DoMTrkTVcFg"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/tEO56ULm7ELB2GnrjYVF8CVIwGU\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "P-rhqWpjVag"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/Kfi0B3AEZE9yRUsT7hfzBp3tHuE\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy41NUMwNTVERDNBRDc4REM0",
    "snippet": {
-    "publishedAt": "2020-02-14T02:00:46.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "(ENG CC) 펭수와 함께하는 손씻기와 기침예절 (a.k.a 여러분의 건강지킴이)",
-    "description": "손씻기30초 #마스크착용 #매너챙겨 펭수가 알려준대로 오늘부터 실천하기! 약속 [MUSIC INFO] 1. 래완의 하루_노형우_미치겠다, 너땜에! OST 2. 소방차...",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/P-rhqWpjVag/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/P-rhqWpjVag/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/P-rhqWpjVag/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/6ClJ6qj7dNFeMbO-7M7A9CtCWiU\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "QurVkDi0naE"
-   },
-   "snippet": {
-    "publishedAt": "2020-02-10T08:20:03.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "[단독] 펭수 &quot;속세와 인연접어&quot; 자연으로 떠난 사연은?!",
-    "description": "'속세'를 떠난 자연펭의 기.절.초.풍 사연 지금 공개합니다 :D ※ 실제 아님 주의 ※ [MUSIC INFO] 1. Main Title_이윤정_선덕여왕 OST 2. 꽃_이승환 3. 당황스...",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/QurVkDi0naE/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/QurVkDi0naE/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/QurVkDi0naE/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/ydmUhnFEKhxVGOUY3fsE9u1t_Uo\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "Gip2VyjY6mU"
-   },
-   "snippet": {
-    "publishedAt": "2020-02-07T12:00:04.000Z",
+    "publishedAt": "2020-02-07T11:23:27.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[EP89-90](ENG/CN/IDN) 붕어빵 장수 펭수(feat.유재석,KMJ)",
-    "description": "펭수가 골드버튼 기념으로 붕어빵을 선물하는데.... MUSIC INFO 89화 1. 지그재그 스텝 (Zigzag Step)_장지원_프로듀서 OST 2. Big Sleep_Unknown_신세계 OST 3 ...",
+    "description": "펭수가 골드버튼 기념으로 붕어빵을 선물하는데....\n\n\nMUSIC INFO\n89화\n1. 지그재그 스텝 (Zigzag Step)_장지원_프로듀서 OST\n2. Big Sleep_Unknown_신세계 OST\n3. 달려_염따, 딥플로우, 팔로알토, 더 콰이엇, 사이먼 도미닉\n4. 병맛 같은 매력_이윤지_W OST\n5. 도_태사자\n6. 찌질하고 처량한_Various Artists_질투의 화신 OST\n7. 10 Minutes_이효리\n8. HUL_엄기엽 & Julie_또 오해영 OST\n9. Maldive_푸딩\n10. 경합_이필호_식객 OST\n11. 베토벤_ 엘리제를 위하여 (For Elise)_Scorpius Lim\n12. 황야의 무법자 (누군가 앞에 있는 엉덩이를 만졌다)_TOM_72초TV '72초' OST\n13. 귀요미송 2_하리\n14. Piano Man_Billy Joel\n15. 흔들리는 꽃들 속에서 네 샴푸향이 느껴진거야_장범준\n16. all of my life_박원\n17. Princess Of Flowers_Isao Sasaki\n18. 미소 지으면_Unknown_신데렐라 언니 OST\n19. 훌라 한번 출래요__마푸키키\n20. Revenge_Various Artists_블랙독 OST\n21. Sanctus_Libera\n22. 한열테마_Unknown_슈퍼대디열 OST\n23. 사랑의 재개발 (Inst.)_유산슬\n\n90화\n1. Think About' Chu-Asoto Union\n2. Love Foolosophy_Jamiroquai\n3. 지못미_Various Artists_역도요정 김복주 OST\n4. Starry Night (Original Mix)_Peggy Gou\n5. Bawling_프라이머리, 오혁(OhHyuk)\n6. We No Speak Americano (Radio Edit)_Yolanda Be Cool & DCUP\n7. Space Love_Unknown_별에서 온 그대 OST\n8. 따라오지 말랬지_이윤지_사랑하기 때문에 OST\n9. 내 귀에 캔디 (feat. 택연 Of 2PM)_백지영\n10. 내 귀에 캔디 (feat. 택연 Of 2PM) - 백지영 (MR)_싱어텍\n11. Kiss The Sky_Cash Cash\n12. 검은 산_페퍼톤스\n13. 사랑의 재개발_유산슬\n14. 12 45 PM_김정범_멋진하루 OST\n15. 왐마_박미선_데릴남편 오작두 OST\n16. Beyond_Daft Punk\n17. Error다, 애라_Various Artists_쌈, 마이웨이 OST\n18. Juggling Robot_로맨티스코_저글러스 OST\n19. 맥가이버_The Daniel Caine Orchestra\n20. 믿음의 벨트_정재일_기생충 OST\n21. Be Who You Want To Be_Max Frost\n22. Tic_Tic_Tic (feat__Lzzy_Hale)_Dada Life",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/Gip2VyjY6mU/default.jpg",
@@ -464,24 +427,36 @@
       "url": "https://i.ytimg.com/vi/Gip2VyjY6mU/hqdefault.jpg",
       "width": 480,
       "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/Gip2VyjY6mU/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/Gip2VyjY6mU/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 10,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "Gip2VyjY6mU"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/XzqTARlt0xn2-Kg5IbYpICd3xGA\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "UtruofRDBGU"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/6QwmVmoaNOigAr1Hp4KyxmtfiuY\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy4wMDkwRkI3NzExODA2MTFG",
    "snippet": {
-    "publishedAt": "2020-02-03T07:00:04.000Z",
+    "publishedAt": "2020-02-03T05:48:54.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[EP.88]알바가 얼마나 중요한지 알려드리겠습니다.(에필로그 있어요!!)",
-    "description": "펭수 실수 의혹 해명합니다. ----------------------------- [MUSIC INFO] 1. 깨진 유리조각_김현도_VIP OST 2. Strange Man (Funny ver )_Hirasawa Atusshi 3.",
+    "description": "펭수 실수 의혹 해명합니다.\n\n-----------------------------\n[MUSIC INFO]\n1. 깨진 유리조각_김현도_VIP OST\n2. Strange Man (Funny ver )_Hirasawa Atusshi\n3. Tazza Funk_박준수\n4. 스폰서_으뜨거따시 (하하, 자이언티)\n5. 오늘 한잔_Unknown_미생 OST\n6. Can't Hold Back_The Phantoms\n7. 너 눈깔이 왜 또 이랴_ _유민호_동백꽃 필 무렵 OST\n8. 허당과 양아치_김현주_친애하는 판사님께 OST\n9. Alone!-Keiichi Okabe (Monaca) & Keigo Hoashi (Monaca)-한밤중의 베이커리 OST\n10. Uptown Funk (feat  Bruno Mars)_Mark Ronson\n11. 파인애플_서울문\n12. Funiculi, Funicula_Luciano Pavarotti\n13. 덕밍아웃_최인희, 오혜주_그녀의 사생활 OST\n14. 응당 대충 흘러가는 하루_최인영_막돼먹은 영애씨 OST\n15. Warriors_Imagine Dragons\n16. 빙고_거북이\n17. 오리 날다_체리 필터\n18. Heroes_Blaze N Vill\n19. One Fine Day_Various Artists_아름다운 그대에게 OST\n20. Pretend Not To Know_강정은_응답하라 1994 OST\n21. Daddy, Brother, Lover, Little Boy_Mr.Big",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/UtruofRDBGU/default.jpg",
@@ -497,24 +472,36 @@
       "url": "https://i.ytimg.com/vi/UtruofRDBGU/hqdefault.jpg",
       "width": 480,
       "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/UtruofRDBGU/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/UtruofRDBGU/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 11,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "UtruofRDBGU"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/hm3uYyseeqXDS8FSL3r_K4UFpu0\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "Ja0ioh5l3Y0"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/u9mQaj-QKckFcRwXM5mkQWlddxY\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy5ERkRDQjY0N0Y0Q0VFOTdC",
    "snippet": {
-    "publishedAt": "2020-01-31T12:00:05.000Z",
+    "publishedAt": "2020-01-31T09:48:36.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[EP.87] 펭력사무소-편의점 (점장이 극한직업)",
-    "description": "펭력사무소에서 편의점 인턴을 시작합니다. MUSIC INFO 1. Get Up (Rattle) (feat. Far East Movement)_Bingo Players 2. One Night Only (Disco) (With Sharon Leal, ...",
+    "description": "펭력사무소에서 편의점 인턴을 시작합니다.\n\nMUSIC INFO\n1. Get Up (Rattle) (feat. Far East Movement)_Bingo Players\n2. One Night Only (Disco) (With Sharon Leal, Anika Noni Rose)_Beyonce_드림걸즈 OST\n3. 달라달라_있지\n4. 전남자친구_TOM_72초TV 오구실 (웹드라마) OST\n5. 기억살실_거미\n6. 꼬동만이_Various Artists_쌈, 마이웨이 OST\n7. Doctor kim sa boo (Ending Title)_전창엽, 마마고릴라_낭만닥터 김사부 OST\n8. Speak Out_Various Artists_쌈, 마이웨이 OST\n9. 광해 왕이 된 남자 Opening_모그_광해, 왕이 된 남자 OST\n10. Brand New_신화\n11. 찌질하고 처량한_Various Artists_질투의 화신 OST\n12. 그건 니 생각이고_장기하와 얼굴들\n13. 꽃날_서웅석_황진이 OST\n14. Love Me_The 1975\n15. Into the Unknown_Idina Menzel, Aurora_Frozen 2 (겨울왕국 2 OST)\n16. No! No! No!_Various Artists_질투의 화신 OST\n17. Psycho_Red Velvet\n18. 깨진 유리조각_김현도_VIP OST\n19. Show Me What You Got_The Phantoms",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/Ja0ioh5l3Y0/default.jpg",
@@ -530,57 +517,36 @@
       "url": "https://i.ytimg.com/vi/Ja0ioh5l3Y0/hqdefault.jpg",
       "width": 480,
       "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/Ja0ioh5l3Y0/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/Ja0ioh5l3Y0/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 12,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "Ja0ioh5l3Y0"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/DyjI8XvY5KrJ7Ga2K3mxYs84QTs\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "zQObX3lB3cc"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/gUOJDES5Siq08te9Wj_F6SCwPMk\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy42NEZDNTU0RTRENDUzRjMz",
    "snippet": {
-    "publishedAt": "2020-01-29T12:39:39.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "마트에 왔는데...갇혀버렸습니다!",
-    "description": "용사 펭수는 이만 출동해보겠습니다 펭-빠 [MUSIC INFO] 1. 다가오는 그림자 (The Coming Of Shadows)_서예린_리턴 OST 2. Wonderland_구구단 3. 8282_다비치 ...",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/zQObX3lB3cc/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/zQObX3lB3cc/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/zQObX3lB3cc/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/FOx0oITV3tOzDVU5GGus_xX8fZM\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "wAFL7OcHGiI"
-   },
-   "snippet": {
-    "publishedAt": "2020-01-27T07:00:10.000Z",
+    "publishedAt": "2020-01-27T06:56:30.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[Ep.86] 펭수에게 전수 받는 면접 100% 통과 노하우 (feat. SSAFY)",
-    "description": "면접 합격 비법 펭수가 전수해준다! 86화 1. Death Note - L's Theme_Greatest Soundtracks Ever 2. 지가 말이줘 거진_박미선_동백꽃 필 무렵 OST 3. 정의로운...",
+    "description": "면접 합격 비법 펭수가 전수해준다!\n\n\n\n\n86화\n\n1. Death Note - L's Theme_Greatest Soundtracks Ever\n2. 지가 말이줘 거진_박미선_동백꽃 필 무렵 OST\n3. 정의로운 용식이_유민호_동백꽃 필 무렵 OST\n4. 서른 즈음에_최춘호, 박장순\n5. Technologic_Daft Punk\n6. 마지막 선택_김선경_미안하다 사랑한다 2 OST\n7. 평화의 날_에픽하이\n8. 아무노래_지코\n9. The Office Junior_Unknown_미생 OST\n10. ㅋ_장기하와 얼굴들\n11. 전원일기_주제곡\n12. Intro _ Persona_방탄소년단\n13. 울지마_브로콜리너마저\n14. 지못미_Various Artists_역도요정 김복주 OST\n15. 호불호 (Feat. 기리보이) (Prod. By GRAY)_우원재\n16. Opening Title (파라다이스 Intro) (With T-Max)_그린카카오_꽃보다 남자 OST\n17. 뽀롱뽀롱 뽀로로 - 오프닝 \n18. Gonna Be a Good Day_Rayelle\n19. Don't Stop_ADOY\n20. 청춘 (Day)_우효\n21. 장사하자_하찌와 TJ",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/wAFL7OcHGiI/default.jpg",
@@ -596,24 +562,36 @@
       "url": "https://i.ytimg.com/vi/wAFL7OcHGiI/hqdefault.jpg",
       "width": 480,
       "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/wAFL7OcHGiI/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/wAFL7OcHGiI/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 13,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "wAFL7OcHGiI"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/oJQzCH-zZ2i0shWphBVYXNBYPqA\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "NzETQJSoTog"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/FYQzr4ZEhELjGkBrTN4p41e9CX4\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy43NjE5NDdDRTdENjQ3RTkw",
    "snippet": {
-    "publishedAt": "2020-01-24T12:00:06.000Z",
+    "publishedAt": "2020-01-23T09:28:10.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[Ep.85] 할머니들과 남극식 나이 먹어봤습니다(쿠키有)",
-    "description": "떡국 먹은 내 나이가 어때서 세뱃돈 받기 딱 좋은 나이인데 85화 음원 목록 1. 섬마을 선생님 + 석양을 바라보며 (With 김준석)_박춘석_마파도...",
+    "description": "떡국 먹은 내 나이가 어때서 세뱃돈 받기 딱 좋은 나이인데\n\n\n\n\n\n85화 음원 목록\n\n1. 섬마을 선생님 + 석양을 바라보며 (With 김준석)_박춘석_마파도 OST\n2. Do You Want to Build a Snowman_ (Instrumental Version)_Frozen Karaoke\n3. 사랑방 쏭 (Harmonica ver.)_박기헌_사랑방 선수와 어머니 OST\n4. Delilah_Tom Jones\n5. 문전성시_이병우_호로비츠를 위하여 OST\n6. I Never Woke Up In Handcuffs Before_Hans Zimmer_셜록 홈즈 OST\n7. 오나라_대장금 OST\n8. 샐러리맨 초한지 Title_Unknown\n9. 농촌 봉사 활동-한주헌-마파도 OST\n10. 전원일기_주제곡\n11. 재회_The Soundtrack Kings_뷰티 인사이드 OST\n12. 가슴에 별을 담고-이필호-총각네 야채가게 OST\n13. Frontier (Voices From The East)_양방언\n14. Naruto Main Theme\nhttps://www.youtube.com/watch?v=AF8zTbru0YI&list=PLPVvp4FgiDfC9ZeRjzlqdEM4JVnnTXuMQ&index=4\n15. Across The Nation (Raw Theme)_Union Underground\n16. 12월 32일_별\n17. 사랑가 (feat  이봉근)_두번째 달\n18. 다홍씨에게-오준성-위험한 상견례 OST\n19. 평창의 밤하늘 (피아노, 아쟁)_최준\n20. 손대지마_에일리\n21. Homesick_Kings Of Convenience\n22. Death Note - L's Theme_Greatest Soundtracks Ever\n23. 거리에서_조영욱_뷰티 인사이드 OST",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/NzETQJSoTog/default.jpg",
@@ -632,153 +610,23 @@
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 14,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "NzETQJSoTog"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/4pbVfjb-pm5_FBOFoCWPYfQB73c\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "Jnu7Z3W3QuA"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/xhBLhxZGjSRIjalQHhJd-6eYzT0\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy4wRkVBNUY4OTkzN0JCNTA2",
    "snippet": {
-    "publishedAt": "2020-01-22T12:00:07.000Z",
+    "publishedAt": "2020-01-20T05:45:55.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "(ENG&amp;Español CC) 골디 비하인드 (방탄소년단 떤배님을 만나다!) GoldenDiscAwards Behind (with BTS)",
-    "description": "드디어 만난 방탄소년단 떤배님!! 골든디스크어워즈 시상 비하인드 [MUSIC INFO] 1. 거위의 꿈_인순이 2. Blueming_아이유 3. 작은 것들을 위한 시 (Boy...",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/Jnu7Z3W3QuA/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/Jnu7Z3W3QuA/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/Jnu7Z3W3QuA/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/IQN-xaqsfxP0m4NSMs0Y8EZEwco\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "su5VDndiMtA"
-   },
-   "snippet": {
-    "publishedAt": "2020-01-20T07:00:04.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "[Ep.84] 임문식이에게 낚였습니다",
-    "description": "산업관광지 초대받은 펭수와 물범, 하지만 알고 보니 관광객이 아닌 관광매니저라는데.. ============================ [MUSIC INFO] 1. Camping ...",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/su5VDndiMtA/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/su5VDndiMtA/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/su5VDndiMtA/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/eEq-F_GR0NKqkvaHP0CBLWRWjSk\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "KY5yy96zp1w"
-   },
-   "snippet": {
-    "publishedAt": "2020-01-19T13:00:27.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "[미방송 Clip] 펭브레인 - 넌 내게 반했어",
-    "description": "펭수+노브레인 펭브레인의 넌 내게 반했어 지금 시작합니다.",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/KY5yy96zp1w/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/KY5yy96zp1w/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/KY5yy96zp1w/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/tYLN8DLmVgD26rPnR7lZFO3HpKQ\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "XTzkJqlOiv4"
-   },
-   "snippet": {
-    "publishedAt": "2020-01-17T12:00:09.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "[Ep.83] 생명의 은인을 찾아서 - 펭수는 사랑을 싣고",
-    "description": "펭수가 처음 한국 땅을 밟은 날, 펭수를 구해주고 밥과 택시까지 태워보낸 귀인을 다시 찾아.. 지금 찾으러 갑니다! ============================ [MUSIC...",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/XTzkJqlOiv4/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/XTzkJqlOiv4/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/XTzkJqlOiv4/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/2iSuXmFP4oHo40jO2TN7PkqM9yg\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "ACygGsHa4-M"
-   },
-   "snippet": {
-    "publishedAt": "2020-01-13T07:00:01.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "[EP.82] 락버전 펭수 메들리 [신이나 &amp; 찹쌀떡송]",
-    "description": "노브레인과 함께 펭브레인 밴드를 결성. 펭수의 공연 시작합니다! [MUSIC INFO] 1. In The End_LINKIN PARK 2. You Are Not Alone_Michael Jackson 3. Bermuda ...",
+    "title": "[EP.82] 락버전 펭수 메들리 [신이나 & 찹쌀떡송]",
+    "description": "노브레인과 함께 펭브레인 밴드를 결성. 펭수의 공연 시작합니다!\n\n[MUSIC INFO]\n1. In The End_LINKIN PARK\n2. You Are Not Alone_Michael Jackson\n3. Bermuda [Triangle]_서태지\n4. Thunderstruck_AC/DC\n5. 넌 내게 반했어_노브레인\n6. Mardy Bum_Arctic Monkeys\n7. 패배자 내 인생_오희준_빅포레스트 OST \n8. Rock 'n' Roll Star_Oasis\n9. 큐사인 (Inst.)_이원석_스토브리그 OST\n10. Smoke On The Water_Deep Purple\n11. 최고의 순간 (The Best Moment)_노브레인\n12. Somebody To Love (2014 Remaster)_Queen\n13. 쌍고동 우는 항구_은방울자매",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/ACygGsHa4-M/default.jpg",
@@ -797,21 +645,93 @@
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 15,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "ACygGsHa4-M"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/lgGf2VlfgmQR2UqfzX_7AEN8aCg\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "nYWpTsnJbe0"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/uC0BlaZg1HWU_uzanhZ73uOy4gU\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy44NjIxNjc5OUQwQkJBODQ5",
    "snippet": {
-    "publishedAt": "2020-01-10T12:00:10.000Z",
+    "publishedAt": "2020-01-17T05:35:46.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "[Ep.84] 임문식이에게 낚였습니다",
+    "description": "산업관광지 초대받은 펭수와 물범, 하지만 알고 보니 관광객이 아닌 관광매니저라는데..\n\n\n============================\n[MUSIC INFO] \n\n1. Camping Everywhere_죠지\n2. 너 눈깔이 왜 또 이랴_ _유민호_동백꽃 필 무렵 OST\n3. 젊은 그대_김수철\n4. 슈퍼잡초맨_세븐티핑거스(하하 & 장기하와 얼굴들)\n5. 다크서클_김경윤_교회오빠의 연애QT\n6. When Johnny Comes Marching Home_Craig Duncan\n7. Welcome To The Jungle_Guns N' Roses\n8. OMG_박정환_동백꽃 필 무렵 OST\n9. 얼음들_악동뮤지션(AKMU)\n10. 사랑이 뭔데 (Inst.)_서현진, 유승우\n11. 흔들리는 꽃들 속에서 네 샴푸향이 느껴진거야 (Inst.)_장범준\n12. Watchout Panther_이주한\n13. 슬금슬금_이재학\n14. Go Do_Jonsi\n15. 누구 없소 (NO ONE) (Feat. B.I of iKON)_이하이\n16. Smell Like Something Fishy_박정환_동백꽃 필 무렵 OST\n17. 전원일기 주제곡\n\n============================",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/su5VDndiMtA/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/su5VDndiMtA/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/su5VDndiMtA/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     }
+    },
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 16,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "su5VDndiMtA"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/ZXCwwKbt164ZWWk_D7KDe9SvKL4\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy43RDg3MzJDMTRFMTZFOTAw",
+   "snippet": {
+    "publishedAt": "2020-01-17T04:51:51.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "[Ep.83] 생명의 은인을 찾아서 - 펭수는 사랑을 싣고",
+    "description": "펭수가 처음 한국 땅을 밟은 날, 펭수를 구해주고 밥과 택시까지 태워보낸 귀인을 다시 찾아.. 지금 찾으러 갑니다!\n\n============================\n[MUSIC INFO] \n\n1. 옹산, 봄_박미선_동백꽃 필 무렵 OST\n2. Mr.Joke_유태환_신의 퀴즈_리부트 OST\n3. 하얀 나비_JK 김동욱\n4. The Sound Of Silence_Simon And Garfunkel\n5. Sub Title-Unknown-나쁜남자 OST\n6. 본조 아리랑 (소리꾼 김나니)_이지수\n7. 섬마을 선생님 + 석양을 바라보며 (With 김준석)_박춘석_마파도 OST\n8. 요리왕 비룡_OST\nhttps://www.youtube.com/watch?v=2wL_jAEHBHk\n9. 꼬동만이_Various Artists_쌈, 마이웨이 OST\n10. 아프리카 청춘이다_10cm\n11. 여우비_이선희\n12. Sulky Girl 1 (Organ ver )_김현수_응답하라 1988 OST \n13. Comedy Of Errors_응답하라 1988 OST \n14. 정류장_Panic\n15. The Power Of Love_Celine Dion\n16. 첫눈처럼 너에게 가겠다_에일리_도깨비 OST \n17. 또 다시 (ふたたび) (애니 '센과 치히로의 행방불명')_구동훈\n18. Moon Crystal_M83\n19. When Johnny Comes Marching Home_Craig Duncan\n\n============================",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/XTzkJqlOiv4/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/XTzkJqlOiv4/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/XTzkJqlOiv4/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     }
+    },
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 17,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "XTzkJqlOiv4"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/ltnj6Tf1fiSc9o6fEsQPWltEUPw\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy5BNzdEQzY0REQzQTEyN0U3",
+   "snippet": {
+    "publishedAt": "2020-01-10T04:32:08.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[EP.81] 펭수 밴드 도전기 feat.노브레인",
-    "description": "펭수가 드럼에 빠져 밴드를 준비하는데.. 과연 밴드를 결성할 수 있을까? [MUSIC INFO] 1. Good And Bad_정재우_고호의 별이 빛나는 밤에 OST 2.",
+    "description": "펭수가 드럼에 빠져 밴드를 준비하는데.. 과연 밴드를 결성할 수 있을까?\n\n[MUSIC INFO]\n1. Good And Bad_정재우_고호의 별이 빛나는 밤에 OST\n2. Enter Sandman_Metallica\n3. Duel With Facilities_Nick Urata_영화 패딩턴 (Paddington) OST\n4. Fakery_로맨티스코_고백부부 OST\n5. Woeful Men_Various Artists_결혼전야 OST\n6. 넌 내게 반했어 (Movie ver.)_노브레인\n7. No! No! No!_Various Artists_질투의 화신 OST\n8. 병맛 같은 매력_이윤지_W OST\n9. 찌질하고 처량한_Various Artists_질투의 화신 OST\n10. Burn_Deep Purple\n11. Sweet Child O' Mine_Guns N' Roses\n12. Smells Like Teen Spirit_Nirvana\n13. Radio Radio_노브레인\n14. The Show Must Go On (2011 Mix)_Queen_보헤미안 랩소디 OST",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/nYWpTsnJbe0/default.jpg",
@@ -827,57 +747,36 @@
       "url": "https://i.ytimg.com/vi/nYWpTsnJbe0/hqdefault.jpg",
       "width": 480,
       "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/nYWpTsnJbe0/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/nYWpTsnJbe0/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 18,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "nYWpTsnJbe0"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/TUqiJ7bp25bUAdRiWvxjh1QiAlo\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "3Sgzatr3Oa4"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/twiYZGDufzD1h3PYbYTXBJV2SW8\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy5EODgyNjY4MzA3QzY5RTkx",
    "snippet": {
-    "publishedAt": "2020-01-07T11:00:01.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "펭수, 선과 악 거대한 전쟁의 결말을 확인하기 위해 영화관 가다?!",
-    "description": "스타워즈: 라이즈 오브 스카이워커를 보기 위해 보호자(?)와 함께 영화관을 갔어여! 오늘 결말을 확인할 수 있을까여? [MUSIC INFO] - 그남자 The Man...",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/3Sgzatr3Oa4/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/3Sgzatr3Oa4/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/3Sgzatr3Oa4/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/ytW_HJ7hfCtuuMMmU8QM94KQnSM\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "ntBGnPwqMq8"
-   },
-   "snippet": {
-    "publishedAt": "2020-01-06T07:00:06.000Z",
+    "publishedAt": "2020-01-03T07:27:26.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[Ep.80]컬링, 좋아하세요?(쿠키有)",
-    "description": "팀킴에게 컬링을 배우고 함께 컬링대결을 한다. 팀펭vs팀팍 과연 승자는?? 1. Chrysocome_Lorne Balfe_마다가스카의 펭귄 OST 2. 기분좋은날_오봉준 3. 미련한...",
+    "description": "팀킴에게 컬링을 배우고 함께 컬링대결을 한다. 팀펭vs팀팍 과연 승자는??\n\n\n1. Chrysocome_Lorne Balfe_마다가스카의 펭귄 OST\n2. 기분좋은날_오봉준\n3. 미련한 사랑_JK 김동욱\n4. Slam Dunk OST - Timeout Shohoku ~ You Guys are Strong~\nhttps://www.youtube.com/watch?v=Tcb8xbu5Sq0\n5. The Great Escape_Boys Like Girls\n6. Laughable_이찬영_마녀의 사랑 OST\n7. 60's Cardin_Glen Check\n8. Okinawa Comic_오혜주_마녀의 사랑 OST\n9. Slam Dunk OST - Hanamichi ~ On the Rebound Road ~\nhttps://www.youtube.com/watch?v=CVVFg_P4mVA\n10. Shoot A Target_Various Artists_더뱅커 OST\n11. 환상 속의 그대 PART Ⅲ (Techno Taiji Mix) (Live & Techno Mix)_서태지\n12. Slam Dunk OST - Rival Confrontation _ Sendoh vs. Rukawa\nhttps://www.youtube.com/watch?v=TydgDBCNXnk\n13. 하얀 꿈 하얀 사랑_김용하_아이싱(Icing) OST\n14. HUL_엄기엽 & Julie_또 오해영 OST\n15. Error다, 애라_Various Artists_쌈, 마이웨이 OST\n16. Slam Dunk OST - Tip Off!\nhttps://www.youtube.com/watch?v=jvZ9ilroWAg\n17. Driver’s High _L'Arc_en_Ciel\n18. Future GPX Cyber Formula BGM Round II - VIOLENT WIND\nhttps://www.youtube.com/watch?v=ssFUcQMSFmU&t=2s\n19. Slam Dunk OST - Akagi's Uncertainty\nhttps://www.youtube.com/watch?v=KkcaNrOcTRc\n20. 편지_김광진\n21. Slam Dunk OST - Fight!\nhttps://www.youtube.com/watch?v=fDr4glPRNpw\n22. Hungry For Lunch_Hans Zimmer_쿵푸 팬더 3 OST\n23. Godsend_Yoshimata Ryo_하늘에서 내리는 1억개의 별 OST\n24. 슬램덩크 엔딩 (너와 함께라면)_박응식\n25. Whiplash_Hank Levy_위플래쉬 (Whiplash) OST\n26. Big Sleep_Unknown_신세계 OST",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/ntBGnPwqMq8/default.jpg",
@@ -893,24 +792,36 @@
       "url": "https://i.ytimg.com/vi/ntBGnPwqMq8/hqdefault.jpg",
       "width": 480,
       "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/ntBGnPwqMq8/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/ntBGnPwqMq8/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 19,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "ntBGnPwqMq8"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/_741HkDOVAf1YAQxByC4_Bhh0SU\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "Q6z3Uc8kXvk"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/77ib8oGM45r0lzwB49uNFhzI854\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy4wN0FBRUVFNEVBMTZBQ0Mx",
    "snippet": {
-    "publishedAt": "2020-01-03T12:00:05.000Z",
+    "publishedAt": "2020-01-03T06:42:47.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[Ep.79] 펭수의 고향 남극으로",
-    "description": "펭수가 엽서 한장만 남기고 사라졌다. 고향으로 떠난 펭수.. 그리고 그런 펭수를 찾아 나선 제작진. 79화 1. Into the Unknown_Idina Menzel, Aurora_Frozen...",
+    "description": "펭수가 엽서 한장만 남기고 사라졌다. 고향으로 떠난 펭수.. 그리고 그런 펭수를 찾아 나선 제작진.\n\n\n\n79화\n\n1. Into the Unknown_Idina Menzel, Aurora_Frozen 2 OST\n2. Destiny (inst.)_신민용_최고의 사랑 OST\n3. All Sewn Up (Album Version)_David Holmes_오션스 13 OST\n4. No! No! No!_Various Artists_질투의 화신 OST\n5. Love Me Again-John Newman\n6. Crescendo (크레셴도)_악동뮤지션\n7. BLUE COTTON SHIRT_이주한_시를 잊은 그대에게 OST \n8. 전원일기_오프닝\n9. Immigrant Song_Led Zeppelin\n10. He's a Pirate_Klaus Badelt_캐리비안의 해적 OST\n11. Cupid's Mission_오혜주_단, 하나의 사랑 OST\n12. 봄 눈_박지윤\n13. 새해 복_장기하와 얼굴들\n14. Snow Frolic_Francis Lai_러브 스토리 OST\n15. 처음부터 지금까지 (inst.)_박정원_겨울연가 OST\n16. MOVE_태민\n17. 사랑하는 나의 악사들에게_THEY 2010\n18. Life Traffic Jam_Manceau\n19. 너에게로 가는 길 (Inst.)_박상민",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/Q6z3Uc8kXvk/default.jpg",
@@ -926,57 +837,36 @@
       "url": "https://i.ytimg.com/vi/Q6z3Uc8kXvk/hqdefault.jpg",
       "width": 480,
       "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/Q6z3Uc8kXvk/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/Q6z3Uc8kXvk/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 20,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "Q6z3Uc8kXvk"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/2VzCZsxgQBwK-itR-q_SgmhdFWc\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "Rwv2QyFkAHU"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/Mf_PlcEoR5NXiCoWkjYHV_EAl9I\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy4zNDIxRUJGQThFRTg1QzAy",
    "snippet": {
-    "publishedAt": "2020-01-02T13:02:55.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "펭수의 스노우 ASMR (feat. 신년맞이 꿀잠기원)",
-    "description": "펭수의 스노우 ASMR 듣고 새해에는 꿀잠 주무세여~~~",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/Rwv2QyFkAHU/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/Rwv2QyFkAHU/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/Rwv2QyFkAHU/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/7TRfiXh3m6UhqFvl57H-el5UqGQ\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "CzdY95zghRE"
-   },
-   "snippet": {
-    "publishedAt": "2019-12-30T07:00:01.000Z",
+    "publishedAt": "2019-12-27T04:38:28.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[Ep.78]  펭수, 펑수 만났습니다 | 파자마 어워드 (2)",
-    "description": "EBS 연예대상 \"펭TV 파자마 어워드!\" 예상 못한 축하공연과 스페셜 게스트까지 나노 단위로 웃겨드립니다 1. 아름다운 강산_이선희 2. No! No! No!_Various...",
+    "description": "EBS 연예대상 \"펭TV 파자마 어워드!\" 예상 못한 축하공연과 스페셜 게스트까지 나노 단위로 웃겨드립니다\n\n\n1. 아름다운 강산_이선희 \n2. No! No! No!_Various Artists_질투의 화신 OST\n3. Best Of My Love_The Emotions\n4. Toxic_Britney Spears\n5. Crazy In Love (feat. Jay-Z)_Beyonce\n6. Yeah!_Usher\n7. 짜라빠빠_반디합창단\n8. Lazy Violin_최인희, 오혜주_그녀의 사생활 OST\n9. Mai Piu' Cosi' Lontano (이제 다시 헤어지지 말아요)_Andrea Bocelli\n10. 눈을 보고 말해요_V O S\n11. Crawling In The Dark_Hoobastank\n12. Go Go! Picnic_마틴스미스\n13. All You Need Is Love (Glee Cast ver.)_Glee Cast\n14. Into the Unknown_Idina Menzel(이디나 멘젤) , Aurora(오로라)\n15. Into the Unknown_Panic! At The Disco_Frozen 2 (겨울왕국 2 OST)",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/CzdY95zghRE/default.jpg",
@@ -995,54 +885,23 @@
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 21,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "CzdY95zghRE"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/xokSWJpA-pTZXKsaTe_NNQCNHpU\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "bwzjR-hvj9Q"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/8ASzMH_Yc8PqNoZg7ilwm3da1LI\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy4yOTZGRTNEQ0ZGNUM5RDgw",
    "snippet": {
-    "publishedAt": "2019-12-29T11:00:05.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "펭수 요원, 폭발을 시켜야만 한다!",
-    "description": "특명! 영화 백두산 인기 폭발 대작전! 과연 성공 할 것 인가? [MUSIC INFO] 모두컴.",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/bwzjR-hvj9Q/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/bwzjR-hvj9Q/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/bwzjR-hvj9Q/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/ij_KIGr0P06kWNjYE9IN1hKwg9o\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "ki3TcgZWxRo"
-   },
-   "snippet": {
-    "publishedAt": "2019-12-27T12:00:08.000Z",
+    "publishedAt": "2019-12-27T02:37:06.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[Ep.77]  2019 EBS 연예대상 | 파자마 어워드 (1)",
-    "description": "펭TV 연!말!결!산! 역대 출연자들과 함께하는 웃음 가득 시상식! ============================ [MUSIC INFO] 1. Star Wars Main Title_John Williams 2.",
+    "description": "펭TV 연!말!결!산! 역대 출연자들과 함께하는 웃음 가득 시상식!\n\n\n\n\n============================\n[MUSIC INFO] \n\n1. Star Wars Main Title_John Williams\n2. Another Day Of Sun (From  La La Land  Soundtrack)_La La Land Cast\n3. FAKE LOVE_방탄소년단\n4. Christmalo win_서태지\n5. NO눈치 (feat. Crush)_샘김\n6. The Runway_Face 2 Fake_전개걸 OST\n7. O_Zion.T\n8. Rise (From 'The Dark Knight Rises)_London Music Works\n9. He Is The Hero! ~Justice_Takayuki_히어로 (Hero) OST\n10. 니가 참 좋아_쥬얼리\n11. 너를_브라운 아이드 소울 \n12. 고백_박혜경\n13. Stay_Alessia Cara, Zedd\n14. 아름다운 강산_이선희\n============================",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/ki3TcgZWxRo/default.jpg",
@@ -1061,87 +920,23 @@
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 22,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "ki3TcgZWxRo"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/kM5LIC-Q5XisfGxu9lb2t219MiA\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "oOAg4ZuQox0"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/m_G3qPX35YAf6jNzRY4MT8rNawk\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy5CQzUwREI3MzkxQjdBM0E0",
    "snippet": {
-    "publishedAt": "2019-12-26T11:00:10.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "드.디.어 연락이 왔다! 참치 모델!",
-    "description": "펭수가 드디어!!! 참치 모델 제의를 받아떠여! 펭클럽 여러분 함께 참치쏭 1월 12일까지 골라주떼여! ▷지금 바로 투표하기 http://bitly.kr/RPMSi5f.",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/oOAg4ZuQox0/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/oOAg4ZuQox0/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/oOAg4ZuQox0/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/sInvhqMH6XMhetGkug6CoCo_9D8\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "1CnX9JKtvks"
-   },
-   "snippet": {
-    "publishedAt": "2019-12-24T08:08:33.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "펭수의 메리크리스마스 (feat. 산타텔미 풀버전 M/V) &quot;Santa Tell Me&quot; Covered by a Giant Penguin",
-    "description": "메리펭수마스 산타텔미 들으면서 즐거운 크리스마스 보내!",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/1CnX9JKtvks/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/1CnX9JKtvks/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/1CnX9JKtvks/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/wCZhnbYQHjifPJrJMxsdV1A8h6Y\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "n5_ciLUoykY"
-   },
-   "snippet": {
-    "publishedAt": "2019-12-23T07:00:07.000Z",
+    "publishedAt": "2019-12-23T02:22:07.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[Ep.76] 나 홀로 소품실에",
-    "description": "크리스마스를 맞아 파티를 하려는 펭수, 하지만 올 수 있는 사람이 아무도 없어서 결국 혼자 하게 되는데.",
+    "description": "크리스마스를 맞아 파티를 하려는 펭수, 하지만 올 수 있는 사람이 아무도 없어서 결국 혼자 하게 되는데...\n\n\n==========================================\n[MUSIC INFO]\n\n1. Somewhere In My Memory (Voice)_John Williams_나홀로집에 OST\n2. Rabbit Step_박세준, 우지훈_초면에 사랑합니다 OST\n3. Odd Neighbor_로맨티스코_이번 생은 처음이라 OST\n4. 편지_김광진 \n5. White Christmas(Voice)_John Williams_나홀로집에 OST\n6. I Feel Good (I Got You)_James Brown\n7. Scammed By A Kindergartner (Inst.)_John Williams_나홀로집에 OST\n8. Jingle Bells (feat  The Puppini Sisters)_Michael Buble\n9. 그녀의 작은손 (Her small caring hands)_엄기엽, 이영주_쌉니다 천리마마트 OST\n10. Let It Snow (feat  스윗소로우)_성시경\n11. Winter Wonderland_새벽공방\n12. We Wish You A Merry Christmas_ John Williams_나홀로집에 OST\n13. Olympic Fanfare and Theme_John Williams",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/n5_ciLUoykY/default.jpg",
@@ -1157,222 +952,36 @@
       "url": "https://i.ytimg.com/vi/n5_ciLUoykY/hqdefault.jpg",
       "width": 480,
       "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/n5_ciLUoykY/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/n5_ciLUoykY/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 23,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "n5_ciLUoykY"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/f8HQhySqRDrDoRcGE8sUziydhPY\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "PGg29u4t2vY"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/0xC-3xhsE13Ybo19h8NzVY2vH6Q\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy40OTQ5QjlEMDgzN0FBNUIw",
    "snippet": {
-    "publishedAt": "2019-12-22T13:10:30.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "냉탕과 온탕을 오가는 지옥의 뒤끝파티 (feat.슈퍼콘 챌린지)",
-    "description": "드디어 만났다! 펭수와 슈퍼콘, 슈퍼콘과 펭수.",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/PGg29u4t2vY/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/PGg29u4t2vY/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/PGg29u4t2vY/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/qOPK4_qZHNPSByUvNAn4DHiBL1s\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "v6mqUUmGqec"
-   },
-   "snippet": {
-    "publishedAt": "2019-12-20T12:00:11.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "[Ep.75] 펭력사무소-공항편",
-    "description": "해외진출 하는줄 알고 신난 펭수. 그러나 해외가 아니라 공항에서 교육을 받게 되는데.. ============================ [MUSIC INFO] 1. Square (2017)_백예린 ...",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/v6mqUUmGqec/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/v6mqUUmGqec/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/v6mqUUmGqec/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/5deW1RmAcXDEFTumuCkq3U1_phQ\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "v1qWnr86Ivw"
-   },
-   "snippet": {
-    "publishedAt": "2019-12-19T11:01:45.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "뿡뿡이 선배님의 방귀교실 (feat. 아무도 몰랐던 선배님의 과거)",
-    "description": "뿡뿡이 선배님한테 이런 과거가 있는 지 펭수는 처음 알았네ㅠ ============================ [MUSIC INFO] 1. 고추참치_고흐케이 2. 또라이계의 최강자_ ...",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/v1qWnr86Ivw/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/v1qWnr86Ivw/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/v1qWnr86Ivw/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/LPefZFfyNp4He_uSt5fIk0_DVOY\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "9v6oBBsW3gA"
-   },
-   "snippet": {
-    "publishedAt": "2019-12-16T07:00:00.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "[Ep.74] 오늘은 내가 대빵",
-    "description": "1일 보건복지부 장관이 된 펭수. 대빵이 된 펭수는 무슨 일을 할까? 1. Love Is An Open Door_Kristen Bell, Santino Fontana_겨울왕국 (Frozen) OST 2. 쇼팽_ 에튀드.",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/9v6oBBsW3gA/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/9v6oBBsW3gA/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/9v6oBBsW3gA/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/nnB9NKIo5T3HRz0J-psDKI5wjiE\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "0jQ6W6BPUFc"
-   },
-   "snippet": {
-    "publishedAt": "2019-12-13T12:17:19.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "[Ep.73] 10살 펭귄 벌써 집 장만",
-    "description": "드디어 소품실을 탈출한 펭수, 새로운 펭숙소에서 집들이를 하는데... 과연 어떤 모습일까? 1. 비밀의숲_김준석_비밀의 숲 OST 2. Faint_LINKIN PARK...",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/0jQ6W6BPUFc/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/0jQ6W6BPUFc/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/0jQ6W6BPUFc/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/u4k_9zbYYVkt3HS_rjEkfHkRFDA\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "8qYmLVOlYXI"
-   },
-   "snippet": {
-    "publishedAt": "2019-12-10T11:00:00.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "영화 &#39;천문: 하늘에 묻는다&#39; 오디션 보러 간 펭수(*쿠키영상 있음!)",
-    "description": "첫 영화 오디션을 본 펭수! 라면 먹고 돌아오다? [MUSIC INFO] 1. What's Your Name (If You Want The Part, Earn It)_J.K. Simmons_Whiplash OST 2. The Avengers ...",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/8qYmLVOlYXI/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/8qYmLVOlYXI/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/8qYmLVOlYXI/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/MHSsZgQN-DbnlB_ww7M_92sS_oY\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "OD-Y-CxHz4A"
-   },
-   "snippet": {
-    "publishedAt": "2019-12-09T07:00:02.000Z",
+    "publishedAt": "2019-12-22T14:50:07.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[Ep.72] 수업 중에 경운기를 몰아봤다",
-    "description": "범이의 적성을 찾아주기 위해 펭수가 데려간 그곳에서 뜻밖의 재능을 찾게 되는데.... ============================ [MUSIC INFO] 1. 때리러 가요_오병주_너...",
+    "description": "범이의 적성을 찾아주기 위해 펭수가 데려간 그곳에서 \n뜻밖의 재능을 찾게 되는데....\n\n\n\n============================\n[MUSIC INFO] \n\n1. 때리러 가요_오병주_너의 여자친구 OST\n2. 그리워라_10cm\n3. The Militia Marches In_Jean-Yves Thibaudet_오만과 편견 OST\n4. Crescendolls_Daft Punk\n5. Verge (feat. Aloe Blacc)_Owl City\n6. 사계_거북이\n7. Macgyver (맥가이버)_The Daniel Caine Orchestra\n8. 위잉위잉_혁오\n9. 오빠차_인크레더블,타블로,지누션\n10. うららかな朝_Yoshimata Ryo\n11. He's a Pirate_Klaus Badelt_캐리비안의 해적 OST\n12. 미스 김_자이언티\n13. 200_악동뮤지션(AKMU)\n14. All I Want For Christmas Is You_Mariah Carey\n15. 잘못된 만남_김건모\n16. Volcano_Damien Rice\n17. Beautiful Day_어반자카파\n18. Beyond_Daft Punk\n19. 슬램덩크 (엔딩)_박응식\n20. Theme From \"The Simpsons\"_   TV Theme Band\n============================",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/OD-Y-CxHz4A/default.jpg",
@@ -1388,24 +997,171 @@
       "url": "https://i.ytimg.com/vi/OD-Y-CxHz4A/hqdefault.jpg",
       "width": 480,
       "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/OD-Y-CxHz4A/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/OD-Y-CxHz4A/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 24,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "OD-Y-CxHz4A"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/otwbFla_yRxqV352xNsU-T_jypo\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "rRZtVrh6kgI"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/wHK50WnK4qKiT_wnTKkQRF5nFSY\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy5GNzk2RTlDQTNCQzJCQzJG",
    "snippet": {
-    "publishedAt": "2019-12-06T12:00:14.000Z",
+    "publishedAt": "2019-12-20T04:27:33.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "[Ep.75] 펭력사무소-공항편",
+    "description": "해외진출 하는줄 알고 신난 펭수. 그러나 해외가 아니라 공항에서 교육을 받게 되는데..\n\n============================\n[MUSIC INFO] \n\n1. Square (2017)_백예린\n2. Romance_Yuhki Kuramoto_Scores Of Piano\n3. Romance (영화 '달콤한 인생' OST)_Unknown\n4. 빙고_거북이\n5. 효선을 미행하는 장영_김지수_연애의 온도 OST\n6. 크라이슬러 - 사랑의 기쁨_Maxim Vengerov\n7. 여고생 스컬리_이루리_사랑하기 때문에 OST\n8. 스파크 (Spark)_Hideharu Mori & Tatsuro Ariki\n9. Live Actually_강희찬_이번 생은 처음이라 OST\n10. Touch My Body_씨스타\n11. We Don't Stop (feat. 이주한)_아소토 유니온\n12. 당신은 사랑 받기 위해_옥탑방과 천사들\n13. The Riddle Of The Model_Sing Street_싱 스트리트 OST\n14. Calliope_Bob Telson\n15. Don't Let Me Be Misunderstood_달파란 & 장영규_좋은놈 나쁜놈 이상한놈 OST\n16. Manners Maketh Man_Henry Jackman & Matthew Margeson_킹스맨 OST\n17. 그랑죠 OST\n18. When The World Finale_Lea Michele_돌아온 도로시 OST \n19. 우리의 얘기를 쓰겠소 (Inst.)_SG워너비_시카고 타자기 OST\n20. We Wish You A Merry Christmas _ End Title_John Williams_나홀로 집에 OST",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/v6mqUUmGqec/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/v6mqUUmGqec/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/v6mqUUmGqec/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/v6mqUUmGqec/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/v6mqUUmGqec/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 25,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "v6mqUUmGqec"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/yFbbv7Zf7nCRPQViKZCzqny65w8\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy5EMUJFNzRCNDRFQjE5RjM4",
+   "snippet": {
+    "publishedAt": "2019-12-13T03:37:45.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "[Ep.74] 오늘은 내가 대빵",
+    "description": "1일 보건복지부 장관이 된 펭수. 대빵이 된 펭수는 무슨 일을 할까?\n\n\n\n1. Love Is An Open Door_Kristen Bell, Santino Fontana_겨울왕국 (Frozen) OST\n\n2. 쇼팽_ 에튀드 작품 10-4 추격 (Chopin_ Etude Op.10 No.4) 권순훤\n\n3. Caravan_John Wasson_Whiplash OST\n\n4. Jump again_김종천_두근두근 스파이크 OST\n\n5. Come Together_The Beatles\n\n6. 질풍가도 ('쾌걸 근육맨 2세' 여는노래)_유정석\n\n7. 그대랑_이적\n\n8. The Office Junior_Unknown_미생 OST\n\n9. Get Ghost_Mark Ronson, Passion Pit, A$AP Ferg\n\n10. Little more cheer up_진명용_낭만닥터 김사부 OST\n\n11. Javanaise_Claude Bolling\n\n12. 아파_보니\n\n13. Funkytown_Lipps Inc\n\n14. 적도_전기뱀장어\n\n15. 풍문으로 들었소_장기하와 얼굴들",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/9v6oBBsW3gA/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/9v6oBBsW3gA/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/9v6oBBsW3gA/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/9v6oBBsW3gA/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/9v6oBBsW3gA/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 26,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "9v6oBBsW3gA"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/m6PL6GB17Bzb2CnyNrrhvcDoMrw\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy5CNEYyNTVBNDdGMDI1MDNC",
+   "snippet": {
+    "publishedAt": "2019-12-13T03:22:27.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "[Ep.73] 10살 펭귄 벌써 집 장만",
+    "description": "드디어 소품실을 탈출한 펭수, 새로운 펭숙소에서 집들이를 하는데... 과연 어떤 모습일까?\n\n\n\n1. 비밀의숲_김준석_비밀의 숲 OST\n2. Faint_LINKIN PARK\n3. Fascio_이재진_오싹한 연애 OST\n4. Antifreeze_검정치마\n5. 놀러와_우리집_믹스나인 Part.6\n6. 나를 믿지 마세요_조영욱_그녀를 믿지 마세요 OST\n7. World Cup Song (Long ver.)_CLON\n8. Lively_이필호_녹색마차 OST\n9. 시놉시스_김대홍_미술관 옆 동물원 OST\n10. 밤과 도시_Unknown_부당거래 OST\n11. View_SHINee (샤이니)\n12. 러브픽션_박주원_러브픽션 OST\n13. 꽃송이가_버스커 버스커\n14. 그대와 나_옥상달빛\n15. Warm On A Cold Night_HONNE\n16. 1974 Way Home_Mondo Grosso\n17. Don't Let Me Be Misunderstood_달파란 & 장영규_좋은놈 나쁜놈 이상한놈 OST\n18. 줌마들의 작전_주인로_내 뒤에 테리우스 OST\n19. My Life (Feat. 효린 Of 씨스타)_상주나(정준하, 윤상)_무한도전 영동고속도로 가요제\n20. 북향 (Hemi's room) (Feat. 오혁)_다이나믹듀오\n21. 브람스 자장가 (오르골 Mix Ver.)_레몽",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/0jQ6W6BPUFc/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/0jQ6W6BPUFc/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/0jQ6W6BPUFc/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/0jQ6W6BPUFc/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/0jQ6W6BPUFc/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 27,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "0jQ6W6BPUFc"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/JQx5u4CH2ms8-q9pCrLJDHTBL4s\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy5FRjdGNDMzN0I2RTI3MDlG",
+   "snippet": {
+    "publishedAt": "2019-12-06T03:09:49.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[Ep.71] 내 헤드셋 누가 가져갔어?",
-    "description": "펭수가 헤드셋을 사기당했다!? 명탐정이 된 펭수가 벌이는 집요한 조사 끝에 범인은...? ============================ [MUSIC INFO] 1. 시간이 없는 관계로_개 ...",
+    "description": "펭수가 헤드셋을 사기당했다!?\n명탐정이 된 펭수가 벌이는 집요한 조사 끝에 범인은...?\n\n\n\n\n============================\n[MUSIC INFO] \n\n1. 시간이 없는 관계로_개미_더 패키지 OST\n2. 기다림_이승열\r\n3. 재한의 추리_김준석_시그널 OST\r\n4. 아르곤_티어라이너_아르곤 OST\r\n5. Empire State Of Mind_Alicia Keys\r\n6. Lolita_Lana Del Rey\r\n7. 그냥 (Just)_Zion.T, Crush\r\n8. Lovin' You_Minnie Riperton\r\n9. Clickers_Various Artists_돈꽃 OST\r\n10. Fly Me To The Moon_조성모\r\n11. 단독전쟁_이승환\r\n12. Despicable Me 3 Score Suite_Heitor Pereira_슈퍼배드 3 (Despicable Me 3) OST\r\n13. 마지막 파티_방준석, 김명환_베테랑 OST\r\n14. Escape Room (Madsonik And Kill The Noise Remix)_Brian Tyler, John Carey_이스케이프 룸 (Escape Room) OST\r\n15. 찌질하고 처량한_Various Artists_질투의 화신  OST\r\n16. Loving You_Kenny G\r\n17. 비밀의숲_김준석_비밀의 숲 OST\r\n18. The Empire Of Hatred (증오의 제국)_넥스트(N.EX.T)\n19. Gloomy Sunday_MC 스나이퍼_\r\n20. The Masterplan_Oasis\r\n21. MacGyver_The Daniel Caine Orchestra\n============================",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/rRZtVrh6kgI/default.jpg",
@@ -1421,90 +1177,36 @@
       "url": "https://i.ytimg.com/vi/rRZtVrh6kgI/hqdefault.jpg",
       "width": 480,
       "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/rRZtVrh6kgI/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/rRZtVrh6kgI/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 28,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "rRZtVrh6kgI"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/jTlc_zvj3dkUyN7Prffno986lI0\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "RKi98URQ6GM"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/XwvjHq6hu4syKfjGz9YgO3p86B4\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy5ERENFNTk4Q0Q2MTZDMTA5",
    "snippet": {
-    "publishedAt": "2019-12-04T11:00:05.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "펭수로 세계 대통합은 이미 시작됐다.",
-    "description": "Pengsoo is Korea TOP creator Penguin! Do you know PENGSOO? 독일 Weißt du Pengsoo? 프랑스 Vous connaissez Pengsoo? 러시아 Вы знаете Пенсу?",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/RKi98URQ6GM/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/RKi98URQ6GM/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/RKi98URQ6GM/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/zJw2oiFmLESMyVwDLFEC0X9FE9g\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "mXUX4V_CYWw"
-   },
-   "snippet": {
-    "publishedAt": "2019-12-02T07:13:47.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "[EP.70] 별주부전아닙니다 펭.수.전 입니다",
-    "description": "펭수의 간을 탐내는 자가 있다???? 용왕의 사신 해로와 펭수와의 만남 그리고 숨겨진 이야기들 펭수판 별주부전 음원 정보 1. 여민락 4장_조유회...",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/mXUX4V_CYWw/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/mXUX4V_CYWw/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/mXUX4V_CYWw/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/AD76zeUCdRNVmFSy2FcBUlrj_X0\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "Ofi8fGaP6nU"
-   },
-   "snippet": {
-    "publishedAt": "2019-11-29T12:00:04.000Z",
+    "publishedAt": "2019-11-29T10:58:51.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[EP.69] 펭수의 펭생극장",
-    "description": "전원배 매니저(Feat.퇴사자인더하우스) 얼굴에 김이 묻었다. 이걸 어떻게 말을 해줘야하나? 말아야 하나?! 펭수의 선택에 펭생이 달라진다 음원...",
+    "description": "전원배 매니저(Feat.퇴사자인더하우스) 얼굴에 김이 묻었다.\n이걸 어떻게 말을 해줘야하나? 말아야 하나?!\n펭수의 선택에 펭생이 달라진다\n\n음원 정보\n1.인생극장(inst)-남궁연\n2.매일 그대와_들국화\n3.Waltz 4 Minnie (Orch ver )_Unknown_파스타 (MBC 월화드라마) ost\n4.Comic Sence_옆가르마1 & 옆가르마4_미싱 코리아 (웹 드라마) OST\n5.말이야_이홍기\n6.빙(永)_거리의 시인들\n7.돈 Call Me (Prod.BRLLNT)_염따\n8.HIP_마마무\n9.너는 내게 비타민 같아 (inst.)_모트(Motte)\n10. Off The Record_Will Jay\n11.The Godfather - Main Title Theme_Andre Rieu\n12.뭐지_Unknown_호구의 사랑 OST\n13.Funky Boy_마마무\n14.그대 사랑한적 있는가_다연\n15.친구_안재욱\n16. 사설난봉가 (inst )_김소정",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/Ofi8fGaP6nU/default.jpg",
@@ -1520,57 +1222,81 @@
       "url": "https://i.ytimg.com/vi/Ofi8fGaP6nU/hqdefault.jpg",
       "width": 480,
       "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/Ofi8fGaP6nU/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/Ofi8fGaP6nU/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 29,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "Ofi8fGaP6nU"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/pzRYvGZtW7OKsuv4ONerwepRPCo\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "qBkN_uIDjSc"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/SeBB4Y9vY0WZ7N-6AIfTDh_NLgw\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy5DQjg2RDQyMEVGQkZFOEVF",
    "snippet": {
-    "publishedAt": "2019-11-27T09:42:03.000Z",
+    "publishedAt": "2019-11-29T06:06:18.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "펭수, 판매왕에 도전한다 (feat. 이거사면 10개로 드립니다?!!)",
-    "description": "신촌에 놀러갔다가 사고쳤는데 이거이거 나 판매 소질있는 듯.",
+    "title": "[EP.70] 별주부전아닙니다 펭.수.전 입니다",
+    "description": "펭수의 간을 탐내는 자가 있다????\n용왕의 사신 해로와 펭수와의 만남 그리고 숨겨진 이야기들\n펭수판 별주부전\n\n음원 정보\n1. 여민락 4장_조유회\n2. 비행기 (feat. 하야나)_루이\r\n3. 아이유 - 밤편지 (피아노 커버)_신기원\r\n4. 황당한 만남_이윤지_로봇이 아니야 OST\r\n5. The Godfather Waltz_The City Of Prague Philharmonic Orchestra\r\n6. Waltz With Me (Opening Title) (Inst.)_오준성_사랑의 온도 (SBS 월화드라마) OST\r\n7. Adiemus_Karl Jenkins\r\n8. 아테나(Athena)_동방신기\r\n9. 조폭 2_방준석, 현서원_힘을 내요, 미스터 리 OST\r\n10. 콩떡빙수_(AKMU)악동뮤지션\r\n11. 뱃노래_자우림\r\n12. 우리 지금 만나 (feat. 장기하와 얼굴들)_리쌍\r\n13. Say My Name_nokdu\r\n14. Palladio_Escala\r\n15. Intro_장영규_타짜 OST\r\n16. 경합_이필효_식객 OST\r\n17. This Business of Love_Domino_The Mask OST",
     "thumbnails": {
      "default": {
-      "url": "https://i.ytimg.com/vi/qBkN_uIDjSc/default.jpg",
+      "url": "https://i.ytimg.com/vi/mXUX4V_CYWw/default.jpg",
       "width": 120,
       "height": 90
      },
      "medium": {
-      "url": "https://i.ytimg.com/vi/qBkN_uIDjSc/mqdefault.jpg",
+      "url": "https://i.ytimg.com/vi/mXUX4V_CYWw/mqdefault.jpg",
       "width": 320,
       "height": 180
      },
      "high": {
-      "url": "https://i.ytimg.com/vi/qBkN_uIDjSc/hqdefault.jpg",
+      "url": "https://i.ytimg.com/vi/mXUX4V_CYWw/hqdefault.jpg",
       "width": 480,
       "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/mXUX4V_CYWw/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/mXUX4V_CYWw/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 30,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "mXUX4V_CYWw"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/5mJsP8owRqr_VDsFYirLKPEQkwM\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "v5IYlkZEPxA"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/4Mg1viLCSnQYSgC8m1bWnNkI-IQ\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy4wQUE0QzM4MkJGQ0YwQjUx",
    "snippet": {
-    "publishedAt": "2019-11-25T07:00:06.000Z",
+    "publishedAt": "2019-11-22T04:05:48.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[Ep 68] 새 연습생 합류?",
-    "description": "요즘 핫한 소속사 EBS에서 E벤져스에 합류할 새 연습생을 뽑는다는데...? 오디션장에 나타난 펭수.. 위기감을 느낀 펭수는 배틀을 신청 한다 1....",
+    "description": "요즘 핫한 소속사 EBS에서 E벤져스에 합류할 새 연습생을 뽑는다는데...? 오디션장에 나타난 펭수.. 위기감을 느낀 펭수는 배틀을 신청 한다\n\n\n1. We Are The Future_H.O.T.\n\n2. Born Hater - 에픽하이 (Melody 포함 MR)_Musicen \r\n\n3. Forever Young (Feat. 릴러말즈)_자이언트핑크\r\n\n4. Dreams Come True_S.E.S.\r\n\n5. 으르렁 (Growl)_EXO\r\n\n6. Mirror Mirror_자이언트핑크\r\n\n7. Still D.R.E. (feat. Tray Deee, Snoop Dogg)_Dr. Dre\r\n\n8. 그냥 (Just)_Zion.T\r\n\n9. 눈_Zion.T\r\n\n10. Never Stop_Chilly Gonzales\r\n\n11. Gonna Fly Now (Theme From \"Rocky\")_Bill Conti\r\n\n12. Your Dog Loves You (Feat. Crush)_Colde(콜드)\r\n\n13. Perhaps Love (사랑인가요) (Prod.By 박근태)_에릭남, CHEEZE(치즈)\r\n\n14. 나랑 아니면_검정치마\r\n\n15. Love Runs Out_OneRepublic\r\n\n16. The House (Instrumental)_John Williams_나 홀로 집에 (Home Alone) OST \r\n\n17. Comic Sence_옆가르마1, 옆가르마4_미싱 코리아 OST\r\n\n18. 니가 틀던 노랜 좋지도 않았는데_하우스키퍼스\n “Prod. Evol Beats”\n https://www.youtube.com/watch?v=vad97jzy21o\n\n19. Rock Meets Rachmaninoff_The Piano Guys(피아노 가이즈)\r\n\n20. 양화대교_Zion.T\r\n\n21. 인생극장 (inst)_남궁연",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/v5IYlkZEPxA/default.jpg",
@@ -1586,57 +1312,36 @@
       "url": "https://i.ytimg.com/vi/v5IYlkZEPxA/hqdefault.jpg",
       "width": 480,
       "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/v5IYlkZEPxA/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/v5IYlkZEPxA/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 31,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "v5IYlkZEPxA"
+    }
    }
   },
   {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/x1J9tIK7ZFL9UJwluuoNYnsWndI\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "13nTdgAZMAw"
-   },
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/9_AI06dwiCedf5N6tiWi7sdF514\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy5GMDBDNkJGMzYzREUyMTYw",
    "snippet": {
-    "publishedAt": "2019-11-24T13:42:29.000Z",
-    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
-    "title": "펭수, 부산 팬 사인회 그 뜨거운 현장 공개",
-    "description": "(191026) 부산 팬 사인회 팬분들과 함께한 그 열광의 현장 드디어 공개!",
-    "thumbnails": {
-     "default": {
-      "url": "https://i.ytimg.com/vi/13nTdgAZMAw/default.jpg",
-      "width": 120,
-      "height": 90
-     },
-     "medium": {
-      "url": "https://i.ytimg.com/vi/13nTdgAZMAw/mqdefault.jpg",
-      "width": 320,
-      "height": 180
-     },
-     "high": {
-      "url": "https://i.ytimg.com/vi/13nTdgAZMAw/hqdefault.jpg",
-      "width": 480,
-      "height": 360
-     }
-    },
-    "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
-   }
-  },
-  {
-   "kind": "youtube#searchResult",
-   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/ZgqoU7va7S9fNn9s5_1Dbj5g1XA\"",
-   "id": {
-    "kind": "youtube#video",
-    "videoId": "yUJAvW2Rykc"
-   },
-   "snippet": {
-    "publishedAt": "2019-11-22T12:00:18.000Z",
+    "publishedAt": "2019-11-22T03:59:06.000Z",
     "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
     "title": "[Ep 67] 전 세계 게 섰거라 (feat. 외교부)",
-    "description": "K-펭귄 한다 해외진출.",
+    "description": "K-펭귄 한다 해외진출",
     "thumbnails": {
      "default": {
       "url": "https://i.ytimg.com/vi/yUJAvW2Rykc/default.jpg",
@@ -1652,10 +1357,758 @@
       "url": "https://i.ytimg.com/vi/yUJAvW2Rykc/hqdefault.jpg",
       "width": 480,
       "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/yUJAvW2Rykc/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/yUJAvW2Rykc/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
      }
     },
     "channelTitle": "자이언트 펭TV",
-    "liveBroadcastContent": "none"
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 32,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "yUJAvW2Rykc"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/ImzmceKPHWeyxGxSrj8dN4v8bSY\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy5CMUM0NzY5NzdEQzlGRjAx",
+   "snippet": {
+    "publishedAt": "2019-11-17T13:32:58.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "[Ep.66]  화보 모델 펭수",
+    "description": "펭수가 화보 모델로서 촬영을 하게 되었다!\n화보 촬영을 위한 펭수의 눈물(?) 나는 노력!\n그리고 현직 모델에게 직접 받는 모델 포즈까지!",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/XUM3sH1kBtw/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/XUM3sH1kBtw/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/XUM3sH1kBtw/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/XUM3sH1kBtw/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/XUM3sH1kBtw/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 33,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "XUM3sH1kBtw"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/hWVqxLwFEgX41H_Dm8FZkdL-nV0\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy5EMzJDRTUwQjBEOUVFQzAw",
+   "snippet": {
+    "publishedAt": "2019-11-15T05:36:16.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "[Ep.65] 세상에 나쁜 펭귄은 없다.",
+    "description": "어느 날 갑자기 펭수에게 이상한 행동들이 보인다!? \n걱정된 제작진들이 긴급 솔루션 대책 마련에 나섰다!\n\n세상에 나쁜 펭귄은 없다!\n\n=========================\n 칠판옆 '꿈을 이루기 위한 7가지 충고 - ' 저자 김효석'\n=========================",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/wedLGh2jxkQ/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/wedLGh2jxkQ/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/wedLGh2jxkQ/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/wedLGh2jxkQ/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/wedLGh2jxkQ/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 34,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "wedLGh2jxkQ"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/PRLYk3N1yzWsa8CPOEaEcHXJnIU\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy40NzE2MTY1QTM3RUI3QkU3",
+   "snippet": {
+    "publishedAt": "2019-11-13T05:19:06.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "[Ep.54] 펭수 VS 패션왕 임휘순 | 수학여행 코디배틀",
+    "description": "수학여행의 최대 난제 ! 수학여행 패션을 펭슈스가 직접 집도(?) 한다! 그리고 특별 게스트 임휘순 패션멘토와 함께하는 패션대결까지!",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/WpfexQQkmP4/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/WpfexQQkmP4/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/WpfexQQkmP4/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/WpfexQQkmP4/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/WpfexQQkmP4/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 35,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "WpfexQQkmP4"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/iTI__I10HICpYYN_TBjTxrq5uWs\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy44MkM2RjVEQkQ5N0I2MjVE",
+   "snippet": {
+    "publishedAt": "2019-11-13T05:18:59.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "[Ep.54] 펭수 VS 패션왕 임휘순 | 수학여행 코디배틀",
+    "description": "수학여행의 최대 난제 ! 수학여행 패션을 펭슈스가 직접 집도(?) 한다! 그리고 특별 게스트 임휘순 패션멘토와 함께하는 패션대결까지!",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/WpfexQQkmP4/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/WpfexQQkmP4/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/WpfexQQkmP4/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/WpfexQQkmP4/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/WpfexQQkmP4/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 36,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "WpfexQQkmP4"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/bCYwHPWQuaOnmkSwrMnhV2KXkU0\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy44QTA1QTQyRTc3M0VGQzYx",
+   "snippet": {
+    "publishedAt": "2019-11-13T05:18:52.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "[Ep.54] 펭수 VS 패션왕 임휘순 | 수학여행 코디배틀",
+    "description": "수학여행의 최대 난제 ! 수학여행 패션을 펭슈스가 직접 집도(?) 한다! 그리고 특별 게스트 임휘순 패션멘토와 함께하는 패션대결까지!",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/WpfexQQkmP4/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/WpfexQQkmP4/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/WpfexQQkmP4/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/WpfexQQkmP4/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/WpfexQQkmP4/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 37,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "WpfexQQkmP4"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/FsQl2RUV-dmu6yrQJfngM4w5guI\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy4wMDFGNzBEOTU4Q0Y1Q0RG",
+   "snippet": {
+    "publishedAt": "2019-11-11T06:19:48.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "1회 남극 유치원 동창회 시작합니다(Feat. 둘리 선배님 등장)",
+    "description": "펭수가 똑이 범이 둘리 선배님과 동창회 겸 단풍놀이에 떠납니다.\n남극 친구들과의 동창회에서 떠나는 즐거운 시간들 시잡합니다",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/E5f4pRIycsU/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/E5f4pRIycsU/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/E5f4pRIycsU/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/E5f4pRIycsU/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/E5f4pRIycsU/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 38,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "E5f4pRIycsU"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/5J4newt4TkKi0NfTCNOrZWjKPCc\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy4xNTZBNUQxMDZBQzFGMjkw",
+   "snippet": {
+    "publishedAt": "2019-11-08T08:26:37.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "펭수의 매니저 사관학교(feat.매니저스) 펭! 하!",
+    "description": "매니저에 적응 중인 2기 매니저스\n펭수 사관학교를 통해 진정한 매니저로 거듭나보자\n펭! 하!",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/R2Oro64h5aM/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/R2Oro64h5aM/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/R2Oro64h5aM/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/R2Oro64h5aM/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/R2Oro64h5aM/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 39,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "R2Oro64h5aM"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/i-LbKGv2nJSkzFvqWszh5EaAU3E\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy4zQTkzRjgxRTY0OEU0MkM3",
+   "snippet": {
+    "publishedAt": "2019-11-01T06:48:22.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "[Ep.62] 인간x펭귄 두근두근 첫 데이트",
+    "description": "펭수에게도 핑크빛이?! (feat.펭수 열애설)",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/iJF3R-5V2pU/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/iJF3R-5V2pU/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/iJF3R-5V2pU/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/iJF3R-5V2pU/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     }
+    },
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 40,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "iJF3R-5V2pU"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/omF_ajCMz8QI85QkIPXpRWqTAyc\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy44QTY2MEEzNzBFQUJCMUQ2",
+   "snippet": {
+    "publishedAt": "2019-11-01T06:39:35.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "[Ep.61] 나 펭수, 학교에 잠입한다.",
+    "description": "고3들아 기다려라! 펭수가 간다!",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/ThzyHA0LHvI/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/ThzyHA0LHvI/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/ThzyHA0LHvI/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/ThzyHA0LHvI/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/ThzyHA0LHvI/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 41,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "ThzyHA0LHvI"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/mWicwCfromj0fF6OrnPKgmce9Zs\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy4xNjIyNEE0MDEyRDlCMjBE",
+   "snippet": {
+    "publishedAt": "2019-10-25T11:00:59.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "[Ep.60] 펭수 VS 배성재, 퇴사각? | SBS 정복기 (2)",
+    "description": "펭수 VS 배성재!!!\n의외의 재능에 스카웃 제의를 받은 펭수의 선택은?",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/ze1wbV20qAU/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/ze1wbV20qAU/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/ze1wbV20qAU/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/ze1wbV20qAU/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/ze1wbV20qAU/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 42,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "ze1wbV20qAU"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/vyk1fcZMuWAvynpGYjj4plSQPMY\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy5CMEVBRUJERkUyNTBENTkz",
+   "snippet": {
+    "publishedAt": "2019-10-25T02:09:57.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "[Ep.59] 펭수 vs 재재 | SBS 정복기(1)",
+    "description": "SBS의 셀럽을 자처한 누군가가 초대장을 보내왔다!\n펭수의 SBS 정복기 1편 (feat. 재재)",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/5fqCbkIvJuE/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/5fqCbkIvJuE/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/5fqCbkIvJuE/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/5fqCbkIvJuE/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/5fqCbkIvJuE/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 43,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "5fqCbkIvJuE"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/stjKJ92oqHWpU1r1R4UTIr3qZgM\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy5FQUY2Qzk4RUFDN0ZFRkZF",
+   "snippet": {
+    "publishedAt": "2019-10-21T10:33:16.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "[Ep.58]한류 펭귄 펭수, 해외진출합니다 -프랑스편-",
+    "description": "펭수가 드디어 해외진출을?!???\n펭수 친구 엘로디의 프랑스 진출 꿀팁 대방출!!\n펭수는 프랑스 진출에 성공할 수 있을까??",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/5OFDUu8UOvY/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/5OFDUu8UOvY/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/5OFDUu8UOvY/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/5OFDUu8UOvY/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/5OFDUu8UOvY/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 44,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "5OFDUu8UOvY"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/yde7Sw1ON9MO_pWTqU8YNGQ7sJA\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy4yQzk4QTA5QjkzMTFFOEI1",
+   "snippet": {
+    "publishedAt": "2019-10-18T07:42:14.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "[단독] 펭귄 의혹 전격 해부! ㅣ독점 인터뷰: 김민교, 양치승 [Ep.57]",
+    "description": "펭수가 펭귄이 아니다?!?!?  \n펭수를 둘러싼 정체에 대한 의혹\n낱낱이 파헤쳐 보겠습니다 펭펭!!",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/UD-WQvgjsng/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/UD-WQvgjsng/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/UD-WQvgjsng/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/UD-WQvgjsng/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/UD-WQvgjsng/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 45,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "UD-WQvgjsng"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/MeMl8ANeopKrnNhz9KUiFVcC5wg\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy5EQkE3RTJCQTJEQkFBQTcz",
+   "snippet": {
+    "publishedAt": "2019-10-11T04:59:39.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "[Ep.56] '펭TV 야유회'라고 쓰고 '지옥'이라 읽는다",
+    "description": "놀이공원에 놀러온 펭TV팀.\n앞으로 펼쳐질 고난과 역경을 예상하지 못한 채\n마냥 즐거워(?)하는데... \n*뮤비챌린지 이벤트의 전말*",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/pv84Qcu9DOQ/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/pv84Qcu9DOQ/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/pv84Qcu9DOQ/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/pv84Qcu9DOQ/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/pv84Qcu9DOQ/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 46,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "pv84Qcu9DOQ"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/P9Q9e4kswqTskwmJTXGVFOwYZ_c\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy43QzNCNkZENzIyMDY2MjZB",
+   "snippet": {
+    "publishedAt": "2019-10-11T04:52:54.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "[Ep.55] 교감 선생님 풀장에 빠뜨린 SSUL",
+    "description": "펭수가 동수초등학교에서 혁신을 일으킨다는데.. 과연 어떤 혁신들을 준비했을까?",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/A3_UpfZ1-pE/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/A3_UpfZ1-pE/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/A3_UpfZ1-pE/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/A3_UpfZ1-pE/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/A3_UpfZ1-pE/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 47,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "A3_UpfZ1-pE"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/88EMe0mdF1geu_5PzAx7wbAT4Dc\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy42RTNCOEMxREI3Q0VDMjU2",
+   "snippet": {
+    "publishedAt": "2019-10-03T02:54:36.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "[Ep.53] 펭수.한다.소방관.",
+    "description": "펭수가 시민을 위해 일일 소방관으로 임명이 되었다! 심폐소생술, 화재진압\n\n그리고 들어온 긴급신고로 말벌집 제거 출동까지 하는 펭수의 기상천외한 일일 소방 활약!",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/7SKjzUC77xg/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/7SKjzUC77xg/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/7SKjzUC77xg/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     },
+     "standard": {
+      "url": "https://i.ytimg.com/vi/7SKjzUC77xg/sddefault.jpg",
+      "width": 640,
+      "height": 480
+     },
+     "maxres": {
+      "url": "https://i.ytimg.com/vi/7SKjzUC77xg/maxresdefault.jpg",
+      "width": 1280,
+      "height": 720
+     }
+    },
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 48,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "7SKjzUC77xg"
+    }
+   }
+  },
+  {
+   "kind": "youtube#playlistItem",
+   "etag": "\"ksCrgYQhtFrXgbHAhi9Fo5t0C2I/3y2XeQu84Jco6UsjTFkgrPDy2YA\"",
+   "id": "UExlcTFDMTUzN0V2SE80blhDWGI5OHN0U3ktQUg4b2phcy40MDNEMzA0QTBFRThFMzBE",
+   "snippet": {
+    "publishedAt": "2019-09-28T03:16:19.000Z",
+    "channelId": "UCtckgmUcpzqGnzcs7xEqMzQ",
+    "title": "Private video",
+    "description": "This video is private.",
+    "channelTitle": "자이언트 펭TV",
+    "playlistId": "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas",
+    "position": 49,
+    "resourceId": {
+     "kind": "youtube#video",
+     "videoId": "c8gN7Xlks8A"
+    }
    }
   }
  ]

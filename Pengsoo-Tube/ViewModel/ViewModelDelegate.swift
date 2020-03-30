@@ -9,15 +9,13 @@
 import Foundation
 
 protocol ViewModelDelegate: class {
-    func reloadHeader()
-    func reloadTable(type: RequestType)
-    func success(message: String)
+    func success(type: RequestType, message: String)
     func showError(type: RequestType, error: ViewModelDelegateError, message: String)
 }
 
 extension ViewModelDelegate {
-    func success() {
-        success(message: "")
+    func success(type: RequestType) {
+        success(type: type, message: "")
     }
     
     func showError(type: RequestType, error: ViewModelDelegateError) {

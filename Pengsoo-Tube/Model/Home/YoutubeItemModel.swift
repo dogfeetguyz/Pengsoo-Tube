@@ -14,6 +14,12 @@ struct YoutubeItemModel {
     var brandingSettings: BrandingSettingsModel = BrandingSettingsModel()
 }
 
+extension YoutubeItemModel: Equatable {
+    static func == (lhs: YoutubeItemModel, rhs: YoutubeItemModel) -> Bool {
+        return lhs.snippet.resourceId.videoId == rhs.snippet.resourceId.videoId
+    }
+}
+
 extension YoutubeItemModel: Mappable {
     init?(map: Map) {
     }

@@ -43,6 +43,49 @@ class Util {
             }
         }
     }
+    
+    static func processDate(dateString: String) -> String {
+        let splittedStrings = dateString.split(separator: "T")
+        
+        if splittedStrings.count > 1 {
+            let dateformatter = DateFormatter()
+            dateformatter.dateFormat = "yyyy-MM-dd"
+            let date = dateformatter.date(from: String(splittedStrings[0]))
+
+            let requestedComponent: Set<Calendar.Component> = [ .day]
+            let timeDifference = Calendar.current.dateComponents(requestedComponent, from: date!, to: Date())
+            
+            if timeDifference.day! == 0 {
+                return "Today"
+            } else if timeDifference.day! < 7 {
+                return "\(timeDifference.day!) days ago"
+            } else if timeDifference.day! < 28 {
+                let week: Int = timeDifference.day!/7
+                return String(format: "%d %@ ago", week, week == 1 ? "week" : "weeks" )
+            } else if timeDifference.day! < 365 {
+                var month = Int(Double(timeDifference.day!)/(365.0/12.0))
+                if month == 0 {
+                    month += 1
+                }
+                return String(format: "%d %@ ago", month, month == 1 ? "month" : "months" )
+            } else {
+                let year: Int = timeDifference.day!/365
+                return String(format: "%d %@ ago", year, year == 1 ? "year" : "years" )
+            }
+        }
+        
+        return ""
+    }
+    
+    static func openYoutube(videoId: String) {
+        var youtubeUrl = URL(string:"youtube://\(videoId)")!
+        if UIApplication.shared.canOpenURL(youtubeUrl){
+            UIApplication.shared.open(youtubeUrl, options: [:], completionHandler: nil)
+        } else{
+            youtubeUrl = URL(string:"https://www.youtube.com/watch?v=\(videoId)")!
+            UIApplication.shared.open(youtubeUrl, options: [:], completionHandler: nil)
+        }
+    }
 
     struct Page {
         var name = ""

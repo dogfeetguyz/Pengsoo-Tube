@@ -9,7 +9,7 @@
 import CoreData
 import UIKit
 
-class MylistDetailViewModel {
+class LibraryDetailViewModel {
         
     var mylistItem: Mylist
     weak var delegate: ViewModelDelegate?
@@ -24,12 +24,12 @@ class MylistDetailViewModel {
             mylistItem.removeFromVideos(at: at)
             do {
                 try managedOC.save()
-                delegate?.reloadTable(type: .mylistDetail)
+                delegate?.success(type: .mylistDetailDelete)
             } catch {
-                delegate?.showError(type: .mylistDetail, error: .fail, message: "Something went wrong. Please try again.")
+                delegate?.showError(type: .mylistDetailDelete, error: .fail, message: "Something went wrong. Please try again.")
             }
         } else {
-            delegate?.showError(type: .mylistDetail, error: .fail, message: "Something went wrong. Please try again.")
+            delegate?.showError(type: .mylistDetailDelete, error: .fail, message: "Something went wrong. Please try again.")
         }
     }
     
@@ -60,7 +60,7 @@ class MylistDetailViewModel {
             
             do {
                 try managedOC.save()
-                delegate?.reloadTable(type: .mylistDetail)
+                delegate?.success(type: .mylistDetail)
             } catch {
                 delegate?.showError(type: .mylistDetail, error: .fail, message: "Something went wrong. Please try again.")
             }
@@ -76,12 +76,12 @@ class MylistDetailViewModel {
             
             do {
                 try managedOC.save()
-                delegate?.success()
+                delegate?.success(type: .mylistDelete)
             } catch {
-                delegate?.showError(type: .mylistDetail, error: .fail, message: "Something went wrong. Please try again.")
+                delegate?.showError(type: .mylistDelete, error: .fail, message: "Something went wrong. Please try again.")
             }
         } else {
-            delegate?.showError(type: .mylistDetail, error: .fail, message: "Something went wrong. Please try again.")
+            delegate?.showError(type: .mylistDelete, error: .fail, message: "Something went wrong. Please try again.")
         }
     }
 }

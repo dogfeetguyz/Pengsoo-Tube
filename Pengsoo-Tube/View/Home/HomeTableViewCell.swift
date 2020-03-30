@@ -15,6 +15,10 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var titleLabel: InsetLabel!
     @IBOutlet weak var descriptionLabel: InsetLabel!
+    @IBOutlet weak var dateLabel: InsetLabel!
+    @IBOutlet weak var moreButton: UIButton!
+    @IBOutlet weak var moreButtonTopConstraint: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

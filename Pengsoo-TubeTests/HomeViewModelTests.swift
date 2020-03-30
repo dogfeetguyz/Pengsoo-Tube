@@ -6,7 +6,7 @@
 //  Copyright © 2020 Yejun Park. All rights reserved.
 //
 
-@testable import Pengsoo_Tube
+@testable import Peng_Ha_Tube
 import OHHTTPStubs
 import XCTest
 
@@ -27,6 +27,7 @@ class Pengsoo_TubeTests: XCTestCase {
     override func tearDown() {
         sut = nil
         HTTPStubs.removeAllStubs()
+        expectation = nil
     }
     
     func testNoInternetConnection() {
@@ -35,7 +36,7 @@ class Pengsoo_TubeTests: XCTestCase {
             return HTTPStubsResponse(error:notConnectedError)
         }
 
-        sut.getPengsooList(type: .pengsooOutside)
+        sut.dispatchPengsooList(type: .pengsooOutside)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.networkError)
     }
@@ -50,17 +51,17 @@ class Pengsoo_TubeTests: XCTestCase {
 //                headers: [ "Content-Type": "application/json; charset=UTF-8"]
 //            )
 //        }
-        sut.getPengsooList(type: .pengsooTv)
+        sut.dispatchPengsooList(type: .pengsooTv)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
     }
     
     func testRequestPengsooTVListNext() {
-        sut.getPengsooList(type: .pengsooTv)
+        sut.dispatchPengsooList(type: .pengsooTv)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
 
-        sut.getPengsooList(type: .pengsooTv, isInitial:false)
+        sut.dispatchPengsooList(type: .pengsooTv, isInitial:false)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
     }
@@ -70,23 +71,23 @@ class Pengsoo_TubeTests: XCTestCase {
             return HTTPStubsResponse(error: NSError(domain: "Error", code: 400, userInfo: [:]))
         }
 
-        sut.getPengsooList(type: .pengsooTv)
+        sut.dispatchPengsooList(type: .pengsooTv)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.networkError)
     }
     
     func testRequestPengsooYoutubeList() {
-        sut.getPengsooList(type: .pengsooYoutube)
+        sut.dispatchPengsooList(type: .pengsooYoutube)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
     }
     
     func testRequestPengsooYoutubeListNext() {
-        sut.getPengsooList(type: .pengsooYoutube)
+        sut.dispatchPengsooList(type: .pengsooYoutube)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
 
-        sut.getPengsooList(type: .pengsooYoutube, isInitial:false)
+        sut.dispatchPengsooList(type: .pengsooYoutube, isInitial:false)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
     }
@@ -96,23 +97,23 @@ class Pengsoo_TubeTests: XCTestCase {
             return HTTPStubsResponse(error: NSError(domain: "Error", code: 400, userInfo: [:]))
         }
 
-        sut.getPengsooList(type: .pengsooYoutube)
+        sut.dispatchPengsooList(type: .pengsooYoutube)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.networkError)
     }
     
     func testRequestPengsooOutsideList() {
-        sut.getPengsooList(type: .pengsooOutside)
+        sut.dispatchPengsooList(type: .pengsooOutside)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
     }
     
     func testRequestPengsooOutsideListNext() {
-        sut.getPengsooList(type: .pengsooOutside)
+        sut.dispatchPengsooList(type: .pengsooOutside)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
 
-        sut.getPengsooList(type: .pengsooOutside, isInitial:false)
+        sut.dispatchPengsooList(type: .pengsooOutside, isInitial:false)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
     }
@@ -122,7 +123,7 @@ class Pengsoo_TubeTests: XCTestCase {
             return HTTPStubsResponse(error: NSError(domain: "Error", code: 400, userInfo: [:]))
         }
 
-        sut.getPengsooList(type: .pengsooOutside)
+        sut.dispatchPengsooList(type: .pengsooOutside)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.networkError)
     }
@@ -133,12 +134,24 @@ class Pengsoo_TubeTests: XCTestCase {
         XCTAssertGreaterThan(sut.headerUrl.count, 0)
     }
     
+    func testGetItemsListForRequestType() {
+        XCTAssertTrue(false)
+    }
+    
+    func getMylistItems() {
+        XCTAssertTrue(false)
+    }
+    
+    func testCreateMyList() {
+        XCTAssertTrue(false)
+    }
+    
     func testAddToMyList() {
-        sut.getPengsooList(type: .pengsooTv)
+        sut.dispatchPengsooList(type: .pengsooTv)
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
         
-        let mypageViewModel = MypageViewModel()
+        let mypageViewModel = LibraryViewModel()
         mypageViewModel.createPlaylist(title: "test_playlist1")
         
         sut.addToMylist(at: 0, listOf: .pengsooTv, toMylist: mypageViewModel.mylistItems.last!)
@@ -157,23 +170,17 @@ class Pengsoo_TubeTests: XCTestCase {
 }
 
 extension Pengsoo_TubeTests: ViewModelDelegate {
-    func reloadTable(type: RequestType) {
-        expectation!.fulfill()
-        errorOccurred = .noError
-    }
-    
-    func reloadHeader() {
-        expectation!.fulfill()
-        errorOccurred = .noError
-    }
-    
-    func success(message: String) {
-        // local call -> no waiting time needed
+    func success(type: RequestType, message: String) {
+        if expectation != nil {
+            expectation!.fulfill()
+        }
         errorOccurred = .noError
     }
     
     func showError(type: RequestType, error: ViewModelDelegateError, message: String) {
-        expectation!.fulfill()
+        if expectation != nil {
+            expectation!.fulfill()
+        }
         errorOccurred = error
     }
 }

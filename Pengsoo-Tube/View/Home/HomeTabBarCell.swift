@@ -8,9 +8,9 @@
 
 import UIKit
 
-let TabBarCollectionViewCellID = "TabBarCollectionViewCell"
+let HomeTabBarCellID = "HomeTabBarCell"
 
-class TabBarCollectionViewCell: UICollectionViewCell {
+class HomeTabBarCell: UICollectionViewCell {
     
     @IBOutlet weak var tabNameLabel: UILabel!
     

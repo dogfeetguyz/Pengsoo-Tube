@@ -6,20 +6,20 @@
 //  Copyright © 2020 Yejun Park. All rights reserved.
 //
 
-@testable import Pengsoo_Tube
+@testable import Peng_Ha_Tube
 import XCTest
 import OHHTTPStubs
 
 class MylistDetailViewModelTests: XCTestCase {
     
-    var sut: MylistDetailViewModel!
+    var sut: LibraryDetailViewModel!
     var delegate: ViewModelDelegate!
-    var mypageViewModel: MypageViewModel!
+    var mypageViewModel: LibraryViewModel!
 
     var errorOccurred: ViewModelDelegateError = .noError
     
     override func setUp() {
-        mypageViewModel = MypageViewModel()
+        mypageViewModel = LibraryViewModel()
         mypageViewModel.createPlaylist(title: "test_playlist1")
         
         stub(condition: isHost("www.googleapis.com")) { _ in
@@ -33,7 +33,7 @@ class MylistDetailViewModelTests: XCTestCase {
         }
         
         let homeViewModel = HomeViewModel()
-        homeViewModel.getPengsooList(type: .pengsooTv)
+        homeViewModel.dispatchPengsooList(type: .pengsooTv)
         
         _ = XCTWaiter.wait(for: [expectation(description: "Test after 1 seconds")], timeout: 1.0)
         for i in 0 ..< 5 {
@@ -41,7 +41,7 @@ class MylistDetailViewModelTests: XCTestCase {
         }
         mypageViewModel.getMylist()
         
-        sut = MylistDetailViewModel(mylistItem: mypageViewModel.mylistItems.last!)
+        sut = LibraryDetailViewModel(mylistItem: mypageViewModel.mylistItems.last!)
         
         sut.delegate = self
         errorOccurred = .noError
@@ -74,15 +74,7 @@ class MylistDetailViewModelTests: XCTestCase {
 }
 
 extension MylistDetailViewModelTests: ViewModelDelegate {
-    func reloadTable(type: RequestType) {
-        errorOccurred = .noError
-    }
-    
-    func reloadHeader() {
-        errorOccurred = .noError
-    }
-    
-    func success(message: String) {
+    func success(type: RequestType, message: String) {
         errorOccurred = .noError
     }
     

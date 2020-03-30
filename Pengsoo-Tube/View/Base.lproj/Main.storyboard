@@ -23,7 +23,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJ3-GH-4jL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="310" y="312"/>
+            <point key="canvasLocation" x="154" y="293"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Jeg-N4-aPx">
@@ -39,7 +39,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="irJ-dQ-vPv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1043" y="312"/>
+            <point key="canvasLocation" x="865" y="293"/>
         </scene>
         <!--Library-->
         <scene sceneID="CeX-9h-xuK">
@@ -69,12 +69,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="86f-iK-Ad5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-486" y="340"/>
+            <point key="canvasLocation" x="-575" y="321"/>
         </scene>
         <!--Home-->
         <scene sceneID="9sB-Q1-KFi">
             <objects>
-                <viewController id="HjZ-2V-EsE" customClass="ViewController" customModule="Peng_Ha_Tube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HjZ-2V-EsE" customClass="HomeViewController" customModule="Peng_Ha_Tube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FJl-dv-NdD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -102,7 +102,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TabBarCollectionViewCell" id="n6G-Jd-r0g" customClass="TabBarCollectionViewCell" customModule="Peng_Ha_Tube" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeTabBarCell" id="n6G-Jd-r0g" customClass="HomeTabBarCell" customModule="Peng_Ha_Tube" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="5" width="40" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NyP-16-7w1">
@@ -111,7 +111,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YjL-12-vJy">
                                                     <rect key="frame" x="20" y="15" width="0.0" height="10"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -168,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eud-8w-lIw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="290" y="-366"/>
+            <point key="canvasLocation" x="155" y="-368"/>
         </scene>
         <!--Player View Controller-->
         <scene sceneID="LYu-Nl-nID">
@@ -225,12 +225,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yzG-IO-5ib" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1043" y="-358"/>
+            <point key="canvasLocation" x="865" y="-366"/>
         </scene>
-        <!--Content View Controller-->
+        <!--Home Content View Controller-->
         <scene sceneID="1U0-7T-pYi">
             <objects>
-                <viewController storyboardIdentifier="ContentViewController" id="mFQ-4K-4fi" customClass="ContentViewController" customModule="Peng_Ha_Tube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContentViewController" id="mFQ-4K-4fi" customClass="HomeContentViewController" customModule="Peng_Ha_Tube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ig0-YU-npt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -240,14 +240,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HomeTableViewCell" id="dgh-vk-4fb" customClass="HomeTableViewCell" customModule="Peng_Ha_Tube" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="283"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="333"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dgh-vk-4fb" id="TSG-7Y-Nej">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="283"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="333"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3UA-l8-dXV">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="283"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="333"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ARX-Tj-pJs">
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="10"/>
@@ -262,23 +262,36 @@
                                                                 <constraint firstAttribute="width" secondItem="66g-LW-QOg" secondAttribute="height" multiplier="16:9" id="MBC-01-r2A"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="moK-RA-0bw">
+                                                            <rect key="frame" x="0.0" y="243" width="414" height="10"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="10" id="Smv-n7-vCG"/>
+                                                            </constraints>
+                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtm-2L-Kzf" customClass="InsetLabel" customModule="Peng_Ha_Tube" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="243" width="414" height="0.0"/>
+                                                            <rect key="frame" x="0.0" y="253" width="414" height="0.0"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3o-zm-cUu" customClass="InsetLabel" customModule="Peng_Ha_Tube" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="243" width="414" height="30"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3o-zm-cUu" customClass="InsetLabel" customModule="Peng_Ha_Tube" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="253" width="414" height="20"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="WKJ-E9-oto"/>
+                                                                <constraint firstAttribute="height" constant="20" id="gsJ-3Q-h24"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUr-Cl-e2w" customClass="InsetLabel" customModule="Peng_Ha_Tube" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="273" width="414" height="50"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RSW-R8-2ry">
-                                                            <rect key="frame" x="0.0" y="273" width="414" height="10"/>
+                                                            <rect key="frame" x="0.0" y="323" width="414" height="10"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="10" id="h0x-re-nPn"/>
@@ -286,16 +299,35 @@
                                                         </imageView>
                                                     </subviews>
                                                 </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wxj-a3-MTY">
+                                                    <rect key="frame" x="364" y="11" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="CL7-Rp-9tq"/>
+                                                        <constraint firstAttribute="height" constant="50" id="qNs-Dp-oAV"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" image="ellipsis" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17" scale="medium" weight="regular"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="moreButtonAction:" destination="mFQ-4K-4fi" eventType="touchUpInside" id="VOc-wU-SRv"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="3UA-l8-dXV" firstAttribute="leading" secondItem="TSG-7Y-Nej" secondAttribute="leading" id="Mph-fs-oAK"/>
                                                 <constraint firstAttribute="trailing" secondItem="3UA-l8-dXV" secondAttribute="trailing" id="OLU-KG-M4d"/>
                                                 <constraint firstItem="3UA-l8-dXV" firstAttribute="top" secondItem="TSG-7Y-Nej" secondAttribute="top" id="PuJ-CF-CL8"/>
+                                                <constraint firstAttribute="trailing" secondItem="Wxj-a3-MTY" secondAttribute="trailing" id="cuU-8C-8BV"/>
                                                 <constraint firstAttribute="bottom" secondItem="3UA-l8-dXV" secondAttribute="bottom" id="d0W-rn-xVh"/>
+                                                <constraint firstItem="Wxj-a3-MTY" firstAttribute="top" secondItem="TSG-7Y-Nej" secondAttribute="topMargin" id="huf-pM-k7k"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="dateLabel" destination="SUr-Cl-e2w" id="1Om-Jx-XO4"/>
                                             <outlet property="descriptionLabel" destination="o3o-zm-cUu" id="LZN-2y-BZX"/>
+                                            <outlet property="moreButton" destination="Wxj-a3-MTY" id="1m5-WM-Vbz"/>
+                                            <outlet property="moreButtonTopConstraint" destination="huf-pM-k7k" id="mUx-e0-eql"/>
                                             <outlet property="thumbnailImageView" destination="66g-LW-QOg" id="ohf-5u-Ou7"/>
                                             <outlet property="titleLabel" destination="jtm-2L-Kzf" id="ARD-WI-CZX"/>
                                         </connections>
@@ -322,7 +354,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NVg-F9-3Hb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1716" y="-361"/>
+            <point key="canvasLocation" x="1586" y="-368"/>
         </scene>
         <!--Home-->
         <scene sceneID="bbl-Dr-wh7">
@@ -459,7 +491,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Hz-oG-YSf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1271" y="-366"/>
+            <point key="canvasLocation" x="-1316" y="-368"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="w7n-lp-k01">
@@ -479,10 +511,11 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Hx-nT-Irp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-487" y="-366"/>
+            <point key="canvasLocation" x="-575" y="-367"/>
         </scene>
     </scenes>
     <resources>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="memories" catalog="system" width="128" height="107"/>
         <image name="multiply" catalog="system" width="128" height="111"/>

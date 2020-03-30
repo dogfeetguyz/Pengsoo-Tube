@@ -15,7 +15,7 @@ var topViewInitialPosition: CGFloat?
 var topViewFinalPosition: CGFloat?
 var topViewTopConstraintRange: Range<CGFloat>?
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
     let viewModel = HomeViewModel()
     
     let tabsCount = AppConstants.home_tab_titles.count
@@ -96,8 +96,8 @@ class ViewController: UIViewController {
     
     func populateBottomView() {
         
-        for (index, requestType) in [RequestType.pengsooTv, RequestType.pengsooYoutube, RequestType.pengsooOutside].enumerated() {
-            let tabContentVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContentViewController") as! ContentViewController
+        for (index, requestType) in AppConstants.home_tab_types.enumerated() {
+            let tabContentVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContentViewController") as! HomeContentViewController
             tabContentVC.innerTableViewScrollDelegate = self
             tabContentVC.requestType = requestType
             tabContentVC.viewModel = viewModel
@@ -132,9 +132,9 @@ class ViewController: UIViewController {
     
     func setViewModel() {
         viewModel.delegate = self
-        viewModel.getPengsooList(type: .pengsooTv)
-        viewModel.getPengsooList(type: .pengsooYoutube)
-        viewModel.getPengsooList(type: .pengsooOutside)
+        for type in AppConstants.home_tab_types {
+            viewModel.dispatchPengsooList(type: type)
+        }
         viewModel.getHeaderInfo()
     }
     
@@ -182,11 +182,7 @@ class ViewController: UIViewController {
     }
 }
 
-
-
-//MARK:- Collection View Data Source
-
-extension ViewController: UICollectionViewDataSource {
+extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -195,7 +191,7 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if let tabCell = collectionView.dequeueReusableCell(withReuseIdentifier: TabBarCollectionViewCellID, for: indexPath) as? TabBarCollectionViewCell {
+        if let tabCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeTabBarCellID, for: indexPath) as? HomeTabBarCell {
             
             tabCell.tabNameLabel.text = pageCollection.pages[indexPath.row].name
             return tabCell
@@ -203,11 +199,6 @@ extension ViewController: UICollectionViewDataSource {
         
         return UICollectionViewCell()
     }
-}
-
-//MARK:- Collection View Delegate
-
-extension ViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -244,9 +235,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-//MARK:- Delegate Method to give the next and previous View Controllers to the Page View Controller
-
-extension ViewController: UIPageViewControllerDataSource {
+extension HomeViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
@@ -275,12 +264,6 @@ extension ViewController: UIPageViewControllerDataSource {
         }
         return nil
     }
-}
-
-//MARK:- Delegate Method to tell Inner View Controller movement inside Page View Controller
-//Capture it and change the selection bar position in collection View
-
-extension ViewController: UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         
@@ -299,9 +282,7 @@ extension ViewController: UIPageViewControllerDelegate {
     }
 }
 
-//MARK:- Sticky Header Effect
-
-extension ViewController: InnerTableViewScrollDelegate {
+extension HomeViewController: InnerTableViewScrollDelegate {
     
     var currentHeaderTop: CGFloat {
         
@@ -360,52 +341,30 @@ extension ViewController: InnerTableViewScrollDelegate {
     }
 }
 
-extension ViewController: ViewModelDelegate {
-    func reloadHeader() {
-        Util.loadCachedImage(url: viewModel.headerUrl) { (image) in
-            self.headerImageView!.image = image
+extension HomeViewController: ViewModelDelegate {
+    func success(type: RequestType, message: String) {
+        if type == .header {
+            Util.loadCachedImage(url: viewModel.headerUrl) { (image) in
+                self.headerImageView!.image = image
+            }
+        } else if AppConstants.home_tab_types.contains(type) {
+            let requestPageIndex = AppConstants.home_tab_types.firstIndex(of: type)!
+            let currentContentViewController = pageCollection.pages[requestPageIndex].vc as? HomeContentViewController
+            currentContentViewController?.canRequestMore = true
+            
+            if pageCollection.selectedPageIndex == requestPageIndex {
+                currentContentViewController!.tableView.reloadData()
+            }
+        } else {
+            
         }
-    }
-    
-    func reloadTable(type: RequestType) {
-        var currentContentViewController: ContentViewController?
-        var requestPageIndex = 0
-        
-        if type == .pengsooTv {
-            requestPageIndex = 0
-        } else if type == .pengsooYoutube {
-            requestPageIndex = 1
-        } else if type == .pengsooOutside {
-            requestPageIndex = 2
-        }
-
-        currentContentViewController = pageCollection.pages[requestPageIndex].vc as? ContentViewController
-        currentContentViewController?.canRequestMore = true
-        
-        if pageCollection.selectedPageIndex == requestPageIndex {
-            currentContentViewController!.tableView.reloadData()
-        }
-    }
-    
-    func success(message: String) {
-        
     }
     
     func showError(type: RequestType, error: ViewModelDelegateError, message: String) {
-        if type == .pengsooTv || type == .pengsooYoutube || type == .pengsooOutside {
-            var currentContentViewController: ContentViewController?
-            var requestPageIndex = 0
-            
-            if type == .pengsooTv {
-                requestPageIndex = 0
-            } else if type == .pengsooYoutube {
-                requestPageIndex = 1
-            } else if type == .pengsooOutside {
-                requestPageIndex = 2
-            }
-
+        if AppConstants.home_tab_types.contains(type) {
             if error != .noItems {
-                currentContentViewController = pageCollection.pages[requestPageIndex].vc as? ContentViewController
+                let requestPageIndex = AppConstants.home_tab_types.firstIndex(of: type)!
+                let currentContentViewController = pageCollection.pages[requestPageIndex].vc as? HomeContentViewController
                 currentContentViewController?.canRequestMore = true
             }
         } else {

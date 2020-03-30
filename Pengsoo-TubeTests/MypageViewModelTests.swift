@@ -6,18 +6,18 @@
 //  Copyright © 2020 Yejun Park. All rights reserved.
 //
 
-@testable import Pengsoo_Tube
+@testable import Peng_Ha_Tube
 import XCTest
 
 class MypageViewModelTests: XCTestCase {
     
-    var sut: MypageViewModel!
+    var sut: LibraryViewModel!
     var delegate: ViewModelDelegate!
 
     var errorOccurred: ViewModelDelegateError = .noError
     
     override func setUp() {
-        sut = MypageViewModel()
+        sut = LibraryViewModel()
         sut.delegate = self
         errorOccurred = .noError
     }
@@ -85,15 +85,7 @@ class MypageViewModelTests: XCTestCase {
 }
 
 extension MypageViewModelTests: ViewModelDelegate {
-    func reloadTable(type: RequestType) {
-        errorOccurred = .noError
-    }
-    
-    func reloadHeader() {
-        errorOccurred = .noError
-    }
-    
-    func success(message: String) {
+    func success(type: RequestType, message: String) {
         errorOccurred = .noError
     }
     

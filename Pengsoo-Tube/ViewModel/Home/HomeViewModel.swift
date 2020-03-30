@@ -26,11 +26,11 @@ class HomeViewModel {
     
     weak var delegate: ViewModelDelegate?
     
-    func getPengsooList(type: RequestType) {
-        getPengsooList(type:type, isInitial: true)
+    func dispatchPengsooList(type: RequestType) {
+        dispatchPengsooList(type:type, isInitial: true)
     }
     
-    func getPengsooList(type: RequestType, isInitial: Bool) {
+    func dispatchPengsooList(type: RequestType, isInitial: Bool) {
         
         if checkNetwork() {
             var parameters: Parameters = Parameters()
@@ -87,7 +87,9 @@ class HomeViewModel {
                             var items: Array<YoutubeItemModel> = []
                             for item in youtubeListItem.items {
                                 if item.snippet.title != "Private video" {
-                                    items.append(item)
+                                    if !items.contains(item) {
+                                        items.append(item)
+                                    }
                                 }
                             }
                             
@@ -101,7 +103,7 @@ class HomeViewModel {
                                 self.outsideNextPageToken = youtubeListItem.nextPageToken
                                 self.outsideListItems.append(contentsOf: items)
                             }
-                            self.delegate?.reloadTable(type:type)
+                            self.delegate?.success(type:type)
                         }
                     case .failure(let error):
                         print(error)
@@ -139,7 +141,7 @@ class HomeViewModel {
                                 self.delegate?.showError(type:.header, error: .noItems)
                                 return
                             }
-                            self.delegate?.reloadHeader()
+                            self.delegate?.success(type: .header)
                         }
                     case .failure(let error):
                         print(error)
@@ -149,6 +151,31 @@ class HomeViewModel {
         } else {
             self.delegate?.showError(type:.header, error: .networkError)
         }
+    }
+    
+    func getItemsList(for requestType: RequestType) -> [YoutubeItemModel]? {
+        switch requestType {
+        case .pengsooTv:
+            return tvListItems
+        case .pengsooYoutube:
+            return youtubeListItems
+        case .pengsooOutside:
+            return outsideListItems
+        default:
+            return nil
+        }
+    }
+    
+    func getMyListItems() -> [Mylist]? {
+        let libraryViewModel = LibraryViewModel()
+        libraryViewModel.getMylist()
+        
+        return libraryViewModel.mylistItems
+    }
+    
+    func createMyList(title: String) {
+        let libraryViewModel = LibraryViewModel()
+        libraryViewModel.createPlaylist(title: title)
     }
     
     func addToMylist(at: Int, listOf: RequestType, toMylist: Mylist) {
@@ -182,7 +209,7 @@ class HomeViewModel {
             toMylist.addToVideos(myVideo)
             do {
                 try managedOC.save()
-                delegate?.success()
+                delegate?.success(type: .mylist)
             } catch {
                 delegate?.showError(type: .mylist, error: .fail, message: "Something went wrong. Please try again.")
             }

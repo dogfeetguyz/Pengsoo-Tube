@@ -9,7 +9,7 @@
 import CoreData
 import UIKit
 
-class MypageViewModel {
+class LibraryViewModel {
     
     var mylistItems: [Mylist] = []
     weak var delegate: ViewModelDelegate?
@@ -24,7 +24,7 @@ class MypageViewModel {
                 let fetchedList = try managedOC.fetch(request)
                 if fetchedList.count > 0 {
                     mylistItems = fetchedList
-                    delegate?.reloadTable(type: .mylist)
+                    delegate?.success(type: .mylist)
                 } else {
                     delegate?.showError(type: .mylist, error: .noItems)
                 }
@@ -60,7 +60,7 @@ class MypageViewModel {
             do {
                 try managedOC.save()
                 mylistItems.append(mylist)
-                delegate?.reloadTable(type: .mylist)
+                delegate?.success(type: .mylist)
             } catch {
                 delegate?.showError(type: .mylist, error: .fail, message: "Something went wrong. Please try again.")
             }
@@ -78,15 +78,15 @@ class MypageViewModel {
                 do {
                     try managedOC.save()
                     mylistItems.remove(at: at)
-                    delegate?.reloadTable(type: .mylist)
+                    delegate?.success(type: .mylistDelete)
                 } catch {
-                    delegate?.showError(type: .mylist, error: .fail, message: "Something went wrong. Please try again.")
+                    delegate?.showError(type: .mylistDelete, error: .fail, message: "Something went wrong. Please try again.")
                 }
             } else {
-                delegate?.showError(type: .mylist, error: .fail, message: "Something went wrong. Please try again.")
+                delegate?.showError(type: .mylistDelete, error: .fail, message: "Something went wrong. Please try again.")
             }
         } else {
-            delegate?.showError(type: .mylist, error: .fail, message: "Something went wrong. Please try again.")
+            delegate?.showError(type: .mylistDelete, error: .fail, message: "Something went wrong. Please try again.")
         }
     }
     
@@ -112,7 +112,7 @@ class MypageViewModel {
             
             do {
                 try managedOC.save()
-                delegate?.reloadTable(type: .mylist)
+                delegate?.success(type: .mylist)
             } catch {
                 delegate?.showError(type: .mylist, error: .fail, message: "Something went wrong. Please try again.")
             }
