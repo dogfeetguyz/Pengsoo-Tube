@@ -57,8 +57,3 @@ enum RequestType: Int {
     case playlistDetailDelete
     
 }
-
-enum DragDirection {
-    case Up
-    case Down
-}

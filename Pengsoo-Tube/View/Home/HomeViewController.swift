@@ -10,7 +10,7 @@ import UIKit
 import AlamofireImage
 
 
-var topViewPositionLimit: CGFloat = 100
+var topViewPositionLimit: CGFloat = 200
 var topViewInitialPosition: CGFloat?
 var topViewFinalPosition: CGFloat?
 var topViewTopConstraintRange: Range<CGFloat>?
@@ -32,7 +32,7 @@ class HomeViewController: UIViewController {
     
     var dragInitialY: CGFloat = 0
     var dragPreviousY: CGFloat = 0
-    var dragDirection: DragDirection = .Up
+    var task: DispatchWorkItem?
     
     @objc func topViewMoved(_ gesture: UIPanGestureRecognizer) {
         
@@ -50,12 +50,10 @@ class HomeViewController: UIViewController {
             let dragCurrentY = gesture.location(in: self.view).y
             dragYDiff = dragPreviousY - dragCurrentY
             dragPreviousY = dragCurrentY
-            dragDirection = dragYDiff < 0 ? .Down : .Up
             innerTableViewDidScroll(withDistance: dragYDiff)
             
         case .ended:
-            
-            innerTableViewScrollEnded(withScrollDirection: dragDirection)
+            innerTableViewScrollEnded()
             
         default: return
         
@@ -283,7 +281,6 @@ extension HomeViewController: UIPageViewControllerDataSource, UIPageViewControll
 }
 
 extension HomeViewController: InnerTableViewScrollDelegate {
-    
     var currentHeaderTop: CGFloat {
         
         return headerViewTopConstraint.constant
@@ -296,7 +293,7 @@ extension HomeViewController: InnerTableViewScrollDelegate {
             headerViewTopConstraint.constant = topViewFinalPosition!
         }
         else if newConstant > topViewPositionLimit/2.0 {
-            headerViewTopConstraint.constant = headerViewTopConstraint.constant - scrollDistance*0.5
+            headerViewTopConstraint.constant = headerViewTopConstraint.constant - scrollDistance*0.3
         } else if newConstant > topViewPositionLimit {
             headerViewTopConstraint.constant = topViewInitialPosition! - scrollDistance*0.1
         }
@@ -305,37 +302,51 @@ extension HomeViewController: InnerTableViewScrollDelegate {
         }
     }
     
-    func innerTableViewScrollEnded(withScrollDirection scrollDirection: DragDirection) {
+    func innerTableViewScrollEnded() {
         
-        let topViewTop = headerViewTopConstraint.constant
-
-        if topViewTop <= topViewInitialPosition! {
-            if scrollDirection == .Down {
-                scrollToInitialView()
-            }
-        }
-        else {
+        if headerViewTopConstraint.constant > topViewInitialPosition! {
             scrollToInitialView()
         }
     }
+    
+    func innerTableViewBounceEnded(withScrollView scrollView: UIScrollView) {
+        if task != nil {
+            task?.cancel()
+        }
+        
+        task = DispatchWorkItem {
+            if self.headerViewTopConstraint.constant > topViewInitialPosition! {
+                
+                if scrollView.isScrollEnabled {
+                    scrollView.isScrollEnabled = false
+                    scrollView.contentOffset.y = 0
+                    DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
+                        self.scrollToInitialView()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                        scrollView.isScrollEnabled = true
+                        self.task = nil
+                    }
+                }
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: task!)
+    }
 
     func scrollToInitialView() {
-        
+
         let topViewCurrentTop = headerImageView.frame.origin.y
-        
         let distanceToBeMoved = abs(topViewCurrentTop - topViewInitialPosition!)
-        
         var time = distanceToBeMoved / 500
         
         if time > 0.25 {
-            
             time = 0.25
         }
         
         headerViewTopConstraint.constant = topViewInitialPosition!
         
         UIView.animate(withDuration: TimeInterval(time), animations: {
-            
             self.view.layoutIfNeeded()
         })
     }
@@ -349,11 +360,11 @@ extension HomeViewController: ViewModelDelegate {
             }
         } else if AppConstants.home_tab_types.contains(type) {
             let requestPageIndex = AppConstants.home_tab_types.firstIndex(of: type)!
-            let currentContentViewController = pageCollection.pages[requestPageIndex].vc as? HomeContentViewController
-            currentContentViewController?.canRequestMore = true
+            let currentContentViewController = pageCollection.pages[requestPageIndex].vc
+            currentContentViewController.canRequestMore = true
             
             if pageCollection.selectedPageIndex == requestPageIndex {
-                currentContentViewController!.tableView.reloadData()
+                currentContentViewController.tableView.reloadData()
             }
         } else {
             
@@ -364,8 +375,8 @@ extension HomeViewController: ViewModelDelegate {
         if AppConstants.home_tab_types.contains(type) {
             if error != .noItems {
                 let requestPageIndex = AppConstants.home_tab_types.firstIndex(of: type)!
-                let currentContentViewController = pageCollection.pages[requestPageIndex].vc as? HomeContentViewController
-                currentContentViewController?.canRequestMore = true
+                let currentContentViewController = pageCollection.pages[requestPageIndex].vc
+                currentContentViewController.canRequestMore = true
             }
         } else {
             

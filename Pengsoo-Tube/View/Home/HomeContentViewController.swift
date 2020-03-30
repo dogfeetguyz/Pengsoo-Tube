@@ -12,7 +12,8 @@ protocol InnerTableViewScrollDelegate: class {
     var currentHeaderTop: CGFloat { get }
     
     func innerTableViewDidScroll(withDistance scrollDistance: CGFloat)
-    func innerTableViewScrollEnded(withScrollDirection scrollDirection: DragDirection)
+    func innerTableViewScrollEnded()
+    func innerTableViewBounceEnded(withScrollView scrollView: UIScrollView)
 }
 
 class HomeContentViewController: UIViewController {
@@ -21,7 +22,6 @@ class HomeContentViewController: UIViewController {
     
     weak var innerTableViewScrollDelegate: InnerTableViewScrollDelegate?
     
-    private var dragDirection: DragDirection = .Up
     private var oldContentOffset = CGPoint.zero
     
     var requestType: RequestType?
@@ -180,22 +180,24 @@ extension HomeContentViewController: UITableViewDelegate {
                 topViewUnwrappedTop > topViewTopConstraintRange!.lowerBound,
                 scrollView.contentOffset.y > 0 {
                 
-                dragDirection = .Up
-                innerTableViewScrollDelegate?.innerTableViewDidScroll(withDistance: delta)
+                if scrollView.isScrollEnabled {
+                    innerTableViewScrollDelegate?.innerTableViewDidScroll(withDistance: delta)
+                }
                 scrollView.contentOffset.y -= delta
             }
             
             if delta < 0,
                 scrollView.contentOffset.y < 0 {
-                dragDirection = .Down
-                innerTableViewScrollDelegate?.innerTableViewDidScroll(withDistance: delta)
+                    if scrollView.isScrollEnabled {
+                        innerTableViewScrollDelegate?.innerTableViewDidScroll(withDistance: delta)
+                    }
                 scrollView.contentOffset.y -= delta
             }
         }
         oldContentOffset = scrollView.contentOffset
         
         
-        
+        // dispatch more
         if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height) {
             if canRequestMore {
                 canRequestMore = false
@@ -205,15 +207,16 @@ extension HomeContentViewController: UITableViewDelegate {
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
         if scrollView.contentOffset.y <= 0 {
-            innerTableViewScrollDelegate?.innerTableViewScrollEnded(withScrollDirection: dragDirection)
+            innerTableViewScrollDelegate?.innerTableViewScrollEnded()
         }
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if decelerate == false && scrollView.contentOffset.y <= 0 {
-            innerTableViewScrollDelegate?.innerTableViewScrollEnded(withScrollDirection: dragDirection)
+            innerTableViewScrollDelegate?.innerTableViewScrollEnded()
+        } else if decelerate == true {
+            self.innerTableViewScrollDelegate?.innerTableViewBounceEnded(withScrollView: scrollView)
         }
     }
 }

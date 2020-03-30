@@ -43,6 +43,9 @@
 		FADEDB4A24286F100071C1BB /* YoutubeThumbnailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB4924286F100071C1BB /* YoutubeThumbnailModel.swift */; };
 		FADEDB4D2428717A0071C1BB /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB4C2428717A0071C1BB /* AppConstants.swift */; };
 		FADEDB58242890DC0071C1BB /* pengsooList_page1.json in Resources */ = {isa = PBXBuildFile; fileRef = FADEDB55242890DC0071C1BB /* pengsooList_page1.json */; };
+		FAE11CEE243292A20077B5B2 /* LibraryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE11CED243292A20077B5B2 /* LibraryCollectionViewCell.swift */; };
+		FAE11CF0243292B70077B5B2 /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE11CEF243292B70077B5B2 /* LibraryTableViewCell.swift */; };
+		FAE11CF2243292C90077B5B2 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE11CF1243292C90077B5B2 /* LibraryViewController.swift */; };
 		FAE95C72242D85B8003AD3AD /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE95C71242D85B8003AD3AD /* Util.swift */; };
 		FAF59120242CC13200EED00B /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5911F242CC13200EED00B /* ParentViewController.swift */; };
 		FAF59122242CC9B100EED00B /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF59121242CC9B100EED00B /* PlayerViewController.swift */; };
@@ -103,6 +106,9 @@
 		FADEDB4924286F100071C1BB /* YoutubeThumbnailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeThumbnailModel.swift; sourceTree = "<group>"; };
 		FADEDB4C2428717A0071C1BB /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		FADEDB55242890DC0071C1BB /* pengsooList_page1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pengsooList_page1.json; sourceTree = "<group>"; };
+		FAE11CED243292A20077B5B2 /* LibraryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCollectionViewCell.swift; sourceTree = "<group>"; };
+		FAE11CEF243292B70077B5B2 /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
+		FAE11CF1243292C90077B5B2 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		FAE95C71242D85B8003AD3AD /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		FAF5911F242CC13200EED00B /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
 		FAF59121242CC9B100EED00B /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +168,9 @@
 		FAC58675243178DC0091F0E8 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				FAE11CF1243292C90077B5B2 /* LibraryViewController.swift */,
+				FAE11CEF243292B70077B5B2 /* LibraryTableViewCell.swift */,
+				FAE11CED243292A20077B5B2 /* LibraryCollectionViewCell.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -497,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA1A166F242ADCE300740ADE /* MyVideo+CoreDataProperties.swift in Sources */,
+				FAE11CF2243292C90077B5B2 /* LibraryViewController.swift in Sources */,
 				FA80722D24302A860050BC8D /* HomeTabBarCell.swift in Sources */,
 				FADEDB4A24286F100071C1BB /* YoutubeThumbnailModel.swift in Sources */,
 				FADEDB4624286E130071C1BB /* YoutubeItemModel.swift in Sources */,
@@ -507,7 +517,9 @@
 				FA80722F243031860050BC8D /* HomeContentViewController.swift in Sources */,
 				FA1A1673242B099400740ADE /* LibraryDetailViewModel.swift in Sources */,
 				FAF59120242CC13200EED00B /* ParentViewController.swift in Sources */,
+				FAE11CEE243292A20077B5B2 /* LibraryCollectionViewCell.swift in Sources */,
 				FADEDB4824286F040071C1BB /* YoutubeThumbnailsModel.swift in Sources */,
+				FAE11CF0243292B70077B5B2 /* LibraryTableViewCell.swift in Sources */,
 				FA1A166C242ADCE300740ADE /* Recent+CoreDataClass.swift in Sources */,
 				FAE95C72242D85B8003AD3AD /* Util.swift in Sources */,
 				FA1A166E242ADCE300740ADE /* Mylist+CoreDataClass.swift in Sources */,

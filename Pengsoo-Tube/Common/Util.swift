@@ -89,9 +89,9 @@ class Util {
 
     struct Page {
         var name = ""
-        var vc = UIViewController()
+        var vc = HomeContentViewController()
         
-        init(with _name: String, _vc: UIViewController) {
+        init(with _name: String, _vc: HomeContentViewController) {
             name = _name
             vc = _vc
         }
