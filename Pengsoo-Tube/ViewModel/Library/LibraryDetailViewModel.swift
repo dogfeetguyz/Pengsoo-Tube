@@ -40,7 +40,7 @@ class LibraryDetailViewModel {
             let previouVideoItem = playlistItem.videos![from] as! MyVideo
             let entity = NSEntityDescription.entity(forEntityName: String(describing: MyVideo.self ), in: managedOC)
             let newVideoItem = MyVideo(entity: entity!, insertInto: managedOC)
-            newVideoItem.channelTitle = previouVideoItem.channelTitle
+            
             newVideoItem.publishedAt = previouVideoItem.publishedAt
             newVideoItem.thumbnailHigh = previouVideoItem.thumbnailHigh
             newVideoItem.thumbnailMedium = previouVideoItem.thumbnailMedium

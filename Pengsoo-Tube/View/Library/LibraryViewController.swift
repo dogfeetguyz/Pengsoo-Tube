@@ -20,11 +20,12 @@ class LibraryViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        viewModel.getRecent()
         viewModel.getPlaylist()
     }
 
     @IBAction func seeAllButtonAction(_ sender: UIButton) {
-        let index = sender.tag
+//        let index = sender.tag
     }
 }
 
@@ -39,10 +40,13 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
             
             if indexPath.row == 0 {
                 cell.titleLabel.text = "Recent"
+                cell.recentItems = viewModel.recentItems
+                cell.playlistItem = nil
             } else {
                 let item = viewModel.playlistItems[indexPath.row-1]
                 cell.titleLabel.text = item.title
                 cell.playlistItem = item
+                cell.recentItems = nil
             }
             cell.collectionView.reloadData()
             
@@ -57,6 +61,8 @@ extension LibraryViewController: ViewModelDelegate {
     func success(type: RequestType, message: String) {
         if type == .playlist {
             tableView.reloadData()
+        } else if type == .recent {
+            tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
         }
     }
     

@@ -30,8 +30,8 @@ struct AppConstants {
     static let notification_show_miniplayer: NSNotification.Name = NSNotification.Name(rawValue: "notification_show_miniplayer")
     static let notification_userInfo_currentPlayingItem: String = "currentPlayingItem"
     
-    static let home_tab_titles = ["Giant Peng TV", "Youtube Only", "Collaboration"]
-    static let home_tab_types = [RequestType.pengsooTv, RequestType.pengsooYoutube, RequestType.pengsooOutside]
+    static let home_tab_titles = ["Youtube Only", "Giant Peng TV", "Collaboration"]
+    static let home_tab_types = [RequestType.pengsooYoutube, RequestType.pengsooTv, RequestType.pengsooOutside]
 }
 
 enum ViewModelDelegateError: Int {
@@ -50,8 +50,8 @@ enum RequestType: Int {
     case playlistCreate
     case playlistDelete
     case playlistUpdate
-    case recentDetail
-    case recentDetailDelete
+    case recent
+    case recentDelete
     case playlistDetail
     case playlistDetailDelete
     

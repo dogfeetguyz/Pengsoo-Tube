@@ -32,6 +32,8 @@ class ParentViewController: UIViewController {
     private var isEnded: Bool = false
     private var currentItem: PlayItemModel?
     
+    var playerViewModel = PlayerViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -190,6 +192,8 @@ class ParentViewController: UIViewController {
             miniPlayerPlayerView.stop()
 
             currentItem = notification.userInfo![AppConstants.notification_userInfo_currentPlayingItem] as? PlayItemModel
+            playerViewModel.addToRecent(item: currentItem!)
+            
             miniPlayerTitle.text = currentItem!.videoTitle
 
             let playerVars: [String: Any] = [

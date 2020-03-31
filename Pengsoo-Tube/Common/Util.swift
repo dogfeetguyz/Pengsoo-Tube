@@ -58,7 +58,8 @@ class Util {
             if timeDifference.day! == 0 {
                 return "Today"
             } else if timeDifference.day! < 7 {
-                return "\(timeDifference.day!) days ago"
+                let day: Int = timeDifference.day!
+                return String(format: "%d %@ ago", day, day == 1 ? "day" : "days" )
             } else if timeDifference.day! < 28 {
                 let week: Int = timeDifference.day!/7
                 return String(format: "%d %@ ago", week, week == 1 ? "week" : "weeks" )

@@ -16,7 +16,6 @@ extension Recent {
         return NSFetchRequest<Recent>(entityName: "Recent")
     }
 
-    @NSManaged public var channelTitle: String?
     @NSManaged public var publishedAt: String?
     @NSManaged public var thumbnailDefault: String?
     @NSManaged public var thumbnailHigh: String?

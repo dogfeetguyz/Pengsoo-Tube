@@ -229,7 +229,6 @@ class HomeViewModel {
                 delegate?.showError(type: .playlistUpdate, error: .fail, message: "Something went wrong. Please try again.")
                 return
             }
-            myVideo.channelTitle = youtubeItem!.snippet.channelTitle
             myVideo.publishedAt = youtubeItem!.snippet.publishedAt
             myVideo.thumbnailHigh = youtubeItem!.snippet.thumbnails.high.url
             myVideo.thumbnailMedium = youtubeItem!.snippet.thumbnails.medium.url

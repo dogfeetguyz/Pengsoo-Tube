@@ -11,14 +11,36 @@ import UIKit
 
 class LibraryViewModel {
     
+    var recentItems: [Recent] = []
     var playlistItems: [Mylist] = []
     weak var delegate: ViewModelDelegate?
+        
+    func getRecent() {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            let managedOC = appDelegate.persistentContainer.viewContext
+            let request: NSFetchRequest<Recent> = NSFetchRequest(entityName: String(describing: Recent.self))
+            
+            do {
+                let fetchedList = try managedOC.fetch(request)
+                if fetchedList.count > 0 {
+                    recentItems = fetchedList.reversed()
+                    delegate?.success(type: .recent)
+                } else {
+                    delegate?.showError(type: .recent, error: .noItems)
+                }
+            } catch {
+                delegate?.showError(type: .recent, error: .fail, message: "Something went wrong. Please try again.")
+            }
+        } else {
+            delegate?.showError(type: .recent, error: .fail, message: "Something went wrong. Please try again.")
+        }
+    }
     
     func getPlaylist() {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             let managedOC = appDelegate.persistentContainer.viewContext
             let request: NSFetchRequest<Mylist> = NSFetchRequest(entityName: String(describing: Mylist.self))
-            request.sortDescriptors = [NSSortDescriptor(key: "updatedAt", ascending: false)]
+//            request.sortDescriptors = [NSSortDescriptor(key: "updatedAt", ascending: false)]
             
             do {
                 let fetchedList = try managedOC.fetch(request)

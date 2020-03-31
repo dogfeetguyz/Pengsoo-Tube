@@ -16,7 +16,6 @@ extension MyVideo {
         return NSFetchRequest<MyVideo>(entityName: "MyVideo")
     }
 
-    @NSManaged public var channelTitle: String?
     @NSManaged public var publishedAt: String?
     @NSManaged public var thumbnailHigh: String?
     @NSManaged public var thumbnailMedium: String?

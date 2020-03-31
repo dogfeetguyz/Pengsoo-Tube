@@ -15,6 +15,7 @@ class LibraryTableViewCell: UITableViewCell {
     @IBOutlet weak var seeAllButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var recentItems: [Recent]?
     var playlistItem: Mylist?
     
     override func awakeFromNib() {
@@ -32,6 +33,8 @@ extension LibraryTableViewCell: UICollectionViewDelegateFlowLayout, UICollection
             if let videos = item.videos {
                 return videos.count
             }
+        } else if let videos = recentItems {
+            return videos.count
         }
         return 0
     }
@@ -47,6 +50,13 @@ extension LibraryTableViewCell: UICollectionViewDelegateFlowLayout, UICollection
                     }
                     return cell
                 }
+            }  else if let videos = recentItems {
+                let videoItem = videos[indexPath.item]
+                cell.titleLabel.text = videoItem.videoTitle
+                Util.loadCachedImage(url: videoItem.thumbnailMedium) { (image) in
+                    cell.thumnail.image = image
+                }
+                return cell
             }
         }
 
@@ -63,11 +73,24 @@ extension LibraryTableViewCell: UICollectionViewDelegateFlowLayout, UICollection
                                              videoDescription: videoItem!.videoDescription!,
                                              thumbnailDefault: videoItem!.thumbnailDefault!,
                                              thumbnailMedium: videoItem!.thumbnailMedium!,
-                                             thumbnailHigh: videoItem!.thumbnailHigh!)
+                                             thumbnailHigh: videoItem!.thumbnailHigh!,
+                                             publishedAt: videoItem!.publishedAt!)
                 var dictionary:[String:Any] = [:]
                 dictionary[AppConstants.notification_userInfo_currentPlayingItem] = playItem
                 NotificationCenter.default.post(name: AppConstants.notification_show_miniplayer, object: nil, userInfo: dictionary)
             }
+        } else if let videos = recentItems {
+            let videoItem = videos[indexPath.item]
+            let playItem = PlayItemModel(videoId: videoItem.videoId!,
+                                         videoTitle: videoItem.videoTitle!,
+                                         videoDescription: videoItem.videoDescription!,
+                                         thumbnailDefault: videoItem.thumbnailDefault!,
+                                         thumbnailMedium: videoItem.thumbnailMedium!,
+                                         thumbnailHigh: videoItem.thumbnailHigh!,
+                                         publishedAt: videoItem.publishedAt!)
+            var dictionary:[String:Any] = [:]
+            dictionary[AppConstants.notification_userInfo_currentPlayingItem] = playItem
+            NotificationCenter.default.post(name: AppConstants.notification_show_miniplayer, object: nil, userInfo: dictionary)
         }
     }
 }

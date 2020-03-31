@@ -9,7 +9,7 @@
 @testable import Peng_Ha_Tube
 import XCTest
 
-class MypageViewModelTests: XCTestCase {
+class LibraryViewModelTests: XCTestCase {
     
     var sut: LibraryViewModel!
     var delegate: ViewModelDelegate!
@@ -27,6 +27,8 @@ class MypageViewModelTests: XCTestCase {
     }
 
     func testCreatePlaylist() {
+        sut.getPlaylist()
+        
         let title = "playlist1"
         let oldListCount = sut.playlistItems.count
         sut.createPlaylist(title: title)
@@ -39,6 +41,8 @@ class MypageViewModelTests: XCTestCase {
     }
     
     func testDeletePlaylist() {
+        sut.getPlaylist()
+        
         let title = "test_playlist1"
         sut.createPlaylist(title: title)
         let newListCount = sut.playlistItems.count
@@ -52,6 +56,8 @@ class MypageViewModelTests: XCTestCase {
     }
     
     func testUpdatePlaylist() {
+        sut.getPlaylist()
+        
         let title = "test_playlist1"
         let oldListCount = sut.playlistItems.count
         sut.createPlaylist(title: title)
@@ -67,24 +73,19 @@ class MypageViewModelTests: XCTestCase {
     }
     
     func testLoadPlaylist() {
-        let oldListCount = sut.playlistItems.count
-        let random = Int.random(in: Range(5 ... 10))
-        for i in 0 ..< random {
-            sut.createPlaylist(title: "test_playlist\(i)")
-            XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
-        }
-        
         sut.getPlaylist()
-        XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
-        XCTAssertEqual(oldListCount + random, sut.playlistItems.count)
-        
-        for _ in Range(0 ... random) {
-            sut.deletePlaylist(at: oldListCount)
-        }
+        XCTAssertNotEqual(errorOccurred, ViewModelDelegateError.fail)
+        XCTAssertNotNil(sut.playlistItems)
+    }
+    
+    func testLoadRecent() {
+        sut.getRecent()
+        XCTAssertNotEqual(errorOccurred, ViewModelDelegateError.fail)
+        XCTAssertNotNil(sut.recentItems)
     }
 }
 
-extension MypageViewModelTests: ViewModelDelegate {
+extension LibraryViewModelTests: ViewModelDelegate {
     func success(type: RequestType, message: String) {
         errorOccurred = .noError
     }
