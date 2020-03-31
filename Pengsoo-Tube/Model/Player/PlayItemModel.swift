@@ -1,0 +1,27 @@
+//
+//  PlayModel.swift
+//  Pengsoo-Tube
+//
+//  Created by Yejun Park on 31/3/20.
+//  Copyright © 2020 Yejun Park. All rights reserved.
+//
+
+import Foundation
+
+struct PlayItemModel {
+    var videoId: String = ""
+    var videoTitle: String = ""
+    var videoDescription: String = ""
+    var thumbnailDefault: String = ""
+    var thumbnailMedium: String = ""
+    var thumbnailHigh: String = ""
+    
+    init(videoId: String, videoTitle: String, videoDescription: String, thumbnailDefault: String, thumbnailMedium: String, thumbnailHigh: String) {
+        self.videoId = videoId
+        self.videoTitle = videoTitle
+        self.videoDescription = videoDescription
+        self.thumbnailDefault = thumbnailDefault
+        self.thumbnailMedium = thumbnailMedium
+        self.thumbnailHigh = thumbnailHigh
+    }
+}

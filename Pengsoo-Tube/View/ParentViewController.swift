@@ -30,7 +30,7 @@ class ParentViewController: UIViewController {
     private var isPresented: Bool = false
     private var isPaused: Bool = false
     private var isEnded: Bool = false
-    private var currentItem: YoutubeItemModel?
+    private var currentItem: PlayItemModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -157,12 +157,12 @@ class ParentViewController: UIViewController {
     }
     
     func getThumbnailImageUrl() -> String {
-        if currentItem!.snippet.thumbnails.high.url.count > 0 {
-            return currentItem!.snippet.thumbnails.high.url
-        } else if currentItem!.snippet.thumbnails.medium.url.count > 0 {
-            return currentItem!.snippet.thumbnails.medium.url
-        } else if currentItem!.snippet.thumbnails.small.url.count > 0 {
-            return currentItem!.snippet.thumbnails.small.url
+        if currentItem!.thumbnailHigh.count > 0 {
+            return currentItem!.thumbnailHigh
+        } else if currentItem!.thumbnailMedium.count > 0 {
+            return currentItem!.thumbnailMedium
+        } else if currentItem!.thumbnailDefault.count > 0 {
+            return currentItem!.thumbnailDefault
         } else {
             return ""
         }
@@ -189,8 +189,8 @@ class ParentViewController: UIViewController {
             isPresented = true
             miniPlayerPlayerView.stop()
 
-            currentItem = notification.userInfo![AppConstants.notification_userInfo_currentPlayingItem] as? YoutubeItemModel
-            miniPlayerTitle.text = currentItem!.snippet.title
+            currentItem = notification.userInfo![AppConstants.notification_userInfo_currentPlayingItem] as? PlayItemModel
+            miniPlayerTitle.text = currentItem!.videoTitle
 
             let playerVars: [String: Any] = [
                 "autoplay": 1,
@@ -201,7 +201,7 @@ class ParentViewController: UIViewController {
                 "rel": 0,
                 "origin": "https://youtube.com"
             ]
-            miniPlayerPlayerView.loadWithVideoId((currentItem?.snippet.resourceId.videoId)!, with: playerVars)
+            miniPlayerPlayerView.loadWithVideoId((currentItem?.videoId)!, with: playerVars)
             miniPlayerPlayerView.delegate = self
 
             openPlayer()

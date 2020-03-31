@@ -29,7 +29,6 @@ struct AppConstants {
     
     static let notification_show_miniplayer: NSNotification.Name = NSNotification.Name(rawValue: "notification_show_miniplayer")
     static let notification_userInfo_currentPlayingItem: String = "currentPlayingItem"
-    static let notification_userInfo_headerImgUrl: String = "headerImgUrl"
     
     static let home_tab_titles = ["Giant Peng TV", "Youtube Only", "Collaboration"]
     static let home_tab_types = [RequestType.pengsooTv, RequestType.pengsooYoutube, RequestType.pengsooOutside]

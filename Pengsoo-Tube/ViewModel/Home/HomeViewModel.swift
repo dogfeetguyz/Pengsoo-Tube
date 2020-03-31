@@ -240,6 +240,7 @@ class HomeViewModel {
             myVideo.inPlaylist = toPlaylist
             
             toPlaylist.addToVideos(myVideo)
+            toPlaylist.updatedAt = Date()
             do {
                 try managedOC.save()
                 delegate?.success(type: .playlistUpdate)
