@@ -21,6 +21,11 @@
 		FA1A1671242AE79C00740ADE /* LibraryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1670242AE79C00740ADE /* LibraryViewModelTests.swift */; };
 		FA1A1673242B099400740ADE /* LibraryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1672242B099400740ADE /* LibraryDetailViewModel.swift */; };
 		FA1A1675242B169000740ADE /* PlaylistDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1674242B169000740ADE /* PlaylistDetailViewModelTests.swift */; };
+		FA2E52AF2433FABF00966AB5 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E52A02433FABF00966AB5 /* UIView+Extensions.swift */; };
+		FA2E52B32433FABF00966AB5 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E52A42433FABF00966AB5 /* UITextField+Extensions.swift */; };
+		FA2E52B42433FABF00966AB5 /* OneTextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E52A72433FABF00966AB5 /* OneTextFieldViewController.swift */; };
+		FA2E52BB2434006400966AB5 /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E52BA2434006400966AB5 /* UIAlertController+Extensions.swift */; };
+		FA2E52C5243400DF00966AB5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E52C0243400DF00966AB5 /* TextField.swift */; };
 		FA80722D24302A860050BC8D /* HomeTabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80722C24302A860050BC8D /* HomeTabBarCell.swift */; };
 		FA80722F243031860050BC8D /* HomeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80722E243031860050BC8D /* HomeContentViewController.swift */; };
 		FAD709F12429B11300E48D31 /* HeaderImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD709F02429B11300E48D31 /* HeaderImageModel.swift */; };
@@ -83,6 +88,11 @@
 		FA1A1670242AE79C00740ADE /* LibraryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModelTests.swift; sourceTree = "<group>"; };
 		FA1A1672242B099400740ADE /* LibraryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetailViewModel.swift; sourceTree = "<group>"; };
 		FA1A1674242B169000740ADE /* PlaylistDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistDetailViewModelTests.swift; sourceTree = "<group>"; };
+		FA2E52A02433FABF00966AB5 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		FA2E52A42433FABF00966AB5 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		FA2E52A72433FABF00966AB5 /* OneTextFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneTextFieldViewController.swift; sourceTree = "<group>"; };
+		FA2E52BA2434006400966AB5 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
+		FA2E52C0243400DF00966AB5 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		FA80722C24302A860050BC8D /* HomeTabBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarCell.swift; sourceTree = "<group>"; };
 		FA80722E243031860050BC8D /* HomeContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentViewController.swift; sourceTree = "<group>"; };
 		FAD709F02429B11300E48D31 /* HeaderImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderImageModel.swift; sourceTree = "<group>"; };
@@ -151,6 +161,50 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		FA2E529D2433FABF00966AB5 /* CustomAlerts */ = {
+			isa = PBXGroup;
+			children = (
+				FA2E529E2433FABF00966AB5 /* Extensions */,
+				FA2E52A52433FABF00966AB5 /* Pickers */,
+				FA2E52BC243400DF00966AB5 /* Views */,
+			);
+			path = CustomAlerts;
+			sourceTree = "<group>";
+		};
+		FA2E529E2433FABF00966AB5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FA2E52BA2434006400966AB5 /* UIAlertController+Extensions.swift */,
+				FA2E52A02433FABF00966AB5 /* UIView+Extensions.swift */,
+				FA2E52A42433FABF00966AB5 /* UITextField+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FA2E52A52433FABF00966AB5 /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				FA2E52A62433FABF00966AB5 /* TextFields */,
+			);
+			path = Pickers;
+			sourceTree = "<group>";
+		};
+		FA2E52A62433FABF00966AB5 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				FA2E52A72433FABF00966AB5 /* OneTextFieldViewController.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		FA2E52BC243400DF00966AB5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA2E52C0243400DF00966AB5 /* TextField.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		FA817EDBDBF8563024BACAF0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +223,13 @@
 				FA015DED242C6A15007CBDBC /* HomeTableViewCell.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		FAC2E408243357FC008A8B9A /* Library Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Library Detail";
 			sourceTree = "<group>";
 		};
 		FAC58675243178DC0091F0E8 /* Library */ = {
@@ -290,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				FAE11CF52432C8A70077B5B2 /* Player */,
+				FAC2E408243357FC008A8B9A /* Library Detail */,
 				FAC58675243178DC0091F0E8 /* Library */,
 				FABC8E842431589D00038987 /* Home */,
 				FAF5911F242CC13200EED00B /* ParentViewController.swift */,
@@ -312,6 +374,7 @@
 		FADEDB4B242871620071C1BB /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FA2E529D2433FABF00966AB5 /* CustomAlerts */,
 				FADEDB4C2428717A0071C1BB /* AppConstants.swift */,
 				FA13DC10242C7CE20031826A /* InsetLabel.swift */,
 				FAE95C71242D85B8003AD3AD /* Util.swift */,
@@ -541,15 +604,20 @@
 				FA1A166F242ADCE300740ADE /* MyVideo+CoreDataProperties.swift in Sources */,
 				FAE11CF2243292C90077B5B2 /* LibraryViewController.swift in Sources */,
 				FA80722D24302A860050BC8D /* HomeTabBarCell.swift in Sources */,
+				FA2E52B32433FABF00966AB5 /* UITextField+Extensions.swift in Sources */,
 				FADEDB4A24286F100071C1BB /* YoutubeThumbnailModel.swift in Sources */,
 				FADEDB4624286E130071C1BB /* YoutubeItemModel.swift in Sources */,
 				FADEDB1824285E770071C1BB /* HomeViewController.swift in Sources */,
+				FA2E52AF2433FABF00966AB5 /* UIView+Extensions.swift in Sources */,
 				FAD709F32429B14200E48D31 /* BrandingSettingsModel.swift in Sources */,
 				FADEDB3E242868FB0071C1BB /* ViewModelDelegate.swift in Sources */,
 				FA015DEE242C6A15007CBDBC /* HomeTableViewCell.swift in Sources */,
+				FA2E52BB2434006400966AB5 /* UIAlertController+Extensions.swift in Sources */,
 				FA80722F243031860050BC8D /* HomeContentViewController.swift in Sources */,
 				FA1A1673242B099400740ADE /* LibraryDetailViewModel.swift in Sources */,
+				FA2E52C5243400DF00966AB5 /* TextField.swift in Sources */,
 				FAF59120242CC13200EED00B /* ParentViewController.swift in Sources */,
+				FA2E52B42433FABF00966AB5 /* OneTextFieldViewController.swift in Sources */,
 				FAE11CEE243292A20077B5B2 /* LibraryCollectionViewCell.swift in Sources */,
 				FADEDB4824286F040071C1BB /* YoutubeThumbnailsModel.swift in Sources */,
 				FAE11CF0243292B70077B5B2 /* LibraryTableViewCell.swift in Sources */,

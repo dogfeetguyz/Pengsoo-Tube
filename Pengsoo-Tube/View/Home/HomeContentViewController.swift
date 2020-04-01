@@ -41,13 +41,9 @@ class HomeContentViewController: UIViewController {
         
         let index = sender.tag
         
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
-        }
-        alertController.addAction(cancelAction)
-        
-        let watchOnYoutubeAction = UIAlertAction(title: "Watch on Youtube", style: .default) { _ in
+        let alert = UIAlertController(style: .actionSheet)
+        alert.addAction(title: "Cancel", style: .cancel) //.cancel action will always be at the end
+        alert.addAction(image: UIImage(systemName: "play.rectangle.fill"), title: "Watch on Youtube", color: .red, style: .default, isEnabled: true) { (_) in
             if self.viewModel != nil {
                 if let items = self.viewModel?.getItemsList(for: self.requestType!) {
                     let item = items[index]
@@ -55,53 +51,46 @@ class HomeContentViewController: UIViewController {
                 }
             }
         }
-        alertController.addAction(watchOnYoutubeAction)
-        
-        let addToNewListAction = UIAlertAction(title: "Add to New Playlist", style: .default) { _ in
-            let title = "New Playlist"
-            let message = "Please input a name for a new playlist"
-            let cancelButtonTitle = "Cancel"
-            let otherButtonTitle = "OK"
-            
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            
-            alertController.addTextField { _ in
+       
+        alert.addAction(image: UIImage(systemName: "folder.fill.badge.plus"), title: "Add to New Playlist", color: .black, style: .default, isEnabled: true) { (_) in
+            let textFieldAlert = UIAlertController(style: .actionSheet, title: "New Playlist", message: "Please input a name for a new playlist")
+                    
+            weak var weakTextField: TextField?
+            let textFieldConfiguration: TextField.Config = { textField in
+                textField.left(image: UIImage(systemName: "pencil.and.ellipsis.rectangle"), color: .black)
+                textField.leftViewPadding = 12
+                textField.becomeFirstResponder()
+                textField.borderWidth = 1
+                textField.cornerRadius = 8
+                textField.borderColor = UIColor.lightGray.withAlphaComponent(0.5)
+                textField.backgroundColor = nil
+                textField.textColor = .black
+                textField.keyboardAppearance = .default
+                textField.keyboardType = .default
+                textField.returnKeyType = .done
+                weakTextField = textField
             }
-
-            let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { _ in
-            }
             
-            let otherAction = UIAlertAction(title: otherButtonTitle, style: .default) { _ in
-                guard let textField = alertController.textFields?.first else { return }
+            textFieldAlert.addOneTextField(configuration: textFieldConfiguration)
+            textFieldAlert.addAction(title: "OK", style: .cancel) { (_) in
+                guard let textField = weakTextField else { return }
                 self.viewModel?.addtoNewPlaylist(title: textField.text!, at: index, listOf: self.requestType!)
             }
-            
-            alertController.addAction(cancelAction)
-            alertController.addAction(otherAction)
-            
-            self.present(alertController, animated: true, completion: nil)
+            textFieldAlert.show()
         }
-        alertController.addAction(addToNewListAction)
         
         if let playlistItems = viewModel?.getPlaylistItems() {
             for playlist in playlistItems {
                 if let title = playlist.title {
-                    let addToAction = UIAlertAction(title: "Add to \(title)", style: .default) { _ in
+
+                    alert.addAction(image: UIImage(systemName: "plus.square.on.square"), title: "Add to \(title)", color: .darkGray, style: .default, isEnabled: true) { (_) in
                         self.viewModel?.addToPlaylist(at: index, listOf: self.requestType!, toPlaylist: playlist)
                     }
-                    alertController.addAction(addToAction)
                 }
             }
         }
         
-        if let popoverPresentationController = alertController.popoverPresentationController {
-            let selectedCell = tableView.cellForRow(at: IndexPath(row: index, section: 0))!
-            popoverPresentationController.sourceRect = selectedCell.frame
-            popoverPresentationController.sourceView = view
-            popoverPresentationController.permittedArrowDirections = .up
-        }
-        
-        present(alertController, animated: true, completion: nil)
+        alert.show()
     }
 }
 
