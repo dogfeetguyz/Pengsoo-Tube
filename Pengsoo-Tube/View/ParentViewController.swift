@@ -12,6 +12,9 @@ import YoutubePlayerView
 import AlamofireImage
 
 class ParentViewController: UIViewController {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .darkContent
+    }
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var miniPlayerView: UIView!
@@ -39,7 +42,7 @@ class ParentViewController: UIViewController {
         
         miniPlayerPlayerView.backgroundColor = .clear
         
-        miniPlayerView.layer.shadowColor = UIColor.black.cgColor
+        miniPlayerView.layer.shadowColor = UIColor.label.cgColor
         miniPlayerView.layer.shadowOpacity = 0.1
         miniPlayerView.layer.shadowOffset = CGSize(width: 0, height: -10)
         miniPlayerView.layer.shadowRadius = 5
@@ -48,6 +51,11 @@ class ParentViewController: UIViewController {
         let color = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 0.1)
         self.miniPlayerCloseButton.setBackgroundImage(Util.generateImageWithColor(color), for: .highlighted)
         self.miniPlayerPauseButton.setBackgroundImage(Util.generateImageWithColor(color), for: .highlighted)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNeedsStatusBarAppearanceUpdate()
     }
     
     override func viewDidAppear(_ animated: Bool) {

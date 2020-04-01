@@ -86,7 +86,7 @@ public extension YoutubePlayerViewDelegate {
     func playerView(_ playerView: YoutubePlayerView, didChangeToQuality quality: YoutubePlaybackQuality) { }
     func playerView(_ playerView: YoutubePlayerView, receivedError error: Error) { }
     func playerView(_ playerView: YoutubePlayerView, didPlayTime time: Float) { }
-    func playerViewPreferredBackgroundColor(_ playerView: YoutubePlayerView) -> UIColor { return .white }
+    func playerViewPreferredBackgroundColor(_ playerView: YoutubePlayerView) -> UIColor { return .systemBackground }
     func playerViewPreferredInitialLoadingView(_ playerView: YoutubePlayerView) -> UIView? { return nil }
 }
 

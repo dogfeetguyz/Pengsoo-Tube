@@ -43,7 +43,7 @@ class HomeContentViewController: UIViewController {
         
         let alert = UIAlertController(style: .actionSheet)
         alert.addAction(title: "Cancel", style: .cancel) //.cancel action will always be at the end
-        alert.addAction(image: UIImage(systemName: "play.rectangle.fill"), title: "Watch on Youtube", color: .red, style: .default, isEnabled: true) { (_) in
+        alert.addAction(image: UIImage(systemName: "play.rectangle.fill"), title: "Watch on Youtube", color: .systemRed, style: .default, isEnabled: true) { (_) in
             if self.viewModel != nil {
                 if let items = self.viewModel?.getItemsList(for: self.requestType!) {
                     let item = items[index]
@@ -52,19 +52,19 @@ class HomeContentViewController: UIViewController {
             }
         }
        
-        alert.addAction(image: UIImage(systemName: "folder.fill.badge.plus"), title: "Add to New Playlist", color: .black, style: .default, isEnabled: true) { (_) in
+        alert.addAction(image: UIImage(systemName: "folder.fill.badge.plus"), title: "Add to New Playlist", color: .label, style: .default, isEnabled: true) { (_) in
             let textFieldAlert = UIAlertController(style: .actionSheet, title: "New Playlist", message: "Please input a name for a new playlist")
                     
             weak var weakTextField: TextField?
             let textFieldConfiguration: TextField.Config = { textField in
-                textField.left(image: UIImage(systemName: "pencil.and.ellipsis.rectangle"), color: .black)
+                textField.left(image: UIImage(systemName: "pencil.and.ellipsis.rectangle"), color: .label)
                 textField.leftViewPadding = 12
                 textField.becomeFirstResponder()
                 textField.borderWidth = 1
                 textField.cornerRadius = 8
                 textField.borderColor = UIColor.lightGray.withAlphaComponent(0.5)
                 textField.backgroundColor = nil
-                textField.textColor = .black
+                textField.textColor = .label
                 textField.keyboardAppearance = .default
                 textField.keyboardType = .default
                 textField.returnKeyType = .done
@@ -83,7 +83,7 @@ class HomeContentViewController: UIViewController {
             for playlist in playlistItems {
                 if let title = playlist.title {
 
-                    alert.addAction(image: UIImage(systemName: "plus.square.on.square"), title: "Add to \(title)", color: .darkGray, style: .default, isEnabled: true) { (_) in
+                    alert.addAction(image: UIImage(systemName: "plus.square.on.square"), title: "Add to \(title)", color: .label, style: .default, isEnabled: true) { (_) in
                         self.viewModel?.addToPlaylist(at: index, listOf: self.requestType!, toPlaylist: playlist)
                     }
                 }
