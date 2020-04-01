@@ -20,13 +20,14 @@
 		FA1A166F242ADCE300740ADE /* MyVideo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1667242ADCE300740ADE /* MyVideo+CoreDataProperties.swift */; };
 		FA1A1671242AE79C00740ADE /* LibraryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1670242AE79C00740ADE /* LibraryViewModelTests.swift */; };
 		FA1A1673242B099400740ADE /* LibraryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1672242B099400740ADE /* LibraryDetailViewModel.swift */; };
-		FA1A1675242B169000740ADE /* PlaylistDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1674242B169000740ADE /* PlaylistDetailViewModelTests.swift */; };
+		FA1A1675242B169000740ADE /* LibraryDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1674242B169000740ADE /* LibraryDetailViewModelTests.swift */; };
 		FA2E52AF2433FABF00966AB5 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E52A02433FABF00966AB5 /* UIView+Extensions.swift */; };
 		FA2E52B32433FABF00966AB5 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E52A42433FABF00966AB5 /* UITextField+Extensions.swift */; };
 		FA2E52B42433FABF00966AB5 /* OneTextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E52A72433FABF00966AB5 /* OneTextFieldViewController.swift */; };
 		FA2E52BB2434006400966AB5 /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E52BA2434006400966AB5 /* UIAlertController+Extensions.swift */; };
 		FA2E52C5243400DF00966AB5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E52C0243400DF00966AB5 /* TextField.swift */; };
 		FA2E52C92434502500966AB5 /* LibraryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E52C82434502500966AB5 /* LibraryDetailViewController.swift */; };
+		FA60397F24346ED700CE4659 /* LibraryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60397E24346ED700CE4659 /* LibraryDetailTableViewCell.swift */; };
 		FA80722D24302A860050BC8D /* HomeTabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80722C24302A860050BC8D /* HomeTabBarCell.swift */; };
 		FA80722F243031860050BC8D /* HomeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80722E243031860050BC8D /* HomeContentViewController.swift */; };
 		FAD709F12429B11300E48D31 /* HeaderImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD709F02429B11300E48D31 /* HeaderImageModel.swift */; };
@@ -88,13 +89,14 @@
 		FA1A1669242ADCE300740ADE /* Recent+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Recent+CoreDataProperties.swift"; path = "/Users/yejunpark/Workspace/Pengsoo-Tube/Pengsoo-Tube/Model/Recent+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		FA1A1670242AE79C00740ADE /* LibraryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModelTests.swift; sourceTree = "<group>"; };
 		FA1A1672242B099400740ADE /* LibraryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetailViewModel.swift; sourceTree = "<group>"; };
-		FA1A1674242B169000740ADE /* PlaylistDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistDetailViewModelTests.swift; sourceTree = "<group>"; };
+		FA1A1674242B169000740ADE /* LibraryDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetailViewModelTests.swift; sourceTree = "<group>"; };
 		FA2E52A02433FABF00966AB5 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		FA2E52A42433FABF00966AB5 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		FA2E52A72433FABF00966AB5 /* OneTextFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneTextFieldViewController.swift; sourceTree = "<group>"; };
 		FA2E52BA2434006400966AB5 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
 		FA2E52C0243400DF00966AB5 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		FA2E52C82434502500966AB5 /* LibraryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetailViewController.swift; sourceTree = "<group>"; };
+		FA60397E24346ED700CE4659 /* LibraryDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetailTableViewCell.swift; sourceTree = "<group>"; };
 		FA80722C24302A860050BC8D /* HomeTabBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarCell.swift; sourceTree = "<group>"; };
 		FA80722E243031860050BC8D /* HomeContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentViewController.swift; sourceTree = "<group>"; };
 		FAD709F02429B11300E48D31 /* HeaderImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderImageModel.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				FA2E52C82434502500966AB5 /* LibraryDetailViewController.swift */,
+				FA60397E24346ED700CE4659 /* LibraryDetailTableViewCell.swift */,
 			);
 			path = "Library Detail";
 			sourceTree = "<group>";
@@ -334,7 +337,7 @@
 				FAE11CFA2432E1C20077B5B2 /* PlayerViewModelTests.swift */,
 				FADEDB2D24285E7A0071C1BB /* HomeViewModelTests.swift */,
 				FA1A1670242AE79C00740ADE /* LibraryViewModelTests.swift */,
-				FA1A1674242B169000740ADE /* PlaylistDetailViewModelTests.swift */,
+				FA1A1674242B169000740ADE /* LibraryDetailViewModelTests.swift */,
 				FADEDB2F24285E7A0071C1BB /* Info.plist */,
 			);
 			path = "Pengsoo-TubeTests";
@@ -624,6 +627,7 @@
 				FAE11CEE243292A20077B5B2 /* LibraryCollectionViewCell.swift in Sources */,
 				FADEDB4824286F040071C1BB /* YoutubeThumbnailsModel.swift in Sources */,
 				FAE11CF0243292B70077B5B2 /* LibraryTableViewCell.swift in Sources */,
+				FA60397F24346ED700CE4659 /* LibraryDetailTableViewCell.swift in Sources */,
 				FAE11CF42432C3490077B5B2 /* PlayItemModel.swift in Sources */,
 				FA1A166C242ADCE300740ADE /* Recent+CoreDataClass.swift in Sources */,
 				FAE95C72242D85B8003AD3AD /* Util.swift in Sources */,
@@ -654,7 +658,7 @@
 			files = (
 				FADEDB2E24285E7A0071C1BB /* HomeViewModelTests.swift in Sources */,
 				FAE11CFB2432E1C20077B5B2 /* PlayerViewModelTests.swift in Sources */,
-				FA1A1675242B169000740ADE /* PlaylistDetailViewModelTests.swift in Sources */,
+				FA1A1675242B169000740ADE /* LibraryDetailViewModelTests.swift in Sources */,
 				FA1A1671242AE79C00740ADE /* LibraryViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -40,7 +40,7 @@ class LibraryViewModel {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             let managedOC = appDelegate.persistentContainer.viewContext
             let request: NSFetchRequest<Mylist> = NSFetchRequest(entityName: String(describing: Mylist.self))
-//            request.sortDescriptors = [NSSortDescriptor(key: "updatedAt", ascending: false)]
+            request.sortDescriptors = [NSSortDescriptor(key: "updatedAt", ascending: false)]
             
             do {
                 let fetchedList = try managedOC.fetch(request)
@@ -80,7 +80,7 @@ class LibraryViewModel {
                 
                 do {
                     try managedOC.save()
-                    playlistItems.append(playlist)
+                    playlistItems.insert(playlist, at: 0)
                     delegate?.success(type: .playlistCreate)
                 } catch {
                     delegate?.showError(type: .playlistCreate, error: .fail, message: "Something went wrong. Please try again.")
@@ -88,58 +88,6 @@ class LibraryViewModel {
             } else {
                 delegate?.showError(type: .playlistCreate, error: .fail, message: "Something went wrong. Please try again.")
             }
-        }
-    }
-    
-    func deletePlaylist(at: Int) {
-        if at < playlistItems.count {
-            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-                let managedOC = appDelegate.persistentContainer.viewContext
-                managedOC.delete(playlistItems[at])
-                
-                do {
-                    try managedOC.save()
-                    playlistItems.remove(at: at)
-                    delegate?.success(type: .playlistDelete)
-                } catch {
-                    delegate?.showError(type: .playlistDelete, error: .fail, message: "Something went wrong. Please try again.")
-                }
-            } else {
-                delegate?.showError(type: .playlistDelete, error: .fail, message: "Something went wrong. Please try again.")
-            }
-        } else {
-            delegate?.showError(type: .playlistDelete, error: .fail, message: "Something went wrong. Please try again.")
-        }
-    }
-    
-    func updatePlaylist(at: Int, newTitle: String) {
-        if newTitle.count == 0 {
-            delegate?.showError(type: .playlistUpdate, error: .fail, message: "Please enter a name.")
-            return
-        } else {
-            for playlist in playlistItems {
-                if playlist.title == newTitle {
-                    delegate?.showError(type: .playlistUpdate, error: .fail, message: "The name you entered already exists.\nPlease enter another name.")
-                    return
-                }
-            }
-        }
-        
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            let managedOC = appDelegate.persistentContainer.viewContext
-
-            let playlist = playlistItems[at]
-            playlist.updatedAt = Date()
-            playlist.title = newTitle
-            
-            do {
-                try managedOC.save()
-                delegate?.success(type: .playlistUpdate)
-            } catch {
-                delegate?.showError(type: .playlistUpdate, error: .fail, message: "Something went wrong. Please try again.")
-            }
-        } else {
-            delegate?.showError(type: .playlistUpdate, error: .fail, message: "Something went wrong. Please try again.")
         }
     }
 }

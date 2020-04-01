@@ -87,6 +87,45 @@ class Util {
             UIApplication.shared.open(youtubeUrl, options: [:], completionHandler: nil)
         }
     }
+    
+    static func openPlayer(videoItem: MyVideo) {
+        let playItem = PlayItemModel(videoId: videoItem.videoId!,
+                                     videoTitle: videoItem.videoTitle!,
+                                     videoDescription: videoItem.videoDescription!,
+                                     thumbnailDefault: videoItem.thumbnailDefault!,
+                                     thumbnailMedium: videoItem.thumbnailMedium!,
+                                     thumbnailHigh: videoItem.thumbnailHigh!,
+                                     publishedAt: videoItem.publishedAt!)
+        var dictionary:[String:Any] = [:]
+        dictionary[AppConstants.notification_userInfo_currentPlayingItem] = playItem
+        NotificationCenter.default.post(name: AppConstants.notification_show_miniplayer, object: nil, userInfo: dictionary)
+    }
+    
+    static func openPlayer(videoItem: Recent) {
+        let playItem = PlayItemModel(videoId: videoItem.videoId!,
+                                     videoTitle: videoItem.videoTitle!,
+                                     videoDescription: videoItem.videoDescription!,
+                                     thumbnailDefault: videoItem.thumbnailDefault!,
+                                     thumbnailMedium: videoItem.thumbnailMedium!,
+                                     thumbnailHigh: videoItem.thumbnailHigh!,
+                                     publishedAt: videoItem.publishedAt!)
+        var dictionary:[String:Any] = [:]
+        dictionary[AppConstants.notification_userInfo_currentPlayingItem] = playItem
+        NotificationCenter.default.post(name: AppConstants.notification_show_miniplayer, object: nil, userInfo: dictionary)
+    }
+    
+    static func openPlayer(videoItem: YoutubeItemModel) {
+        let playItem = PlayItemModel(videoId: videoItem.snippet.resourceId.videoId,
+                                     videoTitle: videoItem.snippet.title,
+                                     videoDescription: videoItem.snippet.description,
+                                     thumbnailDefault: videoItem.snippet.thumbnails.small.url,
+                                     thumbnailMedium: videoItem.snippet.thumbnails.medium.url,
+                                     thumbnailHigh: videoItem.snippet.thumbnails.high.url,
+                                     publishedAt: videoItem.snippet.publishedAt)
+        var dictionary:[String:Any] = [:]
+        dictionary[AppConstants.notification_userInfo_currentPlayingItem] = playItem
+        NotificationCenter.default.post(name: AppConstants.notification_show_miniplayer, object: nil, userInfo: dictionary)
+    }
 
     struct Page {
         var name = ""

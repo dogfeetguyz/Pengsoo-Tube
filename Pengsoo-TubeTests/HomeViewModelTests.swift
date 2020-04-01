@@ -178,7 +178,8 @@ class Pengsoo_TubeTests: XCTestCase {
         
         XCTAssertEqual(items!.count + 1, mypageViewModel.playlistItems.count)
         
-        mypageViewModel.deletePlaylist(at: mypageViewModel.playlistItems.count-1)
+        let libraryDetailViewModel = LibraryDetailViewModel(playlistItem: mypageViewModel.playlistItems.first!)
+        libraryDetailViewModel.deletePlaylist()
     }
     
     func testAddToPlayList() {
@@ -189,13 +190,14 @@ class Pengsoo_TubeTests: XCTestCase {
         let mypageViewModel = LibraryViewModel()
         mypageViewModel.createPlaylist(title: "test_playlist1")
         
-        sut.addToPlaylist(at: 0, listOf: .pengsooTv, toPlaylist: mypageViewModel.playlistItems.last!)
+        sut.addToPlaylist(at: 0, listOf: .pengsooTv, toPlaylist: mypageViewModel.playlistItems.first!)
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
         
         mypageViewModel.getPlaylist()
-        XCTAssertEqual(mypageViewModel.playlistItems.last!.videos?.count, 1)
+        XCTAssertEqual(mypageViewModel.playlistItems.first!.videos?.count, 1)
         
-        mypageViewModel.deletePlaylist(at: mypageViewModel.playlistItems.count-1)
+        let libraryDetailViewModel = LibraryDetailViewModel(playlistItem: mypageViewModel.playlistItems.first!)
+        libraryDetailViewModel.deletePlaylist()
     }
     
     func waitForThreeSeconds() {

@@ -35,41 +35,10 @@ class LibraryViewModelTests: XCTestCase {
         
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
         XCTAssertGreaterThan(sut.playlistItems.count, oldListCount)
-        XCTAssertEqual(sut.playlistItems.last?.title, title)
+        XCTAssertEqual(sut.playlistItems.first?.title, title)
         
-        sut.deletePlaylist(at: oldListCount)
-    }
-    
-    func testDeletePlaylist() {
-        sut.getPlaylist()
-        
-        let title = "test_playlist1"
-        sut.createPlaylist(title: title)
-        let newListCount = sut.playlistItems.count
-
-        XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
-        
-        sut.deletePlaylist(at: newListCount-1)
-
-        XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
-        XCTAssertGreaterThan(newListCount, sut.playlistItems.count)
-    }
-    
-    func testUpdatePlaylist() {
-        sut.getPlaylist()
-        
-        let title = "test_playlist1"
-        let oldListCount = sut.playlistItems.count
-        sut.createPlaylist(title: title)
-
-        XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
-        
-        let newTitle = "new test_playlist1"
-        sut.updatePlaylist(at: oldListCount, newTitle: newTitle)
-        
-        XCTAssertEqual(sut.playlistItems.last?.title, newTitle)
-        
-        sut.deletePlaylist(at: oldListCount)
+        let libraryDetailViewModel = LibraryDetailViewModel(playlistItem: sut.playlistItems.first!)
+        libraryDetailViewModel.deletePlaylist()
     }
     
     func testLoadPlaylist() {

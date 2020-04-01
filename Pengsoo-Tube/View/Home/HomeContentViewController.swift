@@ -144,16 +144,7 @@ extension HomeContentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let items = viewModel.getItemsList(for: requestType!) {
             let item = items[indexPath.row]
-            let playItem = PlayItemModel(videoId: item.snippet.resourceId.videoId,
-                                         videoTitle: item.snippet.title,
-                                         videoDescription: item.snippet.description,
-                                         thumbnailDefault: item.snippet.thumbnails.small.url,
-                                         thumbnailMedium: item.snippet.thumbnails.medium.url,
-                                         thumbnailHigh: item.snippet.thumbnails.high.url,
-                                         publishedAt: item.snippet.publishedAt)
-            var dictionary:[String:Any] = [:]
-            dictionary[AppConstants.notification_userInfo_currentPlayingItem] = playItem
-            NotificationCenter.default.post(name: AppConstants.notification_show_miniplayer, object: nil, userInfo: dictionary)
+            Util.openPlayer(videoItem: item)
         }
     }
 }

@@ -19,7 +19,7 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>GoogleSecretKey</key>
-	<string>AIzaSyBompOLCe0ujNkYPELVHg5JzqlXadzAG5I</string>
+	<string>YOUR_SECRET_KEY</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>

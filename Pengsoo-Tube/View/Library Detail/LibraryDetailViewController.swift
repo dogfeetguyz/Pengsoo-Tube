@@ -14,6 +14,8 @@ class LibraryDetailViewController: UIViewController {
     var recentItems: [Recent]?
     var playlistItem: Mylist?
     
+    @IBOutlet weak var tableView: UITableView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,20 +32,68 @@ class LibraryDetailViewController: UIViewController {
         
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+}
+
+extension LibraryDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if libraryDetailType == .recent {
+            if let videoItems = recentItems {
+                return videoItems.count
+            }
+        } else {
+            if let item = playlistItem {
+                if let videoItems = item.videos {
+                    return videoItems.count
+                }
+            }
+        }
+        
+        return 0
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: LibraryDetailTableViewCellID, for: indexPath) as? LibraryDetailTableViewCell {
+            if libraryDetailType == .recent {
+                if let videoItems = recentItems {
+                    let currentItem = videoItems[indexPath.row]
+                    Util.loadCachedImage(url: currentItem.thumbnailMedium) { (image) in
+                        cell.thumbnail.image = image
+                    }
+                    cell.titleLabel.text = currentItem.videoTitle
+                    cell.descriptionLabel.text = currentItem.videoDescription
+                }
+            } else {
+                if let item = playlistItem {
+                    if let videoItems = item.videos {
+                        let currentItem = videoItems[indexPath.row] as! MyVideo
+                        Util.loadCachedImage(url: currentItem.thumbnailMedium) { (image) in
+                            cell.thumbnail.image = image
+                        }
+                        cell.titleLabel.text = currentItem.videoTitle
+                        cell.descriptionLabel.text = currentItem.videoDescription
+                    }
+                }
+            }
+            
+            return cell
+        }
+        
+        return UITableViewCell()
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if libraryDetailType == .recent {
+            if let videoItems = recentItems {
+                let currentItem = videoItems[indexPath.row]
+                Util.openPlayer(videoItem: currentItem)
+            }
+        } else {
+            if let item = playlistItem {
+                if let videoItems = item.videos {
+                    let currentItem = videoItems[indexPath.row] as! MyVideo
+                    Util.openPlayer(videoItem: currentItem)
+                }
+            }
+        }
+    }
 }

@@ -68,29 +68,11 @@ extension LibraryTableViewCell: UICollectionViewDelegateFlowLayout, UICollection
         if let item = playlistItem {
             if let videos = item.videos {
                 let videoItem = videos[indexPath.item] as? MyVideo
-                let playItem = PlayItemModel(videoId: videoItem!.videoId!,
-                                             videoTitle: videoItem!.videoTitle!,
-                                             videoDescription: videoItem!.videoDescription!,
-                                             thumbnailDefault: videoItem!.thumbnailDefault!,
-                                             thumbnailMedium: videoItem!.thumbnailMedium!,
-                                             thumbnailHigh: videoItem!.thumbnailHigh!,
-                                             publishedAt: videoItem!.publishedAt!)
-                var dictionary:[String:Any] = [:]
-                dictionary[AppConstants.notification_userInfo_currentPlayingItem] = playItem
-                NotificationCenter.default.post(name: AppConstants.notification_show_miniplayer, object: nil, userInfo: dictionary)
+                Util.openPlayer(videoItem: videoItem!)
             }
         } else if let videos = recentItems {
             let videoItem = videos[indexPath.item]
-            let playItem = PlayItemModel(videoId: videoItem.videoId!,
-                                         videoTitle: videoItem.videoTitle!,
-                                         videoDescription: videoItem.videoDescription!,
-                                         thumbnailDefault: videoItem.thumbnailDefault!,
-                                         thumbnailMedium: videoItem.thumbnailMedium!,
-                                         thumbnailHigh: videoItem.thumbnailHigh!,
-                                         publishedAt: videoItem.publishedAt!)
-            var dictionary:[String:Any] = [:]
-            dictionary[AppConstants.notification_userInfo_currentPlayingItem] = playItem
-            NotificationCenter.default.post(name: AppConstants.notification_show_miniplayer, object: nil, userInfo: dictionary)
+            Util.openPlayer(videoItem: videoItem)
         }
     }
 }
