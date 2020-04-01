@@ -1,0 +1,71 @@
+PODS:
+  - Alamofire (5.0.5)
+  - AlamofireImage (4.0.3):
+    - Alamofire (< 6.0.0, >= 5.0.2)
+  - AlamofireObjectMapper (6.3.0):
+    - Alamofire (~> 5.0.0)
+    - ObjectMapper (~> 3.5.2)
+  - Movin (1.2.0)
+  - Nimble (8.0.5)
+  - ObjectMapper (3.5.2)
+  - OHHTTPStubs/Core (9.0.0)
+  - OHHTTPStubs/Default (9.0.0):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (9.0.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (9.0.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (9.0.0)
+  - OHHTTPStubs/Swift (9.0.0):
+    - OHHTTPStubs/Default
+  - Quick (2.2.0)
+  - YoutubePlayerView (1.2.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.0)
+  - AlamofireImage (~> 4.0)
+  - AlamofireObjectMapper (from `https://github.com/UnsereHausapotheke/AlamofireObjectMapper.git`)
+  - Movin
+  - Nimble
+  - ObjectMapper (~> 3.5.2)
+  - OHHTTPStubs/Swift
+  - Quick
+  - YoutubePlayerView
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AlamofireImage
+    - Movin
+    - Nimble
+    - ObjectMapper
+    - OHHTTPStubs
+    - Quick
+    - YoutubePlayerView
+
+EXTERNAL SOURCES:
+  AlamofireObjectMapper:
+    :git: https://github.com/UnsereHausapotheke/AlamofireObjectMapper.git
+
+CHECKOUT OPTIONS:
+  AlamofireObjectMapper:
+    :commit: bbc5b9903038daddcc1fdaa6253daf79113109fc
+    :git: https://github.com/UnsereHausapotheke/AlamofireObjectMapper.git
+
+SPEC CHECKSUMS:
+  Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
+  AlamofireImage: 3d1a2010519e58675318735580eb856e88840ff7
+  AlamofireObjectMapper: 1aa0d2936b8b663bf828e5ca6b48f847ec75cc96
+  Movin: 02a488d93913e46de77774d6a2cc2fa0eec83760
+  Nimble: 4ab1aeb9b45553c75b9687196b0fa0713170a332
+  ObjectMapper: b53ae947d370bf89423e86be7d4e2d2b2a8d3f40
+  OHHTTPStubs: cb29d2a9d09a828ecb93349a2b0c64f99e0db89f
+  Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
+  YoutubePlayerView: 3870fc10f2db3f54156697757f44d304203bdc7e
+
+PODFILE CHECKSUM: 8b5bf0138ec2b13a2d109aec6b89fe732447a2f7
+
+COCOAPODS: 1.9.0
