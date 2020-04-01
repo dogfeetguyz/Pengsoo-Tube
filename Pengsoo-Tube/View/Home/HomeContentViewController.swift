@@ -23,9 +23,10 @@ class HomeContentViewController: UIViewController {
     weak var innerTableViewScrollDelegate: InnerTableViewScrollDelegate?
     
     private var oldContentOffset = CGPoint.zero
+    private var viewModel: HomeViewModel = HomeViewModel()
+    private var isDispatched = false
     
     var requestType: RequestType?
-    var viewModel: HomeViewModel?
     var canRequestMore = true
     
     override func viewDidLoad() {
@@ -34,7 +35,11 @@ class HomeContentViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        if !isDispatched {
+            isDispatched = true
+            viewModel.delegate = self
+            viewModel.dispatchPengsooList(type: requestType!)
+        }
     }
     
     @IBAction func moreButtonAction(_ sender: UIButton) {
@@ -44,11 +49,10 @@ class HomeContentViewController: UIViewController {
         let alert = UIAlertController(style: .actionSheet)
         alert.addAction(title: "Cancel", style: .cancel) //.cancel action will always be at the end
         alert.addAction(image: UIImage(systemName: "play.rectangle.fill"), title: "Watch on Youtube", color: .systemRed, style: .default, isEnabled: true) { (_) in
-            if self.viewModel != nil {
-                if let items = self.viewModel?.getItemsList(for: self.requestType!) {
-                    let item = items[index]
-                    Util.openYoutube(videoId: item.snippet.resourceId.videoId)
-                }
+            
+            if let items = self.viewModel.getItemsList(for: self.requestType!) {
+                let item = items[index]
+                Util.openYoutube(videoId: item.snippet.resourceId.videoId)
             }
         }
        
@@ -74,17 +78,17 @@ class HomeContentViewController: UIViewController {
             textFieldAlert.addOneTextField(configuration: textFieldConfiguration)
             textFieldAlert.addAction(title: "OK", style: .cancel) { (_) in
                 guard let textField = weakTextField else { return }
-                self.viewModel?.addtoNewPlaylist(title: textField.text!, at: index, listOf: self.requestType!)
+                self.viewModel.addtoNewPlaylist(title: textField.text!, at: index, listOf: self.requestType!)
             }
             textFieldAlert.show()
         }
         
-        if let playlistItems = viewModel?.getPlaylistItems() {
+        if let playlistItems = viewModel.getPlaylistItems() {
             for playlist in playlistItems {
                 if let title = playlist.title {
 
                     alert.addAction(image: UIImage(systemName: "plus.square.on.square"), title: "Add to \(title)", color: .label, style: .default, isEnabled: true) { (_) in
-                        self.viewModel?.addToPlaylist(at: index, listOf: self.requestType!, toPlaylist: playlist)
+                        self.viewModel.addToPlaylist(at: index, listOf: self.requestType!, toPlaylist: playlist)
                     }
                 }
             }
@@ -99,12 +103,8 @@ extension HomeContentViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if viewModel != nil {
-            if let items = viewModel?.getItemsList(for: requestType!) {
-                return items.count
-            } else {
-                return 0
-            }
+        if let items = viewModel.getItemsList(for: requestType!) {
+            return items.count
         } else {
             return 0
         }
@@ -113,30 +113,28 @@ extension HomeContentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCellID, for: indexPath) as? HomeTableViewCell {
 
-            if viewModel != nil {
-                if let items = viewModel?.getItemsList(for: requestType!) {
-                    let item = items[indexPath.row]
-                    var imgUrl: String?
-                    if item.snippet.thumbnails.high.url.count > 0 {
-                        imgUrl = item.snippet.thumbnails.high.url
-                    } else if item.snippet.thumbnails.medium.url.count > 0 {
-                        imgUrl = item.snippet.thumbnails.medium.url
-                    } else if item.snippet.thumbnails.small.url.count > 0 {
-                        imgUrl = item.snippet.thumbnails.small.url
-                    }
-
-                    Util.loadCachedImage(url: imgUrl) { (image) in
-                        cell.thumbnailImageView.image = image
-                    }
-
-                    cell.moreButton.tag = indexPath.row
-                    cell.titleLabel.text = item.snippet.title
-                    cell.descriptionLabel.text = item.snippet.description
-                    cell.dateLabel.text = Util.processDate(dateString: item.snippet.publishedAt)
-                    cell.moreButtonTopConstraint.constant = cell.thumbnailImageView.frame.height
-                    
-                    return cell
+            if let items = viewModel.getItemsList(for: requestType!) {
+                let item = items[indexPath.row]
+                var imgUrl: String?
+                if item.snippet.thumbnails.high.url.count > 0 {
+                    imgUrl = item.snippet.thumbnails.high.url
+                } else if item.snippet.thumbnails.medium.url.count > 0 {
+                    imgUrl = item.snippet.thumbnails.medium.url
+                } else if item.snippet.thumbnails.small.url.count > 0 {
+                    imgUrl = item.snippet.thumbnails.small.url
                 }
+
+                Util.loadCachedImage(url: imgUrl) { (image) in
+                    cell.thumbnailImageView.image = image
+                }
+
+                cell.moreButton.tag = indexPath.row
+                cell.titleLabel.text = item.snippet.title
+                cell.descriptionLabel.text = item.snippet.description
+                cell.dateLabel.text = Util.processDate(dateString: item.snippet.publishedAt)
+                cell.moreButtonTopConstraint.constant = cell.thumbnailImageView.frame.height
+                
+                return cell
             }
         }
 
@@ -144,20 +142,18 @@ extension HomeContentViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if viewModel != nil {
-            if let items = viewModel?.getItemsList(for: requestType!) {
-                let item = items[indexPath.row]
-                let playItem = PlayItemModel(videoId: item.snippet.resourceId.videoId,
-                                             videoTitle: item.snippet.title,
-                                             videoDescription: item.snippet.description,
-                                             thumbnailDefault: item.snippet.thumbnails.small.url,
-                                             thumbnailMedium: item.snippet.thumbnails.medium.url,
-                                             thumbnailHigh: item.snippet.thumbnails.high.url,
-                                             publishedAt: item.snippet.publishedAt)
-                var dictionary:[String:Any] = [:]
-                dictionary[AppConstants.notification_userInfo_currentPlayingItem] = playItem
-                NotificationCenter.default.post(name: AppConstants.notification_show_miniplayer, object: nil, userInfo: dictionary)
-            }
+        if let items = viewModel.getItemsList(for: requestType!) {
+            let item = items[indexPath.row]
+            let playItem = PlayItemModel(videoId: item.snippet.resourceId.videoId,
+                                         videoTitle: item.snippet.title,
+                                         videoDescription: item.snippet.description,
+                                         thumbnailDefault: item.snippet.thumbnails.small.url,
+                                         thumbnailMedium: item.snippet.thumbnails.medium.url,
+                                         thumbnailHigh: item.snippet.thumbnails.high.url,
+                                         publishedAt: item.snippet.publishedAt)
+            var dictionary:[String:Any] = [:]
+            dictionary[AppConstants.notification_userInfo_currentPlayingItem] = playItem
+            NotificationCenter.default.post(name: AppConstants.notification_show_miniplayer, object: nil, userInfo: dictionary)
         }
     }
 }
@@ -196,7 +192,7 @@ extension HomeContentViewController: UITableViewDelegate {
         if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height) {
             if canRequestMore {
                 canRequestMore = false
-                viewModel?.dispatchPengsooList(type: requestType!, isInitial: false)
+                viewModel.dispatchPengsooList(type: requestType!, isInitial: false)
             }
         }
     }
@@ -212,6 +208,20 @@ extension HomeContentViewController: UITableViewDelegate {
             innerTableViewScrollDelegate?.innerTableViewScrollEnded()
         } else if decelerate == true {
             self.innerTableViewScrollDelegate?.innerTableViewBounceEnded(withScrollView: scrollView)
+        }
+    }
+}
+
+extension HomeContentViewController: ViewModelDelegate {
+    func success(type: RequestType, message: String) {
+        tableView.reloadData()
+    }
+    
+    func showError(type: RequestType, error: ViewModelDelegateError, message: String) {
+        if AppConstants.home_tab_types.contains(type) {
+            if error != .noItems {
+                canRequestMore = true
+            }
         }
     }
 }

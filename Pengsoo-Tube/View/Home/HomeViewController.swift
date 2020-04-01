@@ -62,11 +62,11 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupHeader()
         setupCollectionView()
         setupPagingViewController()
         populateBottomView()
         addPanGestureToTopViewAndCollectionView()
-        setViewModel()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -74,6 +74,19 @@ class HomeViewController: UIViewController {
         topViewInitialPosition = 0
         topViewFinalPosition = -headerImageView.frame.height
         topViewTopConstraintRange = topViewFinalPosition! ..< topViewInitialPosition!
+    }
+    
+    func setupHeader() {
+        if let headerUrl = UserDefaults.standard.string(forKey: AppConstants.key_home_header_url) {
+            if headerUrl.count > 0 {
+                Util.loadCachedImage(url: headerUrl) { (image) in
+                    self.headerImageView!.image = image
+                }
+            }
+        }
+        
+        viewModel.delegate = self
+        viewModel.getHeaderInfo()
     }
     
     func setupCollectionView() {
@@ -98,7 +111,6 @@ class HomeViewController: UIViewController {
             let tabContentVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContentViewController") as! HomeContentViewController
             tabContentVC.innerTableViewScrollDelegate = self
             tabContentVC.requestType = requestType
-            tabContentVC.viewModel = viewModel
             
             let displayName = AppConstants.home_tab_titles[index]
             let page = Util.Page(with: displayName, _vc: tabContentVC)
@@ -126,14 +138,6 @@ class HomeViewController: UIViewController {
         
         headerImageView.isUserInteractionEnabled = true
         headerImageView.addGestureRecognizer(topViewPanGesture)
-    }
-    
-    func setViewModel() {
-        viewModel.delegate = self
-        for type in AppConstants.home_tab_types {
-            viewModel.dispatchPengsooList(type: type)
-        }
-        viewModel.getHeaderInfo()
     }
     
     func pinPagingViewControllerToBottomView() {
@@ -355,16 +359,13 @@ extension HomeViewController: InnerTableViewScrollDelegate {
 extension HomeViewController: ViewModelDelegate {
     func success(type: RequestType, message: String) {
         if type == .header {
-            Util.loadCachedImage(url: viewModel.headerUrl) { (image) in
-                self.headerImageView!.image = image
-            }
-        } else if AppConstants.home_tab_types.contains(type) {
-            let requestPageIndex = AppConstants.home_tab_types.firstIndex(of: type)!
-            let currentContentViewController = pageCollection.pages[requestPageIndex].vc
-            currentContentViewController.canRequestMore = true
-            
-            if pageCollection.selectedPageIndex == requestPageIndex {
-                currentContentViewController.tableView.reloadData()
+            if viewModel.headerUrl.count > 0 {
+                if viewModel.headerUrl != UserDefaults.standard.string(forKey: AppConstants.key_home_header_url) {
+                    UserDefaults.standard.set(viewModel.headerUrl, forKey: AppConstants.key_home_header_url)
+                    Util.loadCachedImage(url: viewModel.headerUrl) { (image) in
+                        self.headerImageView!.image = image
+                    }
+                }
             }
         } else {
             
@@ -372,14 +373,6 @@ extension HomeViewController: ViewModelDelegate {
     }
     
     func showError(type: RequestType, error: ViewModelDelegateError, message: String) {
-        if AppConstants.home_tab_types.contains(type) {
-            if error != .noItems {
-                let requestPageIndex = AppConstants.home_tab_types.firstIndex(of: type)!
-                let currentContentViewController = pageCollection.pages[requestPageIndex].vc
-                currentContentViewController.canRequestMore = true
-            }
-        } else {
-            
-        }
+        
     }
 }

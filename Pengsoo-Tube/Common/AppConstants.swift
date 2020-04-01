@@ -32,6 +32,8 @@ struct AppConstants {
     
     static let home_tab_titles = ["Youtube Only", "Giant Peng TV", "Collaboration"]
     static let home_tab_types = [RequestType.pengsooYoutube, RequestType.pengsooTv, RequestType.pengsooOutside]
+    
+    static let key_home_header_url : String = "user_default_home_header_url"
 }
 
 enum ViewModelDelegateError: Int {
