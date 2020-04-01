@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>GoogleSecretKey</key>
-	<string>AIzaSyBompOLCe0ujNkYPELVHg5JzqlXadzAG5I</string>
+	<string>YOUR_SECRET_KEY</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
