@@ -56,5 +56,9 @@ enum RequestType: Int {
     case recentDelete
     case playlistDetail
     case playlistDetailDelete
-    
+}
+
+enum LibraryDetailType: Int {
+    case recent = 0
+    case playlist
 }

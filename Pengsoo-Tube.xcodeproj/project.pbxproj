@@ -26,6 +26,7 @@
 		FA2E52B42433FABF00966AB5 /* OneTextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E52A72433FABF00966AB5 /* OneTextFieldViewController.swift */; };
 		FA2E52BB2434006400966AB5 /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E52BA2434006400966AB5 /* UIAlertController+Extensions.swift */; };
 		FA2E52C5243400DF00966AB5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E52C0243400DF00966AB5 /* TextField.swift */; };
+		FA2E52C92434502500966AB5 /* LibraryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E52C82434502500966AB5 /* LibraryDetailViewController.swift */; };
 		FA80722D24302A860050BC8D /* HomeTabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80722C24302A860050BC8D /* HomeTabBarCell.swift */; };
 		FA80722F243031860050BC8D /* HomeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80722E243031860050BC8D /* HomeContentViewController.swift */; };
 		FAD709F12429B11300E48D31 /* HeaderImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD709F02429B11300E48D31 /* HeaderImageModel.swift */; };
@@ -93,6 +94,7 @@
 		FA2E52A72433FABF00966AB5 /* OneTextFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneTextFieldViewController.swift; sourceTree = "<group>"; };
 		FA2E52BA2434006400966AB5 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
 		FA2E52C0243400DF00966AB5 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		FA2E52C82434502500966AB5 /* LibraryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetailViewController.swift; sourceTree = "<group>"; };
 		FA80722C24302A860050BC8D /* HomeTabBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarCell.swift; sourceTree = "<group>"; };
 		FA80722E243031860050BC8D /* HomeContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentViewController.swift; sourceTree = "<group>"; };
 		FAD709F02429B11300E48D31 /* HeaderImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderImageModel.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 		FAC2E408243357FC008A8B9A /* Library Detail */ = {
 			isa = PBXGroup;
 			children = (
+				FA2E52C82434502500966AB5 /* LibraryDetailViewController.swift */,
 			);
 			path = "Library Detail";
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 				FA1A166C242ADCE300740ADE /* Recent+CoreDataClass.swift in Sources */,
 				FAE95C72242D85B8003AD3AD /* Util.swift in Sources */,
 				FA1A166E242ADCE300740ADE /* Mylist+CoreDataClass.swift in Sources */,
+				FA2E52C92434502500966AB5 /* LibraryDetailViewController.swift in Sources */,
 				FA1A166D242ADCE300740ADE /* Mylist+CoreDataProperties.swift in Sources */,
 				FADEDB4424286CE60071C1BB /* YoutubeVideoIdModel.swift in Sources */,
 				FAF59122242CC9B100EED00B /* PlayerViewController.swift in Sources */,

@@ -13,8 +13,7 @@
             <objects>
                 <navigationController navigationBarHidden="YES" id="RtH-MS-Q6z" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Library" image="play.rectangle.fill" catalog="system" id="QM6-ej-C4V"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VWo-vV-xQF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="VWo-vV-xQF">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -35,7 +34,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T1L-s7-gmZ">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="80" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jhb-3s-XPJ">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
@@ -185,6 +184,33 @@
             </objects>
             <point key="canvasLocation" x="154" y="376"/>
         </scene>
+        <!--Library Detail View Controller-->
+        <scene sceneID="gEu-F1-cYy">
+            <objects>
+                <viewController storyboardIdentifier="LibraryDetailViewController" id="KKl-pB-0hF" customClass="LibraryDetailViewController" customModule="Peng_Ha_Tube" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a7u-HO-EzB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nia-oc-WJN">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="PpS-Mj-13q" firstAttribute="trailing" secondItem="nia-oc-WJN" secondAttribute="trailing" id="3FN-OW-TSb"/>
+                            <constraint firstItem="nia-oc-WJN" firstAttribute="leading" secondItem="PpS-Mj-13q" secondAttribute="leading" id="Zbe-u5-4A5"/>
+                            <constraint firstItem="nia-oc-WJN" firstAttribute="top" secondItem="PpS-Mj-13q" secondAttribute="top" id="d8j-HK-XK6"/>
+                            <constraint firstItem="PpS-Mj-13q" firstAttribute="bottom" secondItem="nia-oc-WJN" secondAttribute="bottom" id="uhp-qw-GA7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PpS-Mj-13q"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="coF-9s-ANa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="901" y="376"/>
+        </scene>
         <!--Home-->
         <scene sceneID="9sB-Q1-KFi">
             <objects>
@@ -201,7 +227,7 @@
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EQh-t5-bMl">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cC4-7p-Tbi">
                                 <rect key="frame" x="0.0" y="163" width="414" height="50"/>

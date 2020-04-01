@@ -20,12 +20,23 @@ class LibraryViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
         viewModel.getRecent()
         viewModel.getPlaylist()
     }
 
     @IBAction func seeAllButtonAction(_ sender: UIButton) {
-//        let index = sender.tag
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LibraryDetailViewController") as! LibraryDetailViewController
+        
+        if sender.tag == 0 {
+            viewController.libraryDetailType = .recent
+            viewController.recentItems = viewModel.recentItems
+        } else {
+            viewController.libraryDetailType = .playlist
+            viewController.playlistItem = viewModel.playlistItems[sender.tag-1]
+        }
+        
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
