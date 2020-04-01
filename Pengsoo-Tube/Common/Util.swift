@@ -83,9 +83,13 @@ class Util {
         if UIApplication.shared.canOpenURL(youtubeUrl){
             UIApplication.shared.open(youtubeUrl, options: [:], completionHandler: nil)
         } else{
-            youtubeUrl = URL(string:"https://www.youtube.com/watch?v=\(videoId)")!
+            youtubeUrl = URL(string:generateYoutubeUrl(videoId: videoId))!
             UIApplication.shared.open(youtubeUrl, options: [:], completionHandler: nil)
         }
+    }
+    
+    static func generateYoutubeUrl(videoId: String) -> String {
+        return "https://www.youtube.com/watch?v=\(videoId)"
     }
     
     static func openPlayer(videoItem: MyVideo) {

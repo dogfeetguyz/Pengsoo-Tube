@@ -8,7 +8,6 @@
 
 import UIKit
 import Movin
-import YoutubePlayerView
 
 class PlayerViewController: UIViewController {
     

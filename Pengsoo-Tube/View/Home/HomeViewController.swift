@@ -182,6 +182,12 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    
+    func scrollToTop() {
+        let contentViewController = pageCollection.pages[pageCollection.selectedPageIndex].vc
+        contentViewController.tableView.setContentOffset(.zero, animated: true)
+        scrollToInitialView()
+    }
 }
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

@@ -21,6 +21,8 @@
 		FA1A1671242AE79C00740ADE /* LibraryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1670242AE79C00740ADE /* LibraryViewModelTests.swift */; };
 		FA1A1673242B099400740ADE /* LibraryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1672242B099400740ADE /* LibraryDetailViewModel.swift */; };
 		FA1A1675242B169000740ADE /* LibraryDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1674242B169000740ADE /* LibraryDetailViewModelTests.swift */; };
+		FA1A64022434A20D00A3212E /* YoutubePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A64002434A20D00A3212E /* YoutubePlayerView.swift */; };
+		FA1A64032434A20D00A3212E /* YoutubePlayerExtras.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A64012434A20D00A3212E /* YoutubePlayerExtras.swift */; };
 		FA2E52AF2433FABF00966AB5 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E52A02433FABF00966AB5 /* UIView+Extensions.swift */; };
 		FA2E52B32433FABF00966AB5 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E52A42433FABF00966AB5 /* UITextField+Extensions.swift */; };
 		FA2E52B42433FABF00966AB5 /* OneTextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E52A72433FABF00966AB5 /* OneTextFieldViewController.swift */; };
@@ -90,6 +92,8 @@
 		FA1A1670242AE79C00740ADE /* LibraryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModelTests.swift; sourceTree = "<group>"; };
 		FA1A1672242B099400740ADE /* LibraryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetailViewModel.swift; sourceTree = "<group>"; };
 		FA1A1674242B169000740ADE /* LibraryDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetailViewModelTests.swift; sourceTree = "<group>"; };
+		FA1A64002434A20D00A3212E /* YoutubePlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubePlayerView.swift; sourceTree = "<group>"; };
+		FA1A64012434A20D00A3212E /* YoutubePlayerExtras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubePlayerExtras.swift; sourceTree = "<group>"; };
 		FA2E52A02433FABF00966AB5 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		FA2E52A42433FABF00966AB5 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		FA2E52A72433FABF00966AB5 /* OneTextFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneTextFieldViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +167,15 @@
 				6A42FF04C5E71F3D1C1BE289 /* Pods-Pengsoo-TubeTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FA1A63FF2434A20D00A3212E /* YoutubePlayerView */ = {
+			isa = PBXGroup;
+			children = (
+				FA1A64002434A20D00A3212E /* YoutubePlayerView.swift */,
+				FA1A64012434A20D00A3212E /* YoutubePlayerExtras.swift */,
+			);
+			path = YoutubePlayerView;
 			sourceTree = "<group>";
 		};
 		FA2E529D2433FABF00966AB5 /* CustomAlerts */ = {
@@ -380,6 +393,7 @@
 		FADEDB4B242871620071C1BB /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FA1A63FF2434A20D00A3212E /* YoutubePlayerView */,
 				FA2E529D2433FABF00966AB5 /* CustomAlerts */,
 				FADEDB4C2428717A0071C1BB /* AppConstants.swift */,
 				FA13DC10242C7CE20031826A /* InsetLabel.swift */,
@@ -613,6 +627,7 @@
 				FA2E52B32433FABF00966AB5 /* UITextField+Extensions.swift in Sources */,
 				FADEDB4A24286F100071C1BB /* YoutubeThumbnailModel.swift in Sources */,
 				FADEDB4624286E130071C1BB /* YoutubeItemModel.swift in Sources */,
+				FA1A64022434A20D00A3212E /* YoutubePlayerView.swift in Sources */,
 				FADEDB1824285E770071C1BB /* HomeViewController.swift in Sources */,
 				FA2E52AF2433FABF00966AB5 /* UIView+Extensions.swift in Sources */,
 				FAD709F32429B14200E48D31 /* BrandingSettingsModel.swift in Sources */,
@@ -627,6 +642,7 @@
 				FAE11CEE243292A20077B5B2 /* LibraryCollectionViewCell.swift in Sources */,
 				FADEDB4824286F040071C1BB /* YoutubeThumbnailsModel.swift in Sources */,
 				FAE11CF0243292B70077B5B2 /* LibraryTableViewCell.swift in Sources */,
+				FA1A64032434A20D00A3212E /* YoutubePlayerExtras.swift in Sources */,
 				FA60397F24346ED700CE4659 /* LibraryDetailTableViewCell.swift in Sources */,
 				FAE11CF42432C3490077B5B2 /* PlayItemModel.swift in Sources */,
 				FA1A166C242ADCE300740ADE /* Recent+CoreDataClass.swift in Sources */,

@@ -30,5 +30,4 @@ class HomeTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         thumbnailImageView.image = Util.generateImageWithColor(.systemBackground)
     }
-
 }

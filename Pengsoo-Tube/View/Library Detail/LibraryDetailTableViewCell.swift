@@ -25,5 +25,8 @@ class LibraryDetailTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    override func prepareForReuse() {
+        thumbnail.image = Util.generateImageWithColor(.systemBackground)
+    }
 }

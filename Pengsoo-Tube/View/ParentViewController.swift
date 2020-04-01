@@ -8,7 +8,6 @@
 
 import UIKit
 import Movin
-import YoutubePlayerView
 import AlamofireImage
 
 class ParentViewController: UIViewController {
@@ -26,7 +25,7 @@ class ParentViewController: UIViewController {
     @IBOutlet weak var miniPlayerPlayerView: YoutubePlayerView!
     @IBOutlet weak var miniplayerBottomConstraint: NSLayoutConstraint!
     
-    var containerVC: UITabBarController?
+    var tabBarViewController: UITabBarController?
     
     internal var modalVC: PlayerViewController?
     private var movin: Movin?
@@ -34,6 +33,7 @@ class ParentViewController: UIViewController {
     private var isPaused: Bool = false
     private var isEnded: Bool = false
     private var currentItem: PlayItemModel?
+    private var currentTabIndex: Int = 0
     
     var playerViewModel = PlayerViewModel()
     
@@ -61,7 +61,7 @@ class ParentViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(onVideoPlay(_:)), name: AppConstants.notification_show_miniplayer, object: nil)
-        miniplayerBottomConstraint.constant = containerVC!.tabBar.frame.height
+        miniplayerBottomConstraint.constant = tabBarViewController!.tabBar.frame.height
         self.miniPlayerView.layoutIfNeeded()
     }
     
@@ -72,7 +72,8 @@ class ParentViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "TabBarControllerSegue" {
             if let vc = segue.destination as? UITabBarController {
-                self.containerVC = vc
+                self.tabBarViewController = vc
+                self.tabBarViewController?.delegate = self
             }
         }
     }
@@ -89,17 +90,17 @@ class ParentViewController: UIViewController {
         let endModalOrigin = CGPoint(x: 0, y: view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0)
         
         self.movin!.addAnimations([
-            self.containerVC!.view.mvn.alpha.from(1).to(0.6),
+            self.tabBarViewController!.view.mvn.alpha.from(1).to(0.6),
             modal.view.mvn.point.from(miniPlayerOrigin).to(endModalOrigin),
             modal.view.mvn.cornerRadius.from(0.0).to(10.0),
 //            self.miniPlayerPlayerView.webView.mvn.size.from(miniPlayerLayerView.frame.size).to(modal.playerView.frame.size),
-            self.containerVC!.tabBar.mvn.alpha.from(1.0).to(0.0),
+            self.tabBarViewController!.tabBar.mvn.alpha.from(1.0).to(0.0),
             ])
         
         let dismissGesture = GestureAnimating(modal.view, .bottom, modal.view.frame.size)
         dismissGesture.panCompletionThresholdRatio = 0.1
         
-        let transition = Transition(self.movin!, self.containerVC!, modal, GestureTransitioning(.present, nil, dismissGesture))
+        let transition = Transition(self.movin!, self, modal, GestureTransitioning(.present, nil, dismissGesture))
         transition.customContainerViewSetupHandler = { [unowned self] type, containerView in
             if type.isPresenting {
                 if self.isEnded {
@@ -117,19 +118,19 @@ class ParentViewController: UIViewController {
                 self.miniPlayerView.isHidden = true
                 
                 containerView.addSubview(modal.view)
-                containerView.addSubview(self.containerVC!.tabBar)
+                containerView.addSubview(self.tabBarViewController!.tabBar)
                 modal.view.layoutIfNeeded()
                 
-                self.containerVC?.beginAppearanceTransition(false, animated: false)
+                self.beginAppearanceTransition(false, animated: false)
                 modal.beginAppearanceTransition(true, animated: false)
             } else {
-                self.containerVC?.beginAppearanceTransition(true, animated: false)
+                self.beginAppearanceTransition(true, animated: false)
                 modal.beginAppearanceTransition(false, animated: false)
             }
         }
         
         transition.customContainerViewCompletionHandler = { [unowned self] type, didComplete, containerView in
-            self.containerVC?.endAppearanceTransition()
+            self.endAppearanceTransition()
             modal.endAppearanceTransition()
             
             if type.isDismissing {
@@ -137,10 +138,10 @@ class ParentViewController: UIViewController {
                     //complete dismiss
                     self.setPlayerView()
                     modal.view.removeFromSuperview()
-                    self.containerVC?.tabBar.removeFromSuperview()
-                    self.containerVC?.view.addSubview(self.containerVC!.tabBar)
-                    self.containerVC?.tabBar.alpha = 1.0
-                    self.containerVC!.view.alpha = 1.0
+                    self.tabBarViewController?.tabBar.removeFromSuperview()
+                    self.tabBarViewController?.view.addSubview(self.tabBarViewController!.tabBar)
+                    self.tabBarViewController?.tabBar.alpha = 1.0
+                    self.tabBarViewController!.view.alpha = 1.0
                     
                     self.miniPlayerView.isHidden = false
                     self.isPresented = false
@@ -154,7 +155,7 @@ class ParentViewController: UIViewController {
             } else {
                 if didComplete {
                     //complete present
-                    self.modalVC!.youtubeView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width*16/9)
+                    self.modalVC!.youtubeView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width*(9/16.0))
                 } else {
                     //cancel present
                 }
@@ -185,10 +186,9 @@ class ParentViewController: UIViewController {
     
     func openPlayer() {
         self.setup()
-
-        self.miniPlayerPlayerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width*16/9)
+        self.miniPlayerPlayerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width)
         
-        DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             guard let modalViewController = self.modalVC else { return }
             self.present(modalViewController, animated: true, completion: nil)
         })
@@ -198,6 +198,7 @@ class ParentViewController: UIViewController {
         if !isPresented {
             isPresented = true
             miniPlayerPlayerView.stop()
+            miniPlayerPlayerView.webView.load(URLRequest(url: URL(string:"about:blank")!))
 
             currentItem = notification.userInfo![AppConstants.notification_userInfo_currentPlayingItem] as? PlayItemModel
             playerViewModel.addToRecent(item: currentItem!)
@@ -251,6 +252,22 @@ class ParentViewController: UIViewController {
     @IBAction func replayButtonAction(_ sender: Any) {
         miniPlayerPlayerView.seek(to: 0, allowSeekAhead: true)
         miniPlayerPlayerView.play()
+    }
+}
+
+extension ParentViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if currentTabIndex == tabBarController.selectedIndex {
+            if let viewController = tabBarController.viewControllers![currentTabIndex] as? HomeViewController {
+                viewController.scrollToTop()
+            } else if let navigationController = tabBarController.viewControllers![currentTabIndex] as? UINavigationController {
+                if let viewController = navigationController.topViewController as? LibraryViewController {
+                    viewController.scrollToTop()
+                }
+            }
+        } else {
+            currentTabIndex = tabBarController.selectedIndex
+        }
     }
 }
 

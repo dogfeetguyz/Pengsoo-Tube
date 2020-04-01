@@ -38,6 +38,10 @@ class LibraryViewController: UIViewController {
         
         navigationController?.pushViewController(viewController, animated: true)
     }
+    
+    func scrollToTop() {
+        tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+    }
 }
 
 extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {

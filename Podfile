@@ -7,7 +7,6 @@ target 'Pengsoo-Tube' do
   pod 'AlamofireImage', '~> 4.0'
   pod 'ObjectMapper', '~> 3.5.2'
   pod 'Movin'
-  pod 'YoutubePlayerView'
 end
 
 target 'Pengsoo-TubeTests' do

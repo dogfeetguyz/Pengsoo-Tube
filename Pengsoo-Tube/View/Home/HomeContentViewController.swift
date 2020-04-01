@@ -55,6 +55,16 @@ class HomeContentViewController: UIViewController {
                 Util.openYoutube(videoId: item.snippet.resourceId.videoId)
             }
         }
+        alert.addAction(image: UIImage(systemName: "square.and.arrow.up.on.square.fill"), title: "Share", color: .systemBlue, style: .default, isEnabled: true) { (_) in
+            if let items = self.viewModel.getItemsList(for: self.requestType!) {
+                let item = items[index]
+                let textToShare = [ Util.generateYoutubeUrl(videoId: item.snippet.resourceId.videoId), "Shared from Peng-Ha Tube" ]
+                let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView = self.view
+                activityViewController.excludedActivityTypes = [.airDrop]
+                self.present(activityViewController, animated: true, completion: nil)
+            }
+        }
        
         alert.addAction(image: UIImage(systemName: "folder.fill.badge.plus"), title: "Add to New Playlist", color: .label, style: .default, isEnabled: true) { (_) in
             let textFieldAlert = UIAlertController(style: .actionSheet, title: "New Playlist", message: "Please input a name for a new playlist")
@@ -124,8 +134,11 @@ extension HomeContentViewController: UITableViewDataSource {
                     imgUrl = item.snippet.thumbnails.small.url
                 }
 
+                cell.tag = indexPath.row
                 Util.loadCachedImage(url: imgUrl) { (image) in
-                    cell.thumbnailImageView.image = image
+                    if(cell.tag == indexPath.row) {
+                        cell.thumbnailImageView.image = image
+                    }
                 }
 
                 cell.moreButton.tag = indexPath.row

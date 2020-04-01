@@ -14,4 +14,7 @@ class LibraryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var thumnail: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    override func prepareForReuse() {
+        thumnail.image = Util.generateImageWithColor(.systemBackground)
+    }
 }

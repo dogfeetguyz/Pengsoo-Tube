@@ -170,7 +170,7 @@ class Pengsoo_TubeTests: XCTestCase {
         
         sut.dispatchPengsooList(type: .pengsooTv)
         waitForThreeSeconds()
-        sut.addtoNewPlaylist(title: "test playlist 1", at: 0, listOf: .pengsooTv)
+        sut.addtoNewPlaylist(title: "test playlist1", at: 0, listOf: .pengsooTv)
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
         
         let mypageViewModel = LibraryViewModel()

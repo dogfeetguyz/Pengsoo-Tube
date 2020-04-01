@@ -26,6 +26,7 @@
 #if os(iOS)
 import UIKit
 import WebKit
+import Movin
 
 public protocol YoutubePlayerViewDelegate: class {
     /// Invoked when the player view is ready to receive API calls.
