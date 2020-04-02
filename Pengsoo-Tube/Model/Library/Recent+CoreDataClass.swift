@@ -2,7 +2,7 @@
 //  Recent+CoreDataClass.swift
 //  
 //
-//  Created by Yejun Park on 25/3/20.
+//  Created by Yejun Park on 2/4/20.
 //
 //
 
@@ -10,6 +10,6 @@ import Foundation
 import CoreData
 
 @objc(Recent)
-public class Recent: NSManagedObject {
+public class Recent: Video {
 
 }

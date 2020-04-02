@@ -166,7 +166,7 @@ class HomeViewModel {
         }
     }
     
-    func getPlaylistItems() -> [Mylist]? {
+    func getPlaylistItems() -> [Playlist]? {
         let libraryViewModel = LibraryViewModel()
         libraryViewModel.getPlaylist()
         
@@ -193,8 +193,8 @@ class HomeViewModel {
             if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
                 let managedOC = appDelegate.persistentContainer.viewContext
 
-                let entity = NSEntityDescription.entity(forEntityName: String(describing: Mylist.self ), in: managedOC)
-                let playlist = Mylist(entity: entity!, insertInto: managedOC)
+                let entity = NSEntityDescription.entity(forEntityName: String(describing: Playlist.self ), in: managedOC)
+                let playlist = Playlist(entity: entity!, insertInto: managedOC)
                 playlist.updatedAt = Date()
                 playlist.title = title
                 
@@ -211,12 +211,12 @@ class HomeViewModel {
         }
     }
     
-    func addToPlaylist(at: Int, listOf: RequestType, toPlaylist: Mylist) {
+    func addToPlaylist(at: Int, listOf: RequestType, toPlaylist: Playlist) {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             let managedOC = appDelegate.persistentContainer.viewContext
 
-            let entity = NSEntityDescription.entity(forEntityName: String(describing: MyVideo.self ), in: managedOC)
-            let myVideo = MyVideo(entity: entity!, insertInto: managedOC)
+            let entity = NSEntityDescription.entity(forEntityName: String(describing: PlaylistVideo.self ), in: managedOC)
+            let playlistVideo = PlaylistVideo(entity: entity!, insertInto: managedOC)
             
             var youtubeItem: YoutubeItemModel?
             if listOf == .pengsooTv {
@@ -229,16 +229,16 @@ class HomeViewModel {
                 delegate?.showError(type: .playlistUpdate, error: .fail, message: "Something went wrong. Please try again.")
                 return
             }
-            myVideo.publishedAt = youtubeItem!.snippet.publishedAt
-            myVideo.thumbnailHigh = youtubeItem!.snippet.thumbnails.high.url
-            myVideo.thumbnailMedium = youtubeItem!.snippet.thumbnails.medium.url
-            myVideo.thumbnailDefault = youtubeItem!.snippet.thumbnails.small.url
-            myVideo.videoTitle = youtubeItem!.snippet.title
-            myVideo.videoDescription = youtubeItem!.snippet.description
-            myVideo.videoId = youtubeItem!.snippet.resourceId.videoId
-            myVideo.inPlaylist = toPlaylist
+            playlistVideo.publishedAt = youtubeItem!.snippet.publishedAt
+            playlistVideo.thumbnailHigh = youtubeItem!.snippet.thumbnails.high.url
+            playlistVideo.thumbnailMedium = youtubeItem!.snippet.thumbnails.medium.url
+            playlistVideo.thumbnailDefault = youtubeItem!.snippet.thumbnails.small.url
+            playlistVideo.videoTitle = youtubeItem!.snippet.title
+            playlistVideo.videoDescription = youtubeItem!.snippet.description
+            playlistVideo.videoId = youtubeItem!.snippet.resourceId.videoId
+            playlistVideo.inPlaylist = toPlaylist
             
-            toPlaylist.addToVideos(myVideo)
+            toPlaylist.addToPlaylistVideos(playlistVideo)
             toPlaylist.updatedAt = Date()
             do {
                 try managedOC.save()

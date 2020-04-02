@@ -12,7 +12,7 @@ import UIKit
 class LibraryViewModel {
     
     var recentItems: [Recent] = []
-    var playlistItems: [Mylist] = []
+    var playlistItems: [Playlist] = []
     weak var delegate: ViewModelDelegate?
         
     func getRecent() {
@@ -22,8 +22,8 @@ class LibraryViewModel {
             
             do {
                 let fetchedList = try managedOC.fetch(request)
+                recentItems = fetchedList.reversed()
                 if fetchedList.count > 0 {
-                    recentItems = fetchedList.reversed()
                     delegate?.success(type: .recent)
                 } else {
                     delegate?.showError(type: .recent, error: .noItems)
@@ -39,13 +39,13 @@ class LibraryViewModel {
     func getPlaylist() {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             let managedOC = appDelegate.persistentContainer.viewContext
-            let request: NSFetchRequest<Mylist> = NSFetchRequest(entityName: String(describing: Mylist.self))
+            let request: NSFetchRequest<Playlist> = NSFetchRequest(entityName: String(describing: Playlist.self))
             request.sortDescriptors = [NSSortDescriptor(key: "updatedAt", ascending: false)]
             
             do {
                 let fetchedList = try managedOC.fetch(request)
+                playlistItems = fetchedList
                 if fetchedList.count > 0 {
-                    playlistItems = fetchedList
                     delegate?.success(type: .playlist)
                 } else {
                     delegate?.showError(type: .playlist, error: .noItems)
@@ -73,8 +73,8 @@ class LibraryViewModel {
             if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
                 let managedOC = appDelegate.persistentContainer.viewContext
 
-                let entity = NSEntityDescription.entity(forEntityName: String(describing: Mylist.self ), in: managedOC)
-                let playlist = Mylist(entity: entity!, insertInto: managedOC)
+                let entity = NSEntityDescription.entity(forEntityName: String(describing: Playlist.self ), in: managedOC)
+                let playlist = Playlist(entity: entity!, insertInto: managedOC)
                 playlist.updatedAt = Date()
                 playlist.title = title
                 

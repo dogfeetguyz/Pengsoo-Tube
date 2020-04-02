@@ -29,11 +29,9 @@ class LibraryViewController: UIViewController {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LibraryDetailViewController") as! LibraryDetailViewController
         
         if sender.tag == 0 {
-            viewController.libraryDetailType = .recent
-            viewController.recentItems = viewModel.recentItems
+            viewController.viewModel = LibraryDetailViewModel(recentItems: viewModel.recentItems)
         } else {
-            viewController.libraryDetailType = .playlist
-            viewController.playlistItem = viewModel.playlistItems[sender.tag-1]
+            viewController.viewModel = LibraryDetailViewModel(playlistItem: viewModel.playlistItems[sender.tag-1])
         }
         
         navigationController?.pushViewController(viewController, animated: true)
@@ -55,13 +53,11 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
             
             if indexPath.row == 0 {
                 cell.titleLabel.text = "Recent"
-                cell.recentItems = viewModel.recentItems
-                cell.playlistItem = nil
+                cell.videoItems = viewModel.recentItems
             } else {
                 let item = viewModel.playlistItems[indexPath.row-1]
                 cell.titleLabel.text = item.title
-                cell.playlistItem = item
-                cell.recentItems = nil
+                cell.videoItems = item.playlistVideos?.array as? [PlaylistVideo]
             }
             cell.collectionView.reloadData()
             
@@ -82,7 +78,13 @@ extension LibraryViewController: ViewModelDelegate {
     }
     
     func showError(type: RequestType, error: ViewModelDelegateError, message: String) {
-        
+        if error == .noItems {
+            if type == .playlist {
+                tableView.reloadData()
+            } else if type == .recent {
+                tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
+            }
+        }
     }
     
 }

@@ -15,8 +15,7 @@ class LibraryTableViewCell: UITableViewCell {
     @IBOutlet weak var seeAllButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var recentItems: [Recent]?
-    var playlistItem: Mylist?
+    var videoItems: [Video]?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,49 +28,30 @@ class LibraryTableViewCell: UITableViewCell {
 
 extension LibraryTableViewCell: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let item = playlistItem {
-            if let videos = item.videos {
-                return videos.count
-            }
-        } else if let videos = recentItems {
-            return videos.count
+        if let _videoItems = videoItems {
+            return _videoItems.count
         }
         return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LibraryCollectionViewCellID, for: indexPath) as? LibraryCollectionViewCell {
-            if let item = playlistItem {
-                if let videos = item.videos {
-                    let videoItem = videos[indexPath.item] as? MyVideo
-                    cell.titleLabel.text = videoItem?.videoTitle
-                    Util.loadCachedImage(url: videoItem?.thumbnailMedium) { (image) in
-                        cell.thumnail.image = image
-                    }
-                    return cell
-                }
-            }  else if let videos = recentItems {
-                let videoItem = videos[indexPath.item]
+            if let _videoItems = videoItems {
+                let videoItem = _videoItems[indexPath.item]
                 cell.titleLabel.text = videoItem.videoTitle
                 Util.loadCachedImage(url: videoItem.thumbnailMedium) { (image) in
                     cell.thumnail.image = image
                 }
-                return cell
             }
+            return cell
         }
 
         return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        if let item = playlistItem {
-            if let videos = item.videos {
-                let videoItem = videos[indexPath.item] as? MyVideo
-                Util.openPlayer(videoItem: videoItem!)
-            }
-        } else if let videos = recentItems {
-            let videoItem = videos[indexPath.item]
+        if let _videoItems = videoItems {
+            let videoItem = _videoItems[indexPath.item]
             Util.openPlayer(videoItem: videoItem)
         }
     }

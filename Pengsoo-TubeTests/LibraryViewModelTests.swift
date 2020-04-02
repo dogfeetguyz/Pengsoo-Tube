@@ -41,6 +41,12 @@ class LibraryViewModelTests: XCTestCase {
         libraryDetailViewModel.deletePlaylist()
     }
     
+    func testLoadRecentItems() {
+        sut.getRecent()
+        XCTAssertNotEqual(errorOccurred, ViewModelDelegateError.fail)
+        XCTAssertNotNil(sut.recentItems)
+    }
+    
     func testLoadPlaylist() {
         sut.getPlaylist()
         XCTAssertNotEqual(errorOccurred, ViewModelDelegateError.fail)

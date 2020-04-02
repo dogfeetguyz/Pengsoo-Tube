@@ -194,7 +194,7 @@ class Pengsoo_TubeTests: XCTestCase {
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
         
         mypageViewModel.getPlaylist()
-        XCTAssertEqual(mypageViewModel.playlistItems.first!.videos?.count, 1)
+        XCTAssertEqual(mypageViewModel.playlistItems.first!.playlistVideos?.count, 1)
         
         let libraryDetailViewModel = LibraryDetailViewModel(playlistItem: mypageViewModel.playlistItems.first!)
         libraryDetailViewModel.deletePlaylist()

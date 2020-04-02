@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E266" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Mylist" representedClassName="Mylist" syncable="YES">
+    <entity name="Playlist" representedClassName="Playlist" syncable="YES">
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="videos" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="MyVideo" inverseName="inPlaylist" inverseEntity="MyVideo"/>
+        <relationship name="playlistVideos" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="PlaylistVideo" inverseName="inPlaylist" inverseEntity="PlaylistVideo"/>
     </entity>
-    <entity name="MyVideo" representedClassName="MyVideo" syncable="YES">
-        <attribute name="publishedAt" optional="YES" attributeType="String"/>
-        <attribute name="thumbnailDefault" optional="YES" attributeType="String"/>
-        <attribute name="thumbnailHigh" optional="YES" attributeType="String"/>
-        <attribute name="thumbnailMedium" optional="YES" attributeType="String"/>
-        <attribute name="videoDescription" optional="YES" attributeType="String"/>
-        <attribute name="videoId" optional="YES" attributeType="String"/>
-        <attribute name="videoTitle" optional="YES" attributeType="String"/>
-        <relationship name="inPlaylist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Mylist" inverseName="videos" inverseEntity="Mylist"/>
+    <entity name="PlaylistVideo" representedClassName="PlaylistVideo" parentEntity="Video" syncable="YES">
+        <relationship name="inPlaylist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Playlist" inverseName="playlistVideos" inverseEntity="Playlist"/>
     </entity>
-    <entity name="Recent" representedClassName="Recent" syncable="YES">
+    <entity name="Recent" representedClassName="Recent" parentEntity="Video" syncable="YES"/>
+    <entity name="Video" representedClassName="Video" syncable="YES">
         <attribute name="publishedAt" optional="YES" attributeType="String"/>
         <attribute name="thumbnailDefault" optional="YES" attributeType="String"/>
         <attribute name="thumbnailHigh" optional="YES" attributeType="String"/>
@@ -25,8 +19,9 @@
         <attribute name="videoTitle" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Mylist" positionX="-143.83203125" positionY="350.734375" width="128" height="88"/>
-        <element name="MyVideo" positionX="-380.56640625" positionY="260.7734375" width="128" height="163"/>
-        <element name="Recent" positionX="-54" positionY="45" width="128" height="148"/>
+        <element name="Playlist" positionX="-58.38671875" positionY="205.73046875" width="128" height="88"/>
+        <element name="PlaylistVideo" positionX="-254.3359375" positionY="235.79296875" width="128" height="58"/>
+        <element name="Video" positionX="-390.95703125" positionY="50.6796875" width="128" height="148"/>
+        <element name="Recent" positionX="-516.171875" positionY="233.5546875" width="128" height="43"/>
     </elements>
 </model>
