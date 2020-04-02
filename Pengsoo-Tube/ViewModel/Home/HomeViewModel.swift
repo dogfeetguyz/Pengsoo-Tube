@@ -14,13 +14,13 @@ import UIKit
 class HomeViewModel {
     
     var tvNextPageToken: String = ""
-    var tvListItems: [YoutubeItemModel] = []
+    var tvListItems: [VideoItemModel] = []
     
     var youtubeNextPageToken: String = ""
-    var youtubeListItems: [YoutubeItemModel] = []
+    var youtubeListItems: [VideoItemModel] = []
     
     var outsideNextPageToken: String = ""
-    var outsideListItems: [YoutubeItemModel] = []
+    var outsideListItems: [VideoItemModel] = []
     
     var headerUrl: String = ""
     
@@ -84,24 +84,32 @@ class HomeViewModel {
                             }
                             self.delegate?.showError(type:type, error: .noItems)
                         } else {
-                            var items: Array<YoutubeItemModel> = []
+                            var videoItems: Array<VideoItemModel> = []
                             for item in youtubeListItem.items {
                                 if item.snippet.title != "Private video" {
-                                    if !items.contains(item) {
-                                        items.append(item)
+                                    let videoItem = VideoItemModel(videoId: item.snippet.resourceId.videoId,
+                                                                   videoTitle: item.snippet.title,
+                                                                   videoDescription: item.snippet.description,
+                                                                   thumbnailDefault: item.snippet.thumbnails.small.url,
+                                                                   thumbnailMedium: item.snippet.thumbnails.medium.url,
+                                                                   thumbnailHigh: item.snippet.thumbnails.high.url,
+                                                                   publishedAt: item.snippet.publishedAt)
+                                    
+                                    if !videoItems.contains(videoItem) {
+                                        videoItems.append(videoItem)
                                     }
                                 }
                             }
                             
                             if type == .pengsooTv {
                                 self.tvNextPageToken = youtubeListItem.nextPageToken
-                                self.tvListItems.append(contentsOf: items)
+                                self.tvListItems.append(contentsOf: videoItems)
                             } else if type == .pengsooYoutube {
                                 self.youtubeNextPageToken = youtubeListItem.nextPageToken
-                                self.youtubeListItems.append(contentsOf: items)
+                                self.youtubeListItems.append(contentsOf: videoItems)
                             } else if type == .pengsooOutside {
                                 self.outsideNextPageToken = youtubeListItem.nextPageToken
-                                self.outsideListItems.append(contentsOf: items)
+                                self.outsideListItems.append(contentsOf: videoItems)
                             }
                             self.delegate?.success(type:type)
                         }
@@ -153,7 +161,7 @@ class HomeViewModel {
         }
     }
     
-    func getItemsList(for requestType: RequestType) -> [YoutubeItemModel]? {
+    func getItemsList(for requestType: RequestType) -> [VideoItemModel]? {
         switch requestType {
         case .pengsooTv:
             return tvListItems
@@ -217,7 +225,7 @@ class HomeViewModel {
             let entity = NSEntityDescription.entity(forEntityName: String(describing: PlaylistVideo.self ), in: managedOC)
             let playlistVideo = PlaylistVideo(entity: entity!, insertInto: managedOC)
             
-            var youtubeItem: YoutubeItemModel?
+            var youtubeItem: VideoItemModel?
             if listOf == .pengsooTv {
                 youtubeItem = tvListItems[at]
             } else if listOf == .pengsooYoutube {
@@ -228,13 +236,13 @@ class HomeViewModel {
                 delegate?.showError(type: .playlistUpdate, error: .fail, message: "Something went wrong. Please try again.")
                 return
             }
-            playlistVideo.publishedAt = youtubeItem!.snippet.publishedAt
-            playlistVideo.thumbnailHigh = youtubeItem!.snippet.thumbnails.high.url
-            playlistVideo.thumbnailMedium = youtubeItem!.snippet.thumbnails.medium.url
-            playlistVideo.thumbnailDefault = youtubeItem!.snippet.thumbnails.small.url
-            playlistVideo.videoTitle = youtubeItem!.snippet.title
-            playlistVideo.videoDescription = youtubeItem!.snippet.description
-            playlistVideo.videoId = youtubeItem!.snippet.resourceId.videoId
+            playlistVideo.publishedAt = youtubeItem!.publishedAt
+            playlistVideo.thumbnailHigh = youtubeItem!.thumbnailHigh
+            playlistVideo.thumbnailMedium = youtubeItem!.thumbnailMedium
+            playlistVideo.thumbnailDefault = youtubeItem!.thumbnailDefault
+            playlistVideo.videoTitle = youtubeItem!.videoTitle
+            playlistVideo.videoDescription = youtubeItem!.videoDescription
+            playlistVideo.videoId = youtubeItem!.videoId
             playlistVideo.inPlaylist = toPlaylist
             
             toPlaylist.addToPlaylistVideos(playlistVideo)

@@ -27,3 +27,9 @@ struct VideoItemModel {
         self.publishedAt = publishedAt
     }
 }
+
+extension VideoItemModel: Equatable {
+    static func == (lhs: VideoItemModel, rhs: VideoItemModel) -> Bool {
+        return lhs.videoId == rhs.videoId
+    }
+}

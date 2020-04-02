@@ -52,13 +52,13 @@ class HomeContentViewController: UIViewController {
             
             if let items = self.viewModel.getItemsList(for: self.requestType!) {
                 let item = items[index]
-                Util.openYoutube(videoId: item.snippet.resourceId.videoId)
+                Util.openYoutube(videoId: item.videoId)
             }
         }
         alert.addAction(image: UIImage(systemName: "square.and.arrow.up.on.square.fill"), title: "Share", color: .systemBlue, style: .default, isEnabled: true) { (_) in
             if let items = self.viewModel.getItemsList(for: self.requestType!) {
                 let item = items[index]
-                let textToShare = [ Util.generateYoutubeUrl(videoId: item.snippet.resourceId.videoId), "Shared from Peng-Ha Tube" ]
+                let textToShare = [ Util.generateYoutubeUrl(videoId: item.videoId), "Shared from Peng-Ha Tube" ]
                 let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
                 activityViewController.popoverPresentationController?.sourceView = self.view
                 activityViewController.excludedActivityTypes = [.airDrop]
@@ -123,12 +123,12 @@ extension HomeContentViewController: UITableViewDataSource {
             if let items = viewModel.getItemsList(for: requestType!) {
                 let item = items[indexPath.row]
                 var imgUrl: String?
-                if item.snippet.thumbnails.high.url.count > 0 {
-                    imgUrl = item.snippet.thumbnails.high.url
-                } else if item.snippet.thumbnails.medium.url.count > 0 {
-                    imgUrl = item.snippet.thumbnails.medium.url
-                } else if item.snippet.thumbnails.small.url.count > 0 {
-                    imgUrl = item.snippet.thumbnails.small.url
+                if item.thumbnailHigh.count > 0 {
+                    imgUrl = item.thumbnailHigh
+                } else if item.thumbnailMedium.count > 0 {
+                    imgUrl = item.thumbnailMedium
+                } else if item.thumbnailDefault.count > 0 {
+                    imgUrl = item.thumbnailDefault
                 }
 
                 cell.tag = indexPath.row
@@ -139,9 +139,9 @@ extension HomeContentViewController: UITableViewDataSource {
                 }
 
                 cell.moreButton.tag = indexPath.row
-                cell.titleLabel.text = item.snippet.title
-                cell.descriptionLabel.text = item.snippet.description
-                cell.dateLabel.text = Util.processDate(dateString: item.snippet.publishedAt)
+                cell.titleLabel.text = item.videoTitle
+                cell.descriptionLabel.text = item.videoDescription
+                cell.dateLabel.text = Util.processDate(dateString: item.publishedAt)
                 cell.moreButtonTopConstraint.constant = cell.thumbnailImageView.frame.height
                 
                 return cell

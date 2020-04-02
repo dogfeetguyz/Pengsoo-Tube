@@ -34,21 +34,14 @@ class PlayerViewModelTests: XCTestCase {
 
         let items = homeViewModel.getItemsList(for: .pengsooTv)
         let item = items![0]
-        let playItem = VideoItemModel(videoId: item.snippet.resourceId.videoId,
-                                     videoTitle: item.snippet.title,
-                                     videoDescription: item.snippet.description,
-                                     thumbnailDefault: item.snippet.thumbnails.small.url,
-                                     thumbnailMedium: item.snippet.thumbnails.medium.url,
-                                     thumbnailHigh: item.snippet.thumbnails.high.url,
-                                     publishedAt: item.snippet.publishedAt)
         
-        sut.addToRecent(item: playItem)
+        sut.addToRecent(item: item)
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
         
         let libraryViewModel = LibraryViewModel()
         libraryViewModel.getRecent()
         
-        XCTAssertEqual(libraryViewModel.recentItems.first?.videoId, playItem.videoId)
+        XCTAssertEqual(libraryViewModel.recentItems.first?.videoId, item.videoId)
     }
 
     func testAddToRecentDuplication() {
@@ -59,24 +52,17 @@ class PlayerViewModelTests: XCTestCase {
         
         let items = homeViewModel.getItemsList(for: .pengsooTv)
         let item = items![0]
-        let playItem = VideoItemModel(videoId: item.snippet.resourceId.videoId,
-                                     videoTitle: item.snippet.title,
-                                     videoDescription: item.snippet.description,
-                                     thumbnailDefault: item.snippet.thumbnails.small.url,
-                                     thumbnailMedium: item.snippet.thumbnails.medium.url,
-                                     thumbnailHigh: item.snippet.thumbnails.high.url,
-                                     publishedAt: item.snippet.publishedAt)
         
-        sut.addToRecent(item: playItem)
+        sut.addToRecent(item: item)
         
         let libraryViewModel = LibraryViewModel()
         libraryViewModel.getRecent()
         let recentItemsCount = libraryViewModel.recentItems.count
         
-        sut.addToRecent(item: playItem)
-        sut.addToRecent(item: playItem)
-        sut.addToRecent(item: playItem)
-        sut.addToRecent(item: playItem)
+        sut.addToRecent(item: item)
+        sut.addToRecent(item: item)
+        sut.addToRecent(item: item)
+        sut.addToRecent(item: item)
         
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
         
@@ -92,22 +78,14 @@ class PlayerViewModelTests: XCTestCase {
 
         let items = homeViewModel.getItemsList(for: .pengsooTv)
         for item in items! {
-            let playItem = VideoItemModel(videoId: item.snippet.resourceId.videoId,
-                                         videoTitle: item.snippet.title,
-                                         videoDescription: item.snippet.description,
-                                         thumbnailDefault: item.snippet.thumbnails.small.url,
-                                         thumbnailMedium: item.snippet.thumbnails.medium.url,
-                                         thumbnailHigh: item.snippet.thumbnails.high.url,
-                                         publishedAt: item.snippet.publishedAt)
-            
-            sut.addToRecent(item: playItem)
+            sut.addToRecent(item: item)
             XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
         }
         
         let libraryViewModel = LibraryViewModel()
         libraryViewModel.getRecent()
         for (index, item) in items!.reversed().enumerated() {
-            XCTAssertEqual(item.snippet.resourceId.videoId, libraryViewModel.recentItems[index].videoId)
+            XCTAssertEqual(item.videoId, libraryViewModel.recentItems[index].videoId)
         }
     }
 }
