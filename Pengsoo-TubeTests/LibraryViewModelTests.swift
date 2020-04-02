@@ -37,7 +37,7 @@ class LibraryViewModelTests: XCTestCase {
         XCTAssertGreaterThan(sut.playlistItems.count, oldListCount)
         XCTAssertEqual(sut.playlistItems.first?.title, title)
         
-        let libraryDetailViewModel = LibraryDetailViewModel(playlistItem: sut.playlistItems.first!)
+        let libraryDetailViewModel = LibraryDetailViewModel(playItems: sut.playlistItems.first!.videos, title: title)
         libraryDetailViewModel.deletePlaylist()
     }
     

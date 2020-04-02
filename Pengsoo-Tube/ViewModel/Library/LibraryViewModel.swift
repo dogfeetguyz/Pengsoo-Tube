@@ -11,8 +11,8 @@ import UIKit
 
 class LibraryViewModel {
     
-    var recentItems: [Recent] = []
-    var playlistItems: [Playlist] = []
+    var recentItems: [PlayItemModel] = []
+    var playlistItems: [PlaylistModel] = []
     weak var delegate: ViewModelDelegate?
         
     func getRecent() {
@@ -22,7 +22,10 @@ class LibraryViewModel {
             
             do {
                 let fetchedList = try managedOC.fetch(request)
-                recentItems = fetchedList.reversed()
+                recentItems = fetchedList.reversed().map() {
+                    return PlayItemModel(videoId: $0.videoId!, videoTitle: $0.videoTitle!, videoDescription: $0.videoDescription!, thumbnailDefault: $0.thumbnailDefault!, thumbnailMedium: $0.thumbnailMedium!, thumbnailHigh: $0.thumbnailHigh!, publishedAt: $0.publishedAt!)
+                }
+                
                 if fetchedList.count > 0 {
                     delegate?.success(type: .recent)
                 } else {
@@ -44,7 +47,10 @@ class LibraryViewModel {
             
             do {
                 let fetchedList = try managedOC.fetch(request)
-                playlistItems = fetchedList
+                playlistItems = fetchedList.map() {
+                    return PlaylistModel(title: $0.title!, videos: $0.playlistVideos!.array as! [PlaylistVideo])
+                }
+                
                 if fetchedList.count > 0 {
                     delegate?.success(type: .playlist)
                 } else {
@@ -80,7 +86,7 @@ class LibraryViewModel {
                 
                 do {
                     try managedOC.save()
-                    playlistItems.insert(playlist, at: 0)
+                    playlistItems.insert(PlaylistModel(title: playlist.title!, videos: playlist.playlistVideos!.array as! [PlaylistVideo]), at: 0)
                     delegate?.success(type: .playlistCreate)
                 } catch {
                     delegate?.showError(type: .playlistCreate, error: .fail, message: "Something went wrong. Please try again.")

@@ -9,7 +9,7 @@
         <relationship name="inPlaylist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Playlist" inverseName="playlistVideos" inverseEntity="Playlist"/>
     </entity>
     <entity name="Recent" representedClassName="Recent" parentEntity="Video" syncable="YES"/>
-    <entity name="Video" representedClassName="Video" syncable="YES">
+    <entity name="Video" representedClassName="Video" isAbstract="YES" syncable="YES">
         <attribute name="publishedAt" optional="YES" attributeType="String"/>
         <attribute name="thumbnailDefault" optional="YES" attributeType="String"/>
         <attribute name="thumbnailHigh" optional="YES" attributeType="String"/>
@@ -19,9 +19,9 @@
         <attribute name="videoTitle" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Playlist" positionX="-58.38671875" positionY="205.73046875" width="128" height="88"/>
-        <element name="PlaylistVideo" positionX="-254.3359375" positionY="235.79296875" width="128" height="58"/>
-        <element name="Video" positionX="-390.95703125" positionY="50.6796875" width="128" height="148"/>
-        <element name="Recent" positionX="-516.171875" positionY="233.5546875" width="128" height="43"/>
+        <element name="Playlist" positionX="-89.41796875" positionY="211.26171875" width="128" height="88"/>
+        <element name="PlaylistVideo" positionX="-254.3359375" positionY="240.79296875" width="128" height="58"/>
+        <element name="Recent" positionX="-402.4765625" positionY="237.30859375" width="128" height="43"/>
+        <element name="Video" positionX="-314.32421875" positionY="68.00390625" width="128" height="148"/>
     </elements>
 </model>

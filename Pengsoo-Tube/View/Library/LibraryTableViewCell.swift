@@ -15,7 +15,7 @@ class LibraryTableViewCell: UITableViewCell {
     @IBOutlet weak var seeAllButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var videoItems: [Video]?
+    var videoItems: [PlayItemModel]?
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -31,10 +31,9 @@ class LibraryDetailViewController: UIViewController {
         nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         
         navigationController?.setNavigationBarHidden(false, animated: true)
+        self.title = viewModel?.title
         
-        if let playlistItem = viewModel?.playlistItem {
-            self.title = playlistItem.title
-            
+        if self.title != "Recent" {
             let editButton: UIButton = UIButton.init(type: .custom)
             editButton.setImage(UIImage(systemName: "square.and.pencil"), for: .normal)
             editButton.addTarget(self, action: #selector(editButtonAction), for: .touchUpInside)
@@ -48,8 +47,6 @@ class LibraryDetailViewController: UIViewController {
             let deleteBarButton = UIBarButtonItem(customView: deleteButton)
             
             self.navigationItem.setRightBarButtonItems([deleteBarButton, editBarButton], animated: false)
-        } else {
-            self.title = "Recent"
         }
     }
     
@@ -96,16 +93,9 @@ class LibraryDetailViewController: UIViewController {
     }
     
     @IBAction func playButtonAction(_ sender: Any) {
-        var currentItem: Video?
-        
-        if let videoItems = viewModel?.recentItems {
-            currentItem = videoItems.first
-        } else if let playlistItem = viewModel?.playlistItem {
-            currentItem = (playlistItem.playlistVideos!.firstObject as! Video)
-        }
-        
-        if let _currentItem = currentItem {
-            Util.openPlayer(videoItem: _currentItem)
+        if let playItems = viewModel?.playItems {
+            let currentItem = playItems.first
+            Util.openPlayer(videoItem: currentItem!)
         }
     }
     
@@ -120,35 +110,39 @@ class LibraryDetailViewController: UIViewController {
             manageButton.setImage(UIImage(systemName: "lock.open"), for: .normal)
         }
     }
+    
+    @IBAction func clearButtonAction(_ sender: Any) {
+        let alert = UIAlertController(style: .alert)
+        alert.title = "Clear Playlist?"
+        
+        alert.addAction(title: "Cance", style: .cancel)
+        alert.addAction(title: "Clear") { (_) in
+            self.viewModel?.clearItems()
+        }
+        
+        alert.show()
+    }
 }
 
 extension LibraryDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let videoItems = viewModel?.recentItems {
-            return videoItems.count
-        } else if let playlistItem = viewModel?.playlistItem {
-            return playlistItem.playlistVideos!.count
+        if let playItems = viewModel?.playItems {
+            return playItems.count
+        } else {
+            return 0
         }
-        
-        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: LibraryDetailTableViewCellID, for: indexPath) as? LibraryDetailTableViewCell {
-            var currentItem: Video?
-            
-            if let videoItems = viewModel?.recentItems {
-                currentItem = videoItems[indexPath.row]
-            } else if let playlistItem = viewModel?.playlistItem {
-                currentItem = (playlistItem.playlistVideos![indexPath.row] as! Video)
-            }
-            
-            if let _currentItem = currentItem {
-                Util.loadCachedImage(url: _currentItem.thumbnailMedium) { (image) in
+            if let playItems = viewModel?.playItems {
+                let currentItem = playItems[indexPath.row]
+                
+                Util.loadCachedImage(url: currentItem.thumbnailMedium) { (image) in
                     cell.thumbnail.image = image
                 }
-                cell.titleLabel.text = _currentItem.videoTitle
-                cell.descriptionLabel.text = _currentItem.videoDescription
+                cell.titleLabel.text = currentItem.videoTitle
+                cell.descriptionLabel.text = currentItem.videoDescription
             }
             
             return cell
@@ -158,16 +152,9 @@ extension LibraryDetailViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var currentItem: Video?
-        
-        if let videoItems = viewModel?.recentItems {
-            currentItem = videoItems[indexPath.row]
-        } else if let playlistItem = viewModel?.playlistItem {
-            currentItem = (playlistItem.playlistVideos![indexPath.row] as! Video)
-        }
-        
-        if let _currentItem = currentItem {
-            Util.openPlayer(videoItem: _currentItem)
+        if let playItems = viewModel?.playItems {
+            let currentItem = playItems[indexPath.row]
+            Util.openPlayer(videoItem: currentItem)
         }
     }
     
@@ -196,7 +183,7 @@ extension LibraryDetailViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        if (viewModel?.recentItems) != nil {
+        if self.title == "Recent" {
             return false
         } else {
             return true
@@ -209,8 +196,10 @@ extension LibraryDetailViewController: ViewModelDelegate {
         if type == .playlistDelete {
             navigationController?.popViewController(animated: true)
         } else if type == .playlistUpdate {
-            self.title = viewModel?.playlistItem?.title
+            self.title = viewModel?.title
         } else if type == .playlistDetailDelete {
+            tableView?.reloadData()
+        } else if type == .playlistDetail {
             tableView?.reloadData()
         }
     }

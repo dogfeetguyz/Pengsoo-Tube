@@ -185,48 +185,46 @@ class ParentViewController: UIViewController {
     }
     
     func openPlayer() {
-        self.setup()
-        self.miniPlayerPlayerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-            guard let modalViewController = self.modalVC else { return }
-            self.present(modalViewController, animated: true, completion: nil)
-        })
+        if !self.isPresented {
+            self.isPresented = true
+
+            setup()
+            miniPlayerPlayerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width)
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                guard let modalViewController = self.modalVC else { return }
+                self.present(modalViewController, animated: true, completion: nil)
+            })
+        }
     }
     
     @objc func onVideoPlay(_ notification: Notification) {
-        if !isPresented {
-            isPresented = true
-            miniPlayerPlayerView.stop()
-            miniPlayerPlayerView.webView.load(URLRequest(url: URL(string:"about:blank")!))
 
-            currentItem = notification.userInfo![AppConstants.notification_userInfo_currentPlayingItem] as? PlayItemModel
-            playerViewModel.addToRecent(item: currentItem!)
-            
-            miniPlayerTitle.text = currentItem!.videoTitle
+        miniPlayerPlayerView.stop()
+        miniPlayerPlayerView.webView.load(URLRequest(url: URL(string:"about:blank")!))
 
-            let playerVars: [String: Any] = [
-                "autoplay": 1,
-                "controls": 1,
-                "cc_load_policy": 0,
-                "modestbranding": 1,
-                "playsinline": 1,
-                "rel": 0,
-                "origin": "https://youtube.com"
-            ]
-            miniPlayerPlayerView.loadWithVideoId((currentItem?.videoId)!, with: playerVars)
-            miniPlayerPlayerView.delegate = self
+        currentItem = notification.userInfo![AppConstants.notification_userInfo_currentPlayingItem] as? PlayItemModel
+        playerViewModel.addToRecent(item: currentItem!)
+        
+        miniPlayerTitle.text = currentItem!.videoTitle
 
-            openPlayer()
-        }
+        let playerVars: [String: Any] = [
+            "autoplay": 1,
+            "controls": 1,
+            "cc_load_policy": 0,
+            "modestbranding": 1,
+            "playsinline": 1,
+            "rel": 0,
+            "origin": "https://youtube.com"
+        ]
+        miniPlayerPlayerView.loadWithVideoId((self.currentItem?.videoId)!, with: playerVars)
+        miniPlayerPlayerView.delegate = self
+
+        openPlayer()
     }
     
     @IBAction func miniplayerButtonAction(_ sender: Any) {
-        if !isPresented {
-            isPresented = true
-            
-            openPlayer()
-        }
+        openPlayer()
     }
     
     @IBAction func pauseButtonAction(_ sender: Any) {
@@ -331,17 +329,5 @@ extension ParentViewController: YoutubePlayerViewDelegate {
     
     func playerViewPreferredBackgroundColor(_ playerView: YoutubePlayerView) -> UIColor {
         return .clear
-    }
-    
-    func playerViewPreferredInitialLoadingView(_ playerView: YoutubePlayerView) -> UIView? {
-        let view = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width*(9/16.0)))
-        view.contentMode = .scaleAspectFill
-        view.clipsToBounds = true
-        
-        Util.loadCachedImage(url: getThumbnailImageUrl()) { (image) in
-            view.image = image
-        }
-        
-        return view
     }
 }

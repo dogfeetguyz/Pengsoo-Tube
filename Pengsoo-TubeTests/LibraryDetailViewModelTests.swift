@@ -45,13 +45,13 @@ class LibraryDetailViewModelTests: XCTestCase {
         }
         libraryViewModel.getPlaylist()
         
-        sut = LibraryDetailViewModel(playlistItem: libraryViewModel.playlistItems.first!)
+        let playlistItem = libraryViewModel.playlistItems.first!
+        sut = LibraryDetailViewModel(playItems: playlistItem.videos, title: playlistItem.title)
         sut.delegate = self
     }
     
     func setUpRecent() {
         libraryViewModel = LibraryViewModel()
-        libraryViewModel.createPlaylist(title: "test_playlist1")
         
         stub(condition: isHost("www.googleapis.com")) { _ in
             let stubPath = OHPathForFile("pengsooList_page1.json", type(of: self))!
@@ -67,11 +67,13 @@ class LibraryDetailViewModelTests: XCTestCase {
         homeViewModel.dispatchPengsooList(type: .pengsooTv)
         _ = XCTWaiter.wait(for: [expectation(description: "Test after 1 seconds")], timeout: 1.0)
         
-        Util.openPlayer(videoItem: homeViewModel.tvListItems.first!)
-        _ = XCTWaiter.wait(for: [expectation(description: "Test after 1 seconds")], timeout: 0.3)
+        for i in 0 ..< 5 {
+            Util.openPlayer(videoItem: homeViewModel.tvListItems[i])
+            _ = XCTWaiter.wait(for: [expectation(description: "Test after 0.3 seconds")], timeout: 0.3)
+        }
         
         libraryViewModel.getRecent()
-        sut = LibraryDetailViewModel(recentItems: libraryViewModel.recentItems)
+        sut = LibraryDetailViewModel(playItems: libraryViewModel.recentItems, title: "Recent")
         sut.delegate = self
     }
 
@@ -85,21 +87,37 @@ class LibraryDetailViewModelTests: XCTestCase {
     func testDeletePlaylistItem() {
         setUpPlaylist()
         
-        let oldCount = sut.playlistItem!.playlistVideos?.count ?? 0
+        let oldCount = sut.playItems.count
         sut.deleteItem(at: 0)
         
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
-        XCTAssertEqual(oldCount - 1, sut.playlistItem!.playlistVideos?.count)
+        XCTAssertEqual(oldCount - 1, sut.playItems.count)
     }
     
     func testDeleteRecentItem() {
         setUpRecent()
         
-        let oldCount = sut.recentItems?.count ?? 0
+        let oldCount = sut.playItems.count
         sut.deleteItem(at: 0)
         
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
-        XCTAssertEqual(oldCount - 1, sut.recentItems?.count)
+        XCTAssertEqual(oldCount - 1, sut.playItems.count)
+    }
+    
+    func testClearPlaylistItems() {
+        setUpPlaylist()
+        sut.clearItems()
+        
+        XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
+        XCTAssertEqual(0, sut.playItems.count)
+    }
+    
+    func testClearRecentItems() {
+        setUpRecent()
+        sut.clearItems()
+        
+        XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
+        XCTAssertEqual(0, sut.playItems.count)
     }
     
     func replaceItem() {
@@ -107,11 +125,11 @@ class LibraryDetailViewModelTests: XCTestCase {
         
         let oldIndex = 0
         let newIndex = 3
-        let idForOldIndex = (sut.playlistItem!.playlistVideos?[oldIndex] as! PlaylistVideo).videoId
+        let idForOldIndex = sut.playItems[oldIndex].videoId
         sut.moveItem(from: oldIndex, to: newIndex)
         
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
-        XCTAssertEqual(idForOldIndex, (sut.playlistItem!.playlistVideos?[newIndex] as! PlaylistVideo).videoId)
+        XCTAssertEqual(idForOldIndex, sut.playItems[newIndex].videoId)
     }
     
     func testDeletePlaylist() {
@@ -119,29 +137,46 @@ class LibraryDetailViewModelTests: XCTestCase {
         
         sut.deletePlaylist()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
-        XCTAssertNil(sut.playlistItem)
     }
     
     func testUpdatePlaylist() {
         setUpPlaylist()
         
-        let currentTitle = sut.playlistItem!.title
+        let currentTitle = sut.title
         let newTitle = "new test_playlist1"
         sut.updatePlaylist(newTitle: newTitle)
         
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
-        XCTAssertNotEqual(sut.playlistItem!.title, currentTitle)
-        XCTAssertEqual(sut.playlistItem!.title, newTitle)
+        XCTAssertNotEqual(sut.title, currentTitle)
+        XCTAssertEqual(sut.title, newTitle)
+    }
+    
+    func testUpdatePlaylistSameName() {
+        setUpPlaylist()
+        
+        let currentTitle = sut.title
+        sut.updatePlaylist(newTitle: currentTitle)
+        
+        XCTAssertEqual(errorOccurred, ViewModelDelegateError.fail)
+        XCTAssertEqual(sut.title, currentTitle)
     }
     
     func testUpdatePlaylistDuplicate() {
         setUpPlaylist()
         
-        let currentTitle = sut.playlistItem!.title
-        sut.updatePlaylist(newTitle: currentTitle!)
+        libraryViewModel.createPlaylist(title: "test_playlist2")
+        
+        let currentTitle = sut.title
+        sut.updatePlaylist(newTitle: "test_playlist2")
         
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.fail)
-        XCTAssertEqual(sut.playlistItem!.title, currentTitle!)
+        XCTAssertNotEqual(sut.title, "test_playlist2")
+        XCTAssertEqual(sut.title, currentTitle)
+        
+        
+        libraryViewModel.getPlaylist()
+        let playlistItem = libraryViewModel.playlistItems.first!
+        LibraryDetailViewModel(playItems: playlistItem.videos, title: playlistItem.title).deletePlaylist()
     }
 }
 

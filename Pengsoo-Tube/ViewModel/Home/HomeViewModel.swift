@@ -166,7 +166,7 @@ class HomeViewModel {
         }
     }
     
-    func getPlaylistItems() -> [Playlist]? {
+    func getPlaylistItems() -> [PlaylistModel]? {
         let libraryViewModel = LibraryViewModel()
         libraryViewModel.getPlaylist()
         
@@ -200,7 +200,6 @@ class HomeViewModel {
                 
                 do {
                     try managedOC.save()
-                    libraryViewModel.playlistItems.append(playlist)
                     addToPlaylist(at: at, listOf: listOf, toPlaylist: playlist)
                 } catch {
                     delegate?.showError(type: .playlistCreate, error: .fail, message: "Something went wrong. Please try again.")
@@ -243,6 +242,24 @@ class HomeViewModel {
             do {
                 try managedOC.save()
                 delegate?.success(type: .playlistUpdate)
+            } catch {
+                delegate?.showError(type: .playlistUpdate, error: .fail, message: "Something went wrong. Please try again.")
+            }
+        } else {
+            delegate?.showError(type: .playlistUpdate, error: .fail, message: "Something went wrong. Please try again.")
+        }
+    }
+    
+    func addToPlaylist(at: Int, listOf: RequestType, toPlaylist: PlaylistModel) {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            let managedOC = appDelegate.persistentContainer.viewContext
+            let request: NSFetchRequest<Playlist> = NSFetchRequest(entityName: String(describing: Playlist.self))
+            request.predicate = NSPredicate(format: "title == %@", toPlaylist.title)
+            
+            do {
+                let playlistItems = try managedOC.fetch(request)
+                let playlistItem = playlistItems.first!
+                addToPlaylist(at: at, listOf: listOf, toPlaylist: playlistItem)
             } catch {
                 delegate?.showError(type: .playlistUpdate, error: .fail, message: "Something went wrong. Please try again.")
             }

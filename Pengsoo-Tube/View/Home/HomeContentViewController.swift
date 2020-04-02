@@ -95,11 +95,8 @@ class HomeContentViewController: UIViewController {
         
         if let playlistItems = viewModel.getPlaylistItems() {
             for playlist in playlistItems {
-                if let title = playlist.title {
-
-                    alert.addAction(image: UIImage(systemName: "plus.square.on.square"), title: "Add to \(title)", color: .label, style: .default, isEnabled: true) { (_) in
-                        self.viewModel.addToPlaylist(at: index, listOf: self.requestType!, toPlaylist: playlist)
-                    }
+                alert.addAction(image: UIImage(systemName: "plus.square.on.square"), title: "Add to \(playlist.title)", color: .label, style: .default, isEnabled: true) { (_) in
+                    self.viewModel.addToPlaylist(at: index, listOf: self.requestType!, toPlaylist: playlist)
                 }
             }
         }

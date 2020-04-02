@@ -149,10 +149,10 @@ class Pengsoo_TubeTests: XCTestCase {
         let items = sut.getPlaylistItems()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
         
-        let mypageViewModel = LibraryViewModel()
-        mypageViewModel.getPlaylist()
+        let libraryViewModel = LibraryViewModel()
+        libraryViewModel.getPlaylist()
         
-        XCTAssertEqual(items, mypageViewModel.playlistItems)
+        XCTAssertEqual(items, libraryViewModel.playlistItems)
     }
     
     func testAddtoNewPlaylist() {
@@ -178,7 +178,8 @@ class Pengsoo_TubeTests: XCTestCase {
         
         XCTAssertEqual(items!.count + 1, mypageViewModel.playlistItems.count)
         
-        let libraryDetailViewModel = LibraryDetailViewModel(playlistItem: mypageViewModel.playlistItems.first!)
+        let playlistItem = mypageViewModel.playlistItems.first!
+        let libraryDetailViewModel = LibraryDetailViewModel(playItems: playlistItem.videos, title: playlistItem.title)
         libraryDetailViewModel.deletePlaylist()
     }
     
@@ -187,16 +188,17 @@ class Pengsoo_TubeTests: XCTestCase {
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
         
-        let mypageViewModel = LibraryViewModel()
-        mypageViewModel.createPlaylist(title: "test_playlist1")
+        let libraryViewModel = LibraryViewModel()
+        libraryViewModel.createPlaylist(title: "test_playlist1")
         
-        sut.addToPlaylist(at: 0, listOf: .pengsooTv, toPlaylist: mypageViewModel.playlistItems.first!)
+        sut.addToPlaylist(at: 0, listOf: .pengsooTv, toPlaylist: libraryViewModel.playlistItems.first!)
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
         
-        mypageViewModel.getPlaylist()
-        XCTAssertEqual(mypageViewModel.playlistItems.first!.playlistVideos?.count, 1)
+        libraryViewModel.getPlaylist()
+        let playlistItem = libraryViewModel.playlistItems.first!
+        XCTAssertEqual(playlistItem.videos.count, 1)
         
-        let libraryDetailViewModel = LibraryDetailViewModel(playlistItem: mypageViewModel.playlistItems.first!)
+        let libraryDetailViewModel = LibraryDetailViewModel(playItems: playlistItem.videos, title: playlistItem.title)
         libraryDetailViewModel.deletePlaylist()
     }
     

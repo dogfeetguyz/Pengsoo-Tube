@@ -29,9 +29,9 @@ class LibraryViewController: UIViewController {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LibraryDetailViewController") as! LibraryDetailViewController
         
         if sender.tag == 0 {
-            viewController.viewModel = LibraryDetailViewModel(recentItems: viewModel.recentItems)
+            viewController.viewModel = LibraryDetailViewModel(playItems: viewModel.recentItems, title: "Recent")
         } else {
-            viewController.viewModel = LibraryDetailViewModel(playlistItem: viewModel.playlistItems[sender.tag-1])
+            viewController.viewModel = LibraryDetailViewModel(playItems: viewModel.playlistItems[sender.tag-1].videos, title: viewModel.playlistItems[sender.tag-1].title)
         }
         
         navigationController?.pushViewController(viewController, animated: true)
@@ -57,7 +57,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
             } else {
                 let item = viewModel.playlistItems[indexPath.row-1]
                 cell.titleLabel.text = item.title
-                cell.videoItems = item.playlistVideos?.array as? [PlaylistVideo]
+                cell.videoItems = item.videos
             }
             cell.collectionView.reloadData()
             
