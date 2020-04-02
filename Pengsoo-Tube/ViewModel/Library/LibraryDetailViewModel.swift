@@ -11,11 +11,11 @@ import UIKit
 
 class LibraryDetailViewModel {
         
-    var playItems: [PlayItemModel]
+    var playItems: [VideoItemModel]
     var title: String
     weak var delegate: ViewModelDelegate?
     
-    init(playItems: [PlayItemModel], title: String) {
+    init(playItems: [VideoItemModel], title: String) {
         self.playItems = playItems
         self.title = title
     }
@@ -145,7 +145,7 @@ class LibraryDetailViewModel {
                 playlistItem.insertIntoPlaylistVideos(newVideoItem, at: to)
                 
                 playItems = (playlistItem.playlistVideos!.array as! [PlaylistVideo]).map() {
-                    return PlayItemModel(videoId: $0.videoId!, videoTitle: $0.videoTitle!, videoDescription: $0.videoDescription!, thumbnailDefault: $0.thumbnailDefault!, thumbnailMedium: $0.thumbnailMedium!, thumbnailHigh: $0.thumbnailHigh!, publishedAt: $0.publishedAt!)
+                    return VideoItemModel(videoId: $0.videoId!, videoTitle: $0.videoTitle!, videoDescription: $0.videoDescription!, thumbnailDefault: $0.thumbnailDefault!, thumbnailMedium: $0.thumbnailMedium!, thumbnailHigh: $0.thumbnailHigh!, publishedAt: $0.publishedAt!)
                 }
                 
                 do {

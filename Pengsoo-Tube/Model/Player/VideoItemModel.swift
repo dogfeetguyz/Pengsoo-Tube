@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PlayItemModel {
+struct VideoItemModel {
     var videoId: String = ""
     var videoTitle: String = ""
     var videoDescription: String = ""

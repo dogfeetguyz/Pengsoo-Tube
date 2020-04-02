@@ -14,7 +14,7 @@ class PlayerViewModel {
     weak var delegate: ViewModelDelegate?
     
     
-    func addToRecent(item: PlayItemModel) {
+    func addToRecent(item: VideoItemModel) {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             let managedOC = appDelegate.persistentContainer.viewContext
             

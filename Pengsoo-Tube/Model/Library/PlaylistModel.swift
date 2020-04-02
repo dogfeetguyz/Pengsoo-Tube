@@ -10,12 +10,12 @@ import Foundation
 
 struct PlaylistModel {
     var title: String = ""
-    var videos: [PlayItemModel] = []
+    var videos: [VideoItemModel] = []
     
     init(title: String, videos: [PlaylistVideo]) {
         self.title = title
         self.videos = videos.map() {
-            return PlayItemModel(videoId: $0.videoId!, videoTitle: $0.videoTitle!, videoDescription: $0.videoDescription!, thumbnailDefault: $0.thumbnailDefault!, thumbnailMedium: $0.thumbnailMedium!, thumbnailHigh: $0.thumbnailHigh!, publishedAt: $0.publishedAt!)
+            return VideoItemModel(videoId: $0.videoId!, videoTitle: $0.videoTitle!, videoDescription: $0.videoDescription!, thumbnailDefault: $0.thumbnailDefault!, thumbnailMedium: $0.thumbnailMedium!, thumbnailHigh: $0.thumbnailHigh!, publishedAt: $0.publishedAt!)
         }
     }
 }

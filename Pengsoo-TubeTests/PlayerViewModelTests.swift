@@ -34,7 +34,7 @@ class PlayerViewModelTests: XCTestCase {
 
         let items = homeViewModel.getItemsList(for: .pengsooTv)
         let item = items![0]
-        let playItem = PlayItemModel(videoId: item.snippet.resourceId.videoId,
+        let playItem = VideoItemModel(videoId: item.snippet.resourceId.videoId,
                                      videoTitle: item.snippet.title,
                                      videoDescription: item.snippet.description,
                                      thumbnailDefault: item.snippet.thumbnails.small.url,
@@ -59,7 +59,7 @@ class PlayerViewModelTests: XCTestCase {
         
         let items = homeViewModel.getItemsList(for: .pengsooTv)
         let item = items![0]
-        let playItem = PlayItemModel(videoId: item.snippet.resourceId.videoId,
+        let playItem = VideoItemModel(videoId: item.snippet.resourceId.videoId,
                                      videoTitle: item.snippet.title,
                                      videoDescription: item.snippet.description,
                                      thumbnailDefault: item.snippet.thumbnails.small.url,
@@ -92,7 +92,7 @@ class PlayerViewModelTests: XCTestCase {
 
         let items = homeViewModel.getItemsList(for: .pengsooTv)
         for item in items! {
-            let playItem = PlayItemModel(videoId: item.snippet.resourceId.videoId,
+            let playItem = VideoItemModel(videoId: item.snippet.resourceId.videoId,
                                          videoTitle: item.snippet.title,
                                          videoDescription: item.snippet.description,
                                          thumbnailDefault: item.snippet.thumbnails.small.url,

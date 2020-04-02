@@ -32,7 +32,7 @@ class ParentViewController: UIViewController {
     private var isPresented: Bool = false
     private var isPaused: Bool = false
     private var isEnded: Bool = false
-    private var currentItem: PlayItemModel?
+    private var currentItem: VideoItemModel?
     private var currentTabIndex: Int = 0
     
     var playerViewModel = PlayerViewModel()
@@ -203,7 +203,7 @@ class ParentViewController: UIViewController {
         miniPlayerPlayerView.stop()
         miniPlayerPlayerView.webView.load(URLRequest(url: URL(string:"about:blank")!))
 
-        currentItem = notification.userInfo![AppConstants.notification_userInfo_currentPlayingItem] as? PlayItemModel
+        currentItem = notification.userInfo![AppConstants.notification_userInfo_currentPlayingItem] as? VideoItemModel
         playerViewModel.addToRecent(item: currentItem!)
         
         miniPlayerTitle.text = currentItem!.videoTitle

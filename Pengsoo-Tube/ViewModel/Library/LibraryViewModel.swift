@@ -11,7 +11,7 @@ import UIKit
 
 class LibraryViewModel {
     
-    var recentItems: [PlayItemModel] = []
+    var recentItems: [VideoItemModel] = []
     var playlistItems: [PlaylistModel] = []
     weak var delegate: ViewModelDelegate?
         
@@ -23,7 +23,7 @@ class LibraryViewModel {
             do {
                 let fetchedList = try managedOC.fetch(request)
                 recentItems = fetchedList.reversed().map() {
-                    return PlayItemModel(videoId: $0.videoId!, videoTitle: $0.videoTitle!, videoDescription: $0.videoDescription!, thumbnailDefault: $0.thumbnailDefault!, thumbnailMedium: $0.thumbnailMedium!, thumbnailHigh: $0.thumbnailHigh!, publishedAt: $0.publishedAt!)
+                    return VideoItemModel(videoId: $0.videoId!, videoTitle: $0.videoTitle!, videoDescription: $0.videoDescription!, thumbnailDefault: $0.thumbnailDefault!, thumbnailMedium: $0.thumbnailMedium!, thumbnailHigh: $0.thumbnailHigh!, publishedAt: $0.publishedAt!)
                 }
                 
                 if fetchedList.count > 0 {
