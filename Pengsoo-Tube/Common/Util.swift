@@ -98,17 +98,16 @@ class Util {
         NotificationCenter.default.post(name: AppConstants.notification_show_miniplayer, object: nil, userInfo: dictionary)
     }
     
-    static func openPlayer(videoItem: YoutubeItemModel) {
-        let playItem = VideoItemModel(videoId: videoItem.snippet.resourceId.videoId,
-                                     videoTitle: videoItem.snippet.title,
-                                     videoDescription: videoItem.snippet.description,
-                                     thumbnailDefault: videoItem.snippet.thumbnails.small.url,
-                                     thumbnailMedium: videoItem.snippet.thumbnails.medium.url,
-                                     thumbnailHigh: videoItem.snippet.thumbnails.high.url,
-                                     publishedAt: videoItem.snippet.publishedAt)
-        var dictionary:[String:Any] = [:]
-        dictionary[AppConstants.notification_userInfo_currentPlayingItem] = playItem
-        NotificationCenter.default.post(name: AppConstants.notification_show_miniplayer, object: nil, userInfo: dictionary)
+    static func getAvailableThumbnailImageUrl(currentItem: VideoItemModel) -> String {
+        if currentItem.thumbnailHigh.count > 0 {
+            return currentItem.thumbnailHigh
+        } else if currentItem.thumbnailMedium.count > 0 {
+            return currentItem.thumbnailMedium
+        } else if currentItem.thumbnailDefault.count > 0 {
+            return currentItem.thumbnailDefault
+        } else {
+            return ""
+        }
     }
 
     struct Page {

@@ -23,7 +23,13 @@ class LibraryViewModel {
             do {
                 let fetchedList = try managedOC.fetch(request)
                 recentItems = fetchedList.reversed().map() {
-                    return VideoItemModel(videoId: $0.videoId!, videoTitle: $0.videoTitle!, videoDescription: $0.videoDescription!, thumbnailDefault: $0.thumbnailDefault!, thumbnailMedium: $0.thumbnailMedium!, thumbnailHigh: $0.thumbnailHigh!, publishedAt: $0.publishedAt!)
+                    return VideoItemModel(videoId: $0.videoId!,
+                                          videoTitle: $0.videoTitle!,
+                                          videoDescription: $0.videoDescription!,
+                                          thumbnailDefault: $0.thumbnailDefault!,
+                                          thumbnailMedium: $0.thumbnailMedium!,
+                                          thumbnailHigh: $0.thumbnailHigh!,
+                                          publishedAt: $0.publishedAt!)
                 }
                 
                 if fetchedList.count > 0 {

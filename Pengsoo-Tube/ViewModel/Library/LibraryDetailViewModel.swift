@@ -145,7 +145,13 @@ class LibraryDetailViewModel {
                 playlistItem.insertIntoPlaylistVideos(newVideoItem, at: to)
                 
                 playItems = (playlistItem.playlistVideos!.array as! [PlaylistVideo]).map() {
-                    return VideoItemModel(videoId: $0.videoId!, videoTitle: $0.videoTitle!, videoDescription: $0.videoDescription!, thumbnailDefault: $0.thumbnailDefault!, thumbnailMedium: $0.thumbnailMedium!, thumbnailHigh: $0.thumbnailHigh!, publishedAt: $0.publishedAt!)
+                    return VideoItemModel(videoId: $0.videoId!,
+                                          videoTitle: $0.videoTitle!,
+                                          videoDescription: $0.videoDescription!,
+                                          thumbnailDefault: $0.thumbnailDefault!,
+                                          thumbnailMedium: $0.thumbnailMedium!,
+                                          thumbnailHigh: $0.thumbnailHigh!,
+                                          publishedAt: $0.publishedAt!)
                 }
                 
                 do {

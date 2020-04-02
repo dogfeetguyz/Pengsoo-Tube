@@ -27,7 +27,7 @@ class ParentViewController: UIViewController {
     
     var tabBarViewController: UITabBarController?
     
-    internal var modalVC: PlayerViewController?
+    internal var playerViewController: PlayerViewController?
     private var movin: Movin?
     private var isPresented: Bool = false
     private var isPaused: Bool = false
@@ -37,6 +37,7 @@ class ParentViewController: UIViewController {
     
     var playerViewModel = PlayerViewModel()
     
+// MARK: - VIEW LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -78,7 +79,8 @@ class ParentViewController: UIViewController {
         }
     }
         
-    private func setup() {
+// MARK: - ANIMATION
+    private func setupAnimation() {
         if self.movin != nil { return }
         
         self.movin = Movin(1.0, TimingCurve(curve: .easeInOut, dampingRatio: 0.8))
@@ -93,7 +95,6 @@ class ParentViewController: UIViewController {
             self.tabBarViewController!.view.mvn.alpha.from(1).to(0.6),
             modal.view.mvn.point.from(miniPlayerOrigin).to(endModalOrigin),
             modal.view.mvn.cornerRadius.from(0.0).to(10.0),
-//            self.miniPlayerPlayerView.webView.mvn.size.from(miniPlayerLayerView.frame.size).to(modal.playerView.frame.size),
             self.tabBarViewController!.tabBar.mvn.alpha.from(1.0).to(0.0),
             ])
         
@@ -104,17 +105,15 @@ class ParentViewController: UIViewController {
         transition.customContainerViewSetupHandler = { [unowned self] type, containerView in
             if type.isPresenting {
                 if self.isEnded {
-                    Util.loadCachedImage(url: self.getThumbnailImageUrl()) { (image) in
-                        self.modalVC?.replayButton.isHidden = false
-                        self.modalVC?.replayButton.setBackgroundImage(image, for: .normal)
-                        self.modalVC?.replayButton.layoutIfNeeded()
-                        self.modalVC?.replayButton.subviews.first?.contentMode = .scaleAspectFill
+                    Util.loadCachedImage(url: Util.getAvailableThumbnailImageUrl(currentItem: self.currentItem!)) { (image) in
+                        self.playerViewController?.replayButton.isHidden = false
+                        self.playerViewController?.replayButton.setBackgroundImage(image, for: .normal)
+                        self.playerViewController?.replayButton.layoutIfNeeded()
+                        self.playerViewController?.replayButton.subviews.first?.contentMode = .scaleAspectFill
                     }
                 }
                 
-//                self.miniPlayerPlayerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width)
-//                self.miniPlayerPlayerView.layoutIfNeeded()
-                self.modalVC!.setPlayerView(view: self.miniPlayerPlayerView)
+                self.playerViewController!.setPlayerView(view: self.miniPlayerPlayerView)
                 self.miniPlayerView.isHidden = true
                 
                 containerView.addSubview(modal.view)
@@ -146,39 +145,28 @@ class ParentViewController: UIViewController {
                     self.miniPlayerView.isHidden = false
                     self.isPresented = false
                     self.movin = nil
-                    self.modalVC = nil
+                    self.playerViewController = nil
                     
-                    self.setup()
+                    self.setupAnimation()
                 } else {
                     //cancel dismiss
                 }
             } else {
                 if didComplete {
                     //complete present
-                    self.modalVC!.youtubeView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width*(9/16.0))
+                    self.playerViewController!.youtubeView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width*(9/16.0))
                 } else {
                     //cancel present
                 }
             }
         }
         
-        self.modalVC = modal
+        self.playerViewController = modal
         modal.modalPresentationStyle = .overCurrentContext
         modal.transitioningDelegate = self.movin!.configureCustomTransition(transition)
     }
     
-    func getThumbnailImageUrl() -> String {
-        if currentItem!.thumbnailHigh.count > 0 {
-            return currentItem!.thumbnailHigh
-        } else if currentItem!.thumbnailMedium.count > 0 {
-            return currentItem!.thumbnailMedium
-        } else if currentItem!.thumbnailDefault.count > 0 {
-            return currentItem!.thumbnailDefault
-        } else {
-            return ""
-        }
-    }
-    
+// MARK:- PLAYER FUNCTION
     func setPlayerView() {
         self.miniPlayerPlayerView.frame = self.miniPlayerLayerView.bounds
         self.miniPlayerLayerView.addSubview(self.miniPlayerPlayerView)
@@ -188,11 +176,11 @@ class ParentViewController: UIViewController {
         if !self.isPresented {
             self.isPresented = true
 
-            setup()
+            setupAnimation()
             miniPlayerPlayerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width)
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-                guard let modalViewController = self.modalVC else { return }
+                guard let modalViewController = self.playerViewController else { return }
                 self.present(modalViewController, animated: true, completion: nil)
             })
         }
@@ -223,6 +211,7 @@ class ParentViewController: UIViewController {
         openPlayer()
     }
     
+// MARK: - BUTTON ACTION
     @IBAction func miniplayerButtonAction(_ sender: Any) {
         openPlayer()
     }
@@ -253,6 +242,7 @@ class ParentViewController: UIViewController {
     }
 }
 
+// MARK: - UITabBarControllerDelegate
 extension ParentViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if currentTabIndex == tabBarController.selectedIndex {
@@ -269,6 +259,7 @@ extension ParentViewController: UITabBarControllerDelegate {
     }
 }
 
+// MARK: - YoutubePlayerViewDelegate
 extension ParentViewController: YoutubePlayerViewDelegate {
     func playerViewDidBecomeReady(_ playerView: YoutubePlayerView) {
         print("Ready")
@@ -280,11 +271,11 @@ extension ParentViewController: YoutubePlayerViewDelegate {
     func playerView(_ playerView: YoutubePlayerView, didChangedToState state: YoutubePlayerState) {
         if state == .ended {
             isEnded = true
-            Util.loadCachedImage(url: getThumbnailImageUrl()) { (image) in
-                self.modalVC?.replayButton.isHidden = false
-                self.modalVC?.replayButton.setBackgroundImage(image, for: .normal)
-                self.modalVC?.replayButton.layoutIfNeeded()
-                self.modalVC?.replayButton.subviews.first?.contentMode = .scaleAspectFill
+            Util.loadCachedImage(url: Util.getAvailableThumbnailImageUrl(currentItem: currentItem!)) { (image) in
+                self.playerViewController?.replayButton.isHidden = false
+                self.playerViewController?.replayButton.setBackgroundImage(image, for: .normal)
+                self.playerViewController?.replayButton.layoutIfNeeded()
+                self.playerViewController?.replayButton.subviews.first?.contentMode = .scaleAspectFill
                 
                 self.miniPlayerReplayButton.isHidden = false
                 self.miniPlayerReplayButton.setBackgroundImage(image, for: .normal)
@@ -303,8 +294,8 @@ extension ParentViewController: YoutubePlayerViewDelegate {
                 miniPlayerPauseButton.setImage(Image(systemName: "pause.fill"), for: .normal)
             }
             
-            if modalVC?.replayButton.isHidden == false {
-                modalVC?.replayButton.isHidden = true
+            if playerViewController?.replayButton.isHidden == false {
+                playerViewController?.replayButton.isHidden = true
             }
             
             if miniPlayerReplayButton.isHidden == false {

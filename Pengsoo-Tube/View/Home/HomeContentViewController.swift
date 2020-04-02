@@ -122,17 +122,8 @@ extension HomeContentViewController: UITableViewDataSource {
 
             if let items = viewModel.getItemsList(for: requestType!) {
                 let item = items[indexPath.row]
-                var imgUrl: String?
-                if item.thumbnailHigh.count > 0 {
-                    imgUrl = item.thumbnailHigh
-                } else if item.thumbnailMedium.count > 0 {
-                    imgUrl = item.thumbnailMedium
-                } else if item.thumbnailDefault.count > 0 {
-                    imgUrl = item.thumbnailDefault
-                }
-
                 cell.tag = indexPath.row
-                Util.loadCachedImage(url: imgUrl) { (image) in
+                Util.loadCachedImage(url: Util.getAvailableThumbnailImageUrl(currentItem: item)) { (image) in
                     if(cell.tag == indexPath.row) {
                         cell.thumbnailImageView.image = image
                     }
