@@ -51,8 +51,7 @@ extension LibraryTableViewCell: UICollectionViewDelegateFlowLayout, UICollection
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let _videoItems = videoItems {
-            let videoItem = _videoItems[indexPath.item]
-            Util.openPlayer(videoItem: videoItem)
+            Util.openPlayer(videoItems: _videoItems, playingIndex: indexPath.item)
         }
     }
 }

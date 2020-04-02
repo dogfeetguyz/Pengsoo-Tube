@@ -94,8 +94,7 @@ class LibraryDetailViewController: UIViewController {
     
     @IBAction func playButtonAction(_ sender: Any) {
         if let playItems = viewModel?.playItems {
-            let currentItem = playItems.first
-            Util.openPlayer(videoItem: currentItem!)
+            Util.openPlayer(videoItems: playItems, playingIndex: 0)
         }
     }
     
@@ -153,8 +152,7 @@ extension LibraryDetailViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let playItems = viewModel?.playItems {
-            let currentItem = playItems[indexPath.row]
-            Util.openPlayer(videoItem: currentItem)
+            Util.openPlayer(videoItems: playItems, playingIndex: indexPath.row)
         }
     }
     

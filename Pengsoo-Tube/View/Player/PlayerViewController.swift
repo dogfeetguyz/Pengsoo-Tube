@@ -13,10 +13,38 @@ class PlayerViewController: UIViewController {
     
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var replayButton: UIButton!
+    
+    @IBOutlet weak var shuffleButton: UIButton!
+    @IBOutlet weak var repeatButton: UIButton!
+    
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var youtubeButton: UIButton!
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var detailLabel: InsetLabel!
+    @IBOutlet weak var detailButton: UIButton!
+    
+    @IBOutlet weak var autoplaySwitch: UISwitch!
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     weak var youtubeView: YoutubePlayerView!
+    var viewModel: PlayerViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func updatePlayerUI() {
+        if let playingItem = viewModel?.getPlayingItem() {
+            titleLabel.text = playingItem.videoTitle
+            detailLabel.text = playingItem.videoDescription
+            detailLabel.contentInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        }
+        
+        let color = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 0.1)
+        detailButton.setBackgroundImage(Util.generateImageWithColor(color), for: .highlighted)
+        tableView.reloadData()
     }
     
     func setPlayerView(view: YoutubePlayerView) {
@@ -29,4 +57,77 @@ class PlayerViewController: UIViewController {
         youtubeView.seek(to: 0, allowSeekAhead: true)
         youtubeView.play()
     }
+    
+    @IBAction func shuffleButtonAction(_ sender: Any) {
+    }
+    
+    @IBAction func repeatButtonAction(_ sender: Any) {
+    }
+    
+    @IBAction func shareButtonAction(_ sender: Any) {
+        if let item = viewModel?.getPlayingItem() {
+            let textToShare = [ Util.generateYoutubeUrl(videoId: item.videoId), "Shared from Peng-Ha Tube" ]
+            let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            activityViewController.excludedActivityTypes = [.airDrop]
+            self.present(activityViewController, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func youtubeButtonAction(_ sender: Any) {
+        if let item = viewModel?.getPlayingItem() {
+            Util.openYoutube(videoId: item.videoId)
+        }
+    }
+    
+    @IBAction func detailButtonAction(_ sender: Any) {
+        if detailLabel.isHidden {
+            detailLabel.isHidden = false
+            detailButton.setImage(UIImage(systemName: "chevron.up"), for: .normal)
+        } else {
+            detailLabel.isHidden = true
+            detailButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+        }
+    }
+    
+    @IBAction func switchAction(_ sender: Any) {
+    }
+}
+
+extension PlayerViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (viewModel?.getQueueItems().count)!
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: LibraryDetailTableViewCellID, for: indexPath) as? LibraryDetailTableViewCell {
+            if let playItems = viewModel?.getQueueItems() {
+                let currentItem = playItems[indexPath.row]
+                
+                Util.loadCachedImage(url: currentItem.thumbnailMedium) { (image) in
+                    cell.thumbnail.image = image
+                }
+                cell.titleLabel.text = currentItem.videoTitle
+                cell.descriptionLabel.text = currentItem.videoDescription
+                
+                if indexPath.row == viewModel?.getPlayingIndex() {
+                    cell.backgroundColor = .systemYellow
+                } else {
+                    cell.backgroundColor = .systemBackground
+                    cell.alpha = 1.0
+                }
+            }
+            
+            return cell
+        }
+        
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let playItems = viewModel?.getQueueItems() {
+            Util.openPlayer(videoItems: playItems, playingIndex: indexPath.row)
+        }
+    }
+
 }

@@ -144,8 +144,7 @@ extension HomeContentViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let items = viewModel.getItemsList(for: requestType!) {
-            let item = items[indexPath.row]
-            Util.openPlayer(videoItem: item)
+            Util.openPlayer(videoItems: items, playingIndex: indexPath.row)
         }
     }
 }

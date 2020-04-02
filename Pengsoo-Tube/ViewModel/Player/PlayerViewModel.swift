@@ -12,7 +12,34 @@ import UIKit
 class PlayerViewModel {
     
     weak var delegate: ViewModelDelegate?
+    private var queueItems: [VideoItemModel] = []
+    private var playingIndex: Int = -1
     
+    func replaceQueue(videoItems: [VideoItemModel], playingIndex: Int) {
+        queueItems.removeAll()
+        queueItems.append(contentsOf: videoItems)
+        self.playingIndex = playingIndex
+    }
+    
+    func updatePlayerUI() {
+        
+    }
+    
+    func getPlayingItem() -> VideoItemModel? {
+        if playingIndex >= 0 && playingIndex <= queueItems.count-1 {
+            return queueItems[playingIndex]
+        } else {
+            return nil
+        }
+    }
+    
+    func getQueueItems() -> [VideoItemModel] {
+        return queueItems
+    }
+    
+    func getPlayingIndex() -> Int {
+        return playingIndex
+    }
     
     func addToRecent(item: VideoItemModel) {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {

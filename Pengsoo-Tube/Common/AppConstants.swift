@@ -28,7 +28,8 @@ struct AppConstants {
     static let valueBrandingId      : String = "UCtckgmUcpzqGnzcs7xEqMzQ"
     
     static let notification_show_miniplayer: NSNotification.Name = NSNotification.Name(rawValue: "notification_show_miniplayer")
-    static let notification_userInfo_currentPlayingItem: String = "currentPlayingItem"
+    static let notification_userInfo_video_items: String = "notification_userInfo_video_items"
+    static let notification_userInfo_playing_index: String = "notification_userInfo_playing_index"
     
     static let home_tab_titles = ["Youtube Only", "Giant Peng TV", "Collaboration"]
     static let home_tab_types = [RequestType.pengsooYoutube, RequestType.pengsooTv, RequestType.pengsooOutside]

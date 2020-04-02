@@ -32,7 +32,6 @@ class ParentViewController: UIViewController {
     private var isPresented: Bool = false
     private var isPaused: Bool = false
     private var isEnded: Bool = false
-    private var currentItem: VideoItemModel?
     private var currentTabIndex: Int = 0
     
     var playerViewModel = PlayerViewModel()
@@ -86,6 +85,7 @@ class ParentViewController: UIViewController {
         self.movin = Movin(1.0, TimingCurve(curve: .easeInOut, dampingRatio: 0.8))
         
         let modal = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PlayerViewController") as! PlayerViewController
+        modal.viewModel = playerViewModel
         modal.view.layoutIfNeeded()
         
         let miniPlayerOrigin = self.miniPlayerView.frame.origin
@@ -105,7 +105,7 @@ class ParentViewController: UIViewController {
         transition.customContainerViewSetupHandler = { [unowned self] type, containerView in
             if type.isPresenting {
                 if self.isEnded {
-                    Util.loadCachedImage(url: Util.getAvailableThumbnailImageUrl(currentItem: self.currentItem!)) { (image) in
+                    Util.loadCachedImage(url: Util.getAvailableThumbnailImageUrl(currentItem: self.playerViewModel.getPlayingItem()!)) { (image) in
                         self.playerViewController?.replayButton.isHidden = false
                         self.playerViewController?.replayButton.setBackgroundImage(image, for: .normal)
                         self.playerViewController?.replayButton.layoutIfNeeded()
@@ -187,28 +187,37 @@ class ParentViewController: UIViewController {
     }
     
     @objc func onVideoPlay(_ notification: Notification) {
+        DispatchQueue.main.async() {
+            self.miniPlayerPlayerView.stop()
+            self.miniPlayerPlayerView.webView.load(URLRequest(url: URL(string:"about:blank")!))
 
-        miniPlayerPlayerView.stop()
-        miniPlayerPlayerView.webView.load(URLRequest(url: URL(string:"about:blank")!))
+            self.playerViewModel.replaceQueue(videoItems: notification.userInfo![AppConstants.notification_userInfo_video_items] as! [VideoItemModel],
+                                         playingIndex: notification.userInfo![AppConstants.notification_userInfo_playing_index] as! Int)
+            
+            if let currentItem = self.playerViewModel.getPlayingItem() {
+                self.playerViewModel.addToRecent(item: currentItem)
+                
+                self.miniPlayerTitle.text = currentItem.videoTitle
 
-        currentItem = notification.userInfo![AppConstants.notification_userInfo_currentPlayingItem] as? VideoItemModel
-        playerViewModel.addToRecent(item: currentItem!)
-        
-        miniPlayerTitle.text = currentItem!.videoTitle
+                let playerVars: [String: Any] = [
+                    "autoplay": 1,
+                    "controls": 1,
+                    "cc_load_policy": 0,
+                    "modestbranding": 1,
+                    "playsinline": 1,
+                    "rel": 0,
+                    "origin": "https://youtube.com"
+                ]
+                self.miniPlayerPlayerView.loadWithVideoId(currentItem.videoId, with: playerVars)
+                self.miniPlayerPlayerView.delegate = self
 
-        let playerVars: [String: Any] = [
-            "autoplay": 1,
-            "controls": 1,
-            "cc_load_policy": 0,
-            "modestbranding": 1,
-            "playsinline": 1,
-            "rel": 0,
-            "origin": "https://youtube.com"
-        ]
-        miniPlayerPlayerView.loadWithVideoId((self.currentItem?.videoId)!, with: playerVars)
-        miniPlayerPlayerView.delegate = self
-
-        openPlayer()
+                self.openPlayer()
+            } else {
+                //error message please
+            }
+            guard let modalViewController = self.playerViewController else { return }
+            modalViewController.updatePlayerUI()
+        }
     }
     
 // MARK: - BUTTON ACTION
@@ -271,7 +280,7 @@ extension ParentViewController: YoutubePlayerViewDelegate {
     func playerView(_ playerView: YoutubePlayerView, didChangedToState state: YoutubePlayerState) {
         if state == .ended {
             isEnded = true
-            Util.loadCachedImage(url: Util.getAvailableThumbnailImageUrl(currentItem: currentItem!)) { (image) in
+            Util.loadCachedImage(url: Util.getAvailableThumbnailImageUrl(currentItem: playerViewModel.getPlayingItem()!)) { (image) in
                 self.playerViewController?.replayButton.isHidden = false
                 self.playerViewController?.replayButton.setBackgroundImage(image, for: .normal)
                 self.playerViewController?.replayButton.layoutIfNeeded()

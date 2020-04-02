@@ -199,7 +199,7 @@ open class YoutubePlayerView: UIView {
             }
         }
         
-        DispatchQueue.main.async(execute: { () -> Void in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: { () -> Void in
             load(with: url)
         })
     }

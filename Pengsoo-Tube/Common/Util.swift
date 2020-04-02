@@ -92,9 +92,10 @@ class Util {
         return "https://www.youtube.com/watch?v=\(videoId)"
     }
     
-    static func openPlayer(videoItem: VideoItemModel) {
+    static func openPlayer(videoItems: [VideoItemModel], playingIndex: Int) {
         var dictionary:[String:Any] = [:]
-        dictionary[AppConstants.notification_userInfo_currentPlayingItem] = videoItem
+        dictionary[AppConstants.notification_userInfo_video_items] = videoItems
+        dictionary[AppConstants.notification_userInfo_playing_index] = playingIndex
         NotificationCenter.default.post(name: AppConstants.notification_show_miniplayer, object: nil, userInfo: dictionary)
     }
     
