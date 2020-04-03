@@ -95,6 +95,7 @@ class ParentViewController: UIViewController {
             self.tabBarViewController!.view.mvn.alpha.from(1).to(0.6),
             modal.view.mvn.point.from(miniPlayerOrigin).to(endModalOrigin),
             modal.view.mvn.cornerRadius.from(0.0).to(10.0),
+//            self.miniPlayerPlayerView.mvn.size.from(self.miniPlayerLayerView.frame.size).to(modal.playerView.frame.size),
             self.tabBarViewController!.tabBar.mvn.alpha.from(1.0).to(0.0),
             ])
         
@@ -154,7 +155,7 @@ class ParentViewController: UIViewController {
             } else {
                 if didComplete {
                     //complete present
-                    self.playerViewController!.youtubeView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width*(9/16.0))
+                    self.playerViewController!.youtubeView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width)
                 } else {
                     //cancel present
                 }
@@ -179,45 +180,63 @@ class ParentViewController: UIViewController {
             setupAnimation()
             miniPlayerPlayerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width)
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-                guard let modalViewController = self.playerViewController else { return }
-                self.present(modalViewController, animated: true, completion: nil)
-            })
+            if let modalViewController = self.playerViewController {
+                modalViewController.updatePlayerUI()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+                    self.present(modalViewController, animated: true, completion: nil)
+
+                    let index = self.playerViewModel.getPlayingIndex()
+                    if (index >= 0 && index <= self.playerViewModel.getQueueItems().count-1) {
+                        DispatchQueue.main.async() {
+                            modalViewController.tableView.scrollToRow(at: IndexPath(row: index, section: 0), at: .top, animated: false)
+                        }
+                    }
+                })
+            }
         }
     }
     
     @objc func onVideoPlay(_ notification: Notification) {
-        DispatchQueue.main.async() {
-            self.miniPlayerPlayerView.stop()
-            self.miniPlayerPlayerView.webView.load(URLRequest(url: URL(string:"about:blank")!))
+        self.miniPlayerPlayerView.stop()
+        self.miniPlayerPlayerView.load(URLRequest(url: URL(string:"about:blank")!))
+        
 
             self.playerViewModel.replaceQueue(videoItems: notification.userInfo![AppConstants.notification_userInfo_video_items] as! [VideoItemModel],
                                          playingIndex: notification.userInfo![AppConstants.notification_userInfo_playing_index] as! Int)
             
             if let currentItem = self.playerViewModel.getPlayingItem() {
                 self.playerViewModel.addToRecent(item: currentItem)
-                
-                self.miniPlayerTitle.text = currentItem.videoTitle
 
-                let playerVars: [String: Any] = [
-                    "autoplay": 1,
-                    "controls": 1,
-                    "cc_load_policy": 0,
-                    "modestbranding": 1,
-                    "playsinline": 1,
-                    "rel": 0,
-                    "origin": "https://youtube.com"
-                ]
-                self.miniPlayerPlayerView.loadWithVideoId(currentItem.videoId, with: playerVars)
-                self.miniPlayerPlayerView.delegate = self
+                if self.isPresented {
+                    if let modalViewController = self.playerViewController {
+                        modalViewController.updatePlayerUI()
+                        
+                        let index = self.playerViewModel.getPlayingIndex()
+                        if (index >= 0 && index <= self.playerViewModel.getQueueItems().count-1) {
+                            modalViewController.tableView.scrollToRow(at: IndexPath(row: index, section: 0), at: .top, animated: true)
+                        }
+                    }
+                } else {
+                    self.openPlayer()
+                }
 
-                self.openPlayer()
+                DispatchQueue.main.async() {
+                    self.miniPlayerTitle.text = currentItem.videoTitle
+                    let playerVars: [String: Any] = [
+                        "autoplay": 1,
+                        "controls": 1,
+                        "cc_load_policy": 0,
+                        "modestbranding": 1,
+                        "playsinline": 1,
+                        "rel": 0,
+                        "origin": "https://youtube.com"
+                    ]
+                    self.miniPlayerPlayerView.delegate = self
+                    self.miniPlayerPlayerView.loadWithVideoId(currentItem.videoId, with: playerVars)
+                }
             } else {
                 //error message please
             }
-            guard let modalViewController = self.playerViewController else { return }
-            modalViewController.updatePlayerUI()
-        }
     }
     
 // MARK: - BUTTON ACTION

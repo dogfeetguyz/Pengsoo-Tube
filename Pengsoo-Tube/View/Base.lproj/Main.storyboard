@@ -524,45 +524,14 @@
                                                     <action selector="shareButtonAction:" destination="Wed-Me-ui3" eventType="touchUpInside" id="mc2-G5-it0"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UaF-iQ-Vve">
-                                                <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="45" id="C3O-tn-RTG"/>
-                                                    <constraint firstAttribute="height" constant="45" id="rYo-D2-EcI"/>
-                                                </constraints>
-                                                <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                                <state key="normal" image="shuffle" catalog="system"/>
-                                                <connections>
-                                                    <action selector="shuffleButtonAction:" destination="Wed-Me-ui3" eventType="touchUpInside" id="scM-0A-VOZ"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3z-be-sOa">
-                                                <rect key="frame" x="45" y="0.0" width="45" height="45"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="45" id="ZCm-l4-fgr"/>
-                                                    <constraint firstAttribute="height" constant="45" id="o7Y-QO-Dt9"/>
-                                                </constraints>
-                                                <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                                <state key="normal" image="repeat" catalog="system"/>
-                                                <connections>
-                                                    <action selector="repeatButtonAction:" destination="Wed-Me-ui3" eventType="touchUpInside" id="woO-RV-fDP"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="xq6-bl-npe" firstAttribute="top" secondItem="JHB-Mj-t0s" secondAttribute="top" id="12d-bS-tgF"/>
                                             <constraint firstAttribute="trailing" secondItem="vpH-aZ-Irj" secondAttribute="trailing" constant="15" id="AQf-KL-N69"/>
-                                            <constraint firstItem="N3z-be-sOa" firstAttribute="top" secondItem="JHB-Mj-t0s" secondAttribute="top" id="Chc-yj-guo"/>
                                             <constraint firstItem="vpH-aZ-Irj" firstAttribute="top" secondItem="JHB-Mj-t0s" secondAttribute="top" id="F9y-RV-eQK"/>
-                                            <constraint firstItem="UaF-iQ-Vve" firstAttribute="leading" secondItem="JHB-Mj-t0s" secondAttribute="leading" id="N5d-b3-vwp"/>
-                                            <constraint firstAttribute="bottom" secondItem="UaF-iQ-Vve" secondAttribute="bottom" id="OfP-eA-kzR"/>
                                             <constraint firstAttribute="height" constant="45" id="PoR-aJ-bzm"/>
-                                            <constraint firstItem="UaF-iQ-Vve" firstAttribute="top" secondItem="JHB-Mj-t0s" secondAttribute="top" id="S0M-d2-HS1"/>
-                                            <constraint firstItem="xq6-bl-npe" firstAttribute="leading" relation="lessThanOrEqual" secondItem="N3z-be-sOa" secondAttribute="trailing" constant="155.5" id="VkJ-xh-ogq"/>
-                                            <constraint firstAttribute="bottom" secondItem="N3z-be-sOa" secondAttribute="bottom" id="dgM-nU-hQA"/>
                                             <constraint firstItem="vpH-aZ-Irj" firstAttribute="leading" secondItem="xq6-bl-npe" secondAttribute="trailing" id="doI-QG-udO"/>
-                                            <constraint firstItem="N3z-be-sOa" firstAttribute="leading" secondItem="UaF-iQ-Vve" secondAttribute="trailing" id="dxN-UV-KBf"/>
                                             <constraint firstItem="xq6-bl-npe" firstAttribute="leading" relation="lessThanOrEqual" secondItem="JHB-Mj-t0s" secondAttribute="leading" constant="233" id="sqj-yb-3Hu"/>
                                         </constraints>
                                     </view>
@@ -632,11 +601,25 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Queue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxd-5z-4Mk">
-                                                <rect key="frame" x="15" y="12.5" width="47" height="15.5"/>
+                                                <rect key="frame" x="15" y="12.5" width="39.5" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
                                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3z-be-sOa">
+                                                <rect key="frame" x="54.5" y="0.0" width="45" height="45"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="45" id="ZCm-l4-fgr"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                                <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                <state key="normal" image="repeat" catalog="system">
+                                                    <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="repeatButtonAction:" destination="Wed-Me-ui3" eventType="touchUpInside" id="woO-RV-fDP"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -644,10 +627,13 @@
                                             <constraint firstItem="dEv-MN-iHj" firstAttribute="top" secondItem="RbB-YS-KhU" secondAttribute="top" constant="5" id="ICI-0h-PPb"/>
                                             <constraint firstAttribute="height" constant="45" id="Iwm-qb-agK"/>
                                             <constraint firstItem="lxd-5z-4Mk" firstAttribute="centerY" secondItem="dEv-MN-iHj" secondAttribute="centerY" id="KJe-A3-kjS"/>
+                                            <constraint firstItem="N3z-be-sOa" firstAttribute="leading" secondItem="lxd-5z-4Mk" secondAttribute="trailing" id="KNR-kX-4jh"/>
                                             <constraint firstItem="dEv-MN-iHj" firstAttribute="leading" secondItem="Rby-of-3uB" secondAttribute="trailing" constant="10" id="WhH-8E-XPM"/>
                                             <constraint firstItem="Rby-of-3uB" firstAttribute="centerY" secondItem="dEv-MN-iHj" secondAttribute="centerY" id="aLl-DQ-zmr"/>
                                             <constraint firstItem="lxd-5z-4Mk" firstAttribute="leading" secondItem="RbB-YS-KhU" secondAttribute="leading" constant="15" id="l23-43-zKF"/>
-                                            <constraint firstItem="Rby-of-3uB" firstAttribute="leading" relation="lessThanOrEqual" secondItem="lxd-5z-4Mk" secondAttribute="trailing" constant="216.5" id="vTs-Y8-tDW"/>
+                                            <constraint firstItem="Rby-of-3uB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="N3z-be-sOa" secondAttribute="trailing" constant="8" symbolic="YES" id="p87-z3-H8Q"/>
+                                            <constraint firstAttribute="bottom" secondItem="N3z-be-sOa" secondAttribute="bottom" id="shg-76-KFN"/>
+                                            <constraint firstItem="N3z-be-sOa" firstAttribute="top" secondItem="RbB-YS-KhU" secondAttribute="top" id="trQ-t6-caG"/>
                                         </constraints>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xCN-b1-p8y">
@@ -737,13 +723,13 @@
                     </view>
                     <connections>
                         <outlet property="autoplaySwitch" destination="dEv-MN-iHj" id="6CV-rC-5Jq"/>
+                        <outlet property="bottomConstraint" destination="BTA-QQ-0ES" id="LZZ-hP-QD4"/>
                         <outlet property="detailButton" destination="Cus-Ye-A1h" id="Rfj-BC-PoH"/>
                         <outlet property="detailLabel" destination="YG3-4t-TDN" id="9IS-WX-I37"/>
                         <outlet property="playerView" destination="tpx-gK-iNs" id="7sc-EJ-XlU"/>
                         <outlet property="repeatButton" destination="N3z-be-sOa" id="voA-Un-qUq"/>
                         <outlet property="replayButton" destination="oUl-dA-MIq" id="kTA-L4-DpL"/>
                         <outlet property="shareButton" destination="xq6-bl-npe" id="3sS-ON-Kvs"/>
-                        <outlet property="shuffleButton" destination="UaF-iQ-Vve" id="nj0-fl-5dC"/>
                         <outlet property="tableView" destination="M52-6Y-y55" id="aww-gM-QyA"/>
                         <outlet property="titleLabel" destination="CDJ-gJ-RMD" id="bdi-JY-aRk"/>
                         <outlet property="youtubeButton" destination="vpH-aZ-Irj" id="sec-ZL-417"/>
@@ -1051,6 +1037,5 @@
         <image name="play.rectangle" catalog="system" width="128" height="93"/>
         <image name="play.rectangle.fill" catalog="system" width="128" height="93"/>
         <image name="repeat" catalog="system" width="128" height="99"/>
-        <image name="shuffle" catalog="system" width="128" height="93"/>
     </resources>
 </document>

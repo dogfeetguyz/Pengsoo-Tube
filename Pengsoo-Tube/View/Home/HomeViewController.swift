@@ -77,7 +77,7 @@ class HomeViewController: UIViewController {
     }
     
     func setupHeader() {
-        if let headerUrl = UserDefaults.standard.string(forKey: AppConstants.key_home_header_url) {
+        if let headerUrl = UserDefaults.standard.string(forKey: AppConstants.key_user_default_home_header_url) {
             if headerUrl.count > 0 {
                 Util.loadCachedImage(url: headerUrl) { (image) in
                     self.headerImageView!.image = image
@@ -366,8 +366,8 @@ extension HomeViewController: ViewModelDelegate {
     func success(type: RequestType, message: String) {
         if type == .header {
             if viewModel.headerUrl.count > 0 {
-                if viewModel.headerUrl != UserDefaults.standard.string(forKey: AppConstants.key_home_header_url) {
-                    UserDefaults.standard.set(viewModel.headerUrl, forKey: AppConstants.key_home_header_url)
+                if viewModel.headerUrl != UserDefaults.standard.string(forKey: AppConstants.key_user_default_home_header_url) {
+                    UserDefaults.standard.set(viewModel.headerUrl, forKey: AppConstants.key_user_default_home_header_url)
                     Util.loadCachedImage(url: viewModel.headerUrl) { (image) in
                         self.headerImageView!.image = image
                     }

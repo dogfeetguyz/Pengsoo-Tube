@@ -14,9 +14,6 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var replayButton: UIButton!
     
-    @IBOutlet weak var shuffleButton: UIButton!
-    @IBOutlet weak var repeatButton: UIButton!
-    
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var youtubeButton: UIButton!
     
@@ -24,9 +21,12 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var detailLabel: InsetLabel!
     @IBOutlet weak var detailButton: UIButton!
     
+    @IBOutlet weak var repeatButton: UIButton!
+    
     @IBOutlet weak var autoplaySwitch: UISwitch!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     weak var youtubeView: YoutubePlayerView!
     var viewModel: PlayerViewModel?
@@ -36,14 +36,20 @@ class PlayerViewController: UIViewController {
     }
     
     func updatePlayerUI() {
+        if youtubeView != nil {
+            youtubeView.frame = playerView.bounds
+        }
         if let playingItem = viewModel?.getPlayingItem() {
             titleLabel.text = playingItem.videoTitle
-            detailLabel.text = playingItem.videoDescription
+            detailLabel.text = "\n" + playingItem.videoDescription + "\n"
             detailLabel.contentInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
         }
         
         let color = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 0.1)
         detailButton.setBackgroundImage(Util.generateImageWithColor(color), for: .highlighted)
+        shareButton.setBackgroundImage(Util.generateImageWithColor(color), for: .highlighted)
+        youtubeButton.setBackgroundImage(Util.generateImageWithColor(color), for: .highlighted)
+        repeatButton.setBackgroundImage(Util.generateImageWithColor(color), for: .highlighted)
         tableView.reloadData()
     }
     
@@ -58,10 +64,12 @@ class PlayerViewController: UIViewController {
         youtubeView.play()
     }
     
-    @IBAction func shuffleButtonAction(_ sender: Any) {
-    }
-    
     @IBAction func repeatButtonAction(_ sender: Any) {
+        if repeatButton.titleLabel?.text == "Repeat All" {
+            repeatButton.setImage(UIImage(systemName: "repeat.1"), for: .normal)
+        } else {
+            repeatButton.setImage(UIImage(systemName: "repeat"), for: .normal)
+        }
     }
     
     @IBAction func shareButtonAction(_ sender: Any) {
