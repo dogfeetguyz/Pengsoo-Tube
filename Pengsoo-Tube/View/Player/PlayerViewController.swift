@@ -47,9 +47,26 @@ class PlayerViewController: UIViewController {
         
         let color = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 0.1)
         detailButton.setBackgroundImage(Util.generateImageWithColor(color), for: .highlighted)
+        
         shareButton.setBackgroundImage(Util.generateImageWithColor(color), for: .highlighted)
         youtubeButton.setBackgroundImage(Util.generateImageWithColor(color), for: .highlighted)
+        
         repeatButton.setBackgroundImage(Util.generateImageWithColor(color), for: .highlighted)
+        
+        if UserDefaults.standard.bool(forKey: AppConstants.key_user_default_autoplay) {
+            autoplaySwitch.isOn = true
+            repeatButton.isEnabled = true
+        } else {
+            autoplaySwitch.isOn = false
+            repeatButton.isEnabled = false
+        }
+        
+        if UserDefaults.standard.bool(forKey: AppConstants.key_user_default_repeat_one) {
+            repeatButton.setImage(UIImage(systemName: "repeat.1"), for: .normal)
+        } else {
+            repeatButton.setImage(UIImage(systemName: "repeat"), for: .normal)
+        }
+        
         tableView.reloadData()
     }
     
@@ -62,14 +79,6 @@ class PlayerViewController: UIViewController {
     @IBAction func replayButtonAction(_ sender: Any) {
         youtubeView.seek(to: 0, allowSeekAhead: true)
         youtubeView.play()
-    }
-    
-    @IBAction func repeatButtonAction(_ sender: Any) {
-        if repeatButton.titleLabel?.text == "Repeat All" {
-            repeatButton.setImage(UIImage(systemName: "repeat.1"), for: .normal)
-        } else {
-            repeatButton.setImage(UIImage(systemName: "repeat"), for: .normal)
-        }
     }
     
     @IBAction func shareButtonAction(_ sender: Any) {
@@ -98,7 +107,19 @@ class PlayerViewController: UIViewController {
         }
     }
     
+    @IBAction func repeatButtonAction(_ sender: Any) {
+        if UserDefaults.standard.bool(forKey: AppConstants.key_user_default_repeat_one) {
+            repeatButton.setImage(UIImage(systemName: "repeat"), for: .normal)
+            UserDefaults.standard.set(false, forKey: AppConstants.key_user_default_repeat_one)
+        } else {
+            repeatButton.setImage(UIImage(systemName: "repeat.1"), for: .normal)
+            UserDefaults.standard.set(true, forKey: AppConstants.key_user_default_repeat_one)
+        }
+    }
+    
     @IBAction func switchAction(_ sender: Any) {
+        UserDefaults.standard.set(autoplaySwitch.isOn, forKey: AppConstants.key_user_default_autoplay)
+        repeatButton.isEnabled = autoplaySwitch.isOn
     }
 }
 
@@ -133,8 +154,8 @@ extension PlayerViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let playItems = viewModel?.getQueueItems() {
-            Util.openPlayer(videoItems: playItems, playingIndex: indexPath.row)
+        if viewModel?.getPlayingIndex() != indexPath.row {
+            Util.playQueue(at: indexPath.row)
         }
     }
 

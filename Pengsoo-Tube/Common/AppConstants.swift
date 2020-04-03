@@ -28,6 +28,7 @@ struct AppConstants {
     static let valueBrandingId      : String = "UCtckgmUcpzqGnzcs7xEqMzQ"
     
     static let notification_show_miniplayer: NSNotification.Name = NSNotification.Name(rawValue: "notification_show_miniplayer")
+    static let notification_play_quque: NSNotification.Name = NSNotification.Name(rawValue: "notification_play_quque")
     static let notification_userInfo_video_items: String = "notification_userInfo_video_items"
     static let notification_userInfo_playing_index: String = "notification_userInfo_playing_index"
     
@@ -36,7 +37,7 @@ struct AppConstants {
     
     static let key_user_default_home_header_url : String = "user_default_home_header_url"
     static let key_user_default_autoplay : String = "user_default_autoplay"
-    static let key_user_default_repeat_all : String = "user_default_repeat_all"
+    static let key_user_default_repeat_one : String = "user_default_repeat_one"
 }
 
 enum ViewModelDelegateError: Int {

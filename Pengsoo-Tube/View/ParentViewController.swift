@@ -61,6 +61,7 @@ class ParentViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(onVideoPlay(_:)), name: AppConstants.notification_show_miniplayer, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ovVideoPlayInQueue(_:)), name: AppConstants.notification_play_quque, object: nil)
         miniplayerBottomConstraint.constant = tabBarViewController!.tabBar.frame.height
         self.miniPlayerView.layoutIfNeeded()
     }
@@ -200,44 +201,68 @@ class ParentViewController: UIViewController {
         self.miniPlayerPlayerView.stop()
         self.miniPlayerPlayerView.load(URLRequest(url: URL(string:"about:blank")!))
         
+        self.playerViewModel.replaceQueue(videoItems: notification.userInfo![AppConstants.notification_userInfo_video_items] as! [VideoItemModel],
+                                     playingIndex: notification.userInfo![AppConstants.notification_userInfo_playing_index] as! Int)
+        
+        if let currentItem = self.playerViewModel.getPlayingItem() {
+            self.playerViewModel.addToRecent(item: currentItem)
+            self.openPlayer()
 
-            self.playerViewModel.replaceQueue(videoItems: notification.userInfo![AppConstants.notification_userInfo_video_items] as! [VideoItemModel],
-                                         playingIndex: notification.userInfo![AppConstants.notification_userInfo_playing_index] as! Int)
-            
-            if let currentItem = self.playerViewModel.getPlayingItem() {
-                self.playerViewModel.addToRecent(item: currentItem)
-
-                if self.isPresented {
-                    if let modalViewController = self.playerViewController {
-                        modalViewController.updatePlayerUI()
-                        
-                        let index = self.playerViewModel.getPlayingIndex()
-                        if (index >= 0 && index <= self.playerViewModel.getQueueItems().count-1) {
-                            modalViewController.tableView.scrollToRow(at: IndexPath(row: index, section: 0), at: .top, animated: true)
-                        }
-                    }
-                } else {
-                    self.openPlayer()
-                }
-
-                DispatchQueue.main.async() {
-                    self.miniPlayerTitle.text = currentItem.videoTitle
-                    let playerVars: [String: Any] = [
-                        "autoplay": 1,
-                        "controls": 1,
-                        "cc_load_policy": 0,
-                        "modestbranding": 1,
-                        "playsinline": 1,
-                        "rel": 0,
-                        "origin": "https://youtube.com"
-                    ]
-                    self.miniPlayerPlayerView.delegate = self
-                    self.miniPlayerPlayerView.loadWithVideoId(currentItem.videoId, with: playerVars)
-                }
-            } else {
-                //error message please
+            // load video asynchronosly because of openPlayer()
+            DispatchQueue.main.async() {
+                self.miniPlayerTitle.text = currentItem.videoTitle
+                let playerVars: [String: Any] = [
+                    "autoplay": 1,
+                    "controls": 1,
+                    "cc_load_policy": 0,
+                    "modestbranding": 1,
+                    "playsinline": 1,
+                    "rel": 0,
+                    "origin": "https://youtube.com"
+                ]
+                self.miniPlayerPlayerView.delegate = self
+                self.miniPlayerPlayerView.loadWithVideoId(currentItem.videoId, with: playerVars)
             }
+        } else {
+            //error message please
+        }
     }
+    
+    @objc func ovVideoPlayInQueue(_ notification: Notification) {
+        self.miniPlayerPlayerView.stop()
+        self.miniPlayerPlayerView.load(URLRequest(url: URL(string:"about:blank")!))
+        
+        self.playerViewModel.setPlayingIndex(index: notification.userInfo![AppConstants.notification_userInfo_playing_index] as! Int)
+        
+        if let currentItem = self.playerViewModel.getPlayingItem() {
+            self.playerViewModel.addToRecent(item: currentItem)
+
+            if let modalViewController = self.playerViewController {
+                modalViewController.updatePlayerUI()
+                
+                let index = self.playerViewModel.getPlayingIndex()
+                if (index >= 0 && index <= self.playerViewModel.getQueueItems().count-1) {
+                    modalViewController.tableView.scrollToRow(at: IndexPath(row: index, section: 0), at: .top, animated: true)
+                }
+            }
+            
+            self.miniPlayerTitle.text = currentItem.videoTitle
+            let playerVars: [String: Any] = [
+                "autoplay": 1,
+                "controls": 1,
+                "cc_load_policy": 0,
+                "modestbranding": 1,
+                "playsinline": 1,
+                "rel": 0,
+                "origin": "https://youtube.com"
+            ]
+            self.miniPlayerPlayerView.delegate = self
+            self.miniPlayerPlayerView.loadWithVideoId(currentItem.videoId, with: playerVars)
+        } else {
+            //error message please
+        }
+    }
+    
     
 // MARK: - BUTTON ACTION
     @IBAction func miniplayerButtonAction(_ sender: Any) {
@@ -298,20 +323,33 @@ extension ParentViewController: YoutubePlayerViewDelegate {
     
     func playerView(_ playerView: YoutubePlayerView, didChangedToState state: YoutubePlayerState) {
         if state == .ended {
-            isEnded = true
-            Util.loadCachedImage(url: Util.getAvailableThumbnailImageUrl(currentItem: playerViewModel.getPlayingItem()!)) { (image) in
-                self.playerViewController?.replayButton.isHidden = false
-                self.playerViewController?.replayButton.setBackgroundImage(image, for: .normal)
-                self.playerViewController?.replayButton.layoutIfNeeded()
-                self.playerViewController?.replayButton.subviews.first?.contentMode = .scaleAspectFill
-                
-                self.miniPlayerReplayButton.isHidden = false
-                self.miniPlayerReplayButton.setBackgroundImage(image, for: .normal)
-                self.miniPlayerReplayButton.layoutIfNeeded()
-                self.miniPlayerReplayButton.subviews.first?.contentMode = .scaleAspectFill
+            if UserDefaults.standard.bool(forKey: AppConstants.key_user_default_autoplay) {
+                if UserDefaults.standard.bool(forKey: AppConstants.key_user_default_repeat_one) {
+                    let currentIndex = playerViewModel.getPlayingIndex()
+                    Util.playQueue(at: currentIndex)
+                } else {
+                    let currentIndex = playerViewModel.getPlayingIndex()
+                    let queueCount = playerViewModel.getQueueItems().count
+                    let nextIndex = (currentIndex + 1) % queueCount
+                    
+                    Util.playQueue(at: nextIndex)
+                }
+            } else {
+                isEnded = true
+                Util.loadCachedImage(url: Util.getAvailableThumbnailImageUrl(currentItem: playerViewModel.getPlayingItem()!)) { (image) in
+                    self.playerViewController?.replayButton.isHidden = false
+                    self.playerViewController?.replayButton.setBackgroundImage(image, for: .normal)
+                    self.playerViewController?.replayButton.layoutIfNeeded()
+                    self.playerViewController?.replayButton.subviews.first?.contentMode = .scaleAspectFill
+                    
+                    self.miniPlayerReplayButton.isHidden = false
+                    self.miniPlayerReplayButton.setBackgroundImage(image, for: .normal)
+                    self.miniPlayerReplayButton.layoutIfNeeded()
+                    self.miniPlayerReplayButton.subviews.first?.contentMode = .scaleAspectFill
 
-                self.miniPlayerPauseButton.setImage(Image(systemName: "play.fill"), for: .normal)
-                self.isPaused = true
+                    self.miniPlayerPauseButton.setImage(Image(systemName: "play.fill"), for: .normal)
+                    self.isPaused = true
+                }
             }
         } else if state == .playing {
             isEnded = false

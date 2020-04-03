@@ -99,6 +99,12 @@ class Util {
         NotificationCenter.default.post(name: AppConstants.notification_show_miniplayer, object: nil, userInfo: dictionary)
     }
     
+    static func playQueue(at: Int) {
+        var dictionary:[String:Any] = [:]
+        dictionary[AppConstants.notification_userInfo_playing_index] = at
+        NotificationCenter.default.post(name: AppConstants.notification_play_quque, object: nil, userInfo: dictionary)
+    }
+    
     static func getAvailableThumbnailImageUrl(currentItem: VideoItemModel) -> String {
         if currentItem.thumbnailHigh.count > 0 {
             return currentItem.thumbnailHigh

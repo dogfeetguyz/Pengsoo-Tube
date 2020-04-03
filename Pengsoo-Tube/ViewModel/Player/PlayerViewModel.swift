@@ -41,6 +41,10 @@ class PlayerViewModel {
         return playingIndex
     }
     
+    func setPlayingIndex(index: Int) {
+        playingIndex = index
+    }
+    
     func addToRecent(item: VideoItemModel) {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             let managedOC = appDelegate.persistentContainer.viewContext
