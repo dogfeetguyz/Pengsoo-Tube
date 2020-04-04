@@ -228,6 +228,9 @@ class PlayerViewController: UIViewController {
         
         if isLandscape {
             viewModel!.isFullscreen = false
+            if pendingRequestWorkItem != nil {
+                pendingRequestWorkItem?.cancel()
+            }
             
             let value = UIInterfaceOrientation.portrait.rawValue
             UIDevice.current.setValue(value, forKey: "orientation")
@@ -254,11 +257,12 @@ class PlayerViewController: UIViewController {
             
             youtubeView.frame = playerView.bounds
             youtubeView.setSize(Int(playerView.bounds.width), height: Int(playerView.bounds.height))
+            
+            fullscreenButton.setImage(UIImage(systemName: "arrow.up.left.and.arrow.down.right"), for: .normal)
+            
+            NotificationCenter.default.post(name: AppConstants.notification_update_player_dismiss_gesture, object: nil, userInfo: nil)
         } else {
             viewModel!.isFullscreen = true
-            if pendingRequestWorkItem != nil {
-                pendingRequestWorkItem?.cancel()
-            }
             view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
             view.cornerRadius = 0
             
@@ -266,7 +270,12 @@ class PlayerViewController: UIViewController {
             UIDevice.current.setValue(value, forKey: "orientation")
             
             contentStack.isHidden = true
-            playerControllerView.isHidden = true
+            
+            pendingRequestWorkItem = DispatchWorkItem {
+                self.playerControllerView.isHidden = true
+                self.pendingRequestWorkItem = nil
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: pendingRequestWorkItem!)
             
             playerTopConstraint.constant = 0
             playerBottomConstraint.constant = 0
@@ -277,6 +286,10 @@ class PlayerViewController: UIViewController {
             
             youtubeView.frame = playerView.bounds
             youtubeView.setSize(Int(playerView.bounds.width), height: Int(playerView.bounds.height))
+            
+            fullscreenButton.setImage(UIImage(systemName: "arrow.down.right.and.arrow.up.left"), for: .normal)
+            
+            NotificationCenter.default.post(name: AppConstants.notification_update_player_dismiss_gesture, object: nil, userInfo: nil)
         }
     }
     

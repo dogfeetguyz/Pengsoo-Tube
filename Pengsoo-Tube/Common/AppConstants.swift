@@ -29,6 +29,7 @@ struct AppConstants {
     
     static let notification_show_miniplayer: NSNotification.Name = NSNotification.Name(rawValue: "notification_show_miniplayer")
     static let notification_play_quque: NSNotification.Name = NSNotification.Name(rawValue: "notification_play_quque")
+    static let notification_update_player_dismiss_gesture: NSNotification.Name = NSNotification.Name(rawValue: "notification_update_player_dismiss_gesture")
     static let notification_userInfo_video_items: String = "notification_userInfo_video_items"
     static let notification_userInfo_playing_index: String = "notification_userInfo_playing_index"
     

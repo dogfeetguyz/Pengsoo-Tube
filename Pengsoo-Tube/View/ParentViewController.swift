@@ -60,6 +60,7 @@ class ParentViewController: UIViewController {
         super.viewDidAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(onVideoPlay(_:)), name: AppConstants.notification_show_miniplayer, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ovVideoPlayInQueue(_:)), name: AppConstants.notification_play_quque, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyTransition), name: AppConstants.notification_update_player_dismiss_gesture, object: nil)
         miniplayerBottomConstraint.constant = tabBarViewController!.tabBar.frame.height
         self.miniPlayerView.layoutIfNeeded()
     }
@@ -98,68 +99,81 @@ class ParentViewController: UIViewController {
             self.tabBarViewController!.tabBar.mvn.alpha.from(1.0).to(0.0),
             ])
         
-        let dismissGesture = GestureAnimating(player.view, .bottom, player.view.frame.size)
-        dismissGesture.panCompletionThresholdRatio = 0.1
-        
-        let transition = Transition(self.movin!, self, player, GestureTransitioning(.present, nil, dismissGesture))
-        transition.customContainerViewSetupHandler = { [unowned self] type, containerView in
-            if type.isPresenting {
-                if self.playerViewModel.isEnded {
-                    Util.loadCachedImage(url: Util.getAvailableThumbnailImageUrl(currentItem: self.playerViewModel.getPlayingItem()!)) { (image) in
-                        player.setEndingUI(isHidden: false, image: image)
-                    }
-                }
-                
-                player.setPlayerView(view: self.miniPlayerPlayerView)
-                self.miniPlayerView.isHidden = true
-                
-                containerView.addSubview(player.view)
-                containerView.addSubview(self.tabBarViewController!.tabBar)
-                
-                self.beginAppearanceTransition(false, animated: false)
-                player.beginAppearanceTransition(true, animated: false)
-            } else {
-                self.beginAppearanceTransition(true, animated: false)
-                player.beginAppearanceTransition(false, animated: false)
-            }
-        }
-        
-        transition.customContainerViewCompletionHandler = { [unowned self] type, didComplete, containerView in
-            self.endAppearanceTransition()
-            player.endAppearanceTransition()
-            
-            if type.isDismissing {
-                if didComplete {
-                    //complete dismiss
-                    self.setPlayerView()
-                    player.view.removeFromSuperview()
-                    self.tabBarViewController?.tabBar.removeFromSuperview()
-                    self.tabBarViewController?.view.addSubview(self.tabBarViewController!.tabBar)
-                    self.tabBarViewController?.tabBar.alpha = 1.0
-                    self.tabBarViewController!.view.alpha = 1.0
-                    
-                    self.miniPlayerView.isHidden = false
-                    self.isPresented = false
-                    self.movin = nil
-                    self.playerViewController = nil
-                    
-                    self.setupAnimation()
-                } else {
-                    //cancel dismiss
-                }
-            } else {
-                if didComplete {
-                    //complete present
-                    self.playerViewController!.youtubeView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width)
-                } else {
-                    //cancel present
-                }
-            }
-        }
-        
         self.playerViewController = player
         player.modalPresentationStyle = .overCurrentContext
-        player.transitioningDelegate = self.movin!.configureCustomTransition(transition)
+        setupTransition(isSettingDismissGesture: true)
+    }
+    
+    @objc func notifyTransition() {
+        setupTransition(isSettingDismissGesture: !playerViewModel.isFullscreen)
+    }
+    
+    func setupTransition(isSettingDismissGesture: Bool) {
+        if let player = self.playerViewController {
+            var dismissGesture: GestureAnimating? = nil
+            
+            if isSettingDismissGesture {
+                dismissGesture = GestureAnimating(player.view, .bottom, player.view.frame.size)
+                dismissGesture!.panCompletionThresholdRatio = 0.1
+            }
+            
+            let transition = Transition(self.movin!, self, player, GestureTransitioning(.present, nil, dismissGesture))
+            transition.customContainerViewSetupHandler = { [unowned self] type, containerView in
+                if type.isPresenting {
+                    if self.playerViewModel.isEnded {
+                        Util.loadCachedImage(url: Util.getAvailableThumbnailImageUrl(currentItem: self.playerViewModel.getPlayingItem()!)) { (image) in
+                            player.setEndingUI(isHidden: false, image: image)
+                        }
+                    }
+                    
+                    player.setPlayerView(view: self.miniPlayerPlayerView)
+                    self.miniPlayerView.isHidden = true
+                    
+                    containerView.addSubview(player.view)
+                    containerView.addSubview(self.tabBarViewController!.tabBar)
+                    
+                    self.beginAppearanceTransition(false, animated: false)
+                    player.beginAppearanceTransition(true, animated: false)
+                } else {
+                    self.beginAppearanceTransition(true, animated: false)
+                    player.beginAppearanceTransition(false, animated: false)
+                }
+            }
+            
+            transition.customContainerViewCompletionHandler = { [unowned self] type, didComplete, containerView in
+                self.endAppearanceTransition()
+                player.endAppearanceTransition()
+                
+                if type.isDismissing {
+                    if didComplete {
+                        //complete dismiss
+                        self.setPlayerView()
+                        player.view.removeFromSuperview()
+                        self.tabBarViewController?.tabBar.removeFromSuperview()
+                        self.tabBarViewController?.view.addSubview(self.tabBarViewController!.tabBar)
+                        self.tabBarViewController?.tabBar.alpha = 1.0
+                        self.tabBarViewController!.view.alpha = 1.0
+                        
+                        self.miniPlayerView.isHidden = false
+                        self.isPresented = false
+                        self.movin = nil
+                        self.playerViewController = nil
+                        
+                        self.setupAnimation()
+                    } else {
+                        //cancel dismiss
+                    }
+                } else {
+                    if didComplete {
+                        //complete present
+                        self.playerViewController!.youtubeView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width)
+                    } else {
+                        //cancel present
+                    }
+                }
+            }
+            player.transitioningDelegate = self.movin!.configureCustomTransition(transition)
+        }
     }
     
 // MARK:- PLAYER FUNCTION
