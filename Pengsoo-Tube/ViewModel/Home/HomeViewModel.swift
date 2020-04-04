@@ -93,7 +93,7 @@ class HomeViewModel {
                                                                    thumbnailDefault: item.snippet.thumbnails.small.url,
                                                                    thumbnailMedium: item.snippet.thumbnails.medium.url,
                                                                    thumbnailHigh: item.snippet.thumbnails.high.url,
-                                                                   publishedAt: item.snippet.publishedAt)
+                                                                   publishedAt: item.contentDetails.videoPublishedAt)
                                     
                                     if !videoItems.contains(videoItem) {
                                         videoItems.append(videoItem)

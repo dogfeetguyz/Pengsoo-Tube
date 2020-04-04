@@ -17,6 +17,7 @@
 		FA1A1675242B169000740ADE /* LibraryDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A1674242B169000740ADE /* LibraryDetailViewModelTests.swift */; };
 		FA1A64022434A20D00A3212E /* YoutubePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A64002434A20D00A3212E /* YoutubePlayerView.swift */; };
 		FA1A64032434A20D00A3212E /* YoutubePlayerExtras.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A64012434A20D00A3212E /* YoutubePlayerExtras.swift */; };
+		FA1EFBCD24384D590022D6C6 /* YoutubeContentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1EFBCC24384D590022D6C6 /* YoutubeContentDetails.swift */; };
 		FA22A7102435B76A0051FAF7 /* PlaylistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA22A70F2435B76A0051FAF7 /* PlaylistModel.swift */; };
 		FA22A72F2435DD410051FAF7 /* Playlist+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA22A7292435DD410051FAF7 /* Playlist+CoreDataClass.swift */; };
 		FA22A7302435DD410051FAF7 /* Playlist+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA22A72B2435DD410051FAF7 /* Playlist+CoreDataProperties.swift */; };
@@ -91,6 +92,7 @@
 		FA1A1674242B169000740ADE /* LibraryDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetailViewModelTests.swift; sourceTree = "<group>"; };
 		FA1A64002434A20D00A3212E /* YoutubePlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubePlayerView.swift; sourceTree = "<group>"; };
 		FA1A64012434A20D00A3212E /* YoutubePlayerExtras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubePlayerExtras.swift; sourceTree = "<group>"; };
+		FA1EFBCC24384D590022D6C6 /* YoutubeContentDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeContentDetails.swift; sourceTree = "<group>"; };
 		FA22A70F2435B76A0051FAF7 /* PlaylistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistModel.swift; sourceTree = "<group>"; };
 		FA22A7292435DD410051FAF7 /* Playlist+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Playlist+CoreDataClass.swift"; path = "/Users/yejunpark/Workspace/Pengsoo-Tube/Pengsoo-Tube/Model/Library/Playlist+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		FA22A72A2435DD410051FAF7 /* Recent+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Recent+CoreDataProperties.swift"; path = "/Users/yejunpark/Workspace/Pengsoo-Tube/Pengsoo-Tube/Model/Library/Recent+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
@@ -295,6 +297,7 @@
 				FADEDB4924286F100071C1BB /* YoutubeThumbnailModel.swift */,
 				FAD709F02429B11300E48D31 /* HeaderImageModel.swift */,
 				FAD709F22429B14200E48D31 /* BrandingSettingsModel.swift */,
+				FA1EFBCC24384D590022D6C6 /* YoutubeContentDetails.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				FA80722D24302A860050BC8D /* HomeTabBarCell.swift in Sources */,
 				FA22A7332435DD410051FAF7 /* Recent+CoreDataClass.swift in Sources */,
 				FA22A7372435DD870051FAF7 /* Video+CoreDataProperties.swift in Sources */,
+				FA1EFBCD24384D590022D6C6 /* YoutubeContentDetails.swift in Sources */,
 				FA2E52B32433FABF00966AB5 /* UITextField+Extensions.swift in Sources */,
 				FADEDB4A24286F100071C1BB /* YoutubeThumbnailModel.swift in Sources */,
 				FADEDB4624286E130071C1BB /* YoutubeItemModel.swift in Sources */,

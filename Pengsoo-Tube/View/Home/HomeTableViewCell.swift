@@ -21,6 +21,9 @@ class HomeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        let color = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 0.1)
+        moreButton.setBackgroundImage(Util.generateImageWithColor(color), for: .highlighted)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

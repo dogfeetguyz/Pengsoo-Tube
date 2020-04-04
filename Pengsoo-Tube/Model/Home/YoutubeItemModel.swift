@@ -12,6 +12,7 @@ import ObjectMapper
 struct YoutubeItemModel {
     var snippet: YoutubeSnippetModel = YoutubeSnippetModel()
     var brandingSettings: BrandingSettingsModel = BrandingSettingsModel()
+    var contentDetails: YoutubeContentDetails = YoutubeContentDetails()
 }
 
 extension YoutubeItemModel: Mappable {
@@ -21,6 +22,7 @@ extension YoutubeItemModel: Mappable {
     mutating func mapping(map: Map) {
         snippet <- map["snippet"]
         brandingSettings <- map["brandingSettings"]
+        contentDetails <- map["contentDetails"]
     }
 }
 

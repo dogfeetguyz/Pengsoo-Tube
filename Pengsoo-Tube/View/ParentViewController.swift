@@ -30,8 +30,6 @@ class ParentViewController: UIViewController {
     internal var playerViewController: PlayerViewController?
     private var movin: Movin?
     private var isPresented: Bool = false
-    private var isPaused: Bool = false
-    private var isEnded: Bool = false
     private var currentTabIndex: Int = 0
     
     var playerViewModel = PlayerViewModel()
@@ -85,60 +83,56 @@ class ParentViewController: UIViewController {
         
         self.movin = Movin(1.0, TimingCurve(curve: .easeInOut, dampingRatio: 0.8))
         
-        let modal = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PlayerViewController") as! PlayerViewController
-        modal.viewModel = playerViewModel
-        modal.view.layoutIfNeeded()
+        let player = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PlayerViewController") as! PlayerViewController
+        player.viewModel = playerViewModel
+        player.setupConstraints(statusBarHeight: view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0, parentWidth: self.view.frame.width)
         
         let miniPlayerOrigin = self.miniPlayerView.frame.origin
         let endModalOrigin = CGPoint(x: 0, y: view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0)
         
         self.movin!.addAnimations([
             self.tabBarViewController!.view.mvn.alpha.from(1).to(0.6),
-            modal.view.mvn.point.from(miniPlayerOrigin).to(endModalOrigin),
-            modal.view.mvn.cornerRadius.from(0.0).to(10.0),
+            player.view.mvn.point.from(miniPlayerOrigin).to(endModalOrigin),
+            player.view.mvn.cornerRadius.from(0.0).to(10.0),
 //            self.miniPlayerPlayerView.mvn.size.from(self.miniPlayerLayerView.frame.size).to(modal.playerView.frame.size),
             self.tabBarViewController!.tabBar.mvn.alpha.from(1.0).to(0.0),
             ])
         
-        let dismissGesture = GestureAnimating(modal.view, .bottom, modal.view.frame.size)
+        let dismissGesture = GestureAnimating(player.view, .bottom, player.view.frame.size)
         dismissGesture.panCompletionThresholdRatio = 0.1
         
-        let transition = Transition(self.movin!, self, modal, GestureTransitioning(.present, nil, dismissGesture))
+        let transition = Transition(self.movin!, self, player, GestureTransitioning(.present, nil, dismissGesture))
         transition.customContainerViewSetupHandler = { [unowned self] type, containerView in
             if type.isPresenting {
-                if self.isEnded {
+                if self.playerViewModel.isEnded {
                     Util.loadCachedImage(url: Util.getAvailableThumbnailImageUrl(currentItem: self.playerViewModel.getPlayingItem()!)) { (image) in
-                        self.playerViewController?.replayButton.isHidden = false
-                        self.playerViewController?.replayButton.setBackgroundImage(image, for: .normal)
-                        self.playerViewController?.replayButton.layoutIfNeeded()
-                        self.playerViewController?.replayButton.subviews.first?.contentMode = .scaleAspectFill
+                        player.setEndingUI(isHidden: false, image: image)
                     }
                 }
                 
-                self.playerViewController!.setPlayerView(view: self.miniPlayerPlayerView)
+                player.setPlayerView(view: self.miniPlayerPlayerView)
                 self.miniPlayerView.isHidden = true
                 
-                containerView.addSubview(modal.view)
+                containerView.addSubview(player.view)
                 containerView.addSubview(self.tabBarViewController!.tabBar)
-                modal.view.layoutIfNeeded()
                 
                 self.beginAppearanceTransition(false, animated: false)
-                modal.beginAppearanceTransition(true, animated: false)
+                player.beginAppearanceTransition(true, animated: false)
             } else {
                 self.beginAppearanceTransition(true, animated: false)
-                modal.beginAppearanceTransition(false, animated: false)
+                player.beginAppearanceTransition(false, animated: false)
             }
         }
         
         transition.customContainerViewCompletionHandler = { [unowned self] type, didComplete, containerView in
             self.endAppearanceTransition()
-            modal.endAppearanceTransition()
+            player.endAppearanceTransition()
             
             if type.isDismissing {
                 if didComplete {
                     //complete dismiss
                     self.setPlayerView()
-                    modal.view.removeFromSuperview()
+                    player.view.removeFromSuperview()
                     self.tabBarViewController?.tabBar.removeFromSuperview()
                     self.tabBarViewController?.view.addSubview(self.tabBarViewController!.tabBar)
                     self.tabBarViewController?.tabBar.alpha = 1.0
@@ -163,9 +157,9 @@ class ParentViewController: UIViewController {
             }
         }
         
-        self.playerViewController = modal
-        modal.modalPresentationStyle = .overCurrentContext
-        modal.transitioningDelegate = self.movin!.configureCustomTransition(transition)
+        self.playerViewController = player
+        player.modalPresentationStyle = .overCurrentContext
+        player.transitioningDelegate = self.movin!.configureCustomTransition(transition)
     }
     
 // MARK:- PLAYER FUNCTION
@@ -181,16 +175,13 @@ class ParentViewController: UIViewController {
             setupAnimation()
             miniPlayerPlayerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width)
 
-            if let modalViewController = self.playerViewController {
-                modalViewController.updatePlayerUI()
+            if let player = self.playerViewController {
+                player.updatePlayerUI()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
-                    self.present(modalViewController, animated: true, completion: nil)
+                    self.present(player, animated: true, completion: nil)
 
-                    let index = self.playerViewModel.getPlayingIndex()
-                    if (index >= 0 && index <= self.playerViewModel.getQueueItems().count-1) {
-                        DispatchQueue.main.async() {
-                            modalViewController.tableView.scrollToRow(at: IndexPath(row: index, section: 0), at: .top, animated: false)
-                        }
+                    DispatchQueue.main.async() {
+                        player.scrollToNowPlaying(animated: false)
                     }
                 })
             }
@@ -213,8 +204,7 @@ class ParentViewController: UIViewController {
                 self.miniPlayerTitle.text = currentItem.videoTitle
                 let playerVars: [String: Any] = [
                     "autoplay": 1,
-                    "controls": 1,
-                    "cc_load_policy": 0,
+                    "controls": 0,
                     "modestbranding": 1,
                     "playsinline": 1,
                     "rel": 0,
@@ -237,20 +227,15 @@ class ParentViewController: UIViewController {
         if let currentItem = self.playerViewModel.getPlayingItem() {
             self.playerViewModel.addToRecent(item: currentItem)
 
-            if let modalViewController = self.playerViewController {
-                modalViewController.updatePlayerUI()
-                
-                let index = self.playerViewModel.getPlayingIndex()
-                if (index >= 0 && index <= self.playerViewModel.getQueueItems().count-1) {
-                    modalViewController.tableView.scrollToRow(at: IndexPath(row: index, section: 0), at: .top, animated: true)
-                }
+            if let player = self.playerViewController {
+                player.updatePlayerUI()
+                player.scrollToNowPlaying(animated: true)
             }
             
             self.miniPlayerTitle.text = currentItem.videoTitle
             let playerVars: [String: Any] = [
                 "autoplay": 1,
-                "controls": 1,
-                "cc_load_policy": 0,
+                "controls": 0,
                 "modestbranding": 1,
                 "playsinline": 1,
                 "rel": 0,
@@ -270,15 +255,15 @@ class ParentViewController: UIViewController {
     }
     
     @IBAction func pauseButtonAction(_ sender: Any) {
-        if isPaused {
-            isPaused = false
-            if isEnded {
+        if playerViewModel.isPaused {
+            playerViewModel.isPaused = false
+            if playerViewModel.isEnded {
                 miniPlayerPlayerView.seek(to: 0, allowSeekAhead: true)
             }
             miniPlayerPlayerView.play()
             miniPlayerPauseButton.setImage(Image(systemName: "pause.fill"), for: .normal)
         } else {
-            isPaused = true
+            playerViewModel.isPaused = true
             miniPlayerPlayerView.pause()
             miniPlayerPauseButton.setImage(Image(systemName: "play.fill"), for: .normal)
         }
@@ -315,7 +300,14 @@ extension ParentViewController: UITabBarControllerDelegate {
 // MARK: - YoutubePlayerViewDelegate
 extension ParentViewController: YoutubePlayerViewDelegate {
     func playerViewDidBecomeReady(_ playerView: YoutubePlayerView) {
-        print("Ready")
+        
+        playerView.fetchDuration { (duration) in
+            self.playerViewModel.setDuration(duration: duration!)
+            if let player = self.playerViewController {
+                player.updateDuration()
+            }
+        }
+        
         playerView.fetchPlayerState { (state) in
             print("Fetch Player State: \(state)")
         }
@@ -335,12 +327,18 @@ extension ParentViewController: YoutubePlayerViewDelegate {
                     Util.playQueue(at: nextIndex)
                 }
             } else {
-                isEnded = true
+                playerViewModel.isEnded = true
+
+                if let player = self.playerViewController {
+                    player.updateProgress(playTime: playerViewModel.getDuration())
+                    player.updatePlayButton()
+                }
+                    
                 Util.loadCachedImage(url: Util.getAvailableThumbnailImageUrl(currentItem: playerViewModel.getPlayingItem()!)) { (image) in
-                    self.playerViewController?.replayButton.isHidden = false
-                    self.playerViewController?.replayButton.setBackgroundImage(image, for: .normal)
-                    self.playerViewController?.replayButton.layoutIfNeeded()
-                    self.playerViewController?.replayButton.subviews.first?.contentMode = .scaleAspectFill
+
+                    if let player = self.playerViewController {
+                        player.setEndingUI(isHidden: false, image: image)
+                    }
                     
                     self.miniPlayerReplayButton.isHidden = false
                     self.miniPlayerReplayButton.setBackgroundImage(image, for: .normal)
@@ -348,28 +346,32 @@ extension ParentViewController: YoutubePlayerViewDelegate {
                     self.miniPlayerReplayButton.subviews.first?.contentMode = .scaleAspectFill
 
                     self.miniPlayerPauseButton.setImage(Image(systemName: "play.fill"), for: .normal)
-                    self.isPaused = true
+                    self.playerViewModel.isPaused = true
                 }
             }
         } else if state == .playing {
-            isEnded = false
+            playerViewModel.isEnded = false
             
-            if isPaused {
-                isPaused = false
-                miniPlayerPlayerView.play()
+            if playerViewModel.isPaused {
+                playerViewModel.isPaused = false
                 miniPlayerPauseButton.setImage(Image(systemName: "pause.fill"), for: .normal)
             }
-            
-            if playerViewController?.replayButton.isHidden == false {
-                playerViewController?.replayButton.isHidden = true
+
+            if let player = self.playerViewController {
+                player.setEndingUI(isHidden: true)
+                player.updatePlayButton()
             }
             
             if miniPlayerReplayButton.isHidden == false {
                 miniPlayerReplayButton.isHidden = true
             }
         } else if state == .paused {
-            isPaused = true
+            playerViewModel.isPaused = true
             miniPlayerPauseButton.setImage(Image(systemName: "play.fill"), for: .normal)
+            
+            if let player = self.playerViewController {
+                player.updatePlayButton()
+            }
         } else {
             print("Player State: \(state)")
         }
@@ -382,6 +384,9 @@ extension ParentViewController: YoutubePlayerViewDelegate {
     }
     
     func playerView(_ playerView: YoutubePlayerView, didPlayTime time: Float) {
+        if let player = self.playerViewController {
+            player.updateProgress(playTime: time)
+        }
     }
     
     func playerViewPreferredBackgroundColor(_ playerView: YoutubePlayerView) -> UIColor {

@@ -26,17 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
     }
-    
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        if let presentedController = window?.rootViewController?.presentedViewController {
-            let className = String(describing: type(of: presentedController)).components(separatedBy: ".").last!
-            if className == "MPMoviePlayerViewController" || className == "MPInlineVideoFullscreenViewController" || className == "AVFullScreenViewController" {
-                return .allButUpsideDown
-            }
-        }
-
-        return .portrait
-    }
 
     // MARK: - Core Data stack
 

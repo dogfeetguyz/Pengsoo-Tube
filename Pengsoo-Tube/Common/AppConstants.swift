@@ -11,7 +11,7 @@ import Foundation
 struct AppConstants {
     
     static let baseUrl              : String = "https://www.googleapis.com/youtube/v3/"
-    static let partSnippet          : String = "playlistItems?part=snippet"
+    static let partSnippet          : String = "playlistItems?part=snippet%2CcontentDetails"
     static let partBranding         : String = "channels?part=brandingSettings"
     
     static let keyApiKey            : String = "key"
@@ -22,8 +22,8 @@ struct AppConstants {
     
     static let valueApiKey          : String = Bundle.main.object(forInfoDictionaryKey: "GoogleSecretKey") as! String
     static let valueMaxResult       : Int = 50
-    static let valuePlaylistGiantTV : String = "PLeq1C1537EvHO4nXCXb98stSy-AH8ojas"
-    static let valuePlaylistYoutube : String = "PLeq1C1537EvH7jR04Gr5dUYf2wNTyXSg9"
+    static let valuePlaylistGiantTV : String = "PLwGaGJBBtgFdm2f6aDXTxjgrRsj6D9eJ-"
+    static let valuePlaylistYoutube : String = "PLwGaGJBBtgFfTN_ofhz-rdmeyStn5818M"
     static let valuePlaylistOutside : String = "PLwGaGJBBtgFedaczbgXOOppykqRkVZ787"
     static let valueBrandingId      : String = "UCtckgmUcpzqGnzcs7xEqMzQ"
     

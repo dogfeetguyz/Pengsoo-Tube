@@ -13,16 +13,18 @@ class PlayerViewModel {
     
     weak var delegate: ViewModelDelegate?
     private var queueItems: [VideoItemModel] = []
-    private var playingIndex: Int = -1
+    
+    var playingIndex: Int = -1
+    var duration: Float = 0
+    
+    var isPaused: Bool = false
+    var isEnded: Bool = false
+    var isFullscreen: Bool = false
     
     func replaceQueue(videoItems: [VideoItemModel], playingIndex: Int) {
         queueItems.removeAll()
         queueItems.append(contentsOf: videoItems)
         self.playingIndex = playingIndex
-    }
-    
-    func updatePlayerUI() {
-        
     }
     
     func getPlayingItem() -> VideoItemModel? {
@@ -43,6 +45,14 @@ class PlayerViewModel {
     
     func setPlayingIndex(index: Int) {
         playingIndex = index
+    }
+    
+    func setDuration(duration: Double) {
+        self.duration = Float(duration)
+    }
+    
+    func getDuration() -> Float {
+        return duration
     }
     
     func addToRecent(item: VideoItemModel) {
