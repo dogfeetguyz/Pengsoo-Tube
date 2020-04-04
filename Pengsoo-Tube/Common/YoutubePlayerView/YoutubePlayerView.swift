@@ -458,6 +458,10 @@ extension YoutubePlayerView {
             handler(nil)
         }
     }
+    
+    public func setSize(_ width: Int, height: Int) {
+        evaluateJavaScript("player.setSize(\(width), \(height));", completionHandler: nil)
+    }
 }
 
 // MARK:- Setting playback behavior for playlists

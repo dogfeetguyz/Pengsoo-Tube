@@ -85,7 +85,7 @@ class ParentViewController: UIViewController {
         
         let player = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PlayerViewController") as! PlayerViewController
         player.viewModel = playerViewModel
-        player.setupConstraints(statusBarHeight: view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0, parentWidth: self.view.frame.width)
+        player.setupConstraints(statusBarHeight: view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0, parentSize: self.view.size)
         
         let miniPlayerOrigin = self.miniPlayerView.frame.origin
         let endModalOrigin = CGPoint(x: 0, y: view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0)
@@ -165,6 +165,7 @@ class ParentViewController: UIViewController {
 // MARK:- PLAYER FUNCTION
     func setPlayerView() {
         self.miniPlayerPlayerView.frame = self.miniPlayerLayerView.bounds
+        miniPlayerPlayerView.setSize(Int(self.miniPlayerLayerView.width), height: Int(self.miniPlayerLayerView.height))
         self.miniPlayerLayerView.addSubview(self.miniPlayerPlayerView)
     }
     
@@ -173,7 +174,6 @@ class ParentViewController: UIViewController {
             self.isPresented = true
 
             setupAnimation()
-            miniPlayerPlayerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width)
 
             if let player = self.playerViewController {
                 player.updatePlayerUI()

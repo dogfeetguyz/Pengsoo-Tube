@@ -27,14 +27,14 @@ import Foundation
 
 enum YoutubePlayerUtils {
     static var htmlString: String {
-        return "<head>\(script)<meta name=viewport content='width=device-width, initial-scale=1'><style type='text/css'> body { margin: 0;} </style></head><iframe id='existing-iframe-example' width='100%%' height='100%%' src='%@' frameborder='0' allowfullscreen></iframe>"
+        return "<head>\(script)<meta name=viewport content='width=device-width, initial-scale=1'><style type='text/css'> body { margin: 0;} </style></head><iframe id='youtube-iframe' width='100%%' height='100%%' src='%@' frameborder='0' allowfullscreen></iframe>"
     }
     
     private static var script: String {
         return """
         <script type="text/javascript">
             var tag = document.createElement('script');
-            tag.id = 'iframe-demo';
+            tag.id = 'iframe-pengsoo-tube';
             tag.src = 'https://www.youtube.com/iframe_api';
             tag.onerror = "window.location.href='ytplayer://onYouTubeIframeAPIFailedToLoad'";
             var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -44,7 +44,7 @@ enum YoutubePlayerUtils {
             var error = false;
         
             function onYouTubeIframeAPIReady() {
-                player = new YT.Player('existing-iframe-example', {
+                player = new YT.Player('youtube-iframe', {
                     events: {
                         'onReady': onReady,
                         'onStateChange': onStateChange,
@@ -89,9 +89,9 @@ enum YoutubePlayerUtils {
                 window.location.href = 'ytplayer://onError?data=' + event.data;
             }
         
-            window.onresize = function() {
-                player.setSize(window.innerWidth, window.innerHeight);
-            }
+            //window.onresize = function() {
+                //player.setSize(window.innerWidth, window.innerHeight);
+            //}
         </script>
         """
     }

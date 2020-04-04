@@ -12,7 +12,9 @@ import Movin
 class PlayerViewController: UIViewController {
     
     @IBOutlet weak var playerView: UIView!
+    @IBOutlet weak var controllerButton: UIButton!
     @IBOutlet weak var replayButton: UIButton!
+    @IBOutlet weak var playerControllerView: UIView!
     
     @IBOutlet weak var contentStack: UIStackView!
     
@@ -37,26 +39,52 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var autoplaySwitch: UISwitch!
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var topConstraint: NSLayoutConstraint!
-    @IBOutlet weak var playerBottomHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var playerTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var playerBottomConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var playerControlHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var playerControlBottomConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var contentViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var contentViewBttomConstraint: NSLayoutConstraint!
     
     private var isSliding = false
+    private var pendingRequestWorkItem: DispatchWorkItem?
     
     weak var youtubeView: YoutubePlayerView!
     var viewModel: PlayerViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
-    func setupConstraints(statusBarHeight: CGFloat, parentWidth: CGFloat) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(foregroundAction), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    func setupConstraints(statusBarHeight: CGFloat, parentSize: CGSize) {
         view.layoutIfNeeded()
+        
+        let playerHeight = parentSize.width * (13/16.0)
+        let blackScreenHeight = parentSize.width * (4/16.0)
+        
+        playerTopConstraint.constant = -blackScreenHeight
+        playerBottomConstraint.constant = parentSize.height - playerHeight
+        
+        playerControlHeightConstraint.constant = blackScreenHeight/2
+        playerControlBottomConstraint.constant = blackScreenHeight/2
+        
+        contentViewTopConstraint.constant = playerHeight - blackScreenHeight/2
         contentViewBttomConstraint.constant = statusBarHeight
         
-        let blackScreenHeight = parentWidth * (2/16.0)
-        topConstraint.constant = -blackScreenHeight
-        playerBottomHeightConstraint.constant = blackScreenHeight
+        playerView.layoutIfNeeded()
     }
     
     func setEndingUI(isHidden: Bool, image: UIImage? = nil) {
@@ -71,9 +99,12 @@ class PlayerViewController: UIViewController {
     }
     
     func setPlayerView(view: YoutubePlayerView) {
+        playerView.layoutIfNeeded()
+        
         self.youtubeView = view
         self.youtubeView.frame = self.playerView.bounds
-        self.playerView.insertSubview(self.youtubeView, belowSubview: self.replayButton)
+        self.youtubeView.setSize(Int(self.playerView.width), height: Int(self.playerView.height))
+        self.playerView.insertSubview(self.youtubeView, at: 0)
         
         updateDuration()
         updateProgress()
@@ -193,6 +224,62 @@ class PlayerViewController: UIViewController {
         }
     }
     
+    func updateOrientation(isLandscape: Bool) {
+        
+        if isLandscape {
+            viewModel!.isFullscreen = false
+            
+            let value = UIInterfaceOrientation.portrait.rawValue
+            UIDevice.current.setValue(value, forKey: "orientation")
+            
+            let statusBarHeight = view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+            view.frame = CGRect(x: 0, y: statusBarHeight, width: view.frame.width, height: view.frame.height)
+            view.cornerRadius = 10
+            
+            contentStack.isHidden = false
+            playerControllerView.isHidden = false
+            
+            let playerHeight = view.width * (13/16.0)
+            let blackScreenHeight = view.width * (4/16.0)
+            
+            playerTopConstraint.constant = -blackScreenHeight
+            playerBottomConstraint.constant = view.height - playerHeight
+            
+            playerControlHeightConstraint.constant = blackScreenHeight/2
+            playerControlBottomConstraint.constant = blackScreenHeight/2
+            
+            contentViewTopConstraint.constant = playerHeight - blackScreenHeight/2
+            contentViewBttomConstraint.constant = statusBarHeight
+            playerView.layoutIfNeeded()
+            
+            youtubeView.frame = playerView.bounds
+            youtubeView.setSize(Int(playerView.bounds.width), height: Int(playerView.bounds.height))
+        } else {
+            viewModel!.isFullscreen = true
+            if pendingRequestWorkItem != nil {
+                pendingRequestWorkItem?.cancel()
+            }
+            view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+            view.cornerRadius = 0
+            
+            let value = UIInterfaceOrientation.landscapeRight.rawValue
+            UIDevice.current.setValue(value, forKey: "orientation")
+            
+            contentStack.isHidden = true
+            playerControllerView.isHidden = true
+            
+            playerTopConstraint.constant = 0
+            playerBottomConstraint.constant = 0
+            
+            playerControlHeightConstraint.constant = 60
+            playerControlBottomConstraint.constant = 0
+            playerView.layoutIfNeeded()
+            
+            youtubeView.frame = playerView.bounds
+            youtubeView.setSize(Int(playerView.bounds.width), height: Int(playerView.bounds.height))
+        }
+    }
+    
     func scrollToNowPlaying(animated: Bool) {
         let index = viewModel!.getPlayingIndex()
         if (index >= 0 && index <= viewModel!.getQueueItems().count-1) {
@@ -201,6 +288,22 @@ class PlayerViewController: UIViewController {
     }
         
 // MARK: - USER ACTION
+    @IBAction func controllerButton(_ sender: Any) {
+        if viewModel!.isFullscreen {
+            playerControllerView.isHidden = false
+            if pendingRequestWorkItem != nil {
+                pendingRequestWorkItem?.cancel()
+            }
+            
+            pendingRequestWorkItem = DispatchWorkItem {
+                self.playerControllerView.isHidden = true
+                self.pendingRequestWorkItem = nil
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: pendingRequestWorkItem!)
+        }
+    }
+    
     @IBAction func replayButtonAction(_ sender: Any) {
         youtubeView.seek(to: 0, allowSeekAhead: true)
         youtubeView.play()
@@ -223,19 +326,7 @@ class PlayerViewController: UIViewController {
     }
     
     @IBAction func fullscreenButtonAction(_ sender: Any) {
-        if viewModel!.isFullscreen {
-            viewModel!.isFullscreen = false
-            let value = UIInterfaceOrientation.portrait.rawValue
-            UIDevice.current.setValue(value, forKey: "orientation")
-            view.frame = CGRect(x: 0, y: view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0, width: view.frame.width, height: view.frame.height)
-            view.cornerRadius = 10
-        } else {
-            viewModel!.isFullscreen = true
-            let value = UIInterfaceOrientation.landscapeRight.rawValue
-            UIDevice.current.setValue(value, forKey: "orientation")
-            view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-            view.cornerRadius = 0
-        }
+        updateOrientation(isLandscape: viewModel!.isFullscreen)
     }
     
     @IBAction func detailButtonAction(_ sender: Any) {
@@ -329,6 +420,12 @@ class PlayerViewController: UIViewController {
     @IBAction func switchAction(_ sender: Any) {
         UserDefaults.standard.set(autoplaySwitch.isOn, forKey: AppConstants.key_user_default_autoplay)
         repeatButton.isEnabled = autoplaySwitch.isOn
+    }
+    
+    @objc func foregroundAction() {
+        if viewModel!.isFullscreen {
+            updateOrientation(isLandscape: viewModel!.isFullscreen)
+        }
     }
 }
 
