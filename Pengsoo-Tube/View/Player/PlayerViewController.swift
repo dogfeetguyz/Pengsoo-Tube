@@ -104,6 +104,7 @@ class PlayerViewController: UIViewController {
         
         progressBar.setThumbImage(Util.makeCircleWith(size: CGSize(width: 10, height: 10), backgroundColor: UIColor.systemGray), for: .normal)
         progressBar.setThumbImage(Util.makeCircleWith(size: CGSize(width: 10, height: 10), backgroundColor: UIColor.systemGray2), for: .highlighted)
+        progressBar.value = 0
         
         repeatButton.setBackgroundImage(Util.generateImageWithColor(color), for: .highlighted)
         if UserDefaults.standard.bool(forKey: AppConstants.key_user_default_repeat_one) {
@@ -151,10 +152,17 @@ class PlayerViewController: UIViewController {
     }
     
     func updateProgress() {
-        if viewModel!.isPaused {
-            if youtubeView != nil {
-                youtubeView.fetchCurrentTime { (playTime) in
-                    self.updateProgress(playTime: Float(playTime!))
+        if viewModel!.isEnded {
+            playTimeLabel.text = durationLabel.text
+            progressBar.value = 1
+        } else {
+            if viewModel!.isPaused {
+                if youtubeView != nil {
+                    youtubeView.fetchCurrentTime { (playTime) in
+                        if let _playTime = playTime {
+                            self.updateProgress(playTime: Float(_playTime))
+                        }
+                    }
                 }
             }
         }
@@ -162,21 +170,26 @@ class PlayerViewController: UIViewController {
     
     func updateProgress(playTime: Float) {
         if !isSliding {
-            let duration = viewModel?.getDuration()
-            if duration! >= 3600.0 {
-                let hour = Int(playTime / 3600.0)
-                let min = (Int(playTime) % 3600) / 60
-                let sec = (Int(playTime) % 3600) % 60
-
-                playTimeLabel.text = String(format: "%20d:%02d:%02d", hour, min, sec)
+            if viewModel!.isEnded {
+                playTimeLabel.text = durationLabel.text
+                progressBar.value = 1
             } else {
-                let min = Int(playTime) / 60
-                let sec = Int(playTime) % 60
+                let duration = viewModel?.getDuration()
+                if duration! >= 3600.0 {
+                    let hour = Int(playTime / 3600.0)
+                    let min = (Int(playTime) % 3600) / 60
+                    let sec = (Int(playTime) % 3600) % 60
 
-                playTimeLabel.text = String(format: "%02d:%02d", min, sec)
+                    playTimeLabel.text = String(format: "%20d:%02d:%02d", hour, min, sec)
+                } else {
+                    let min = Int(playTime) / 60
+                    let sec = Int(playTime) % 60
+
+                    playTimeLabel.text = String(format: "%02d:%02d", min, sec)
+                }
+                
+                progressBar.value = Float(playTime/duration!)
             }
-            
-            progressBar.value = Float(playTime/duration!)
         }
     }
     
@@ -210,19 +223,19 @@ class PlayerViewController: UIViewController {
     }
     
     @IBAction func fullscreenButtonAction(_ sender: Any) {
-//        if viewModel!.isFullscreen {
-//            viewModel!.isFullscreen = false
-//            let value = UIInterfaceOrientation.portrait.rawValue
-//            UIDevice.current.setValue(value, forKey: "orientation")
-//            view.frame = CGRect(x: 0, y: view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0, width: view.frame.width, height: view.frame.height)
-//            view.cornerRadius = 10
-//        } else {
-//            viewModel!.isFullscreen = true
-//            let value = UIInterfaceOrientation.landscapeRight.rawValue
-//            UIDevice.current.setValue(value, forKey: "orientation")
-//            view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-//            view.cornerRadius = 0
-//        }
+        if viewModel!.isFullscreen {
+            viewModel!.isFullscreen = false
+            let value = UIInterfaceOrientation.portrait.rawValue
+            UIDevice.current.setValue(value, forKey: "orientation")
+            view.frame = CGRect(x: 0, y: view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0, width: view.frame.width, height: view.frame.height)
+            view.cornerRadius = 10
+        } else {
+            viewModel!.isFullscreen = true
+            let value = UIInterfaceOrientation.landscapeRight.rawValue
+            UIDevice.current.setValue(value, forKey: "orientation")
+            view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+            view.cornerRadius = 0
+        }
     }
     
     @IBAction func detailButtonAction(_ sender: Any) {
@@ -253,8 +266,8 @@ class PlayerViewController: UIViewController {
             seekToTime = 0
         }
         
+        updateProgress(playTime: seekToTime)
         youtubeView.seek(to: seekToTime, allowSeekAhead: true)
-        progressBar.value = Float(seekToTime/duration!)
     }
     
     @IBAction func forwardButtonAction(_ sender: Any) {
@@ -265,8 +278,8 @@ class PlayerViewController: UIViewController {
             seekToTime = duration!
         }
         
+        updateProgress(playTime: seekToTime)
         youtubeView.seek(to: seekToTime, allowSeekAhead: true)
-        progressBar.value = Float(seekToTime/duration!)
     }
     
     @IBAction func playButtonAction(_ sender: Any) {

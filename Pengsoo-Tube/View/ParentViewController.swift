@@ -351,11 +351,9 @@ extension ParentViewController: YoutubePlayerViewDelegate {
             }
         } else if state == .playing {
             playerViewModel.isEnded = false
+            playerViewModel.isPaused = false
             
-            if playerViewModel.isPaused {
-                playerViewModel.isPaused = false
-                miniPlayerPauseButton.setImage(Image(systemName: "pause.fill"), for: .normal)
-            }
+            miniPlayerPauseButton.setImage(Image(systemName: "pause.fill"), for: .normal)
 
             if let player = self.playerViewController {
                 player.setEndingUI(isHidden: true)
