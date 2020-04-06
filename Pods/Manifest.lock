@@ -22,6 +22,9 @@ PODS:
   - OHHTTPStubs/Swift (9.0.0):
     - OHHTTPStubs/Default
   - Quick (2.2.0)
+  - QuickLayout (3.0.0)
+  - SwiftEntryKit (1.2.3):
+    - QuickLayout (= 3.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0)
@@ -32,6 +35,7 @@ DEPENDENCIES:
   - ObjectMapper (~> 3.5.2)
   - OHHTTPStubs/Swift
   - Quick
+  - SwiftEntryKit (= 1.2.3)
 
 SPEC REPOS:
   trunk:
@@ -42,6 +46,8 @@ SPEC REPOS:
     - ObjectMapper
     - OHHTTPStubs
     - Quick
+    - QuickLayout
+    - SwiftEntryKit
 
 EXTERNAL SOURCES:
   AlamofireObjectMapper:
@@ -61,7 +67,9 @@ SPEC CHECKSUMS:
   ObjectMapper: b53ae947d370bf89423e86be7d4e2d2b2a8d3f40
   OHHTTPStubs: cb29d2a9d09a828ecb93349a2b0c64f99e0db89f
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
+  QuickLayout: 07b45a72b10083fee3f095990cfed1c1e7b27f0a
+  SwiftEntryKit: 340713c2e4a6662c5149629990bf1088bf5f0389
 
-PODFILE CHECKSUM: 6ba96cb910dda95a1b1cf0e1317e1087c3ece8ca
+PODFILE CHECKSUM: 49b29dc4c548aec47d3cf6523c2f72ebbe7185a1
 
 COCOAPODS: 1.9.0

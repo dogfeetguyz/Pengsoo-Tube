@@ -42,8 +42,12 @@ extension LibraryTableViewCell: UICollectionViewDelegateFlowLayout, UICollection
             if let _videoItems = videoItems {
                 let videoItem = _videoItems[indexPath.item]
                 cell.titleLabel.text = videoItem.videoTitle
+                
+                cell.tag = indexPath.item
                 Util.loadCachedImage(url: videoItem.thumbnailMedium) { (image) in
-                    cell.thumnail.image = image
+                    if cell.tag == indexPath.item {
+                        cell.thumnail.image = image
+                    }
                 }
             }
             return cell

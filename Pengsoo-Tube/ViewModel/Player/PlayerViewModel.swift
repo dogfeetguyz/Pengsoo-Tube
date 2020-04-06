@@ -88,10 +88,10 @@ class PlayerViewModel {
                 try managedOC.save()
                 delegate?.success(type: .recent)
             } catch {
-                delegate?.showError(type: .recent, error: .fail)
+                delegate?.showError(type: .recent, error: .fail, message: "Something went wrong. Please try again.")
             }
         } else {
-            delegate?.showError(type: .recent, error: .fail)
+            delegate?.showError(type: .recent, error: .fail, message: "Something went wrong. Please try again.")
         }
     }
 }

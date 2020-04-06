@@ -27,16 +27,8 @@ class SplashViewControll: UIViewController, ViewModelDelegate {
     }
     
     func showError(type: RequestType, error: ViewModelDelegateError, message: String) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(style: .alert)
-            alert.title = "Unable to connect to the Internet"
-            alert.message = "Do you wish to try again?"
-            
-            alert.addAction(title: "Retry") { (_) in
-                self.viewModel.getHeaderInfo()
-            }
-            
-            alert.show()
+        Util.noNetworkPopup(isCancelable: false) { (_) in            
+            self.viewModel.getHeaderInfo()
         }
     }
 }

@@ -78,12 +78,17 @@ extension LibraryViewController: ViewModelDelegate {
     }
     
     func showError(type: RequestType, error: ViewModelDelegateError, message: String) {
-        if error == .noItems {
+        switch error {
+        case .noItems:
             if type == .playlist {
                 tableView.reloadData()
             } else if type == .recent {
                 tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
             }
+        case .fail:
+            Util.createToast(message: message)
+        default:
+            break
         }
     }
     

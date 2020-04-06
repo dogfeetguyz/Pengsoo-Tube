@@ -18,8 +18,11 @@ extension PlayerViewController: UICollectionViewDataSource, UICollectionViewDele
             if let playItems = viewModel?.getQueueItems() {
                 let currentItem = playItems[indexPath.row]
                 
+                cell.tag = indexPath.item
                 Util.loadCachedImage(url: currentItem.thumbnailMedium) { (image) in
-                    cell.thumnail.image = image
+                    if cell.tag == indexPath.item {
+                        cell.thumnail.image = image
+                    }
                 }
                 cell.titleLabel.text = currentItem.videoTitle
                 

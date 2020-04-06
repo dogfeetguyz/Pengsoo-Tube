@@ -8,6 +8,7 @@
 
 import UIKit
 import AlamofireImage
+import SwiftEntryKit
 
 class Util {
     static func generateImageWithColor(_ color: UIColor) -> UIImage {
@@ -127,6 +128,67 @@ class Util {
             return currentItem.thumbnailDefault
         } else {
             return ""
+        }
+    }
+    
+    static func createToast(message: String) {
+        var attributes: EKAttributes
+
+        // Preset I
+        attributes = .topNote
+        attributes.displayMode = .inferred
+        attributes.name = ""
+        attributes.hapticFeedbackType = .success
+        attributes.popBehavior = .animated(animation: .translation)
+        attributes.entryBackground = .color(color: .standardBackground)
+        attributes.shadow = .active(
+            with: .init(
+                color: .standardContent,
+                opacity: 0.5,
+                radius: 2
+            )
+        )
+        attributes.statusBar = .light
+        attributes.lifecycleEvents.willAppear = {
+        }
+        attributes.lifecycleEvents.didAppear = {
+        }
+        attributes.lifecycleEvents.willDisappear = {
+        }
+        attributes.lifecycleEvents.didDisappear = {
+        }
+        
+        let text = message
+        let style = EKProperty.LabelStyle(
+            font: .systemFont(ofSize: 15),
+            color: .standardContent,
+            alignment: .center
+        )
+        let labelContent = EKProperty.LabelContent(
+            text: text,
+            style: style
+        )
+        let contentView = EKNoteMessageView(with: labelContent)
+        SwiftEntryKit.display(entry: contentView, using: attributes)
+    }
+    
+    static func noNetworkToast() {
+        createToast(message: "Unable to connect to the Internet.\nPlease try again.")
+    }
+    
+    static func noNetworkPopup(isCancelable: Bool, retryHandler: ((UIAlertAction) -> Void)?) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(style: .alert)
+            alert.title = "Unable to connect to the Internet"
+            alert.message = "Do you wish to try again?"
+            
+            if isCancelable {
+                alert.addAction(title: "Cancel", style: .cancel)
+            }
+            
+            alert.addAction(title: "Retry", handler: retryHandler)
+            
+            alert.show()
         }
     }
     

@@ -68,7 +68,7 @@ class LibraryDetailViewModelTests: XCTestCase {
         _ = XCTWaiter.wait(for: [expectation(description: "Test after 1 seconds")], timeout: 1.0)
         
         for i in 0 ..< 5 {
-            Util.openPlayer(videoItem: homeViewModel.tvListItems[i])
+            Util.openPlayer(videoItems: homeViewModel.tvListItems, playingIndex: i)
             _ = XCTWaiter.wait(for: [expectation(description: "Test after 0.3 seconds")], timeout: 0.3)
         }
         

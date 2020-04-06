@@ -16,8 +16,6 @@ var topViewFinalPosition: CGFloat?
 var topViewTopConstraintRange: Range<CGFloat>?
 
 class HomeViewController: UIViewController {
-    let viewModel = HomeViewModel()
-    
     let tabsCount = AppConstants.home_tab_titles.count
     
     @IBOutlet weak var statusBarImageView: UIImageView!
@@ -83,9 +81,6 @@ class HomeViewController: UIViewController {
                     self.headerImageView!.image = image
                 }
             }
-        } else {
-            viewModel.delegate = self
-            viewModel.getHeaderInfo()
         }
     }
     
@@ -359,26 +354,5 @@ extension HomeViewController: InnerTableViewScrollDelegate {
         UIView.animate(withDuration: TimeInterval(time), animations: {
             self.view.layoutIfNeeded()
         })
-    }
-}
-
-extension HomeViewController: ViewModelDelegate {
-    func success(type: RequestType, message: String) {
-        if type == .header {
-            if viewModel.headerUrl.count > 0 {
-                if viewModel.headerUrl != UserDefaults.standard.string(forKey: AppConstants.key_user_default_home_header_url) {
-                    UserDefaults.standard.set(viewModel.headerUrl, forKey: AppConstants.key_user_default_home_header_url)
-                    Util.loadCachedImage(url: viewModel.headerUrl) { (image) in
-                        self.headerImageView!.image = image
-                    }
-                }
-            }
-        } else {
-            
-        }
-    }
-    
-    func showError(type: RequestType, error: ViewModelDelegateError, message: String) {
-        
     }
 }

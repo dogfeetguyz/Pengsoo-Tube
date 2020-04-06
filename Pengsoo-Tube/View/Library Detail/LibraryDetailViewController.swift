@@ -137,8 +137,11 @@ extension LibraryDetailViewController: UITableViewDelegate, UITableViewDataSourc
             if let playItems = viewModel?.playItems {
                 let currentItem = playItems[indexPath.row]
                 
+                cell.tag = indexPath.row
                 Util.loadCachedImage(url: currentItem.thumbnailMedium) { (image) in
-                    cell.thumbnail.image = image
+                    if cell.tag == indexPath.row {
+                        cell.thumbnail.image = image
+                    }
                 }
                 cell.titleLabel.text = currentItem.videoTitle
                 cell.descriptionLabel.text = currentItem.videoDescription
@@ -203,6 +206,14 @@ extension LibraryDetailViewController: ViewModelDelegate {
     }
     
     func showError(type: RequestType, error: ViewModelDelegateError, message: String) {
+        switch error {
+        case .noItems:
+            break
+        case .fail:
+            Util.createToast(message: message)
+        default:
+            break
+        }
     }
     
 }

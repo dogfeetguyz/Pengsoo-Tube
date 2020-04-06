@@ -6,6 +6,7 @@ target 'Pengsoo-Tube' do
   pod 'AlamofireObjectMapper', :git => 'https://github.com/UnsereHausapotheke/AlamofireObjectMapper.git'
   pod 'AlamofireImage', '~> 4.0'
   pod 'ObjectMapper', '~> 3.5.2'
+  pod 'SwiftEntryKit', '1.2.3'
   pod 'Movin'
 end
 

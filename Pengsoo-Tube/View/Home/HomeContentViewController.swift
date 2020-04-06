@@ -183,7 +183,7 @@ extension HomeContentViewController: UITableViewDelegate {
         if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height) {
             if canRequestMore {
                 canRequestMore = false
-                viewModel.dispatchPengsooList(type: requestType!, isInitial: false)
+                self.viewModel.dispatchPengsooList(type: self.requestType!, isInitial: false)
             }
         }
     }
@@ -206,12 +206,41 @@ extension HomeContentViewController: UITableViewDelegate {
 extension HomeContentViewController: ViewModelDelegate {
     func success(type: RequestType, message: String) {
         tableView.reloadData()
+        canRequestMore = true
     }
     
     func showError(type: RequestType, error: ViewModelDelegateError, message: String) {
         if AppConstants.home_tab_types.contains(type) {
-            if error != .noItems {
-                canRequestMore = true
+            canRequestMore = true
+            
+            switch error {
+            case .noItems:
+                canRequestMore = false
+                break
+            case .fail:
+                if message.count > 0 {
+                    Util.createToast(message: message)
+                }
+            case .networkError:
+                if let items = self.viewModel.getItemsList(for: self.requestType!) {
+                    if items.count == 0 {
+                        isDispatched = false
+                        Util.noNetworkPopup(isCancelable: true) { (_) in
+                            self.isDispatched = true
+                            self.viewModel.dispatchPengsooList(type: self.requestType!)
+                        }
+                    } else {
+                        Util.noNetworkToast()
+                    }
+                } else {
+                    Util.noNetworkPopup(isCancelable: true) { (_) in
+                        self.isDispatched = true
+                        self.viewModel.dispatchPengsooList(type: self.requestType!)
+                    }
+                }
+                
+            default:
+                break
             }
         }
     }
