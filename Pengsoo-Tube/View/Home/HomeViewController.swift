@@ -83,10 +83,10 @@ class HomeViewController: UIViewController {
                     self.headerImageView!.image = image
                 }
             }
+        } else {
+            viewModel.delegate = self
+            viewModel.getHeaderInfo()
         }
-        
-        viewModel.delegate = self
-        viewModel.getHeaderInfo()
     }
     
     func setupCollectionView() {

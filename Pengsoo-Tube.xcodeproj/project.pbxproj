@@ -35,6 +35,8 @@
 		FA2E52C92434502500966AB5 /* LibraryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E52C82434502500966AB5 /* LibraryDetailViewController.swift */; };
 		FA3E68DD243AD28000A3EFD6 /* PlayerViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E68DC243AD28000A3EFD6 /* PlayerViewController+UICollectionViewDataSource.swift */; };
 		FA3E68DF243AD30B00A3EFD6 /* PlayerViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E68DE243AD30B00A3EFD6 /* PlayerViewController+UITableViewDataSource.swift */; };
+		FA3E68E1243AE7A800A3EFD6 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E68E0243AE7A800A3EFD6 /* SplashViewController.swift */; };
+		FA3E68E3243AE81100A3EFD6 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3E68E2243AE81100A3EFD6 /* Splash.storyboard */; };
 		FA60397F24346ED700CE4659 /* LibraryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60397E24346ED700CE4659 /* LibraryDetailTableViewCell.swift */; };
 		FA80722D24302A860050BC8D /* HomeTabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80722C24302A860050BC8D /* HomeTabBarCell.swift */; };
 		FA80722F243031860050BC8D /* HomeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80722E243031860050BC8D /* HomeContentViewController.swift */; };
@@ -112,6 +114,8 @@
 		FA2E52C82434502500966AB5 /* LibraryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetailViewController.swift; sourceTree = "<group>"; };
 		FA3E68DC243AD28000A3EFD6 /* PlayerViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
 		FA3E68DE243AD30B00A3EFD6 /* PlayerViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
+		FA3E68E0243AE7A800A3EFD6 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		FA3E68E2243AE81100A3EFD6 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		FA60397E24346ED700CE4659 /* LibraryDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetailTableViewCell.swift; sourceTree = "<group>"; };
 		FA80722C24302A860050BC8D /* HomeTabBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarCell.swift; sourceTree = "<group>"; };
 		FA80722E243031860050BC8D /* HomeContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +183,15 @@
 				6A42FF04C5E71F3D1C1BE289 /* Pods-Pengsoo-TubeTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FA189DC2243AEB5900BE6234 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				FA3E68E0243AE7A800A3EFD6 /* SplashViewController.swift */,
+				FA3E68E2243AE81100A3EFD6 /* Splash.storyboard */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		FA1A63FF2434A20D00A3212E /* YoutubePlayerView */ = {
@@ -389,6 +402,7 @@
 				FAC2E408243357FC008A8B9A /* Library Detail */,
 				FAC58675243178DC0091F0E8 /* Library */,
 				FABC8E842431589D00038987 /* Home */,
+				FA189DC2243AEB5900BE6234 /* Splash */,
 				FAF5911F242CC13200EED00B /* ParentViewController.swift */,
 				FADEDB1924285E770071C1BB /* Main.storyboard */,
 			);
@@ -540,6 +554,7 @@
 				FADEDB2324285E7A0071C1BB /* LaunchScreen.storyboard in Resources */,
 				FADEDB2024285E7A0071C1BB /* Assets.xcassets in Resources */,
 				FADEDB1B24285E770071C1BB /* Main.storyboard in Resources */,
+				FA3E68E3243AE81100A3EFD6 /* Splash.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +657,7 @@
 				FA3E68DF243AD30B00A3EFD6 /* PlayerViewController+UITableViewDataSource.swift in Sources */,
 				FAE11CF2243292C90077B5B2 /* LibraryViewController.swift in Sources */,
 				FA80722D24302A860050BC8D /* HomeTabBarCell.swift in Sources */,
+				FA3E68E1243AE7A800A3EFD6 /* SplashViewController.swift in Sources */,
 				FA22A7332435DD410051FAF7 /* Recent+CoreDataClass.swift in Sources */,
 				FA22A7372435DD870051FAF7 /* Video+CoreDataProperties.swift in Sources */,
 				FA1EFBCD24384D590022D6C6 /* YoutubeContentDetails.swift in Sources */,

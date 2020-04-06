@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4NM-AR-wrL">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Splash View Controll-->
+        <scene sceneID="lWF-AF-7zS">
+            <objects>
+                <viewController id="4NM-AR-wrL" customClass="SplashViewControll" customModule="Peng_Ha_Tube" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wmX-ZV-4hv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="YM2-Iy-cx8">
+                                <rect key="frame" x="107" y="303" width="200" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="0qV-lv-XNC"/>
+                                    <constraint firstAttribute="height" constant="200" id="tzO-jG-deQ"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="intro" translatesAutoresizingMaskIntoConstraints="NO" id="uG6-VM-gwg">
+                                <rect key="frame" x="0.0" y="503" width="414" height="67"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="tKw-RY-vp7"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="uG6-VM-gwg" firstAttribute="trailing" secondItem="Jea-Tm-bAH" secondAttribute="trailing" id="56Y-8g-lHx"/>
+                            <constraint firstItem="uG6-VM-gwg" firstAttribute="leading" secondItem="Jea-Tm-bAH" secondAttribute="leading" id="ZKD-qk-I6Q"/>
+                            <constraint firstItem="uG6-VM-gwg" firstAttribute="top" secondItem="YM2-Iy-cx8" secondAttribute="bottom" id="deu-fw-AUu"/>
+                            <constraint firstItem="YM2-Iy-cx8" firstAttribute="centerY" secondItem="Jea-Tm-bAH" secondAttribute="centerY" constant="-50" id="gbL-bl-4mx"/>
+                            <constraint firstItem="YM2-Iy-cx8" firstAttribute="centerX" secondItem="wmX-ZV-4hv" secondAttribute="centerX" id="z2v-tc-2Je"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Jea-Tm-bAH"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gOe-Hq-G1Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="intro" width="375" height="66.666664123535156"/>
+        <image name="logo" width="150" height="150"/>
+    </resources>
+</document>
