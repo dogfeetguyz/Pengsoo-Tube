@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 protocol InnerTableViewScrollDelegate: class {
     var currentHeaderTop: CGFloat { get }
@@ -19,6 +20,7 @@ protocol InnerTableViewScrollDelegate: class {
 class HomeContentViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loadingIndicator: NVActivityIndicatorView!
     
     weak var innerTableViewScrollDelegate: InnerTableViewScrollDelegate?
     
@@ -38,6 +40,7 @@ class HomeContentViewController: UIViewController {
         if !isDispatched {
             isDispatched = true
             viewModel.delegate = self
+            loadingIndicator.startAnimating()
             viewModel.dispatchPengsooList(type: requestType!)
         }
     }
@@ -67,7 +70,7 @@ class HomeContentViewController: UIViewController {
         }
        
         alert.addAction(image: UIImage(systemName: "folder.fill.badge.plus"), title: "Add to New Playlist", color: .label, style: .default, isEnabled: true) { (_) in
-            let textFieldAlert = UIAlertController(style: .actionSheet, title: "New Playlist", message: "Please input a name for a new playlist")
+            let textFieldAlert = UIAlertController(style: .alert, title: "New Playlist", message: "Please input a name for a new playlist")
                     
             weak var weakTextField: TextField?
             let textFieldConfiguration: TextField.Config = { textField in
@@ -86,7 +89,9 @@ class HomeContentViewController: UIViewController {
             }
             
             textFieldAlert.addOneTextField(configuration: textFieldConfiguration)
-            textFieldAlert.addAction(title: "OK", style: .cancel) { (_) in
+            textFieldAlert.addAction(title: "Cancel", style: .cancel) { (_) in
+            }
+            textFieldAlert.addAction(title: "OK", style: .default) { (_) in
                 guard let textField = weakTextField else { return }
                 self.viewModel.addtoNewPlaylist(title: textField.text!, at: index, listOf: self.requestType!)
             }
@@ -183,6 +188,7 @@ extension HomeContentViewController: UITableViewDelegate {
         if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height) {
             if canRequestMore {
                 canRequestMore = false
+                self.loadingIndicator.startAnimating()
                 self.viewModel.dispatchPengsooList(type: self.requestType!, isInitial: false)
             }
         }
@@ -205,11 +211,13 @@ extension HomeContentViewController: UITableViewDelegate {
 
 extension HomeContentViewController: ViewModelDelegate {
     func success(type: RequestType, message: String) {
+        loadingIndicator.stopAnimating()
         tableView.reloadData()
         canRequestMore = true
     }
     
     func showError(type: RequestType, error: ViewModelDelegateError, message: String) {
+        loadingIndicator.stopAnimating()
         if AppConstants.home_tab_types.contains(type) {
             canRequestMore = true
             
@@ -227,14 +235,17 @@ extension HomeContentViewController: ViewModelDelegate {
                         isDispatched = false
                         Util.noNetworkPopup(isCancelable: true) { (_) in
                             self.isDispatched = true
+                            self.loadingIndicator.startAnimating()
                             self.viewModel.dispatchPengsooList(type: self.requestType!)
                         }
                     } else {
                         Util.noNetworkToast()
                     }
                 } else {
+                    isDispatched = false
                     Util.noNetworkPopup(isCancelable: true) { (_) in
                         self.isDispatched = true
+                        self.loadingIndicator.startAnimating()
                         self.viewModel.dispatchPengsooList(type: self.requestType!)
                     }
                 }

@@ -12,10 +12,14 @@ class LibraryViewController: UIViewController {
     let viewModel = LibraryViewModel()
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var newButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
+        
+        let color = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 0.1)
+        newButton.setBackgroundImage(Util.generateImageWithColor(color), for: .highlighted)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +39,35 @@ class LibraryViewController: UIViewController {
         }
         
         navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    @IBAction func newButtonAction(_ sender: Any) {
+        let textFieldAlert = UIAlertController(style: .alert, title: "New Playlist", message: "Please input a name for a new playlist")
+                
+        weak var weakTextField: TextField?
+        let textFieldConfiguration: TextField.Config = { textField in
+            textField.left(image: UIImage(systemName: "pencil.and.ellipsis.rectangle"), color: .label)
+            textField.leftViewPadding = 12
+            textField.becomeFirstResponder()
+            textField.borderWidth = 1
+            textField.cornerRadius = 8
+            textField.borderColor = UIColor.lightGray.withAlphaComponent(0.5)
+            textField.backgroundColor = nil
+            textField.textColor = .label
+            textField.keyboardAppearance = .default
+            textField.keyboardType = .default
+            textField.returnKeyType = .done
+            weakTextField = textField
+        }
+        
+        textFieldAlert.addOneTextField(configuration: textFieldConfiguration)
+        textFieldAlert.addAction(title: "Cancel", style: .cancel) { (_) in
+        }
+        textFieldAlert.addAction(title: "OK", style: .default) { (_) in
+            guard let textField = weakTextField else { return }
+            self.viewModel.createPlaylist(title: textField.text!)
+        }
+        textFieldAlert.show()
     }
     
     func scrollToTop() {
@@ -59,7 +92,18 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.titleLabel.text = item.title
                 cell.videoItems = item.videos
             }
-            cell.collectionView.reloadData()
+            
+            if cell.videoItems != nil && cell.videoItems!.count > 0 {
+                cell.collectionView.isHidden = false
+                cell.seeAllButton.isHidden = false
+                cell.noItemsView.isHidden = true
+                
+                cell.collectionView.reloadData()
+            } else {
+                cell.collectionView.isHidden = true
+                cell.seeAllButton.isHidden = true
+                cell.noItemsView.isHidden = false
+            }
             
             return cell
         } else {
@@ -74,6 +118,8 @@ extension LibraryViewController: ViewModelDelegate {
             tableView.reloadData()
         } else if type == .recent {
             tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
+        } else if type == .playlistCreate {
+            tableView.reloadData()
         }
     }
     

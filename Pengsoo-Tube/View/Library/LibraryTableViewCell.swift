@@ -14,6 +14,7 @@ class LibraryTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var seeAllButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var noItemsView: UIView!
     
     var videoItems: [VideoItemModel]?
     

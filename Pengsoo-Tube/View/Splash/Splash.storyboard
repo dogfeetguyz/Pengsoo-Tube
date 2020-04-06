@@ -30,13 +30,29 @@
                                     <constraint firstAttribute="height" constant="67" id="tKw-RY-vp7"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4eU-9d-ram" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="93" y="628" width="240" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Q2o-Vp-BQo"/>
+                                    <constraint firstAttribute="height" constant="40" id="uLB-2L-XyW"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="ballPulse"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="4eU-9d-ram" firstAttribute="centerX" secondItem="Jea-Tm-bAH" secondAttribute="centerX" id="3mp-D9-DRA"/>
                             <constraint firstItem="uG6-VM-gwg" firstAttribute="trailing" secondItem="Jea-Tm-bAH" secondAttribute="trailing" id="56Y-8g-lHx"/>
                             <constraint firstItem="uG6-VM-gwg" firstAttribute="leading" secondItem="Jea-Tm-bAH" secondAttribute="leading" id="ZKD-qk-I6Q"/>
                             <constraint firstItem="uG6-VM-gwg" firstAttribute="top" secondItem="YM2-Iy-cx8" secondAttribute="bottom" id="deu-fw-AUu"/>
                             <constraint firstItem="YM2-Iy-cx8" firstAttribute="centerY" secondItem="Jea-Tm-bAH" secondAttribute="centerY" constant="-50" id="gbL-bl-4mx"/>
+                            <constraint firstItem="4eU-9d-ram" firstAttribute="top" secondItem="uG6-VM-gwg" secondAttribute="bottom" constant="100" id="yPX-GO-DQM"/>
                             <constraint firstItem="YM2-Iy-cx8" firstAttribute="centerX" secondItem="wmX-ZV-4hv" secondAttribute="centerX" id="z2v-tc-2Je"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jea-Tm-bAH"/>
@@ -44,6 +60,9 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="indicator" destination="4eU-9d-ram" id="E27-xi-ecr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gOe-Hq-G1Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

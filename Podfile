@@ -8,6 +8,7 @@ target 'Pengsoo-Tube' do
   pod 'ObjectMapper', '~> 3.5.2'
   pod 'SwiftEntryKit', '1.2.3'
   pod 'Movin'
+  pod 'NVActivityIndicatorView'
 end
 
 target 'Pengsoo-TubeTests' do

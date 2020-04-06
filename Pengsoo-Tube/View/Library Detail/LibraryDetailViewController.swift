@@ -14,7 +14,9 @@ class LibraryDetailViewController: UIViewController {
     
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var manageButton: UIButton!
+    @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var tableView: UITableView?
+    @IBOutlet weak var noItemsView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +50,15 @@ class LibraryDetailViewController: UIViewController {
             
             self.navigationItem.setRightBarButtonItems([deleteBarButton, editBarButton], animated: false)
         }
+    }
+    
+    func showNoItemsView() {
+        playButton!.isHidden = true
+        manageButton!.isHidden = true
+        clearButton!.isHidden = true
+        tableView!.isHidden = true
+        
+        noItemsView!.isHidden = false
     }
     
     @objc func editButtonAction() {
@@ -199,7 +210,11 @@ extension LibraryDetailViewController: ViewModelDelegate {
         } else if type == .playlistUpdate {
             self.title = viewModel?.title
         } else if type == .playlistDetailDelete {
-            tableView?.reloadData()
+            if viewModel?.playItems.count == 0 {
+                showNoItemsView()
+            } else {
+                tableView?.reloadData()
+            }
         } else if type == .playlistDetail {
             tableView?.reloadData()
         }
@@ -208,6 +223,7 @@ extension LibraryDetailViewController: ViewModelDelegate {
     func showError(type: RequestType, error: ViewModelDelegateError, message: String) {
         switch error {
         case .noItems:
+            showNoItemsView()
             break
         case .fail:
             Util.createToast(message: message)
