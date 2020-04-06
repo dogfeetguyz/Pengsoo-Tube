@@ -33,6 +33,8 @@
 		FA2E52BB2434006400966AB5 /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E52BA2434006400966AB5 /* UIAlertController+Extensions.swift */; };
 		FA2E52C5243400DF00966AB5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E52C0243400DF00966AB5 /* TextField.swift */; };
 		FA2E52C92434502500966AB5 /* LibraryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E52C82434502500966AB5 /* LibraryDetailViewController.swift */; };
+		FA3E68DD243AD28000A3EFD6 /* PlayerViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E68DC243AD28000A3EFD6 /* PlayerViewController+UICollectionViewDataSource.swift */; };
+		FA3E68DF243AD30B00A3EFD6 /* PlayerViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E68DE243AD30B00A3EFD6 /* PlayerViewController+UITableViewDataSource.swift */; };
 		FA60397F24346ED700CE4659 /* LibraryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60397E24346ED700CE4659 /* LibraryDetailTableViewCell.swift */; };
 		FA80722D24302A860050BC8D /* HomeTabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80722C24302A860050BC8D /* HomeTabBarCell.swift */; };
 		FA80722F243031860050BC8D /* HomeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80722E243031860050BC8D /* HomeContentViewController.swift */; };
@@ -108,6 +110,8 @@
 		FA2E52BA2434006400966AB5 /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
 		FA2E52C0243400DF00966AB5 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		FA2E52C82434502500966AB5 /* LibraryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetailViewController.swift; sourceTree = "<group>"; };
+		FA3E68DC243AD28000A3EFD6 /* PlayerViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
+		FA3E68DE243AD30B00A3EFD6 /* PlayerViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		FA60397E24346ED700CE4659 /* LibraryDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetailTableViewCell.swift; sourceTree = "<group>"; };
 		FA80722C24302A860050BC8D /* HomeTabBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarCell.swift; sourceTree = "<group>"; };
 		FA80722E243031860050BC8D /* HomeContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentViewController.swift; sourceTree = "<group>"; };
@@ -426,6 +430,8 @@
 			isa = PBXGroup;
 			children = (
 				FAF59121242CC9B100EED00B /* PlayerViewController.swift */,
+				FA3E68DE243AD30B00A3EFD6 /* PlayerViewController+UITableViewDataSource.swift */,
+				FA3E68DC243AD28000A3EFD6 /* PlayerViewController+UICollectionViewDataSource.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -633,6 +639,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA3E68DF243AD30B00A3EFD6 /* PlayerViewController+UITableViewDataSource.swift in Sources */,
 				FAE11CF2243292C90077B5B2 /* LibraryViewController.swift in Sources */,
 				FA80722D24302A860050BC8D /* HomeTabBarCell.swift in Sources */,
 				FA22A7332435DD410051FAF7 /* Recent+CoreDataClass.swift in Sources */,
@@ -681,6 +688,7 @@
 				FA22A7342435DD410051FAF7 /* Recent+CoreDataProperties.swift in Sources */,
 				FA22A7322435DD410051FAF7 /* PlaylistVideo+CoreDataClass.swift in Sources */,
 				FA22A7312435DD410051FAF7 /* PlaylistVideo+CoreDataProperties.swift in Sources */,
+				FA3E68DD243AD28000A3EFD6 /* PlayerViewController+UICollectionViewDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

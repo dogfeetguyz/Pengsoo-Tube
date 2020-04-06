@@ -14,6 +14,11 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var playerView: UIView!
     @IBOutlet weak var controllerButton: UIButton!
     @IBOutlet weak var replayButton: UIButton!
+    
+    
+    @IBOutlet weak var playerLandscapeTitleView: UIView!
+    @IBOutlet weak var playerLandscapeTitleLabel: UILabel!
+    @IBOutlet weak var playerLandscapeCollectionView: UICollectionView!
     @IBOutlet weak var playerControllerView: UIView!
     
     @IBOutlet weak var contentStack: UIStackView!
@@ -53,7 +58,8 @@ class PlayerViewController: UIViewController {
     
     weak var youtubeView: YoutubePlayerView!
     var viewModel: PlayerViewModel?
-    
+
+    // MARK: - VIEW LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,7 +74,8 @@ class PlayerViewController: UIViewController {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
     }
-    
+
+    // MARK:- PLAYER UI
     func setupConstraints(statusBarHeight: CGFloat, parentSize: CGSize) {
         view.layoutIfNeeded()
         
@@ -114,6 +121,7 @@ class PlayerViewController: UIViewController {
         }
         if let playingItem = viewModel?.getPlayingItem() {
             titleLabel.text = playingItem.videoTitle
+            playerLandscapeTitleLabel.text = playingItem.videoTitle
             detailLabel.text = "\n" + playingItem.videoDescription + "\n"
             detailLabel.contentInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
         }
@@ -149,15 +157,28 @@ class PlayerViewController: UIViewController {
             repeatButton.isEnabled = false
         }
         
-        tableView.reloadData()
+        if viewModel!.isFullscreen {
+            playerLandscapeCollectionView.reloadData()
+        } else {
+            tableView.reloadData()
+        }
     }
     
     func updatePlayButton() {
         
         if viewModel!.isPaused || viewModel!.isEnded {
             playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            
+            if viewModel!.isFullscreen {
+                destroyPendingRequestWorkItem()
+                setControllerViewsHidden(hidden: false)
+            }
         } else {
             playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+
+            if viewModel!.isFullscreen {
+                callPendingRequestWorkItem()
+            }
         }
     }
     
@@ -225,9 +246,7 @@ class PlayerViewController: UIViewController {
         
         if isLandscape {
             viewModel!.isFullscreen = false
-            if pendingRequestWorkItem != nil {
-                pendingRequestWorkItem?.cancel()
-            }
+            destroyPendingRequestWorkItem()
             
             Util.AppUtility.lockOrientation(.portrait)
             
@@ -241,7 +260,7 @@ class PlayerViewController: UIViewController {
             view.backgroundColor = .systemBackground
             
             contentStack.isHidden = false
-            playerControllerView.isHidden = false
+            setControllerViewsHidden(hidden: true)
             
             let playerHeight = view.width * (13/16.0)
             let blackScreenHeight = view.width * (4/16.0)
@@ -257,6 +276,8 @@ class PlayerViewController: UIViewController {
             playerView.layoutIfNeeded()
             
             youtubeView.frame = playerView.bounds
+            scrollToNowPlaying(animated: false)
+            tableView.reloadData()
             
             fullscreenButton.setImage(UIImage(systemName: "arrow.up.left.and.arrow.down.right"), for: .normal)
             
@@ -274,12 +295,7 @@ class PlayerViewController: UIViewController {
             UINavigationController.attemptRotationToDeviceOrientation()
             
             contentStack.isHidden = true
-            
-            pendingRequestWorkItem = DispatchWorkItem {
-                self.playerControllerView.isHidden = true
-                self.pendingRequestWorkItem = nil
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: pendingRequestWorkItem!)
+            callPendingRequestWorkItem()
             
             playerTopConstraint.constant = 0
             playerBottomConstraint.constant = 0
@@ -289,6 +305,8 @@ class PlayerViewController: UIViewController {
             playerView.layoutIfNeeded()
             
             youtubeView.frame = playerView.bounds
+            playerLandscapeCollectionView.reloadData()
+            scrollToNowPlaying(animated: false)
             
             fullscreenButton.setImage(UIImage(systemName: "arrow.down.right.and.arrow.up.left"), for: .normal)
             
@@ -299,24 +317,52 @@ class PlayerViewController: UIViewController {
     func scrollToNowPlaying(animated: Bool) {
         let index = viewModel!.getPlayingIndex()
         if (index >= 0 && index <= viewModel!.getQueueItems().count-1) {
-            tableView.scrollToRow(at: IndexPath(row: index, section: 0), at: .top, animated: animated)
+            DispatchQueue.main.async {
+                if self.viewModel!.isFullscreen {
+                    self.playerLandscapeCollectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .left, animated: animated)
+                } else {
+                    self.tableView.scrollToRow(at: IndexPath(row: index, section: 0), at: .top, animated: animated)
+                }
+            }
+        }
+    }
+    
+    // MARK:- PLAYER CONTROLLER VISIBILLITY
+    func setControllerViewsHidden(hidden: Bool) {
+        playerControllerView.isHidden = viewModel!.isFullscreen ? hidden : false
+        playerLandscapeTitleView.isHidden = hidden
+        playerLandscapeCollectionView.isHidden = (viewModel!.isPaused || viewModel!.isEnded) ? hidden : true
+    }
+    
+    func callPendingRequestWorkItem() {
+        setControllerViewsHidden(hidden: false)
+        destroyPendingRequestWorkItem()
+        
+        pendingRequestWorkItem = DispatchWorkItem {
+            if !self.viewModel!.isPaused {
+                self.setControllerViewsHidden(hidden: true)
+                self.pendingRequestWorkItem = nil
+            }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: pendingRequestWorkItem!)
+    }
+    
+    func destroyPendingRequestWorkItem() {
+        if pendingRequestWorkItem != nil {
+            pendingRequestWorkItem?.cancel()
+            pendingRequestWorkItem = nil
         }
     }
         
-// MARK: - USER ACTION
+    // MARK: - USER ACTION
     @IBAction func controllerButton(_ sender: Any) {
-        if viewModel!.isFullscreen {
-            playerControllerView.isHidden = false
+        if viewModel!.isFullscreen && !viewModel!.isPaused {
             if pendingRequestWorkItem != nil {
-                pendingRequestWorkItem?.cancel()
+                destroyPendingRequestWorkItem()
+                setControllerViewsHidden(hidden: true)
+            } else {
+                callPendingRequestWorkItem()
             }
-            
-            pendingRequestWorkItem = DispatchWorkItem {
-                self.playerControllerView.isHidden = true
-                self.pendingRequestWorkItem = nil
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: pendingRequestWorkItem!)
         }
     }
     
@@ -441,43 +487,6 @@ class PlayerViewController: UIViewController {
     @objc func foregroundAction() {
         if viewModel!.isFullscreen {
             updateOrientation(isLandscape: viewModel!.isFullscreen)
-        }
-    }
-}
-
-extension PlayerViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (viewModel?.getQueueItems().count)!
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: LibraryDetailTableViewCellID, for: indexPath) as? LibraryDetailTableViewCell {
-            if let playItems = viewModel?.getQueueItems() {
-                let currentItem = playItems[indexPath.row]
-                
-                Util.loadCachedImage(url: currentItem.thumbnailMedium) { (image) in
-                    cell.thumbnail.image = image
-                }
-                cell.titleLabel.text = currentItem.videoTitle
-                cell.descriptionLabel.text = currentItem.videoDescription
-                
-                if indexPath.row == viewModel?.getPlayingIndex() {
-                    cell.backgroundColor = .systemYellow
-                } else {
-                    cell.backgroundColor = .systemBackground
-                    cell.alpha = 1.0
-                }
-            }
-            
-            return cell
-        }
-        
-        return UITableViewCell()
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if viewModel?.getPlayingIndex() != indexPath.row {
-            Util.playQueue(at: indexPath.row)
         }
     }
 }
