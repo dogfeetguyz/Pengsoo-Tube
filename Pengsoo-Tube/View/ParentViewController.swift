@@ -95,24 +95,23 @@ class ParentViewController: UIViewController {
             self.tabBarViewController!.view.mvn.alpha.from(1).to(0.6),
             player.view.mvn.point.from(miniPlayerOrigin).to(endModalOrigin),
             player.view.mvn.cornerRadius.from(0.0).to(10.0),
-//            self.miniPlayerPlayerView.mvn.size.from(self.miniPlayerLayerView.frame.size).to(modal.playerView.frame.size),
             self.tabBarViewController!.tabBar.mvn.alpha.from(1.0).to(0.0),
             ])
         
         self.playerViewController = player
         player.modalPresentationStyle = .overCurrentContext
-        setupTransition(isSettingDismissGesture: true)
+        setupTransition(isSettingGesture: true)
     }
     
     @objc func notifyTransition() {
-        setupTransition(isSettingDismissGesture: !playerViewModel.isFullscreen)
+        setupTransition(isSettingGesture: !playerViewModel.isFullscreen)
     }
     
-    func setupTransition(isSettingDismissGesture: Bool) {
+    func setupTransition(isSettingGesture: Bool) {
         if let player = self.playerViewController {
             var dismissGesture: GestureAnimating? = nil
             
-            if isSettingDismissGesture {
+            if isSettingGesture {
                 dismissGesture = GestureAnimating(player.view, .bottom, player.view.frame.size)
                 dismissGesture!.panCompletionThresholdRatio = 0.1
             }
@@ -147,26 +146,13 @@ class ParentViewController: UIViewController {
                 if type.isDismissing {
                     if didComplete {
                         //complete dismiss
-                        self.setPlayerView()
-                        player.view.removeFromSuperview()
-                        self.tabBarViewController?.tabBar.removeFromSuperview()
-                        self.tabBarViewController?.view.addSubview(self.tabBarViewController!.tabBar)
-                        self.tabBarViewController?.tabBar.alpha = 1.0
-                        self.tabBarViewController!.view.alpha = 1.0
-                        
-                        self.miniPlayerView.isHidden = false
-                        self.isPresented = false
-                        self.movin = nil
-                        self.playerViewController = nil
-                        
-                        self.setupAnimation()
+                        self.setMiniPlayerView()
                     } else {
                         //cancel dismiss
                     }
                 } else {
                     if didComplete {
                         //complete present
-                        self.playerViewController!.youtubeView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.width)
                     } else {
                         //cancel present
                     }
@@ -177,10 +163,23 @@ class ParentViewController: UIViewController {
     }
     
 // MARK:- PLAYER FUNCTION
-    func setPlayerView() {
+    func setMiniPlayerView() {
         self.miniPlayerPlayerView.frame = self.miniPlayerLayerView.bounds
-        miniPlayerPlayerView.setSize(Int(self.miniPlayerLayerView.width), height: Int(self.miniPlayerLayerView.height))
         self.miniPlayerLayerView.addSubview(self.miniPlayerPlayerView)
+        if let player = playerViewController {
+            player.view.removeFromSuperview()
+        }
+        self.tabBarViewController?.tabBar.removeFromSuperview()
+        self.tabBarViewController?.view.addSubview(self.tabBarViewController!.tabBar)
+        self.tabBarViewController?.tabBar.alpha = 1.0
+        self.tabBarViewController!.view.alpha = 1.0
+        
+        self.miniPlayerView.isHidden = false
+        self.isPresented = false
+        self.movin = nil
+        self.playerViewController = nil
+        
+        self.setupAnimation()
     }
     
     func openPlayer() {
@@ -191,13 +190,10 @@ class ParentViewController: UIViewController {
 
             if let player = self.playerViewController {
                 player.updatePlayerUI()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
-                    self.present(player, animated: true, completion: nil)
-
-                    DispatchQueue.main.async() {
-                        player.scrollToNowPlaying(animated: false)
-                    }
-                })
+                self.present(player, animated: true, completion: nil)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    player.scrollToNowPlaying(animated: false)
+                }
             }
         }
     }
@@ -226,6 +222,7 @@ class ParentViewController: UIViewController {
                 ]
                 self.miniPlayerPlayerView.delegate = self
                 self.miniPlayerPlayerView.loadWithVideoId(currentItem.videoId, with: playerVars)
+                self.miniPlayerPlayerView.play()
             }
         } else {
             //error message please

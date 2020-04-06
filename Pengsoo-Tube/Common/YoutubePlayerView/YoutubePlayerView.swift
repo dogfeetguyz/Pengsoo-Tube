@@ -79,6 +79,15 @@ public extension YoutubePlayerViewDelegate {
 }
 
 open class YoutubePlayerView: WKWebView {
+    
+    open override var frame: CGRect {
+        didSet {
+            if frame != .zero {
+                setSize(Int(frame.size.width), height: Int(frame.size.height))
+            }
+        }
+    }
+    
     public weak var delegate: YoutubePlayerViewDelegate?
     
     public required init?(coder: NSCoder) {
@@ -459,7 +468,7 @@ extension YoutubePlayerView {
         }
     }
     
-    public func setSize(_ width: Int, height: Int) {
+    private func setSize(_ width: Int, height: Int) {
         evaluateJavaScript("player.setSize(\(width), \(height));", completionHandler: nil)
     }
 }

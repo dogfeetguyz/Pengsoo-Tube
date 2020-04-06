@@ -83,8 +83,6 @@ class PlayerViewController: UIViewController {
         
         contentViewTopConstraint.constant = playerHeight - blackScreenHeight/2
         contentViewBttomConstraint.constant = statusBarHeight
-        
-        playerView.layoutIfNeeded()
     }
     
     func setEndingUI(isHidden: Bool, image: UIImage? = nil) {
@@ -103,7 +101,6 @@ class PlayerViewController: UIViewController {
         
         self.youtubeView = view
         self.youtubeView.frame = self.playerView.bounds
-        self.youtubeView.setSize(Int(self.playerView.width), height: Int(self.playerView.height))
         self.playerView.insertSubview(self.youtubeView, at: 0)
         
         updateDuration()
@@ -232,12 +229,16 @@ class PlayerViewController: UIViewController {
                 pendingRequestWorkItem?.cancel()
             }
             
+            Util.AppUtility.lockOrientation(.portrait)
+            
             let value = UIInterfaceOrientation.portrait.rawValue
             UIDevice.current.setValue(value, forKey: "orientation")
+            UINavigationController.attemptRotationToDeviceOrientation()
             
             let statusBarHeight = view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
             view.frame = CGRect(x: 0, y: statusBarHeight, width: view.frame.width, height: view.frame.height)
             view.cornerRadius = 10
+            view.backgroundColor = .systemBackground
             
             contentStack.isHidden = false
             playerControllerView.isHidden = false
@@ -256,7 +257,6 @@ class PlayerViewController: UIViewController {
             playerView.layoutIfNeeded()
             
             youtubeView.frame = playerView.bounds
-            youtubeView.setSize(Int(playerView.bounds.width), height: Int(playerView.bounds.height))
             
             fullscreenButton.setImage(UIImage(systemName: "arrow.up.left.and.arrow.down.right"), for: .normal)
             
@@ -265,9 +265,13 @@ class PlayerViewController: UIViewController {
             viewModel!.isFullscreen = true
             view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
             view.cornerRadius = 0
+            view.backgroundColor = .black
+            
+            Util.AppUtility.lockOrientation(.landscapeRight)
             
             let value = UIInterfaceOrientation.landscapeRight.rawValue
             UIDevice.current.setValue(value, forKey: "orientation")
+            UINavigationController.attemptRotationToDeviceOrientation()
             
             contentStack.isHidden = true
             
@@ -285,7 +289,6 @@ class PlayerViewController: UIViewController {
             playerView.layoutIfNeeded()
             
             youtubeView.frame = playerView.bounds
-            youtubeView.setSize(Int(playerView.bounds.width), height: Int(playerView.bounds.height))
             
             fullscreenButton.setImage(UIImage(systemName: "arrow.down.right.and.arrow.up.left"), for: .normal)
             
