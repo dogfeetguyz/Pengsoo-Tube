@@ -75,7 +75,7 @@ class HomeViewController: UIViewController {
     }
     
     func setupHeader() {
-        if let headerUrl = UserDefaults.standard.string(forKey: AppConstants.key_user_default_home_header_url) {
+        if let headerUrl = HomeViewModel().getHeaderUrl() {
             if headerUrl.count > 0 {
                 Util.loadCachedImage(url: headerUrl) { (image) in
                     self.headerImageView!.image = image

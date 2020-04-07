@@ -11,7 +11,7 @@ import AlamofireObjectMapper
 import CoreData
 import UIKit
 
-class HomeViewModel {
+class HomeViewModel: BaseViewModel {
     
     var tvNextPageToken: String = ""
     var tvListItems: [VideoItemModel] = []
@@ -21,10 +21,6 @@ class HomeViewModel {
     
     var outsideNextPageToken: String = ""
     var outsideListItems: [VideoItemModel] = []
-    
-    var headerUrl: String = ""
-    
-    weak var delegate: ViewModelDelegate?
     
     func dispatchPengsooList(type: RequestType) {
         dispatchPengsooList(type:type, isInitial: true)
@@ -123,42 +119,8 @@ class HomeViewModel {
         }
     }
     
-    func getHeaderInfo() {
-        if checkNetwork() {
-            var parameters: Parameters = Parameters()
-            parameters[AppConstants.keyBrandingId] = AppConstants.valueBrandingId
-            parameters[AppConstants.keyApiKey] = AppConstants.valueApiKey
-            
-            AF.request(AppConstants.baseUrl + AppConstants.partBranding, method: .get, parameters: parameters)
-                .validate()
-                .responseObject(completionHandler: { (response: AFDataResponse<YoutubeListModel>) in
-                    switch response.result {
-                    case .success(let youtubeListItem):
-                        if youtubeListItem.items.count == 0 {
-                            self.delegate?.showError(type:.header, error: .noItems)
-                        } else {
-                            if youtubeListItem.items[0].brandingSettings.image.bannerMobileHdImageUrl.count > 0 {
-                                self.headerUrl = youtubeListItem.items[0].brandingSettings.image.bannerMobileHdImageUrl
-                            } else if youtubeListItem.items[0].brandingSettings.image.bannerMobileMediumHdImageUrl.count > 0 {
-                                self.headerUrl = youtubeListItem.items[0].brandingSettings.image.bannerMobileMediumHdImageUrl
-                            } else if youtubeListItem.items[0].brandingSettings.image.bannerMobileLowImageUrl.count > 0 {
-                                self.headerUrl = youtubeListItem.items[0].brandingSettings.image.bannerMobileLowImageUrl
-                            } else if youtubeListItem.items[0].brandingSettings.image.bannerMobileImageUrl.count > 0 {
-                                self.headerUrl = youtubeListItem.items[0].brandingSettings.image.bannerMobileImageUrl
-                            } else {
-                                self.delegate?.showError(type:.header, error: .noItems)
-                                return
-                            }
-                            self.delegate?.success(type: .header)
-                        }
-                    case .failure(let error):
-                        print(error)
-                        self.delegate?.showError(type:.header, error: .networkError)
-                    }
-                })
-        } else {
-            self.delegate?.showError(type:.header, error: .networkError)
-        }
+    func getHeaderUrl() -> String? {
+        return UserDefaults.standard.string(forKey: AppConstants.key_user_default_home_header_url)
     }
     
     func getItemsList(for requestType: RequestType) -> [VideoItemModel]? {
@@ -274,9 +236,5 @@ class HomeViewModel {
         } else {
             delegate?.showError(type: .playlistUpdate, error: .fail, message: "Something went wrong. Please try again.")
         }
-    }
-    
-    func checkNetwork() -> Bool {
-        return NetworkReachabilityManager()!.isReachable
     }
 }

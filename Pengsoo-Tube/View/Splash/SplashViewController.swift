@@ -11,7 +11,7 @@ import NVActivityIndicatorView
 
 class SplashViewControll: UIViewController, ViewModelDelegate {
 
-    let viewModel = HomeViewModel()
+    let viewModel = SplashViewModel()
     @IBOutlet weak var indicator: NVActivityIndicatorView?
     
     override func viewDidLoad() {
@@ -19,16 +19,10 @@ class SplashViewControll: UIViewController, ViewModelDelegate {
         
         indicator?.startAnimating()
         viewModel.delegate = self
-        viewModel.getHeaderInfo()
+        viewModel.dispatchHeaderInfo()
     }
     
     func success(type: RequestType, message: String) {
-        if viewModel.headerUrl.count > 0 {
-            if viewModel.headerUrl != UserDefaults.standard.string(forKey: AppConstants.key_user_default_home_header_url) {
-                UserDefaults.standard.set(viewModel.headerUrl, forKey: AppConstants.key_user_default_home_header_url)
-            }
-        }
-        
         indicator?.stopAnimating()
         let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
         
@@ -38,7 +32,7 @@ class SplashViewControll: UIViewController, ViewModelDelegate {
     
     func showError(type: RequestType, error: ViewModelDelegateError, message: String) {
         Util.noNetworkPopup(isCancelable: false) { (_) in            
-            self.viewModel.getHeaderInfo()
+            self.viewModel.dispatchHeaderInfo()
         }
     }
 }

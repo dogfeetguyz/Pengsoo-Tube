@@ -9,9 +9,8 @@
 import CoreData
 import UIKit
 
-class PlayerViewModel {
+class PlayerViewModel: BaseViewModel {
     
-    weak var delegate: ViewModelDelegate?
     private var queueItems: [VideoItemModel] = []
     
     var playingIndex: Int = -1

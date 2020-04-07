@@ -9,11 +9,10 @@
 import CoreData
 import UIKit
 
-class LibraryDetailViewModel {
+class LibraryDetailViewModel: BaseViewModel {
         
     var playItems: [VideoItemModel]
     var title: String
-    weak var delegate: ViewModelDelegate?
     
     init(playItems: [VideoItemModel], title: String) {
         self.playItems = playItems

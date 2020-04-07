@@ -9,11 +9,10 @@
 import CoreData
 import UIKit
 
-class LibraryViewModel {
+class LibraryViewModel: BaseViewModel {
     
     var recentItems: [VideoItemModel] = []
     var playlistItems: [PlaylistModel] = []
-    weak var delegate: ViewModelDelegate?
         
     func getRecent() {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {

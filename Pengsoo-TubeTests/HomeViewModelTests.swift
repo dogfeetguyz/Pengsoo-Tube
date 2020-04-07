@@ -10,7 +10,7 @@
 import OHHTTPStubs
 import XCTest
 
-class Pengsoo_TubeTests: XCTestCase {
+class HomeViewModelTests: XCTestCase {
     
     var sut: HomeViewModel!
     var delegate: ViewModelDelegate!
@@ -128,10 +128,9 @@ class Pengsoo_TubeTests: XCTestCase {
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.networkError)
     }
     
-    func testRequestHeader() {
-        sut.getHeaderInfo()
-        waitForThreeSeconds()
-        XCTAssertGreaterThan(sut.headerUrl.count, 0)
+    func testGetHeaderUrl() {
+        let headerUrl = sut.getHeaderUrl()
+        XCTAssertGreaterThan(headerUrl!.count, 0)
     }
     
     func testGetItemsListForRequestType() {
@@ -208,7 +207,7 @@ class Pengsoo_TubeTests: XCTestCase {
     }
 }
 
-extension Pengsoo_TubeTests: ViewModelDelegate {
+extension HomeViewModelTests: ViewModelDelegate {
     func success(type: RequestType, message: String) {
         if expectation != nil {
             expectation!.fulfill()
