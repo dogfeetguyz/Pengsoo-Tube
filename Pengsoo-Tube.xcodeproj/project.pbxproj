@@ -127,7 +127,7 @@
 		FACBBC3F243C3F500023FB92 /* SplashViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewModelTests.swift; sourceTree = "<group>"; };
 		FAD709F02429B11300E48D31 /* HeaderImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderImageModel.swift; sourceTree = "<group>"; };
 		FAD709F22429B14200E48D31 /* BrandingSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandingSettingsModel.swift; sourceTree = "<group>"; };
-		FADEDB1024285E770071C1BB /* Peng-Ha Tube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Peng-Ha Tube.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FADEDB1024285E770071C1BB /* PENG-HA! Tube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PENG-HA! Tube.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADEDB1324285E770071C1BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADEDB1524285E770071C1BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FADEDB1724285E770071C1BB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -310,8 +310,6 @@
 				FADEDB4324286CE60071C1BB /* YoutubeVideoIdModel.swift */,
 				FADEDB4724286F040071C1BB /* YoutubeThumbnailsModel.swift */,
 				FADEDB4924286F100071C1BB /* YoutubeThumbnailModel.swift */,
-				FAD709F02429B11300E48D31 /* HeaderImageModel.swift */,
-				FAD709F22429B14200E48D31 /* BrandingSettingsModel.swift */,
 				FA1EFBCC24384D590022D6C6 /* YoutubeContentDetails.swift */,
 			);
 			path = Home;
@@ -350,6 +348,15 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		FACBBC41243C46AE0023FB92 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				FAD709F22429B14200E48D31 /* BrandingSettingsModel.swift */,
+				FAD709F02429B11300E48D31 /* HeaderImageModel.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		FADEDB0724285E770071C1BB = {
 			isa = PBXGroup;
 			children = (
@@ -364,7 +371,7 @@
 		FADEDB1124285E770071C1BB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FADEDB1024285E770071C1BB /* Peng-Ha Tube.app */,
+				FADEDB1024285E770071C1BB /* PENG-HA! Tube.app */,
 				FADEDB2924285E7A0071C1BB /* Pengsoo-TubeTests.xctest */,
 			);
 			name = Products;
@@ -407,6 +414,7 @@
 				FAE11CF72432C8B30077B5B2 /* Player */,
 				FAC58679243179290091F0E8 /* Library */,
 				FAC58678243179250091F0E8 /* Home */,
+				FACBBC41243C46AE0023FB92 /* Splash */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -502,7 +510,7 @@
 			);
 			name = "Pengsoo-Tube";
 			productName = "Pengsoo-Tube";
-			productReference = FADEDB1024285E770071C1BB /* Peng-Ha Tube.app */;
+			productReference = FADEDB1024285E770071C1BB /* PENG-HA! Tube.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FADEDB2824285E7A0071C1BB /* Pengsoo-TubeTests */ = {
@@ -896,7 +904,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "kr.dogfeetguyz.Pengsoo-Tube";
-				PRODUCT_NAME = "Peng-Ha Tube";
+				PRODUCT_NAME = "PENG-HA! Tube";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				TVOS_DEPLOYMENT_TARGET = 13.0;
@@ -916,7 +924,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "kr.dogfeetguyz.Pengsoo-Tube";
-				PRODUCT_NAME = "Peng-Ha Tube";
+				PRODUCT_NAME = "PENG-HA! Tube";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				TVOS_DEPLOYMENT_TARGET = 13.0;
@@ -942,7 +950,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Peng-Ha Tube.app/Peng-Ha Tube";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PENG-HA! Tube.app/PENG-HA! Tube";
 				TVOS_DEPLOYMENT_TARGET = 13.0;
 			};
 			name = Debug;
@@ -966,7 +974,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Peng-Ha Tube.app/Peng-Ha Tube";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PENG-HA! Tube.app/PENG-HA! Tube";
 				TVOS_DEPLOYMENT_TARGET = 13.0;
 			};
 			name = Release;

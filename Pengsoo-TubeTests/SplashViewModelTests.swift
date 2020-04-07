@@ -6,7 +6,7 @@
 //  Copyright © 2020 Yejun Park. All rights reserved.
 //
 
-@testable import Peng_Ha_Tube
+@testable import PENG_HA__Tube
 import OHHTTPStubs
 import XCTest
 
