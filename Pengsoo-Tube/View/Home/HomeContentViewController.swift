@@ -33,6 +33,8 @@ class HomeContentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(requestMore(_:)), name: AppConstants.notification_load_more_queue, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +44,18 @@ class HomeContentViewController: UIViewController {
             viewModel.delegate = self
             loadingIndicator.startAnimating()
             viewModel.dispatchPengsooList(type: requestType!)
+        } else {
+            tableView.reloadData()
+        }
+    }
+    
+    @objc func requestMore(_ notification: Notification) {
+        if canRequestMore {
+            if notification.userInfo![AppConstants.notification_userInfo_request_type] as! RequestType == requestType! {
+                viewModel.dispatchPengsooList(type: requestType!, isInitial: false)
+            }
+        } else {
+            Util.updateQueue(canRequestMore: canRequestMore)
         }
     }
     
@@ -149,7 +163,7 @@ extension HomeContentViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let items = viewModel.getItemsList(for: requestType!) {
-            Util.openPlayer(videoItems: items, playingIndex: indexPath.row)
+            Util.openPlayer(videoItems: items, playingIndex: indexPath.row, requestType: requestType!)
         }
     }
 }
@@ -214,6 +228,7 @@ extension HomeContentViewController: ViewModelDelegate {
         loadingIndicator.stopAnimating()
         tableView.reloadData()
         canRequestMore = true
+        Util.updateQueue(canRequestMore: canRequestMore, videoItems: viewModel.getItemsList(for: requestType!))
     }
     
     func showError(type: RequestType, error: ViewModelDelegateError, message: String) {
@@ -253,6 +268,7 @@ extension HomeContentViewController: ViewModelDelegate {
             default:
                 break
             }
+            Util.updateQueue(canRequestMore: canRequestMore)
         }
     }
 }

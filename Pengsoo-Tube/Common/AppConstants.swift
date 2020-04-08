@@ -29,9 +29,13 @@ struct AppConstants {
     
     static let notification_show_miniplayer: NSNotification.Name = NSNotification.Name(rawValue: "notification_show_miniplayer")
     static let notification_play_quque: NSNotification.Name = NSNotification.Name(rawValue: "notification_play_quque")
+    static let notification_load_more_queue: NSNotification.Name = NSNotification.Name(rawValue: "notification_load_more_queue")
+    static let notification_add_to_queue: NSNotification.Name = NSNotification.Name(rawValue: "notification_add_to_queue")
     static let notification_update_player_dismiss_gesture: NSNotification.Name = NSNotification.Name(rawValue: "notification_update_player_dismiss_gesture")
     static let notification_userInfo_video_items: String = "notification_userInfo_video_items"
     static let notification_userInfo_playing_index: String = "notification_userInfo_playing_index"
+    static let notification_userInfo_request_type: String = "notification_userInfo_request_type"
+    static let notification_userInfo_can_request_more: String = "notification_userInfo_can_request_more"
     
     static let home_tab_titles = ["Youtube Only", "Giant Peng TV", "Collaboration"]
     static let home_tab_types = [RequestType.pengsooYoutube, RequestType.pengsooTv, RequestType.pengsooOutside]

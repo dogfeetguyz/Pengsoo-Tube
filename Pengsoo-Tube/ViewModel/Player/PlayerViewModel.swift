@@ -14,16 +14,20 @@ class PlayerViewModel: BaseViewModel {
     private var queueItems: [VideoItemModel] = []
     
     var playingIndex: Int = -1
+    var canRequestMore: Bool = false
+    var requestType: RequestType?
     var duration: Float = 0
     
     var isPaused: Bool = false
     var isEnded: Bool = false
     var isFullscreen: Bool = false
     
-    func replaceQueue(videoItems: [VideoItemModel], playingIndex: Int) {
+    func replaceQueue(videoItems: [VideoItemModel], playingIndex: Int, requestType: RequestType) {
         queueItems.removeAll()
         queueItems.append(contentsOf: videoItems)
         self.playingIndex = playingIndex
+        self.requestType = requestType
+        self.canRequestMore = (requestType == .pengsooTv || requestType == .pengsooYoutube || requestType == .pengsooOutside)
     }
     
     func getPlayingItem() -> VideoItemModel? {
@@ -32,6 +36,15 @@ class PlayerViewModel: BaseViewModel {
         } else {
             return nil
         }
+    }
+    
+    func updateQueue(canRequestMore: Bool, videoItems: [VideoItemModel]? = nil) {
+        if let items = videoItems {
+            queueItems.removeAll()
+            queueItems.append(contentsOf: items)
+        }
+        
+        self.canRequestMore = canRequestMore
     }
     
     func getQueueItems() -> [VideoItemModel] {
@@ -91,6 +104,15 @@ class PlayerViewModel: BaseViewModel {
             }
         } else {
             delegate?.showError(type: .recent, error: .fail, message: "Something went wrong. Please try again.")
+        }
+    }
+    
+    func checkLoadMoreQueue(checkPlayingIndex: Bool = true) {
+        if canRequestMore {
+            if !checkPlayingIndex || (checkPlayingIndex && (playingIndex == getQueueItems().count - 1)) {
+                canRequestMore = false
+                NotificationCenter.default.post(name: AppConstants.notification_load_more_queue, object: nil, userInfo: [AppConstants.notification_userInfo_request_type:requestType!])
+            }
         }
     }
 }

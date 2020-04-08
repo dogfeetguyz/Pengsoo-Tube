@@ -88,6 +88,58 @@ class PlayerViewModelTests: XCTestCase {
             XCTAssertEqual(item.videoId, libraryViewModel.recentItems[index].videoId)
         }
     }
+    
+    func testPlayQueueWithItems() {
+        let homeViewModel = HomeViewModel()
+        homeViewModel.dispatchPengsooList(type: .pengsooTv)
+        _ = XCTWaiter.wait(for: [expectation(description: "Test after 3 seconds")], timeout: 3.0)
+        XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
+        
+        let items = homeViewModel.getItemsList(for: .pengsooTv)
+        let playingIndex = 0
+        sut.replaceQueue(videoItems: items!, playingIndex: playingIndex, requestType: .pengsooTv)
+        
+        XCTAssertEqual(items!.count, sut.getQueueItems().count)
+        XCTAssertEqual(items![playingIndex].videoId, sut.getPlayingItem()?.videoId)
+        XCTAssertEqual(playingIndex, sut.getPlayingIndex())
+    }
+    
+    func testRequestMore() {
+        let homeViewModel = HomeViewModel()
+        homeViewModel.dispatchPengsooList(type: .pengsooTv)
+        _ = XCTWaiter.wait(for: [expectation(description: "Test after 3 seconds")], timeout: 3.0)
+        XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
+        
+        let items = homeViewModel.getItemsList(for: .pengsooTv)
+        sut.replaceQueue(videoItems: items!, playingIndex: items!.count-1, requestType: .pengsooTv)
+        let oldQueueCount = sut.getQueueItems().count
+        
+        homeViewModel.dispatchPengsooList(type: .pengsooTv, isInitial: false)
+        _ = XCTWaiter.wait(for: [expectation(description: "Test after 3 seconds")], timeout: 3.0)
+        XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
+        
+        let update_items = homeViewModel.getItemsList(for: .pengsooTv)
+        sut.updateQueue(canRequestMore: true, videoItems: update_items!)
+        
+        XCTAssertEqual(update_items!.count > items!.count, true)
+        XCTAssertEqual(sut.getQueueItems().count > oldQueueCount, true)
+        XCTAssertEqual(update_items!.count, sut.getQueueItems().count)
+    }
+    
+    func testRequestMoreNotAllowed() {
+        let homeViewModel = HomeViewModel()
+        homeViewModel.dispatchPengsooList(type: .pengsooTv)
+        _ = XCTWaiter.wait(for: [expectation(description: "Test after 3 seconds")], timeout: 3.0)
+        XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
+        
+        let items = homeViewModel.getItemsList(for: .pengsooTv)
+        sut.replaceQueue(videoItems: items!, playingIndex: items!.count-1, requestType: .pengsooTv)
+        let oldQueueCount = sut.getQueueItems().count
+        
+        sut.updateQueue(canRequestMore: false)
+        
+        XCTAssertEqual(sut.getQueueItems().count, oldQueueCount)
+    }
 }
 
 extension PlayerViewModelTests: ViewModelDelegate {

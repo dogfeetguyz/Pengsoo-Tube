@@ -459,7 +459,7 @@
                                         </prototypes>
                                         <connections>
                                             <outlet property="dataSource" destination="Wed-Me-ui3" id="Sbt-F9-mHd"/>
-                                            <outlet property="delegate" destination="Wed-Me-ui3" id="lUS-qS-nlb"/>
+                                            <outlet property="delegate" destination="Wed-Me-ui3" id="7Fs-ib-eUE"/>
                                         </connections>
                                     </tableView>
                                 </subviews>
@@ -513,7 +513,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yzG-IO-5ib" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="Q5f-tk-ge5"/>
             </objects>
-            <point key="canvasLocation" x="-1317.3913043478262" y="375.66964285714283"/>
+            <point key="canvasLocation" x="-846" y="301"/>
         </scene>
     </scenes>
     <resources>

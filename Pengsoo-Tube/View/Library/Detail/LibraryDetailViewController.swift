@@ -105,7 +105,7 @@ class LibraryDetailViewController: UIViewController {
     
     @IBAction func playButtonAction(_ sender: Any) {
         if let playItems = viewModel?.playItems {
-            Util.openPlayer(videoItems: playItems, playingIndex: 0)
+            Util.openPlayer(videoItems: playItems, playingIndex: 0, requestType: .playlistDetail)
         }
     }
     
@@ -166,7 +166,7 @@ extension LibraryDetailViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let playItems = viewModel?.playItems {
-            Util.openPlayer(videoItems: playItems, playingIndex: indexPath.row)
+            Util.openPlayer(videoItems: playItems, playingIndex: indexPath.row, requestType: .playlistDetail)
         }
     }
     

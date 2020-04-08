@@ -314,6 +314,14 @@ class PlayerViewController: UIViewController {
         }
     }
     
+    func updateQueue() {
+        if viewModel!.isFullscreen {
+            playerLandscapeCollectionView.reloadData()
+        } else {
+            tableView.reloadData()
+        }
+    }
+    
     func scrollToNowPlaying(animated: Bool) {
         let index = viewModel!.getPlayingIndex()
         if (index >= 0 && index <= viewModel!.getQueueItems().count-1) {
