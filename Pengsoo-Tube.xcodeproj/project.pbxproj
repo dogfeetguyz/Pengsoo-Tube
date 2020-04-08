@@ -36,10 +36,12 @@
 		FA3E68DD243AD28000A3EFD6 /* PlayerViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E68DC243AD28000A3EFD6 /* PlayerViewController+UICollectionViewDataSource.swift */; };
 		FA3E68DF243AD30B00A3EFD6 /* PlayerViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E68DE243AD30B00A3EFD6 /* PlayerViewController+UITableViewDataSource.swift */; };
 		FA3E68E1243AE7A800A3EFD6 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E68E0243AE7A800A3EFD6 /* SplashViewController.swift */; };
-		FA3E68E3243AE81100A3EFD6 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3E68E2243AE81100A3EFD6 /* Splash.storyboard */; };
+		FA3E68E3243AE81100A3EFD6 /* SplashView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3E68E2243AE81100A3EFD6 /* SplashView.storyboard */; };
 		FA60397F24346ED700CE4659 /* LibraryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60397E24346ED700CE4659 /* LibraryDetailTableViewCell.swift */; };
 		FA80722D24302A860050BC8D /* HomeTabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80722C24302A860050BC8D /* HomeTabBarCell.swift */; };
 		FA80722F243031860050BC8D /* HomeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80722E243031860050BC8D /* HomeContentViewController.swift */; };
+		FA90EC2D243DA9DD00E3F391 /* PlayerView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA90EC2C243DA9DC00E3F391 /* PlayerView.storyboard */; };
+		FA90EC2F243DAC6600E3F391 /* HomeContentView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA90EC2E243DAC6600E3F391 /* HomeContentView.storyboard */; };
 		FACBBC3B243C3B980023FB92 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBBC3A243C3B980023FB92 /* SplashViewModel.swift */; };
 		FACBBC3D243C3CD60023FB92 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBBC3C243C3CD60023FB92 /* BaseViewModel.swift */; };
 		FACBBC40243C3F500023FB92 /* SplashViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBBC3F243C3F500023FB92 /* SplashViewModelTests.swift */; };
@@ -118,10 +120,12 @@
 		FA3E68DC243AD28000A3EFD6 /* PlayerViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
 		FA3E68DE243AD30B00A3EFD6 /* PlayerViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		FA3E68E0243AE7A800A3EFD6 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		FA3E68E2243AE81100A3EFD6 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		FA3E68E2243AE81100A3EFD6 /* SplashView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashView.storyboard; sourceTree = "<group>"; };
 		FA60397E24346ED700CE4659 /* LibraryDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetailTableViewCell.swift; sourceTree = "<group>"; };
 		FA80722C24302A860050BC8D /* HomeTabBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarCell.swift; sourceTree = "<group>"; };
 		FA80722E243031860050BC8D /* HomeContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentViewController.swift; sourceTree = "<group>"; };
+		FA90EC2C243DA9DC00E3F391 /* PlayerView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PlayerView.storyboard; sourceTree = "<group>"; };
+		FA90EC2E243DAC6600E3F391 /* HomeContentView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeContentView.storyboard; sourceTree = "<group>"; };
 		FACBBC3A243C3B980023FB92 /* SplashViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		FACBBC3C243C3CD60023FB92 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		FACBBC3F243C3F500023FB92 /* SplashViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewModelTests.swift; sourceTree = "<group>"; };
@@ -195,7 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				FA3E68E0243AE7A800A3EFD6 /* SplashViewController.swift */,
-				FA3E68E2243AE81100A3EFD6 /* Splash.storyboard */,
+				FA3E68E2243AE81100A3EFD6 /* SplashView.storyboard */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -266,9 +270,10 @@
 			isa = PBXGroup;
 			children = (
 				FADEDB1724285E770071C1BB /* HomeViewController.swift */,
-				FA80722E243031860050BC8D /* HomeContentViewController.swift */,
 				FA80722C24302A860050BC8D /* HomeTabBarCell.swift */,
 				FA015DED242C6A15007CBDBC /* HomeTableViewCell.swift */,
+				FA80722E243031860050BC8D /* HomeContentViewController.swift */,
+				FA90EC2E243DAC6600E3F391 /* HomeContentView.storyboard */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -471,6 +476,7 @@
 				FAF59121242CC9B100EED00B /* PlayerViewController.swift */,
 				FA3E68DE243AD30B00A3EFD6 /* PlayerViewController+UITableViewDataSource.swift */,
 				FA3E68DC243AD28000A3EFD6 /* PlayerViewController+UICollectionViewDataSource.swift */,
+				FA90EC2C243DA9DC00E3F391 /* PlayerView.storyboard */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -577,9 +583,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FADEDB2324285E7A0071C1BB /* LaunchScreen.storyboard in Resources */,
+				FA90EC2F243DAC6600E3F391 /* HomeContentView.storyboard in Resources */,
 				FADEDB2024285E7A0071C1BB /* Assets.xcassets in Resources */,
+				FA90EC2D243DA9DD00E3F391 /* PlayerView.storyboard in Resources */,
 				FADEDB1B24285E770071C1BB /* Main.storyboard in Resources */,
-				FA3E68E3243AE81100A3EFD6 /* Splash.storyboard in Resources */,
+				FA3E68E3243AE81100A3EFD6 /* SplashView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

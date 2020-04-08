@@ -103,7 +103,7 @@ class HomeViewController: UIViewController {
     func populateBottomView() {
         
         for (index, requestType) in AppConstants.home_tab_types.enumerated() {
-            let tabContentVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContentViewController") as! HomeContentViewController
+            let tabContentVC = UIStoryboard(name: "HomeContentView", bundle: nil).instantiateInitialViewController() as! HomeContentViewController
             tabContentVC.innerTableViewScrollDelegate = self
             tabContentVC.requestType = requestType
             

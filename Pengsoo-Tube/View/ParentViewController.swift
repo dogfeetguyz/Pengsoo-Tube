@@ -84,7 +84,7 @@ class ParentViewController: UIViewController {
         
         self.movin = Movin(1.0, TimingCurve(curve: .easeInOut, dampingRatio: 0.8))
         
-        let player = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PlayerViewController") as! PlayerViewController
+        let player = UIStoryboard(name: "PlayerView", bundle: nil).instantiateInitialViewController() as! PlayerViewController
         player.viewModel = playerViewModel
         player.setupConstraints(statusBarHeight: view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0, parentSize: self.view.size)
         
