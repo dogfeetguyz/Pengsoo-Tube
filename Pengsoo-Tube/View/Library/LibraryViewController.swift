@@ -30,7 +30,7 @@ class LibraryViewController: UIViewController {
     }
 
     @IBAction func seeAllButtonAction(_ sender: UIButton) {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LibraryDetailViewController") as! LibraryDetailViewController
+        let viewController = UIStoryboard(name: "LibraryDetailView", bundle: nil).instantiateViewController(withIdentifier: "LibraryDetailViewController") as! LibraryDetailViewController
         
         if sender.tag == 0 {
             viewController.viewModel = LibraryDetailViewModel(playItems: viewModel.recentItems, title: "Recent")

@@ -48,6 +48,7 @@
 		FACBBC40243C3F500023FB92 /* SplashViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBBC3F243C3F500023FB92 /* SplashViewModelTests.swift */; };
 		FAD709F12429B11300E48D31 /* HeaderImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD709F02429B11300E48D31 /* HeaderImageModel.swift */; };
 		FAD709F32429B14200E48D31 /* BrandingSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD709F22429B14200E48D31 /* BrandingSettingsModel.swift */; };
+		FADB867624441D1E00DD24BD /* LibraryDetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADB867524441D1E00DD24BD /* LibraryDetailView.storyboard */; };
 		FADEDB1424285E770071C1BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB1324285E770071C1BB /* AppDelegate.swift */; };
 		FADEDB1624285E770071C1BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB1524285E770071C1BB /* SceneDelegate.swift */; };
 		FADEDB1824285E770071C1BB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB1724285E770071C1BB /* HomeViewController.swift */; };
@@ -133,6 +134,7 @@
 		FACBBC3F243C3F500023FB92 /* SplashViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewModelTests.swift; sourceTree = "<group>"; };
 		FAD709F02429B11300E48D31 /* HeaderImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderImageModel.swift; sourceTree = "<group>"; };
 		FAD709F22429B14200E48D31 /* BrandingSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandingSettingsModel.swift; sourceTree = "<group>"; };
+		FADB867524441D1E00DD24BD /* LibraryDetailView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LibraryDetailView.storyboard; sourceTree = "<group>"; };
 		FADEDB1024285E770071C1BB /* PENG-HA! Tube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PENG-HA! Tube.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADEDB1324285E770071C1BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADEDB1524285E770071C1BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 			children = (
 				FA2E52C82434502500966AB5 /* LibraryDetailViewController.swift */,
 				FA60397E24346ED700CE4659 /* LibraryDetailTableViewCell.swift */,
+				FADB867524441D1E00DD24BD /* LibraryDetailView.storyboard */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -610,6 +613,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FADEDB2324285E7A0071C1BB /* LaunchScreen.storyboard in Resources */,
+				FADB867624441D1E00DD24BD /* LibraryDetailView.storyboard in Resources */,
 				FA90EC2F243DAC6600E3F391 /* HomeContentView.storyboard in Resources */,
 				FADEDB2024285E7A0071C1BB /* Assets.xcassets in Resources */,
 				FA90EC2D243DA9DD00E3F391 /* PlayerView.storyboard in Resources */,
