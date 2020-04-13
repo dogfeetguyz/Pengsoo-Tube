@@ -53,7 +53,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var contentViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var contentViewBttomConstraint: NSLayoutConstraint!
     
-    private var isSliding = false
+    private var isPausedWhenSeekStarted = false
     private var pendingRequestWorkItem: DispatchWorkItem?
     
     weak var youtubeView: YoutubePlayerView!
@@ -218,27 +218,25 @@ class PlayerViewController: UIViewController {
     }
     
     func updateProgress(playTime: Float) {
-        if !isSliding {
-            if viewModel!.isEnded {
-                playTimeLabel.text = durationLabel.text
-                progressBar.value = 1
+        if viewModel!.isEnded {
+            playTimeLabel.text = durationLabel.text
+            progressBar.value = 1
+        } else {
+            let duration = viewModel?.getDuration()
+            if duration! >= 3600.0 {
+                let hour = Int(playTime / 3600.0)
+                let min = (Int(playTime) % 3600) / 60
+                let sec = (Int(playTime) % 3600) % 60
+
+                playTimeLabel.text = String(format: "%20d:%02d:%02d", hour, min, sec)
             } else {
-                let duration = viewModel?.getDuration()
-                if duration! >= 3600.0 {
-                    let hour = Int(playTime / 3600.0)
-                    let min = (Int(playTime) % 3600) / 60
-                    let sec = (Int(playTime) % 3600) % 60
+                let min = Int(playTime) / 60
+                let sec = Int(playTime) % 60
 
-                    playTimeLabel.text = String(format: "%20d:%02d:%02d", hour, min, sec)
-                } else {
-                    let min = Int(playTime) / 60
-                    let sec = Int(playTime) % 60
-
-                    playTimeLabel.text = String(format: "%02d:%02d", min, sec)
-                }
-                
-                progressBar.value = Float(playTime/duration!)
+                playTimeLabel.text = String(format: "%02d:%02d", min, sec)
             }
+            
+            progressBar.value = Float(playTime/duration!)
         }
     }
     
@@ -462,25 +460,16 @@ class PlayerViewController: UIViewController {
         if let touchEvent = event.allTouches?.first {
             switch touchEvent.phase {
             case .began:
-                isSliding = true
-            case .moved:
-                let playTime = (viewModel?.getDuration())!*progressBar.value
-                let duration = viewModel?.getDuration()
-                if duration! >= 3600.0 {
-                    let hour = Int(playTime / 3600.0)
-                    let min = (Int(playTime) % 3600) / 60
-                    let sec = (Int(playTime) % 3600) % 60
-
-                    playTimeLabel.text = String(format: "%20d:%02d:%02d", hour, min, sec)
-                } else {
-                    let min = Int(playTime) / 60
-                    let sec = Int(playTime) % 60
-
-                    playTimeLabel.text = String(format: "%02d:%02d", min, sec)
+                isPausedWhenSeekStarted = viewModel!.isPaused
+                if !isPausedWhenSeekStarted {
+                    youtubeView.pause()
                 }
-            case .ended:
+            case .moved:
                 youtubeView.seek(to: (viewModel?.getDuration())!*progressBar.value, allowSeekAhead: true)
-                isSliding = false
+            case .ended:
+                if !isPausedWhenSeekStarted {
+                    youtubeView.play()
+                }
             default:
                 break
             }
