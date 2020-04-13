@@ -242,12 +242,12 @@
         <!--Meme-->
         <scene sceneID="bd1-g5-evl">
             <objects>
-                <viewController id="bE4-ZQ-rIX" sceneMemberID="viewController">
+                <viewController id="bE4-ZQ-rIX" customClass="MemeViewController" customModule="PENG_HA__Tube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="il7-8B-84h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBv-fw-b2k">
-                                <rect key="frame" x="0.0" y="44" width="414" height="200"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="190"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AC0-Kn-xS0">
                                         <rect key="frame" x="10" y="0.0" width="104" height="82"/>
@@ -259,11 +259,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="253" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4w-As-8hL">
-                                        <rect key="frame" x="15" y="82" width="125" height="17.5"/>
+                                        <rect key="frame" x="15" y="82" width="125" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="4e0-Y6-smP"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="4" maxY="0.0"/>
-                                        <state key="normal" title="New meme from" image="plus" catalog="system">
+                                        <state key="normal" title="New Meme from" image="plus" catalog="system">
                                             <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         </state>
                                         <state key="highlighted">
@@ -274,83 +277,102 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="u16-TP-f2c">
-                                        <rect key="frame" x="10" y="109.5" width="394" height="80.5"/>
+                                        <rect key="frame" x="10" y="112" width="394" height="68"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsO-Bs-nP8">
-                                                <rect key="frame" x="0.0" y="0.0" width="192" height="80.5"/>
-                                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-4" maxY="0.0"/>
-                                                <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Photo Library" image="photo" catalog="system">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ypd-Zb-uBt">
+                                                <rect key="frame" x="0.0" y="0.0" width="192" height="68"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meme_bg_photo" translatesAutoresizingMaskIntoConstraints="NO" id="gRP-Ow-xgh">
+                                                        <rect key="frame" x="0.0" y="0.0" width="192" height="68"/>
+                                                    </imageView>
+                                                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Gl-Ug-Ece">
+                                                        <rect key="frame" x="0.0" y="0.0" width="192" height="68"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsO-Bs-nP8">
+                                                        <rect key="frame" x="0.0" y="0.0" width="192" height="68"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-4" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <state key="normal" title="Photo Library" image="photo" catalog="system">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="photoLibraryButtonAction:" destination="bE4-ZQ-rIX" eventType="touchUpInside" id="rma-2R-AnG"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="dsO-Bs-nP8" firstAttribute="leading" secondItem="ypd-Zb-uBt" secondAttribute="leading" id="2iq-uF-Omv"/>
+                                                    <constraint firstItem="dsO-Bs-nP8" firstAttribute="top" secondItem="ypd-Zb-uBt" secondAttribute="top" id="3Sc-ok-DlZ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="gRP-Ow-xgh" secondAttribute="bottom" id="62D-5s-o6q"/>
+                                                    <constraint firstAttribute="trailing" secondItem="5Gl-Ug-Ece" secondAttribute="trailing" id="9cZ-LW-o8s"/>
+                                                    <constraint firstAttribute="trailing" secondItem="gRP-Ow-xgh" secondAttribute="trailing" id="FWB-S7-Rpt"/>
+                                                    <constraint firstAttribute="bottom" secondItem="5Gl-Ug-Ece" secondAttribute="bottom" id="QfP-e4-wbC"/>
+                                                    <constraint firstItem="gRP-Ow-xgh" firstAttribute="top" secondItem="ypd-Zb-uBt" secondAttribute="top" id="ROE-5L-5iz"/>
+                                                    <constraint firstItem="5Gl-Ug-Ece" firstAttribute="top" secondItem="ypd-Zb-uBt" secondAttribute="top" id="UN8-EQ-IX1"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dsO-Bs-nP8" secondAttribute="trailing" id="f6h-Of-vZn"/>
+                                                    <constraint firstItem="gRP-Ow-xgh" firstAttribute="leading" secondItem="ypd-Zb-uBt" secondAttribute="leading" id="qJQ-FE-vVx"/>
+                                                    <constraint firstItem="5Gl-Ug-Ece" firstAttribute="leading" secondItem="ypd-Zb-uBt" secondAttribute="leading" id="vmd-Kr-KY8"/>
+                                                    <constraint firstAttribute="bottom" secondItem="dsO-Bs-nP8" secondAttribute="bottom" id="xNI-2D-v7K"/>
+                                                </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="circleCorner" value="NO"/>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                        <size key="value" width="3" height="3"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRasterizationScale">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                        <color key="value" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <real key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vpo-lv-M3l">
-                                                <rect key="frame" x="202" y="0.0" width="192" height="80.5"/>
-                                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-4" maxY="0.0"/>
-                                                <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Pengsoo Videos" image="play.rectangle" catalog="system">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
+                                            </view>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbt-Lb-Syk">
+                                                <rect key="frame" x="202" y="0.0" width="192" height="68"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rpL-tf-wHU">
+                                                        <rect key="frame" x="0.0" y="0.0" width="192" height="68"/>
+                                                    </imageView>
+                                                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jaX-XA-VG8">
+                                                        <rect key="frame" x="0.0" y="0.0" width="192" height="68"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vpo-lv-M3l">
+                                                        <rect key="frame" x="0.0" y="0.0" width="192" height="68"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-4" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="-4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <state key="normal" title="Pengsoo Videos" image="play.rectangle" catalog="system">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="pengsooVideosButtonAction:" destination="bE4-ZQ-rIX" eventType="touchUpInside" id="1Gr-Eo-Y5T"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="jaX-XA-VG8" firstAttribute="top" secondItem="zbt-Lb-Syk" secondAttribute="top" id="4px-3l-Op9"/>
+                                                    <constraint firstAttribute="bottom" secondItem="vpo-lv-M3l" secondAttribute="bottom" id="97F-JU-YXl"/>
+                                                    <constraint firstAttribute="bottom" secondItem="rpL-tf-wHU" secondAttribute="bottom" id="GJZ-Yn-re8"/>
+                                                    <constraint firstItem="jaX-XA-VG8" firstAttribute="leading" secondItem="zbt-Lb-Syk" secondAttribute="leading" id="Gp3-aN-Ejk"/>
+                                                    <constraint firstAttribute="trailing" secondItem="vpo-lv-M3l" secondAttribute="trailing" id="KLT-5X-nUw"/>
+                                                    <constraint firstAttribute="trailing" secondItem="rpL-tf-wHU" secondAttribute="trailing" id="Lbw-Qv-KHY"/>
+                                                    <constraint firstItem="vpo-lv-M3l" firstAttribute="leading" secondItem="zbt-Lb-Syk" secondAttribute="leading" id="OHm-1R-UeF"/>
+                                                    <constraint firstItem="rpL-tf-wHU" firstAttribute="leading" secondItem="zbt-Lb-Syk" secondAttribute="leading" id="RSB-I3-uf2"/>
+                                                    <constraint firstItem="vpo-lv-M3l" firstAttribute="top" secondItem="zbt-Lb-Syk" secondAttribute="top" id="VtU-UZ-hN4"/>
+                                                    <constraint firstItem="rpL-tf-wHU" firstAttribute="top" secondItem="zbt-Lb-Syk" secondAttribute="top" id="ccn-kP-QFC"/>
+                                                    <constraint firstAttribute="bottom" secondItem="jaX-XA-VG8" secondAttribute="bottom" id="nZ9-w2-lMB"/>
+                                                    <constraint firstAttribute="trailing" secondItem="jaX-XA-VG8" secondAttribute="trailing" id="rBL-Jy-7Qb"/>
+                                                </constraints>
                                                 <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="circleCorner" value="NO"/>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                        <color key="value" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                        <size key="value" width="3" height="3"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRasterizationScale">
-                                                        <real key="value" value="0.0"/>
+                                                        <real key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
-                                            </button>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -362,7 +384,7 @@
                                     <constraint firstItem="i4w-As-8hL" firstAttribute="leading" secondItem="WBv-fw-b2k" secondAttribute="leading" constant="15" id="MIn-wZ-Zlb"/>
                                     <constraint firstItem="u16-TP-f2c" firstAttribute="leading" secondItem="WBv-fw-b2k" secondAttribute="leading" constant="10" id="YO5-6v-1Fg"/>
                                     <constraint firstItem="AC0-Kn-xS0" firstAttribute="leading" secondItem="WBv-fw-b2k" secondAttribute="leading" constant="10" id="Zuu-3O-X0u"/>
-                                    <constraint firstAttribute="height" constant="200" id="aek-sc-WCV"/>
+                                    <constraint firstAttribute="height" constant="190" id="aek-sc-WCV"/>
                                     <constraint firstAttribute="trailing" secondItem="u16-TP-f2c" secondAttribute="trailing" constant="10" id="osI-9X-ezq"/>
                                     <constraint firstItem="u16-TP-f2c" firstAttribute="top" secondItem="i4w-As-8hL" secondAttribute="bottom" constant="10" id="pgY-IQ-D2X"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AC0-Kn-xS0" secondAttribute="trailing" constant="20" symbolic="YES" id="s59-h7-TRZ"/>
@@ -374,7 +396,7 @@
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pyR-XM-cJk">
-                                <rect key="frame" x="0.0" y="244" width="414" height="569"/>
+                                <rect key="frame" x="0.0" y="234" width="414" height="579"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JIf-zt-3bM">
                                     <size key="itemSize" width="128" height="128"/>
@@ -411,6 +433,11 @@
                         <viewLayoutGuide key="safeArea" id="ct7-7N-frb"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Meme" image="t.bubble.fill" catalog="system" id="L26-Sl-Kcu"/>
+                    <connections>
+                        <outlet property="pengsooVideosBgImageView" destination="rpL-tf-wHU" id="J8z-sA-vct"/>
+                        <outlet property="pengsooVideosButton" destination="vpo-lv-M3l" id="6NM-NY-50R"/>
+                        <outlet property="photoLibraryButton" destination="dsO-Bs-nP8" id="SRV-eC-cZy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ou-U6-jR2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1006,6 +1033,7 @@
         <image name="exclamationmark.circle" catalog="system" width="128" height="121"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="lock" catalog="system" width="128" height="128"/>
+        <image name="meme_bg_photo" width="192" height="192"/>
         <image name="memories" catalog="system" width="128" height="107"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="pause.fill" catalog="system" width="116" height="128"/>

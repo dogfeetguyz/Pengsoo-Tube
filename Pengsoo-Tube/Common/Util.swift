@@ -58,6 +58,10 @@ class Util {
         return image
     }
     
+    static func getHeaderUrl() -> String? {
+        return UserDefaults.standard.string(forKey: AppConstants.key_user_default_home_header_url)
+    }
+    
     static func processDate(dateString: String) -> String {
         let splittedStrings = dateString.split(separator: "T")
         

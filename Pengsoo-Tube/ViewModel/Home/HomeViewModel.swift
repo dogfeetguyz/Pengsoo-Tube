@@ -119,10 +119,6 @@ class HomeViewModel: BaseViewModel {
         }
     }
     
-    func getHeaderUrl() -> String? {
-        return UserDefaults.standard.string(forKey: AppConstants.key_user_default_home_header_url)
-    }
-    
     func getItemsList(for requestType: RequestType) -> [VideoItemModel]? {
         switch requestType {
         case .pengsooTv:
