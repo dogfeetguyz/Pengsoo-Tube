@@ -49,6 +49,10 @@
 		FAD709F12429B11300E48D31 /* HeaderImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD709F02429B11300E48D31 /* HeaderImageModel.swift */; };
 		FAD709F32429B14200E48D31 /* BrandingSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD709F22429B14200E48D31 /* BrandingSettingsModel.swift */; };
 		FADB867624441D1E00DD24BD /* LibraryDetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADB867524441D1E00DD24BD /* LibraryDetailView.storyboard */; };
+		FADB86782444211500DD24BD /* NewMemeFromVideosView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADB86772444211500DD24BD /* NewMemeFromVideosView.storyboard */; };
+		FADB867C244426EF00DD24BD /* NewMemeFromVideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB867B244426EF00DD24BD /* NewMemeFromVideosViewController.swift */; };
+		FADB867E244428AC00DD24BD /* NewMemeFromVideosContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB867D244428AC00DD24BD /* NewMemeFromVideosContentViewController.swift */; };
+		FADB86802444340C00DD24BD /* NewMemePickedVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB867F2444340C00DD24BD /* NewMemePickedVideoViewController.swift */; };
 		FADEDB1424285E770071C1BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB1324285E770071C1BB /* AppDelegate.swift */; };
 		FADEDB1624285E770071C1BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB1524285E770071C1BB /* SceneDelegate.swift */; };
 		FADEDB1824285E770071C1BB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB1724285E770071C1BB /* HomeViewController.swift */; };
@@ -135,6 +139,10 @@
 		FAD709F02429B11300E48D31 /* HeaderImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderImageModel.swift; sourceTree = "<group>"; };
 		FAD709F22429B14200E48D31 /* BrandingSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandingSettingsModel.swift; sourceTree = "<group>"; };
 		FADB867524441D1E00DD24BD /* LibraryDetailView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LibraryDetailView.storyboard; sourceTree = "<group>"; };
+		FADB86772444211500DD24BD /* NewMemeFromVideosView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewMemeFromVideosView.storyboard; sourceTree = "<group>"; };
+		FADB867B244426EF00DD24BD /* NewMemeFromVideosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemeFromVideosViewController.swift; sourceTree = "<group>"; };
+		FADB867D244428AC00DD24BD /* NewMemeFromVideosContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMemeFromVideosContentViewController.swift; sourceTree = "<group>"; };
+		FADB867F2444340C00DD24BD /* NewMemePickedVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemePickedVideoViewController.swift; sourceTree = "<group>"; };
 		FADEDB1024285E770071C1BB /* PENG-HA! Tube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PENG-HA! Tube.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADEDB1324285E770071C1BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADEDB1524285E770071C1BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -357,6 +365,7 @@
 		FACA4D1E2443F72500FFF859 /* Meme */ = {
 			isa = PBXGroup;
 			children = (
+				FADB8679244421CC00DD24BD /* NewMeme */,
 				FACA4D1F2443F76B00FFF859 /* MemeViewController.swift */,
 			);
 			path = Meme;
@@ -387,6 +396,25 @@
 				FAD709F02429B11300E48D31 /* HeaderImageModel.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		FADB8679244421CC00DD24BD /* NewMeme */ = {
+			isa = PBXGroup;
+			children = (
+				FADB867A244421D200DD24BD /* FromVideos */,
+			);
+			path = NewMeme;
+			sourceTree = "<group>";
+		};
+		FADB867A244421D200DD24BD /* FromVideos */ = {
+			isa = PBXGroup;
+			children = (
+				FADB867B244426EF00DD24BD /* NewMemeFromVideosViewController.swift */,
+				FADB867D244428AC00DD24BD /* NewMemeFromVideosContentViewController.swift */,
+				FADB867F2444340C00DD24BD /* NewMemePickedVideoViewController.swift */,
+				FADB86772444211500DD24BD /* NewMemeFromVideosView.storyboard */,
+			);
+			path = FromVideos;
 			sourceTree = "<group>";
 		};
 		FADEDB0724285E770071C1BB = {
@@ -618,6 +646,7 @@
 				FADEDB2024285E7A0071C1BB /* Assets.xcassets in Resources */,
 				FA90EC2D243DA9DD00E3F391 /* PlayerView.storyboard in Resources */,
 				FADEDB1B24285E770071C1BB /* Main.storyboard in Resources */,
+				FADB86782444211500DD24BD /* NewMemeFromVideosView.storyboard in Resources */,
 				FA3E68E3243AE81100A3EFD6 /* SplashView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -731,6 +760,7 @@
 				FA22A7102435B76A0051FAF7 /* PlaylistModel.swift in Sources */,
 				FA1A64022434A20D00A3212E /* YoutubePlayerView.swift in Sources */,
 				FADEDB1824285E770071C1BB /* HomeViewController.swift in Sources */,
+				FADB867C244426EF00DD24BD /* NewMemeFromVideosViewController.swift in Sources */,
 				FA2E52AF2433FABF00966AB5 /* UIView+Extensions.swift in Sources */,
 				FAD709F32429B14200E48D31 /* BrandingSettingsModel.swift in Sources */,
 				FADEDB3E242868FB0071C1BB /* ViewModelDelegate.swift in Sources */,
@@ -746,6 +776,7 @@
 				FADEDB4824286F040071C1BB /* YoutubeThumbnailsModel.swift in Sources */,
 				FAE11CF0243292B70077B5B2 /* LibraryTableViewCell.swift in Sources */,
 				FA1A64032434A20D00A3212E /* YoutubePlayerExtras.swift in Sources */,
+				FADB867E244428AC00DD24BD /* NewMemeFromVideosContentViewController.swift in Sources */,
 				FA60397F24346ED700CE4659 /* LibraryDetailTableViewCell.swift in Sources */,
 				FAE11CF42432C3490077B5B2 /* VideoItemModel.swift in Sources */,
 				FACBBC3D243C3CD60023FB92 /* BaseViewModel.swift in Sources */,
@@ -769,6 +800,7 @@
 				FA22A7302435DD410051FAF7 /* Playlist+CoreDataProperties.swift in Sources */,
 				FACBBC3B243C3B980023FB92 /* SplashViewModel.swift in Sources */,
 				FA22A7342435DD410051FAF7 /* Recent+CoreDataProperties.swift in Sources */,
+				FADB86802444340C00DD24BD /* NewMemePickedVideoViewController.swift in Sources */,
 				FA22A7322435DD410051FAF7 /* PlaylistVideo+CoreDataClass.swift in Sources */,
 				FA22A7312435DD410051FAF7 /* PlaylistVideo+CoreDataProperties.swift in Sources */,
 				FA3E68DD243AD28000A3EFD6 /* PlayerViewController+UICollectionViewDataSource.swift in Sources */,

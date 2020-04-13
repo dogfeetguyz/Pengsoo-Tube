@@ -18,6 +18,21 @@ protocol InnerTableViewScrollDelegate: class {
 }
 
 class HomeContentViewController: UIViewController {
+
+    struct Page {
+        var name = ""
+        var vc = HomeContentViewController()
+        
+        init(with _name: String, _vc: HomeContentViewController) {
+            name = _name
+            vc = _vc
+        }
+    }
+
+    struct PageCollection {
+        var pages = [Page]()
+        var selectedPageIndex = 0
+    }
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var loadingIndicator: NVActivityIndicatorView!

@@ -1,87 +1,28 @@
 //
-//  ViewController.swift
+//  NewMemeFromVideosViewController.swift
 //  Pengsoo-Tube
 //
-//  Created by Yejun Park on 23/3/20.
+//  Created by Yejun Park on 13/4/20.
 //  Copyright © 2020 Yejun Park. All rights reserved.
 //
 
 import UIKit
-import AlamofireImage
 
-
-var topViewPositionLimit: CGFloat = 200
-var topViewInitialPosition: CGFloat?
-var topViewFinalPosition: CGFloat?
-var topViewTopConstraintRange: Range<CGFloat>?
-
-class HomeViewController: UIViewController {
+class NewMemeFromVideosViewController: UIViewController {
     let tabsCount = AppConstants.home_tab_titles.count
     
-    @IBOutlet weak var statusBarImageView: UIImageView!
-    @IBOutlet weak var headerImageView: UIImageView!
     @IBOutlet weak var tabBarCollectionView: UICollectionView!
     @IBOutlet weak var bottomView: UIView!
-    @IBOutlet weak var headerViewTopConstraint: NSLayoutConstraint!
     
     var pageViewController = UIPageViewController()
     var selectedTabView = UIView()
-    var pageCollection = HomeContentViewController.PageCollection()
-    
-    var dragInitialY: CGFloat = 0
-    var dragPreviousY: CGFloat = 0
-    var task: DispatchWorkItem?
-    
-    @objc func topViewMoved(_ gesture: UIPanGestureRecognizer) {
-        
-        var dragYDiff : CGFloat
-        
-        switch gesture.state {
-            
-        case .began:
-            
-            dragInitialY = gesture.location(in: self.view).y
-            dragPreviousY = dragInitialY
-            
-        case .changed:
-            
-            let dragCurrentY = gesture.location(in: self.view).y
-            dragYDiff = dragPreviousY - dragCurrentY
-            dragPreviousY = dragCurrentY
-            innerTableViewDidScroll(withDistance: dragYDiff)
-            
-        case .ended:
-            innerTableViewScrollEnded()
-            
-        default: return
-        
-        }
-    }
+    var pageCollection = NewMemeFromVideosContentViewController.PageCollection()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupHeader()
         setupCollectionView()
         setupPagingViewController()
         populateBottomView()
-        addPanGestureToTopViewAndCollectionView()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        topViewInitialPosition = 0
-        topViewFinalPosition = -headerImageView.frame.height
-        topViewTopConstraintRange = topViewFinalPosition! ..< topViewInitialPosition!
-    }
-    
-    func setupHeader() {
-        if let headerUrl = Util.getHeaderUrl() {
-            if headerUrl.count > 0 {
-                Util.loadCachedImage(url: headerUrl) { (image) in
-                    self.headerImageView!.image = image
-                }
-            }
-        }
     }
     
     func setupCollectionView() {
@@ -103,12 +44,11 @@ class HomeViewController: UIViewController {
     func populateBottomView() {
         
         for (index, requestType) in AppConstants.home_tab_types.enumerated() {
-            let tabContentVC = UIStoryboard(name: "HomeContentView", bundle: nil).instantiateInitialViewController() as! HomeContentViewController
-            tabContentVC.innerTableViewScrollDelegate = self
+            let tabContentVC = UIStoryboard(name: "NewMemeFromVideosView", bundle: nil).instantiateViewController(identifier: "VideosContentViewController") as! NewMemeFromVideosContentViewController
             tabContentVC.requestType = requestType
             
             let displayName = AppConstants.home_tab_titles[index]
-            let page = HomeContentViewController.Page(with: displayName, _vc: tabContentVC)
+            let page = NewMemeFromVideosContentViewController.Page(with: displayName, _vc: tabContentVC)
             pageCollection.pages.append(page)
         }
 
@@ -126,15 +66,6 @@ class HomeViewController: UIViewController {
 
         pinPagingViewControllerToBottomView()
     }
-    
-    func addPanGestureToTopViewAndCollectionView() {
-        
-        let topViewPanGesture = UIPanGestureRecognizer(target: self, action: #selector(topViewMoved))
-        
-        headerImageView.isUserInteractionEnabled = true
-        headerImageView.addGestureRecognizer(topViewPanGesture)
-    }
-    
     func pinPagingViewControllerToBottomView() {
         
         bottomView.translatesAutoresizingMaskIntoConstraints = false
@@ -177,15 +108,9 @@ class HomeViewController: UIViewController {
             }
         }
     }
-    
-    func scrollToTop() {
-        let contentViewController = pageCollection.pages[pageCollection.selectedPageIndex].vc
-        contentViewController.tableView.setContentOffset(.zero, animated: true)
-        scrollToInitialView()
-    }
 }
 
-extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension NewMemeFromVideosViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -235,13 +160,14 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
 }
 
-extension HomeViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+extension NewMemeFromVideosViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         if let currentViewControllerIndex = pageCollection.pages.firstIndex(where: { $0.vc == viewController }) {
             
             if (1..<pageCollection.pages.count).contains(currentViewControllerIndex) {
+                
                 return pageCollection.pages[currentViewControllerIndex - 1].vc
             }
         }
@@ -253,6 +179,7 @@ extension HomeViewController: UIPageViewControllerDataSource, UIPageViewControll
         if let currentViewControllerIndex = pageCollection.pages.firstIndex(where: { $0.vc == viewController }) {
             
             if (0..<(pageCollection.pages.count - 1)).contains(currentViewControllerIndex) {
+                
                 return pageCollection.pages[currentViewControllerIndex + 1].vc
             }
         }
@@ -273,77 +200,5 @@ extension HomeViewController: UIPageViewControllerDataSource, UIPageViewControll
         tabBarCollectionView.scrollToItem(at: indexPathAtCollectionView,
                                           at: .centeredHorizontally,
                                           animated: true)
-    }
-}
-
-extension HomeViewController: InnerTableViewScrollDelegate {
-    var currentHeaderTop: CGFloat {
-        
-        return headerViewTopConstraint.constant
-    }
-    
-    func innerTableViewDidScroll(withDistance scrollDistance: CGFloat) {
-        let newConstant = headerViewTopConstraint.constant - scrollDistance
-        
-        if newConstant < topViewFinalPosition! {
-            headerViewTopConstraint.constant = topViewFinalPosition!
-        }
-        else if newConstant > topViewPositionLimit/2.0 {
-            headerViewTopConstraint.constant = headerViewTopConstraint.constant - scrollDistance*0.3
-        } else if newConstant > topViewPositionLimit {
-            headerViewTopConstraint.constant = topViewInitialPosition! - scrollDistance*0.1
-        }
-        else {
-            headerViewTopConstraint.constant = newConstant
-        }
-    }
-    
-    func innerTableViewScrollEnded() {
-        
-        if headerViewTopConstraint.constant > topViewInitialPosition! {
-            scrollToInitialView()
-        }
-    }
-    
-    func innerTableViewBounceEnded(withScrollView scrollView: UIScrollView) {
-        if task != nil {
-            task?.cancel()
-        }
-        
-        task = DispatchWorkItem {
-            if self.headerViewTopConstraint.constant > topViewInitialPosition! {
-                
-                if scrollView.isScrollEnabled {
-                    scrollView.isScrollEnabled = false
-                    scrollView.contentOffset.y = 0
-                    DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
-                        self.scrollToInitialView()
-                    }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                        scrollView.isScrollEnabled = true
-                        self.task = nil
-                    }
-                }
-            }
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: task!)
-    }
-
-    func scrollToInitialView() {
-
-        let topViewCurrentTop = headerImageView.frame.origin.y
-        let distanceToBeMoved = abs(topViewCurrentTop - topViewInitialPosition!)
-        var time = distanceToBeMoved / 500
-        
-        if time > 0.25 {
-            time = 0.25
-        }
-        
-        headerViewTopConstraint.constant = topViewInitialPosition!
-        
-        UIView.animate(withDuration: TimeInterval(time), animations: {
-            self.view.layoutIfNeeded()
-        })
     }
 }
