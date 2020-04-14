@@ -6,7 +6,7 @@
 //  Copyright © 2020 Yejun Park. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct AppConstants {
     
@@ -43,6 +43,83 @@ struct AppConstants {
     static let key_user_default_home_header_url : String = "user_default_home_header_url"
     static let key_user_default_autoplay : String = "user_default_autoplay"
     static let key_user_default_repeat_one : String = "user_default_repeat_one"
+    
+    static let text_colors = [ UIColor(red: 0, green: 0, blue: 0, alpha: 0),
+                                UIColor(red: 1, green: 1, blue: 1, alpha: 1),
+                                UIColor(red: 192/255, green: 192/255, blue: 192/255, alpha: 1),
+                                UIColor(red: 145/255, green: 145/255, blue: 145/255, alpha: 1),
+                                UIColor(red: 0, green: 0, blue: 0, alpha: 1),
+                                UIColor(red: 255/255, green: 38/255, blue: 0/255, alpha: 1),
+                                UIColor(red: 255/255, green: 147/255, blue: 0/255, alpha: 1),
+                                UIColor(red: 255/255, green: 251/255, blue: 0/255, alpha: 1),
+                                UIColor(red: 142/255, green: 250/255, blue: 0/255, alpha: 1),
+                                UIColor(red: 0/255, green: 249/255, blue: 0/255, alpha: 1),
+                                UIColor(red: 0/255, green: 250/255, blue: 146/255, alpha: 1),
+                                UIColor(red: 0/255, green: 253/255, blue: 255/255, alpha: 1),
+                                UIColor(red: 0/255, green: 150/255, blue: 255/255, alpha: 1),
+                                UIColor(red: 4/255, green: 51/255, blue: 255/255, alpha: 1),
+                                UIColor(red: 148/255, green: 55/255, blue: 255/255, alpha: 1),
+                                UIColor(red: 255/255, green: 64/255, blue: 255/255, alpha: 1),
+                                UIColor(red: 255/255, green: 47/255, blue: 146/255, alpha: 1)]
+
+    static let border_colors = [ UIColor(red: 0, green: 0, blue: 0, alpha: 0),
+                                UIColor(red: 1, green: 1, blue: 1, alpha: 1),
+                                UIColor(red: 192/255, green: 192/255, blue: 192/255, alpha: 1),
+                                UIColor(red: 145/255, green: 145/255, blue: 145/255, alpha: 1),
+                                UIColor(red: 0, green: 0, blue: 0, alpha: 1),
+                                UIColor(red: 255/255, green: 38/255, blue: 0/255, alpha: 1),
+                                UIColor(red: 255/255, green: 147/255, blue: 0/255, alpha: 1),
+                                UIColor(red: 255/255, green: 251/255, blue: 0/255, alpha: 1),
+                                UIColor(red: 142/255, green: 250/255, blue: 0/255, alpha: 1),
+                                UIColor(red: 0/255, green: 249/255, blue: 0/255, alpha: 1),
+                                UIColor(red: 0/255, green: 250/255, blue: 146/255, alpha: 1),
+                                UIColor(red: 0/255, green: 253/255, blue: 255/255, alpha: 1),
+                                UIColor(red: 0/255, green: 150/255, blue: 255/255, alpha: 1),
+                                UIColor(red: 4/255, green: 51/255, blue: 255/255, alpha: 1),
+                                UIColor(red: 148/255, green: 55/255, blue: 255/255, alpha: 1),
+                                UIColor(red: 255/255, green: 64/255, blue: 255/255, alpha: 1),
+                                UIColor(red: 255/255, green: 47/255, blue: 146/255, alpha: 1)]
+    
+
+    static let bg_colors = [ UIColor(red: 0, green: 0, blue: 0, alpha: 0),
+                                UIColor(red: 1, green: 1, blue: 1, alpha: 0.7),
+                                UIColor(red: 192/255, green: 192/255, blue: 192/255, alpha: 0.7),
+                                UIColor(red: 145/255, green: 145/255, blue: 145/255, alpha: 0.7),
+                                UIColor(red: 0, green: 0, blue: 0, alpha: 0.7),
+                                UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 0.7),
+                                UIColor(red: 255/255, green: 212/255, blue: 121/255, alpha: 0.7),
+                                UIColor(red: 255/255, green: 252/255, blue: 121/255, alpha: 0.7),
+                                UIColor(red: 212/255, green: 251/255, blue: 121/255, alpha: 0.7),
+                                UIColor(red: 115/255, green: 250/255, blue: 121/255, alpha: 0.7),
+                                UIColor(red: 115/255, green: 252/255, blue: 214/255, alpha: 0.7),
+                                UIColor(red: 115/255, green: 253/255, blue: 255/255, alpha: 0.7),
+                                UIColor(red: 118/255, green: 214/255, blue: 255/255, alpha: 0.7),
+                                UIColor(red: 122/255, green: 129/255, blue: 255/255, alpha: 0.7),
+                                UIColor(red: 215/255, green: 131/255, blue: 255/255, alpha: 0.7),
+                                UIColor(red: 255/255, green: 133/255, blue: 255/255, alpha: 0.7),
+                                UIColor(red: 255/255, green: 138/255, blue: 216/255, alpha: 0.7)]
+    
+//
+//    static let bg_colors = [ UIColor(red: 0, green: 0, blue: 0, alpha: 0),
+//                                UIColor(red: 1, green: 1, blue: 1, alpha: 0.5),
+//                                UIColor(red: 192/255, green: 192/255, blue: 192/255, alpha: 0.5),
+//                                UIColor(red: 145/255, green: 145/255, blue: 145/255, alpha: 0.5),
+//                                UIColor(red: 0, green: 0, blue: 0, alpha: 0.5),
+//                                UIColor(red: 255/255, green: 38/255, blue: 0/255, alpha: 0.5),
+//                                UIColor(red: 255/255, green: 147/255, blue: 0/255, alpha: 0.5),
+//                                UIColor(red: 255/255, green: 251/255, blue: 0/255, alpha: 0.5),
+//                                UIColor(red: 142/255, green: 250/255, blue: 0/255, alpha: 0.5),
+//                                UIColor(red: 0/255, green: 249/255, blue: 0/255, alpha: 0.5),
+//                                UIColor(red: 0/255, green: 250/255, blue: 146/255, alpha: 0.5),
+//                                UIColor(red: 0/255, green: 253/255, blue: 255/255, alpha: 0.5),
+//                                UIColor(red: 0/255, green: 150/255, blue: 255/255, alpha: 0.5),
+//                                UIColor(red: 4/255, green: 51/255, blue: 255/255, alpha: 0.5),
+//                                UIColor(red: 148/255, green: 55/255, blue: 255/255, alpha: 0.5),
+//                                UIColor(red: 255/255, green: 64/255, blue: 255/255, alpha: 0.5),
+//                                UIColor(red: 255/255, green: 47/255, blue: 146/255, alpha: 0.5)]
+    
+    static let shadow_colors = [ UIColor(red: 0, green: 0, blue: 0, alpha: 0),
+                                 UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)]
 }
 
 enum ViewModelDelegateError: Int {

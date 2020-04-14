@@ -85,6 +85,16 @@ extension NewMemePickedVideoViewController: CropViewControllerDelegate {
         cropViewController.dismiss(animated: false) {
             if let viewController = UIStoryboard(name: "NewMemeView", bundle: nil).instantiateInitialViewController() as? NewMemeViewController {
                 viewController.chosenImage = image
+
+                let maxHeight = self.view.height - 220
+                let maxWidth = self.view.width
+                
+                if maxHeight*(cropRect.size.width/cropRect.size.height) > maxWidth {
+                    viewController.imageSize = CGSize(width: maxWidth, height: maxWidth*(cropRect.size.height/cropRect.size.width))
+                } else {
+                    viewController.imageSize = CGSize(width: maxHeight*(cropRect.size.width/cropRect.size.height), height: maxHeight)
+                }
+                
                 self.navigationController!.pushViewController(viewController, animated: false)
             }
         }

@@ -77,7 +77,11 @@
                         <viewLayoutGuide key="safeArea" id="bSr-y4-biC"/>
                     </view>
                     <navigationItem key="navigationItem" title="Pengsoo Videos" id="LS5-b3-kec">
-                        <barButtonItem key="rightBarButtonItem" image="xmark" catalog="system" id="a4k-0a-5pl"/>
+                        <barButtonItem key="rightBarButtonItem" image="xmark" catalog="system" id="a4k-0a-5pl">
+                            <connections>
+                                <action selector="closeButtonAction" destination="9UQ-5k-aJv" id="JRX-KO-XtA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bottomView" destination="aZD-SD-EOb" id="DSu-kW-ebq"/>

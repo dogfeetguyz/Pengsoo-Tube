@@ -66,6 +66,7 @@ class NewMemeFromVideosViewController: UIViewController {
 
         pinPagingViewControllerToBottomView()
     }
+    
     func pinPagingViewControllerToBottomView() {
         
         bottomView.translatesAutoresizingMaskIntoConstraints = false
@@ -107,6 +108,10 @@ class NewMemeFromVideosViewController: UIViewController {
                 self.selectedTabView.frame.origin.x = cell.frame.origin.x
             }
         }
+    }
+    
+    @IBAction func closeButtonAction() {
+        navigationController?.dismiss(animated: true, completion: nil)
     }
 }
 

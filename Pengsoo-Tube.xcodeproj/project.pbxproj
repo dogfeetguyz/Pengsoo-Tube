@@ -38,7 +38,7 @@
 		FA3E68E1243AE7A800A3EFD6 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E68E0243AE7A800A3EFD6 /* SplashViewController.swift */; };
 		FA3E68E3243AE81100A3EFD6 /* SplashView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3E68E2243AE81100A3EFD6 /* SplashView.storyboard */; };
 		FA60397F24346ED700CE4659 /* LibraryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60397E24346ED700CE4659 /* LibraryDetailTableViewCell.swift */; };
-		FA727433244568D600CD7BD8 /* KUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA727432244568D600CD7BD8 /* KUIViewController.swift */; };
+		FA72743524459E6100CD7BD8 /* IQLabelView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72743424459E6100CD7BD8 /* IQLabelView+Extensions.swift */; };
 		FA80722D24302A860050BC8D /* HomeTabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80722C24302A860050BC8D /* HomeTabBarCell.swift */; };
 		FA80722F243031860050BC8D /* HomeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80722E243031860050BC8D /* HomeContentViewController.swift */; };
 		FA90EC2D243DA9DD00E3F391 /* PlayerView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA90EC2C243DA9DC00E3F391 /* PlayerView.storyboard */; };
@@ -131,7 +131,7 @@
 		FA3E68E0243AE7A800A3EFD6 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		FA3E68E2243AE81100A3EFD6 /* SplashView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashView.storyboard; sourceTree = "<group>"; };
 		FA60397E24346ED700CE4659 /* LibraryDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetailTableViewCell.swift; sourceTree = "<group>"; };
-		FA727432244568D600CD7BD8 /* KUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIViewController.swift; sourceTree = "<group>"; };
+		FA72743424459E6100CD7BD8 /* IQLabelView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IQLabelView+Extensions.swift"; sourceTree = "<group>"; };
 		FA80722C24302A860050BC8D /* HomeTabBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarCell.swift; sourceTree = "<group>"; };
 		FA80722E243031860050BC8D /* HomeContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentViewController.swift; sourceTree = "<group>"; };
 		FA90EC2C243DA9DC00E3F391 /* PlayerView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PlayerView.storyboard; sourceTree = "<group>"; };
@@ -530,9 +530,9 @@
 				FA1A63FF2434A20D00A3212E /* YoutubePlayerView */,
 				FA2E529D2433FABF00966AB5 /* CustomAlerts */,
 				FA13DC10242C7CE20031826A /* InsetLabel.swift */,
-				FA727432244568D600CD7BD8 /* KUIViewController.swift */,
 				FADEDB4C2428717A0071C1BB /* AppConstants.swift */,
 				FAE95C71242D85B8003AD3AD /* Util.swift */,
+				FA72743424459E6100CD7BD8 /* IQLabelView+Extensions.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -780,6 +780,7 @@
 				FADEDB1824285E770071C1BB /* HomeViewController.swift in Sources */,
 				FADB867C244426EF00DD24BD /* NewMemeFromVideosViewController.swift in Sources */,
 				FA2E52AF2433FABF00966AB5 /* UIView+Extensions.swift in Sources */,
+				FA72743524459E6100CD7BD8 /* IQLabelView+Extensions.swift in Sources */,
 				FAD709F32429B14200E48D31 /* BrandingSettingsModel.swift in Sources */,
 				FADEDB3E242868FB0071C1BB /* ViewModelDelegate.swift in Sources */,
 				FA015DEE242C6A15007CBDBC /* HomeTableViewCell.swift in Sources */,
@@ -789,7 +790,6 @@
 				FA1A1673242B099400740ADE /* LibraryDetailViewModel.swift in Sources */,
 				FA2E52C5243400DF00966AB5 /* TextField.swift in Sources */,
 				FAF59120242CC13200EED00B /* ParentViewController.swift in Sources */,
-				FA727433244568D600CD7BD8 /* KUIViewController.swift in Sources */,
 				FA2E52B42433FABF00966AB5 /* OneTextFieldViewController.swift in Sources */,
 				FAE11CEE243292A20077B5B2 /* LibraryCollectionViewCell.swift in Sources */,
 				FADEDB4824286F040071C1BB /* YoutubeThumbnailsModel.swift in Sources */,

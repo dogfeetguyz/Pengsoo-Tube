@@ -11,7 +11,7 @@ target 'Pengsoo-Tube' do
   pod 'NVActivityIndicatorView'
   pod "XCDYouTubeKit", "~> 2.12"
   pod 'CropViewController'
-  pod 'IQLabelView', '~> X.Y.Z'
+  pod 'IQLabelView', '~> 0.2.1'
 end
 
 target 'Pengsoo-TubeTests' do
