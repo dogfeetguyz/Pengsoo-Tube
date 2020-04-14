@@ -7,89 +7,35 @@
 //
 
 import UIKit
+import AVFoundation
+import XCDYouTubeKit
+import CropViewController
+
 
 class NewMemePickedVideoViewController: UIViewController {
     
     var videoItem: VideoItemModel?
+    var player: AVPlayer?
     
-    @IBOutlet weak var youtubeView: YoutubePlayerView?
-    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var playerView: UIView?
     @IBOutlet weak var progressSlider: UISlider!
     
     let playerViewModel = PlayerViewModel()
-    var isPausedWhenSeekStarted = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        progressSlider.setThumbImage(Util.makeCircleWith(size: CGSize(width: 10, height: 10), backgroundColor: UIColor.systemGray), for: .normal)
-        progressSlider.setThumbImage(Util.makeCircleWith(size: CGSize(width: 10, height: 10), backgroundColor: UIColor.systemGray2), for: .highlighted)
-        progressSlider.value = 0
         
         loadVideo()
     }
     
     func loadVideo() {
-        title = videoItem!.videoTitle
-        
-        if let currentItem = videoItem {
-            youtubeView?.frame = CGRect(x: 0, y: 0, width: self.view.width, height: self.view.width)
+        XCDYouTubeClient.default().getVideoWithIdentifier(videoItem!.videoId) { (video, error) in
+            self.player = AVPlayer(url: video!.streamURL)
+            let playerLayer = AVPlayerLayer(player: self.player!)
+            playerLayer.frame = self.playerView!.bounds
+            self.playerView!.layer.insertSublayer(playerLayer, at: 0)
+            self.player!.pause()
             
-            DispatchQueue.main.async() {
-                let playerVars: [String: Any] = [
-                    "autoplay": 1,
-                    "controls": 0,
-                    "modestbranding": 1,
-                    "playsinline": 1,
-                    "rel": 0,
-                    "origin": "https://youtube.com"
-                ]
-                self.youtubeView!.delegate = self
-                self.youtubeView!.loadWithVideoId(currentItem.videoId, with: playerVars)
-            }
-        } else {
-            Util.createToast(message: "Something went wrong. Please try again.")
-        }
-    }
-    
-    func updateProgress() {
-        if playerViewModel.isEnded {
-            progressSlider.value = 1
-        } else {
-            if playerViewModel.isPaused {
-                if youtubeView != nil {
-                    youtubeView!.fetchCurrentTime { (playTime) in
-                        if let _playTime = playTime {
-                            self.updateProgress(playTime: Float(_playTime))
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    func updateProgress(playTime: Float) {
-        if playerViewModel.isEnded {
-            progressSlider.value = 1
-        } else {
-            let duration = playerViewModel.getDuration()
-            
-            progressSlider.value = Float(playTime/duration)
-        }
-    }
-    
-    @IBAction func playButtonAction(_ sender: Any) {
-        if playerViewModel.isPaused {
-            playerViewModel.isPaused = false
-            if playerViewModel.isEnded {
-                youtubeView!.seek(to: 0, allowSeekAhead: true)
-            }
-            youtubeView!.play()
-            playButton!.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-        } else {
-            playerViewModel.isPaused = true
-            youtubeView!.pause()
-            playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
         }
     }
     
@@ -97,67 +43,51 @@ class NewMemePickedVideoViewController: UIViewController {
         if let touchEvent = event.allTouches?.first {
             switch touchEvent.phase {
             case .began:
-                isPausedWhenSeekStarted = playerViewModel.isPaused
-                if !isPausedWhenSeekStarted {
-                    youtubeView?.pause()
-                }
+                player!.pause()
             case .moved:
-                let duration = playerViewModel.getDuration()
-                let playTime = duration*progressSlider.value
-                
-                youtubeView!.seek(to: playTime, allowSeekAhead: true)
+                let duration = player?.currentItem?.asset.duration.seconds
+                let playTime = duration! * Double(progressSlider.value)
+                let playTimeCmTime = CMTime(seconds: playTime, preferredTimescale: 1000000)
+                player!.seek(to: playTimeCmTime)
             case .ended:
-                if !isPausedWhenSeekStarted {
-                    youtubeView?.play()
-                }
+                player!.pause()
             default:
                 break
             }
         }
     }
+    
+    @IBAction func nextButtonAction(_ sender: Any) {
+        player!.pause()
+        
+            guard let player = player ,
+                let asset = player.currentItem?.asset else {
+                    return
+            }
+
+            let imageGenerator = AVAssetImageGenerator(asset: asset)
+            do {
+                let imageRef = try imageGenerator.copyCGImage(at: player.currentTime(), actualTime: nil)
+                let image = UIImage(cgImage: imageRef)
+
+                let cropController = CropViewController(croppingStyle: .default, image: image)
+                cropController.delegate = self
+                self.present(cropController, animated: true, completion: nil)
+            } catch {
+                
+            }
+    }
 }
 
-
-// MARK: - YoutubePlayerViewDelegate
-extension NewMemePickedVideoViewController: YoutubePlayerViewDelegate {
-    func playerViewDidBecomeReady(_ playerView: YoutubePlayerView) {
-        
-        playerView.fetchDuration { (duration) in
-            self.playerViewModel.setDuration(duration: duration!)
+extension NewMemePickedVideoViewController: CropViewControllerDelegate {
+    
+    public func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        cropViewController.dismiss(animated: false) {
+            if let viewController = UIStoryboard(name: "NewMemeView", bundle: nil).instantiateInitialViewController() as? NewMemeViewController {
+                viewController.chosenImage = image
+                self.navigationController!.pushViewController(viewController, animated: false)
+            }
         }
-        
-        playerView.fetchPlayerState { (state) in
-            print("Fetch Player State: \(state)")
-        }
-    }
-    
-    func playerView(_ playerView: YoutubePlayerView, didChangedToState state: YoutubePlayerState) {
-        if state == .ended {
-            youtubeView?.seek(to: 0, allowSeekAhead: true)
-        } else if state == .playing {
-           playerViewModel.isEnded = false
-           playerViewModel.isPaused = false
-           
-           playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-       } else if state == .paused {
-           playerViewModel.isPaused = true
-           playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
-       } else {
-           print("Player State: \(state)")
-       }
-    }
-    
-    func playerView(_ playerView: YoutubePlayerView, didChangeToQuality quality: YoutubePlaybackQuality) {
-    }
-    
-    func playerView(_ playerView: YoutubePlayerView, receivedError error: Error) {
-    }
-    
-    func playerView(_ playerView: YoutubePlayerView, didPlayTime time: Float) {
-        updateProgress(playTime: time)
-    }
-    
-    func playerViewPreferredBackgroundColor(_ playerView: YoutubePlayerView) -> UIColor {
-        return .clear
+            
     }
 }

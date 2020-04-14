@@ -225,7 +225,6 @@ class ParentViewController: UIViewController {
                 ]
                 self.miniPlayerPlayerView.delegate = self
                 self.miniPlayerPlayerView.loadWithVideoId(currentItem.videoId, with: playerVars)
-                self.miniPlayerPlayerView.play()
             }
         } else {
             Util.createToast(message: "Something went wrong. Please try again.")
@@ -328,7 +327,6 @@ extension ParentViewController: UITabBarControllerDelegate {
 // MARK: - YoutubePlayerViewDelegate
 extension ParentViewController: YoutubePlayerViewDelegate {
     func playerViewDidBecomeReady(_ playerView: YoutubePlayerView) {
-        
         playerView.fetchDuration { (duration) in
             self.playerViewModel.setDuration(duration: duration!)
             if let player = self.playerViewController {

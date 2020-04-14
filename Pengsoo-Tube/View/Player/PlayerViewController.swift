@@ -53,7 +53,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var contentViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var contentViewBttomConstraint: NSLayoutConstraint!
     
-    private var isPausedWhenSeekStarted = false
+    private var isPlayingWhenSeekStarted = false
     private var pendingRequestWorkItem: DispatchWorkItem?
     
     weak var youtubeView: YoutubePlayerView!
@@ -460,14 +460,30 @@ class PlayerViewController: UIViewController {
         if let touchEvent = event.allTouches?.first {
             switch touchEvent.phase {
             case .began:
-                isPausedWhenSeekStarted = viewModel!.isPaused
-                if !isPausedWhenSeekStarted {
+                isPlayingWhenSeekStarted = (viewModel!.isPaused != true && viewModel!.isEnded != true)
+                if isPlayingWhenSeekStarted {
                     youtubeView.pause()
                 }
             case .moved:
-                youtubeView.seek(to: (viewModel?.getDuration())!*progressBar.value, allowSeekAhead: true)
+                let duration = viewModel?.getDuration()
+                let playTime = duration!*progressBar.value
+                
+                if duration! >= 3600.0 {
+                    let hour = Int(playTime / 3600.0)
+                    let min = (Int(playTime) % 3600) / 60
+                    let sec = (Int(playTime) % 3600) % 60
+
+                    playTimeLabel.text = String(format: "%20d:%02d:%02d", hour, min, sec)
+                } else {
+                    let min = Int(playTime) / 60
+                    let sec = Int(playTime) % 60
+
+                    playTimeLabel.text = String(format: "%02d:%02d", min, sec)
+                }
+                
+                youtubeView.seek(to: playTime, allowSeekAhead: true)
             case .ended:
-                if !isPausedWhenSeekStarted {
+                if isPlayingWhenSeekStarted {
                     youtubeView.play()
                 }
             default:

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ARs-GA-NgF">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--New Meme View Controller-->
+        <scene sceneID="vwV-nX-0t4">
+            <objects>
+                <viewController id="ARs-GA-NgF" customClass="NewMemeViewController" customModule="PENG_HA__Tube" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zmC-Dl-lxw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kpP-cK-TwN">
+                                <rect key="frame" x="0.0" y="44" width="414" height="414"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kpP-cK-TwN" secondAttribute="height" multiplier="1:1" id="dWx-3Q-HEB"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="kpP-cK-TwN" firstAttribute="leading" secondItem="meC-de-S3M" secondAttribute="leading" id="Lro-t8-nV8"/>
+                            <constraint firstItem="meC-de-S3M" firstAttribute="trailing" secondItem="kpP-cK-TwN" secondAttribute="trailing" id="hnS-5l-q9b"/>
+                            <constraint firstItem="kpP-cK-TwN" firstAttribute="top" secondItem="meC-de-S3M" secondAttribute="top" id="wlJ-Y3-T6B"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="meC-de-S3M"/>
+                    </view>
+                    <connections>
+                        <outlet property="chosenImageView" destination="kpP-cK-TwN" id="hu5-Ex-FfD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rjb-LJ-vaH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10" y="29"/>
+        </scene>
+    </scenes>
+</document>
