@@ -206,6 +206,7 @@ extension LibraryDetailViewController: UITableViewDelegate, UITableViewDataSourc
 extension LibraryDetailViewController: ViewModelDelegate {
     func success(type: RequestType, message: String) {
         if type == .playlistDelete {
+            Util.createToast(message: message)
             navigationController?.popViewController(animated: true)
         } else if type == .playlistUpdate {
             self.title = viewModel?.title

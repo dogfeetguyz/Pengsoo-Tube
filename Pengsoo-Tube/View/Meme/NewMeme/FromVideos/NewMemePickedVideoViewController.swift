@@ -27,6 +27,15 @@ class NewMemePickedVideoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if navigationController?.viewControllers.count == 1 {
+            let closeButton: UIButton = UIButton.init(type: .custom)
+            closeButton.setImage(UIImage(systemName: "xmark"), for: .normal)
+            closeButton.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
+            closeButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+            let closeBarButton = UIBarButtonItem(customView: closeButton)
+            self.navigationItem.setLeftBarButton(closeBarButton, animated: false)
+        }
+        
         loadVideo()
     }
     
@@ -123,6 +132,10 @@ class NewMemePickedVideoViewController: UIViewController {
                 
             }
         }
+    }
+    
+    @objc func closeButtonAction() {
+        navigationController?.dismiss(animated: true, completion: nil)
     }
 }
 

@@ -87,7 +87,7 @@ class HomeContentViewController: UIViewController {
                 Util.openYoutube(videoId: item.videoId)
             }
         }
-        alert.addAction(image: UIImage(systemName: "square.and.arrow.up.on.square.fill"), title: "Share", color: .systemBlue, style: .default, isEnabled: true) { (_) in
+        alert.addAction(image: UIImage(systemName: "square.and.arrow.up.on.square"), title: "Share", color: .label, style: .default, isEnabled: true) { (_) in
             if let items = self.viewModel.getItemsList(for: self.requestType!) {
                 let item = items[index]
                 let textToShare = [ Util.generateYoutubeUrl(videoId: item.videoId), "Shared from Peng-Ha Tube" ]
@@ -97,8 +97,19 @@ class HomeContentViewController: UIViewController {
                 self.present(activityViewController, animated: true, completion: nil)
             }
         }
+        alert.addAction(image: UIImage(systemName: "t.bubble"), title: "Create Meme", color: .label, style: .default, isEnabled: true) { (_) in
+            if let items = self.viewModel.getItemsList(for: self.requestType!) {
+                let item = items[index]
+                if let navigationController = UIStoryboard(name: "NewMemeFromVideosView", bundle: nil).instantiateViewController(identifier: "PickedVideoNavigationView") as? UINavigationController {
+                    if let viewController = navigationController.viewControllers.first as? NewMemePickedVideoViewController {
+                        viewController.videoItem = item
+                        self.present(navigationController, animated: true)
+                    }
+                }
+            }
+        }
        
-        alert.addAction(image: UIImage(systemName: "folder.fill.badge.plus"), title: "Add to New Playlist", color: .label, style: .default, isEnabled: true) { (_) in
+        alert.addAction(image: UIImage(systemName: "folder.badge.plus"), title: "Add to New Playlist", color: .label, style: .default, isEnabled: true) { (_) in
             let textFieldAlert = UIAlertController(style: .alert, title: "New Playlist", message: "Please input a name for a new playlist")
                     
             weak var weakTextField: TextField?
@@ -240,10 +251,14 @@ extension HomeContentViewController: UITableViewDelegate {
 
 extension HomeContentViewController: ViewModelDelegate {
     func success(type: RequestType, message: String) {
-        loadingIndicator.stopAnimating()
-        tableView.reloadData()
-        canRequestMore = true
-        Util.updateQueue(canRequestMore: canRequestMore, videoItems: viewModel.getItemsList(for: requestType!))
+        if type == .playlistUpdate {
+            Util.createToast(message: message)
+        } else {
+            loadingIndicator.stopAnimating()
+            tableView.reloadData()
+            canRequestMore = true
+            Util.updateQueue(canRequestMore: canRequestMore, videoItems: viewModel.getItemsList(for: requestType!))
+        }
     }
     
     func showError(type: RequestType, error: ViewModelDelegateError, message: String) {
@@ -284,6 +299,10 @@ extension HomeContentViewController: ViewModelDelegate {
                 break
             }
             Util.updateQueue(canRequestMore: canRequestMore)
+        } else {
+            if message.count > 0 {
+                Util.createToast(message: message)
+            }
         }
     }
 }

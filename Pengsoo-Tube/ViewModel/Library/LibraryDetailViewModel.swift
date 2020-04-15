@@ -178,11 +178,11 @@ class LibraryDetailViewModel: BaseViewModel {
                 
                 if playlistItems.count > 0 {
                     let playlistItem = playlistItems.first!
-
+                    let title = playlistItem.title
                     managedOC.delete(playlistItem)
                     do {
                         try managedOC.save()
-                        delegate?.success(type: .playlistDelete)
+                        delegate?.success(type: .playlistDelete, message: "\(title!) is deleted")
                     } catch {
                         delegate?.showError(type: .playlistDelete, error: .fail, message: "Something went wrong. Please try again.")
                     }

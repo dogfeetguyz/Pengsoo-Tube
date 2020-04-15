@@ -118,7 +118,9 @@ extension MemeViewController: UINavigationControllerDelegate, UIImagePickerContr
         
         let cropController = CropViewController(croppingStyle: .default, image: image)
         cropController.delegate = self
-        self.present(cropController, animated: true, completion: nil)
+        picker.present(cropController, animated: true) {
+            
+        }
     }
 }
 

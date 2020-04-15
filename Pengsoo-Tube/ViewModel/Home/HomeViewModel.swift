@@ -207,7 +207,7 @@ class HomeViewModel: BaseViewModel {
             toPlaylist.updatedAt = Date()
             do {
                 try managedOC.save()
-                delegate?.success(type: .playlistUpdate)
+                delegate?.success(type: .playlistUpdate, message: "Added to \(toPlaylist.title!)")
             } catch {
                 delegate?.showError(type: .playlistUpdate, error: .fail, message: "Something went wrong. Please try again.")
             }
