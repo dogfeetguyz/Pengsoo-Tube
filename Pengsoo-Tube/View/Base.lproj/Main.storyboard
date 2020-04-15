@@ -398,22 +398,40 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pyR-XM-cJk">
                                 <rect key="frame" x="0.0" y="234" width="414" height="579"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JIf-zt-3bM">
-                                    <size key="itemSize" width="128" height="128"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="0.0" id="JIf-zt-3bM">
+                                    <size key="itemSize" width="100" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCollectionViewCell" id="jt1-WY-NI8">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCollectionViewCellID" id="jt1-WY-NI8" customClass="MemeCollectionViewCell" customModule="PENG_HA__Tube" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cfp-lr-lOz">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XdF-Fb-X8L">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="XdF-Fb-X8L" firstAttribute="top" secondItem="cfp-lr-lOz" secondAttribute="top" id="CpS-eg-Eq6"/>
+                                                <constraint firstAttribute="trailing" secondItem="XdF-Fb-X8L" secondAttribute="trailing" id="VbP-h9-GEe"/>
+                                                <constraint firstItem="XdF-Fb-X8L" firstAttribute="leading" secondItem="cfp-lr-lOz" secondAttribute="leading" id="sxY-e5-Z3C"/>
+                                                <constraint firstAttribute="bottom" secondItem="XdF-Fb-X8L" secondAttribute="bottom" id="xrO-z8-RYh"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="memeImageView" destination="XdF-Fb-X8L" id="yvp-HW-w0S"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="bE4-ZQ-rIX" id="WMa-aK-Tix"/>
+                                    <outlet property="delegate" destination="bE4-ZQ-rIX" id="ebe-UY-911"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -434,6 +452,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Meme" image="t.bubble.fill" catalog="system" id="L26-Sl-Kcu"/>
                     <connections>
+                        <outlet property="memePhotosCollectionView" destination="pyR-XM-cJk" id="a2l-3q-z6C"/>
                         <outlet property="pengsooVideosBgImageView" destination="rpL-tf-wHU" id="J8z-sA-vct"/>
                         <outlet property="pengsooVideosButton" destination="vpo-lv-M3l" id="6NM-NY-50R"/>
                         <outlet property="photoLibraryButton" destination="dsO-Bs-nP8" id="SRV-eC-cZy"/>

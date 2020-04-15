@@ -77,7 +77,7 @@
                         <viewLayoutGuide key="safeArea" id="bSr-y4-biC"/>
                     </view>
                     <navigationItem key="navigationItem" title="Pengsoo Videos" id="LS5-b3-kec">
-                        <barButtonItem key="rightBarButtonItem" image="xmark" catalog="system" id="a4k-0a-5pl">
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="a4k-0a-5pl">
                             <connections>
                                 <action selector="closeButtonAction" destination="9UQ-5k-aJv" id="JRX-KO-XtA"/>
                             </connections>
@@ -110,7 +110,7 @@
                             <view contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="dqV-yx-X8K">
                                 <rect key="frame" x="0.0" y="564.5" width="414" height="45"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="RLK-fb-QbB">
+                                    <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="RLK-fb-QbB">
                                         <rect key="frame" x="13" y="8" width="388" height="30"/>
                                         <color key="tintColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -125,10 +125,24 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="05J-od-vpx"/>
-                                    <constraint firstAttribute="trailing" secondItem="RLK-fb-QbB" secondAttribute="trailing" constant="15" id="B8e-56-90E"/>
+                                    <constraint firstAttribute="trailing" secondItem="RLK-fb-QbB" secondAttribute="trailing" constant="20" id="B8e-56-90E"/>
                                     <constraint firstItem="RLK-fb-QbB" firstAttribute="centerY" secondItem="dqV-yx-X8K" secondAttribute="centerY" id="kOW-Ou-Qz5"/>
-                                    <constraint firstItem="RLK-fb-QbB" firstAttribute="leading" secondItem="dqV-yx-X8K" secondAttribute="leading" constant="15" id="rEp-GN-QEe"/>
+                                    <constraint firstItem="RLK-fb-QbB" firstAttribute="leading" secondItem="dqV-yx-X8K" secondAttribute="leading" constant="20" id="rEp-GN-QEe"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GZr-9I-RLA" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="187" y="428" width="40" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="X7Q-za-Tds"/>
+                                    <constraint firstAttribute="width" constant="40" id="Z35-zO-vXM"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="ballPulse"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -138,6 +152,8 @@
                             <constraint firstItem="dqV-yx-X8K" firstAttribute="trailing" secondItem="TGM-lA-dwj" secondAttribute="trailing" id="6EZ-Bv-95d"/>
                             <constraint firstItem="TGM-lA-dwj" firstAttribute="trailing" secondItem="WWe-Y3-DFw" secondAttribute="trailing" id="7kj-wC-dVm"/>
                             <constraint firstItem="dqV-yx-X8K" firstAttribute="leading" secondItem="TGM-lA-dwj" secondAttribute="leading" id="AdM-25-tZH"/>
+                            <constraint firstItem="GZr-9I-RLA" firstAttribute="centerX" secondItem="NfI-03-uR0" secondAttribute="centerX" id="M2e-6r-MWT"/>
+                            <constraint firstItem="GZr-9I-RLA" firstAttribute="centerY" secondItem="NfI-03-uR0" secondAttribute="centerY" id="Mo7-CQ-DGo"/>
                             <constraint firstItem="WWe-Y3-DFw" firstAttribute="centerY" secondItem="NfI-03-uR0" secondAttribute="centerY" id="OLO-sV-EjT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TGM-lA-dwj"/>
@@ -151,6 +167,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="indicator" destination="GZr-9I-RLA" id="CVg-hi-evC"/>
                         <outlet property="playerView" destination="WWe-Y3-DFw" id="6gT-IJ-ed6"/>
                         <outlet property="progressSlider" destination="RLK-fb-QbB" id="wtX-Pr-Jsh"/>
                     </connections>
@@ -308,7 +325,4 @@
             <point key="canvasLocation" x="-59" y="575"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="xmark" catalog="system" width="128" height="113"/>
-    </resources>
 </document>

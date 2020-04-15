@@ -45,7 +45,7 @@ class SplashViewModelTests: XCTestCase {
         sut.dispatchHeaderInfo()
         waitForThreeSeconds()
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.noError)
-        XCTAssertGreaterThan(HomeViewModel().getHeaderUrl()!.count, 0)
+        XCTAssertGreaterThan(Util.getHeaderUrl()!.count, 0)
     }
     
     func waitForThreeSeconds() {

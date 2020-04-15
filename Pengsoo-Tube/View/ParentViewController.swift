@@ -38,6 +38,11 @@ class ParentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(onVideoPlay(_:)), name: AppConstants.notification_show_miniplayer, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ovVideoPlayInQueue(_:)), name: AppConstants.notification_play_quque, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyTransition), name: AppConstants.notification_update_player_dismiss_gesture, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateQueue(_:)), name: AppConstants.notification_add_to_queue, object: nil)
+        
         miniPlayerPlayerView.backgroundColor = .clear
         
         miniPlayerView.layer.shadowColor = UIColor.label.cgColor
@@ -58,10 +63,6 @@ class ParentViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(onVideoPlay(_:)), name: AppConstants.notification_show_miniplayer, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(ovVideoPlayInQueue(_:)), name: AppConstants.notification_play_quque, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(notifyTransition), name: AppConstants.notification_update_player_dismiss_gesture, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateQueue(_:)), name: AppConstants.notification_add_to_queue, object: nil)
         miniplayerBottomConstraint.constant = tabBarViewController!.tabBar.frame.height
         self.miniPlayerView.layoutIfNeeded()
     }

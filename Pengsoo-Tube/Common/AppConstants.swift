@@ -27,7 +27,10 @@ struct AppConstants {
     static let valuePlaylistOutside : String = "PLwGaGJBBtgFedaczbgXOOppykqRkVZ787"
     static let valueBrandingId      : String = "UCtckgmUcpzqGnzcs7xEqMzQ"
     
+    static let memeAlbumName: String = "PENG-HA Tube"
+    
     static let notification_show_miniplayer: NSNotification.Name = NSNotification.Name(rawValue: "notification_show_miniplayer")
+    static let notification_reload_meme: NSNotification.Name = NSNotification.Name(rawValue: "notification_reload_meme")
     static let notification_play_quque: NSNotification.Name = NSNotification.Name(rawValue: "notification_play_quque")
     static let notification_load_more_queue: NSNotification.Name = NSNotification.Name(rawValue: "notification_load_more_queue")
     static let notification_add_to_queue: NSNotification.Name = NSNotification.Name(rawValue: "notification_add_to_queue")
@@ -131,15 +134,20 @@ enum ViewModelDelegateError: Int {
 
 enum RequestType: Int {
     case header = 0
-    case pengsooTv
-    case pengsooYoutube
-    case pengsooOutside
-    case playlist
-    case playlistCreate
-    case playlistDelete
-    case playlistUpdate
-    case recent
-    case recentDelete
-    case playlistDetail
-    case playlistDetailDelete
+    case pengsooTv = 1
+    case pengsooYoutube = 2
+    case pengsooOutside = 3
+    case playlist = 4
+    case playlistCreate = 5
+    case playlistDelete = 6
+    case playlistUpdate = 7
+    case recent = 8
+    case recentDelete = 9
+    case playlistDetail = 10
+    case playlistDetailDelete = 11
+    case memeCheckAuthorization = 12
+    case memeCreateAlbum = 13
+    case memeSave = 14
+    case memePhotos = 15
+    case memeDelete = 16
 }

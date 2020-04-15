@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import XCDYouTubeKit
 import CropViewController
+import NVActivityIndicatorView
 
 
 class NewMemePickedVideoViewController: UIViewController {
@@ -19,6 +20,7 @@ class NewMemePickedVideoViewController: UIViewController {
     
     @IBOutlet weak var playerView: UIView?
     @IBOutlet weak var progressSlider: UISlider!
+    @IBOutlet weak var indicator: NVActivityIndicatorView?
     
     let playerViewModel = PlayerViewModel()
     
@@ -29,13 +31,59 @@ class NewMemePickedVideoViewController: UIViewController {
     }
     
     func loadVideo() {
+        indicator?.startAnimating()
         XCDYouTubeClient.default().getVideoWithIdentifier(videoItem!.videoId) { (video, error) in
+            
             self.player = AVPlayer(url: video!.streamURL)
+            self.player!.isMuted = true
+            self.player!.addObserver(self, forKeyPath: "status", options: [.new], context: nil)
+            self.player!.pause()
+            
             let playerLayer = AVPlayerLayer(player: self.player!)
             playerLayer.frame = self.playerView!.bounds
             self.playerView!.layer.insertSublayer(playerLayer, at: 0)
-            self.player!.pause()
-            
+        }
+    }
+
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if let playerObject = object as? AVPlayer {
+            if keyPath == "status" {
+                indicator?.stopAnimating()
+                if playerObject.status == AVPlayer.Status.readyToPlay {
+                    progressSlider.isHidden = false
+                } else {
+
+                    let controller = UIAlertController(title: "Error", message: "Something went wrong. Please try again.", preferredStyle: .alert)
+                    controller.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in
+                        DispatchQueue.main.async {
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                    }))
+                    controller.addAction(UIAlertAction(title: "Retry", style: .default, handler: { (_) in
+                        self.loadVideo()
+                    }))
+                    present(controller, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    func seekToCurrentSliderValue() {
+        let duration = player?.currentItem?.asset.duration.seconds
+        let playTime = duration! * Double(progressSlider.value)
+        let playTimeCmTime = CMTime(seconds: playTime, preferredTimescale: 1000000)
+        self.player!.seek(to: playTimeCmTime)
+    }
+    
+    func adjustAfterSeeking() {
+        player!.play()
+        if player!.timeControlStatus == .waitingToPlayAtSpecifiedRate {
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
+                self.adjustAfterSeeking()
+            }
+        } else {
+            player?.pause()
+            indicator?.stopAnimating()
         }
     }
     
@@ -43,23 +91,21 @@ class NewMemePickedVideoViewController: UIViewController {
         if let touchEvent = event.allTouches?.first {
             switch touchEvent.phase {
             case .began:
-                player!.pause()
+                indicator?.startAnimating()
             case .moved:
-                let duration = player?.currentItem?.asset.duration.seconds
-                let playTime = duration! * Double(progressSlider.value)
-                let playTimeCmTime = CMTime(seconds: playTime, preferredTimescale: 1000000)
-                player!.seek(to: playTimeCmTime)
+                seekToCurrentSliderValue()
             case .ended:
-                player!.pause()
+                adjustAfterSeeking()
             default:
-                break
+                indicator?.stopAnimating()
             }
         }
     }
     
     @IBAction func nextButtonAction(_ sender: Any) {
-        player!.pause()
-        
+        if progressSlider.isHidden == false {
+            player!.pause()
+            
             guard let player = player ,
                 let asset = player.currentItem?.asset else {
                     return
@@ -76,6 +122,7 @@ class NewMemePickedVideoViewController: UIViewController {
             } catch {
                 
             }
+        }
     }
 }
 

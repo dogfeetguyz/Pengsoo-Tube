@@ -11,6 +11,7 @@ import IQLabelView
 
 class NewMemeViewController: UIViewController {
 
+    let viewModel = MemeViewModel()
     var chosenImage: UIImage?
     var imageSize: CGSize?
     
@@ -33,6 +34,16 @@ class NewMemeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
+        
+        if navigationController?.viewControllers.count == 1 {
+            let closeButton: UIButton = UIButton.init(type: .custom)
+            closeButton.setImage(UIImage(systemName: "xmark"), for: .normal)
+            closeButton.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
+            closeButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+            let closeBarButton = UIBarButtonItem(customView: closeButton)
+            self.navigationItem.setLeftBarButton(closeBarButton, animated: false)
+        }
 
         let addTextButton: UIButton = UIButton.init(type: .custom)
         addTextButton.setImage(UIImage(systemName: "text.cursor"), for: .normal)
@@ -56,6 +67,10 @@ class NewMemeViewController: UIViewController {
         
         containerView!.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(touchOutside(_:))))
         gestureView!.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(touchOutside(_:))))
+    }
+    
+    @objc func closeButtonAction() {
+        navigationController?.dismiss(animated: true, completion: nil)
     }
     
     @objc func addTextButtonAction() {
@@ -85,32 +100,11 @@ class NewMemeViewController: UIViewController {
     }
     
     @objc func saveButtonAction() {
-        UIGraphicsBeginImageContextWithOptions(containerView!.bounds.size, containerView!.isOpaque, 0.0)
-        defer { UIGraphicsEndImageContext() }
-        containerView!.drawHierarchy(in: containerView!.bounds, afterScreenUpdates: true)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIImageWriteToSavedPhotosAlbum(image!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+        viewModel.checkAuthorization()
     }
     
     @IBAction func segmentValueChanged(_ sender: Any) {
         colorCollectionView.reloadData()
-    }
-    
-    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-
-        if error == nil {
-            let ac = UIAlertController(title: "Saved!", message: "Image saved to your photos.", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
-                DispatchQueue.main.async {
-                    self.navigationController?.dismiss(animated: true, completion: nil)
-                }
-            }))
-            present(ac, animated: true, completion: nil)
-        } else {
-            let ac = UIAlertController(title: "Save error", message: error?.localizedDescription, preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(ac, animated: true, completion: nil)
-        }
     }
     
     @objc func touchOutside(_ touchGesture: UITapGestureRecognizer) {
@@ -186,6 +180,46 @@ extension NewMemeViewController: UICollectionViewDataSource, UICollectionViewDel
             
             shadowIndex = indexPath.item
             currentlyEditngLabel?.showsContentShadow = shadowIndex == 1
+        }
+    }
+}
+
+extension NewMemeViewController: ViewModelDelegate {
+    func success(type: RequestType, message: String) {
+        DispatchQueue.main.async {
+            if type == .memeCheckAuthorization {
+                self.viewModel.createAlbum()
+            } else if type == .memeCreateAlbum {
+                UIGraphicsBeginImageContextWithOptions(self.containerView!.bounds.size, self.containerView!.isOpaque, 0.0)
+                defer { UIGraphicsEndImageContext() }
+                self.containerView!.drawHierarchy(in: self.containerView!.bounds, afterScreenUpdates: true)
+                let image = UIGraphicsGetImageFromCurrentImageContext()
+                self.viewModel.saveImage(image: image!)
+            } else if type == .memeSave {
+                Util.createToast(message: "New Meme saved to your photos")
+                NotificationCenter.default.post(name: AppConstants.notification_reload_meme, object: nil, userInfo: nil)
+                self.navigationController?.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func showError(type: RequestType, error: ViewModelDelegateError, message: String) {
+        if type == .memeCheckAuthorization {
+            DispatchQueue.main.async {
+                let controller = UIAlertController(title: "", message: message, preferredStyle: .alert)
+                controller.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+                controller.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { (action) in
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
+                    } else {
+                    }
+                }))
+                self.present(controller, animated: true, completion: nil)
+            }
+        } else if type == .memeCreateAlbum {
+            Util.createToast(message: message)
+        } else if type == .memeSave {
+            Util.createToast(message: message)
         }
     }
 }
