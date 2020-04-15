@@ -5,6 +5,8 @@ PODS:
   - AlamofireObjectMapper (6.3.0):
     - Alamofire (~> 5.0.0)
     - ObjectMapper (~> 3.5.2)
+  - CropViewController (2.5.2)
+  - IQLabelView (0.2.1)
   - Movin (1.2.0)
   - Nimble (8.0.5)
   - NVActivityIndicatorView (4.8.0):
@@ -28,11 +30,14 @@ PODS:
   - QuickLayout (3.0.0)
   - SwiftEntryKit (1.2.3):
     - QuickLayout (= 3.0.0)
+  - XCDYouTubeKit (2.12.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0)
   - AlamofireImage (~> 4.0)
   - AlamofireObjectMapper (from `https://github.com/UnsereHausapotheke/AlamofireObjectMapper.git`)
+  - CropViewController
+  - IQLabelView (~> 0.2.1)
   - Movin
   - Nimble
   - NVActivityIndicatorView
@@ -40,11 +45,14 @@ DEPENDENCIES:
   - OHHTTPStubs/Swift
   - Quick
   - SwiftEntryKit (= 1.2.3)
+  - XCDYouTubeKit (~> 2.12)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - AlamofireImage
+    - CropViewController
+    - IQLabelView
     - Movin
     - Nimble
     - NVActivityIndicatorView
@@ -53,6 +61,7 @@ SPEC REPOS:
     - Quick
     - QuickLayout
     - SwiftEntryKit
+    - XCDYouTubeKit
 
 EXTERNAL SOURCES:
   AlamofireObjectMapper:
@@ -67,6 +76,8 @@ SPEC CHECKSUMS:
   Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
   AlamofireImage: 3d1a2010519e58675318735580eb856e88840ff7
   AlamofireObjectMapper: 1aa0d2936b8b663bf828e5ca6b48f847ec75cc96
+  CropViewController: 1aac40093c5739e60d992b04724a55d12a689a4c
+  IQLabelView: 00f36d868f6dfb07e45f737acaa2b7d355d3182f
   Movin: 02a488d93913e46de77774d6a2cc2fa0eec83760
   Nimble: 4ab1aeb9b45553c75b9687196b0fa0713170a332
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
@@ -75,7 +86,8 @@ SPEC CHECKSUMS:
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
   QuickLayout: 07b45a72b10083fee3f095990cfed1c1e7b27f0a
   SwiftEntryKit: 340713c2e4a6662c5149629990bf1088bf5f0389
+  XCDYouTubeKit: cdad9e696f991aac2739c5b25586c81f1301ba30
 
-PODFILE CHECKSUM: 96378df68f128004c675fa931921651c1e8dc5c3
+PODFILE CHECKSUM: 02e98203fe34ecd4f27e8f4252aa704d9e64f89c
 
 COCOAPODS: 1.9.0

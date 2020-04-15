@@ -46,4 +46,10 @@ extension PlayerViewController: UITableViewDelegate, UITableViewDataSource {
             Util.playQueue(at: indexPath.row)
         }
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if ((scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height) {
+            viewModel!.checkLoadMoreQueue(checkPlayingIndex: false)
+        }
+    }
 }

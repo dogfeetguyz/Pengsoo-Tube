@@ -9,6 +9,9 @@ target 'Pengsoo-Tube' do
   pod 'SwiftEntryKit', '1.2.3'
   pod 'Movin'
   pod 'NVActivityIndicatorView'
+  pod "XCDYouTubeKit", "~> 2.12"
+  pod 'CropViewController'
+  pod 'IQLabelView', '~> 0.2.1'
 end
 
 target 'Pengsoo-TubeTests' do

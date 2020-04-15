@@ -38,6 +38,11 @@ class ParentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(onVideoPlay(_:)), name: AppConstants.notification_show_miniplayer, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ovVideoPlayInQueue(_:)), name: AppConstants.notification_play_quque, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notifyTransition), name: AppConstants.notification_update_player_dismiss_gesture, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateQueue(_:)), name: AppConstants.notification_add_to_queue, object: nil)
+        
         miniPlayerPlayerView.backgroundColor = .clear
         
         miniPlayerView.layer.shadowColor = UIColor.label.cgColor
@@ -58,9 +63,6 @@ class ParentViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(onVideoPlay(_:)), name: AppConstants.notification_show_miniplayer, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(ovVideoPlayInQueue(_:)), name: AppConstants.notification_play_quque, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(notifyTransition), name: AppConstants.notification_update_player_dismiss_gesture, object: nil)
         miniplayerBottomConstraint.constant = tabBarViewController!.tabBar.frame.height
         self.miniPlayerView.layoutIfNeeded()
     }
@@ -84,7 +86,7 @@ class ParentViewController: UIViewController {
         
         self.movin = Movin(1.0, TimingCurve(curve: .easeInOut, dampingRatio: 0.8))
         
-        let player = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PlayerViewController") as! PlayerViewController
+        let player = UIStoryboard(name: "PlayerView", bundle: nil).instantiateInitialViewController() as! PlayerViewController
         player.viewModel = playerViewModel
         player.setupConstraints(statusBarHeight: view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0, parentSize: self.view.size)
         
@@ -203,9 +205,11 @@ class ParentViewController: UIViewController {
         self.miniPlayerPlayerView.load(URLRequest(url: URL(string:"about:blank")!))
         
         self.playerViewModel.replaceQueue(videoItems: notification.userInfo![AppConstants.notification_userInfo_video_items] as! [VideoItemModel],
-                                     playingIndex: notification.userInfo![AppConstants.notification_userInfo_playing_index] as! Int)
+                                          playingIndex: notification.userInfo![AppConstants.notification_userInfo_playing_index] as! Int,
+                                          requestType: notification.userInfo![AppConstants.notification_userInfo_request_type] as! RequestType)
         
         if let currentItem = self.playerViewModel.getPlayingItem() {
+            self.playerViewModel.checkLoadMoreQueue()
             self.playerViewModel.addToRecent(item: currentItem)
             self.openPlayer()
 
@@ -222,10 +226,9 @@ class ParentViewController: UIViewController {
                 ]
                 self.miniPlayerPlayerView.delegate = self
                 self.miniPlayerPlayerView.loadWithVideoId(currentItem.videoId, with: playerVars)
-                self.miniPlayerPlayerView.play()
             }
         } else {
-            //error message please
+            Util.createToast(message: "Something went wrong. Please try again.")
         }
     }
     
@@ -236,6 +239,7 @@ class ParentViewController: UIViewController {
         self.playerViewModel.setPlayingIndex(index: notification.userInfo![AppConstants.notification_userInfo_playing_index] as! Int)
         
         if let currentItem = self.playerViewModel.getPlayingItem() {
+            self.playerViewModel.checkLoadMoreQueue()
             self.playerViewModel.addToRecent(item: currentItem)
 
             if let player = self.playerViewController {
@@ -255,7 +259,20 @@ class ParentViewController: UIViewController {
             self.miniPlayerPlayerView.delegate = self
             self.miniPlayerPlayerView.loadWithVideoId(currentItem.videoId, with: playerVars)
         } else {
-            //error message please
+            Util.createToast(message: "Something went wrong. Please try again.")
+        }
+    }
+    
+    @objc func updateQueue(_ notification: Notification) {
+        let canRequestMore = notification.userInfo![AppConstants.notification_userInfo_can_request_more] as! Bool
+        
+        if let videoItems = notification.userInfo![AppConstants.notification_userInfo_video_items] as? [VideoItemModel] {
+            playerViewModel.updateQueue(canRequestMore: canRequestMore, videoItems: videoItems)
+            if let player = self.playerViewController {
+                player.updateQueue()
+            }
+        } else {
+            playerViewModel.updateQueue(canRequestMore: canRequestMore)
         }
     }
     
@@ -311,7 +328,6 @@ extension ParentViewController: UITabBarControllerDelegate {
 // MARK: - YoutubePlayerViewDelegate
 extension ParentViewController: YoutubePlayerViewDelegate {
     func playerViewDidBecomeReady(_ playerView: YoutubePlayerView) {
-        
         playerView.fetchDuration { (duration) in
             self.playerViewModel.setDuration(duration: duration!)
             if let player = self.playerViewController {

@@ -26,7 +26,7 @@ class HomeViewController: UIViewController {
     
     var pageViewController = UIPageViewController()
     var selectedTabView = UIView()
-    var pageCollection = Util.PageCollection()
+    var pageCollection = HomeContentViewController.PageCollection()
     
     var dragInitialY: CGFloat = 0
     var dragPreviousY: CGFloat = 0
@@ -75,7 +75,7 @@ class HomeViewController: UIViewController {
     }
     
     func setupHeader() {
-        if let headerUrl = HomeViewModel().getHeaderUrl() {
+        if let headerUrl = Util.getHeaderUrl() {
             if headerUrl.count > 0 {
                 Util.loadCachedImage(url: headerUrl) { (image) in
                     self.headerImageView!.image = image
@@ -103,12 +103,12 @@ class HomeViewController: UIViewController {
     func populateBottomView() {
         
         for (index, requestType) in AppConstants.home_tab_types.enumerated() {
-            let tabContentVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContentViewController") as! HomeContentViewController
+            let tabContentVC = UIStoryboard(name: "HomeContentView", bundle: nil).instantiateInitialViewController() as! HomeContentViewController
             tabContentVC.innerTableViewScrollDelegate = self
             tabContentVC.requestType = requestType
             
             let displayName = AppConstants.home_tab_titles[index]
-            let page = Util.Page(with: displayName, _vc: tabContentVC)
+            let page = HomeContentViewController.Page(with: displayName, _vc: tabContentVC)
             pageCollection.pages.append(page)
         }
 
@@ -206,18 +206,15 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if indexPath.item == pageCollection.selectedPageIndex {
-            
             return
         }
         
         var direction: UIPageViewController.NavigationDirection
         
         if indexPath.item > pageCollection.selectedPageIndex {
-            
             direction = .forward
             
         } else {
-            
             direction = .reverse
         }
         
@@ -245,9 +242,6 @@ extension HomeViewController: UIPageViewControllerDataSource, UIPageViewControll
         if let currentViewControllerIndex = pageCollection.pages.firstIndex(where: { $0.vc == viewController }) {
             
             if (1..<pageCollection.pages.count).contains(currentViewControllerIndex) {
-                
-                // go to previous page in array
-                
                 return pageCollection.pages[currentViewControllerIndex - 1].vc
             }
         }
@@ -259,9 +253,6 @@ extension HomeViewController: UIPageViewControllerDataSource, UIPageViewControll
         if let currentViewControllerIndex = pageCollection.pages.firstIndex(where: { $0.vc == viewController }) {
             
             if (0..<(pageCollection.pages.count - 1)).contains(currentViewControllerIndex) {
-                
-                // go to next page in array
-                
                 return pageCollection.pages[currentViewControllerIndex + 1].vc
             }
         }

@@ -30,7 +30,7 @@ class LibraryViewController: UIViewController {
     }
 
     @IBAction func seeAllButtonAction(_ sender: UIButton) {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LibraryDetailViewController") as! LibraryDetailViewController
+        let viewController = UIStoryboard(name: "LibraryDetailView", bundle: nil).instantiateViewController(withIdentifier: "LibraryDetailViewController") as! LibraryDetailViewController
         
         if sender.tag == 0 {
             viewController.viewModel = LibraryDetailViewModel(playItems: viewModel.recentItems, title: "Recent")
@@ -95,13 +95,11 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
             
             if cell.videoItems != nil && cell.videoItems!.count > 0 {
                 cell.collectionView.isHidden = false
-                cell.seeAllButton.isHidden = false
                 cell.noItemsView.isHidden = true
                 
                 cell.collectionView.reloadData()
             } else {
                 cell.collectionView.isHidden = true
-                cell.seeAllButton.isHidden = true
                 cell.noItemsView.isHidden = false
             }
             
@@ -119,6 +117,7 @@ extension LibraryViewController: ViewModelDelegate {
         } else if type == .recent {
             tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
         } else if type == .playlistCreate {
+            Util.createToast(message: message)
             tableView.reloadData()
         }
     }

@@ -36,15 +36,26 @@
 		FA3E68DD243AD28000A3EFD6 /* PlayerViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E68DC243AD28000A3EFD6 /* PlayerViewController+UICollectionViewDataSource.swift */; };
 		FA3E68DF243AD30B00A3EFD6 /* PlayerViewController+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E68DE243AD30B00A3EFD6 /* PlayerViewController+UITableViewDataSource.swift */; };
 		FA3E68E1243AE7A800A3EFD6 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E68E0243AE7A800A3EFD6 /* SplashViewController.swift */; };
-		FA3E68E3243AE81100A3EFD6 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3E68E2243AE81100A3EFD6 /* Splash.storyboard */; };
+		FA3E68E3243AE81100A3EFD6 /* SplashView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3E68E2243AE81100A3EFD6 /* SplashView.storyboard */; };
 		FA60397F24346ED700CE4659 /* LibraryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60397E24346ED700CE4659 /* LibraryDetailTableViewCell.swift */; };
+		FA72743524459E6100CD7BD8 /* IQLabelView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72743424459E6100CD7BD8 /* IQLabelView+Extensions.swift */; };
 		FA80722D24302A860050BC8D /* HomeTabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80722C24302A860050BC8D /* HomeTabBarCell.swift */; };
 		FA80722F243031860050BC8D /* HomeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80722E243031860050BC8D /* HomeContentViewController.swift */; };
+		FA90EC2D243DA9DD00E3F391 /* PlayerView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA90EC2C243DA9DC00E3F391 /* PlayerView.storyboard */; };
+		FA90EC2F243DAC6600E3F391 /* HomeContentView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA90EC2E243DAC6600E3F391 /* HomeContentView.storyboard */; };
+		FACA4D202443F76B00FFF859 /* MemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA4D1F2443F76B00FFF859 /* MemeViewController.swift */; };
 		FACBBC3B243C3B980023FB92 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBBC3A243C3B980023FB92 /* SplashViewModel.swift */; };
 		FACBBC3D243C3CD60023FB92 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBBC3C243C3CD60023FB92 /* BaseViewModel.swift */; };
 		FACBBC40243C3F500023FB92 /* SplashViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACBBC3F243C3F500023FB92 /* SplashViewModelTests.swift */; };
 		FAD709F12429B11300E48D31 /* HeaderImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD709F02429B11300E48D31 /* HeaderImageModel.swift */; };
 		FAD709F32429B14200E48D31 /* BrandingSettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD709F22429B14200E48D31 /* BrandingSettingsModel.swift */; };
+		FADB867624441D1E00DD24BD /* LibraryDetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADB867524441D1E00DD24BD /* LibraryDetailView.storyboard */; };
+		FADB86782444211500DD24BD /* NewMemeFromVideosView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADB86772444211500DD24BD /* NewMemeFromVideosView.storyboard */; };
+		FADB867C244426EF00DD24BD /* NewMemeFromVideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB867B244426EF00DD24BD /* NewMemeFromVideosViewController.swift */; };
+		FADB867E244428AC00DD24BD /* NewMemeFromVideosContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB867D244428AC00DD24BD /* NewMemeFromVideosContentViewController.swift */; };
+		FADB86802444340C00DD24BD /* NewMemePickedVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB867F2444340C00DD24BD /* NewMemePickedVideoViewController.swift */; };
+		FADB86842444750700DD24BD /* NewMemeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADB86832444750700DD24BD /* NewMemeView.storyboard */; };
+		FADB86872444758500DD24BD /* NewMemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB86862444758500DD24BD /* NewMemeViewController.swift */; };
 		FADEDB1424285E770071C1BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB1324285E770071C1BB /* AppDelegate.swift */; };
 		FADEDB1624285E770071C1BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB1524285E770071C1BB /* SceneDelegate.swift */; };
 		FADEDB1824285E770071C1BB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADEDB1724285E770071C1BB /* HomeViewController.swift */; };
@@ -69,6 +80,10 @@
 		FAE11CF42432C3490077B5B2 /* VideoItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE11CF32432C3490077B5B2 /* VideoItemModel.swift */; };
 		FAE11CF92432C8C50077B5B2 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE11CF82432C8C50077B5B2 /* PlayerViewModel.swift */; };
 		FAE11CFB2432E1C20077B5B2 /* PlayerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE11CFA2432E1C20077B5B2 /* PlayerViewModelTests.swift */; };
+		FAE818382446E601008C80EC /* MemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE818372446E601008C80EC /* MemeViewModel.swift */; };
+		FAE8183A244720F2008C80EC /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE81839244720F2008C80EC /* MemeCollectionViewCell.swift */; };
+		FAE8183D244723C3008C80EC /* MemeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE8183C244723C3008C80EC /* MemeDetailViewController.swift */; };
+		FAE8183F24472410008C80EC /* MemeDetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE8183E24472410008C80EC /* MemeDetailView.storyboard */; };
 		FAE95C72242D85B8003AD3AD /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE95C71242D85B8003AD3AD /* Util.swift */; };
 		FAF59120242CC13200EED00B /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF5911F242CC13200EED00B /* ParentViewController.swift */; };
 		FAF59122242CC9B100EED00B /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF59121242CC9B100EED00B /* PlayerViewController.swift */; };
@@ -118,15 +133,26 @@
 		FA3E68DC243AD28000A3EFD6 /* PlayerViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
 		FA3E68DE243AD30B00A3EFD6 /* PlayerViewController+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerViewController+UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		FA3E68E0243AE7A800A3EFD6 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		FA3E68E2243AE81100A3EFD6 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		FA3E68E2243AE81100A3EFD6 /* SplashView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashView.storyboard; sourceTree = "<group>"; };
 		FA60397E24346ED700CE4659 /* LibraryDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetailTableViewCell.swift; sourceTree = "<group>"; };
+		FA72743424459E6100CD7BD8 /* IQLabelView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IQLabelView+Extensions.swift"; sourceTree = "<group>"; };
 		FA80722C24302A860050BC8D /* HomeTabBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarCell.swift; sourceTree = "<group>"; };
 		FA80722E243031860050BC8D /* HomeContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentViewController.swift; sourceTree = "<group>"; };
+		FA90EC2C243DA9DC00E3F391 /* PlayerView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PlayerView.storyboard; sourceTree = "<group>"; };
+		FA90EC2E243DAC6600E3F391 /* HomeContentView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeContentView.storyboard; sourceTree = "<group>"; };
+		FACA4D1F2443F76B00FFF859 /* MemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeViewController.swift; sourceTree = "<group>"; };
 		FACBBC3A243C3B980023FB92 /* SplashViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		FACBBC3C243C3CD60023FB92 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		FACBBC3F243C3F500023FB92 /* SplashViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewModelTests.swift; sourceTree = "<group>"; };
 		FAD709F02429B11300E48D31 /* HeaderImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderImageModel.swift; sourceTree = "<group>"; };
 		FAD709F22429B14200E48D31 /* BrandingSettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandingSettingsModel.swift; sourceTree = "<group>"; };
+		FADB867524441D1E00DD24BD /* LibraryDetailView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LibraryDetailView.storyboard; sourceTree = "<group>"; };
+		FADB86772444211500DD24BD /* NewMemeFromVideosView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewMemeFromVideosView.storyboard; sourceTree = "<group>"; };
+		FADB867B244426EF00DD24BD /* NewMemeFromVideosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemeFromVideosViewController.swift; sourceTree = "<group>"; };
+		FADB867D244428AC00DD24BD /* NewMemeFromVideosContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMemeFromVideosContentViewController.swift; sourceTree = "<group>"; };
+		FADB867F2444340C00DD24BD /* NewMemePickedVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemePickedVideoViewController.swift; sourceTree = "<group>"; };
+		FADB86832444750700DD24BD /* NewMemeView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewMemeView.storyboard; sourceTree = "<group>"; };
+		FADB86862444758500DD24BD /* NewMemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemeViewController.swift; sourceTree = "<group>"; };
 		FADEDB1024285E770071C1BB /* PENG-HA! Tube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PENG-HA! Tube.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADEDB1324285E770071C1BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADEDB1524285E770071C1BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +181,10 @@
 		FAE11CF32432C3490077B5B2 /* VideoItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoItemModel.swift; sourceTree = "<group>"; };
 		FAE11CF82432C8C50077B5B2 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 		FAE11CFA2432E1C20077B5B2 /* PlayerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModelTests.swift; sourceTree = "<group>"; };
+		FAE818372446E601008C80EC /* MemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeViewModel.swift; sourceTree = "<group>"; };
+		FAE81839244720F2008C80EC /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewCell.swift; sourceTree = "<group>"; };
+		FAE8183C244723C3008C80EC /* MemeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeDetailViewController.swift; sourceTree = "<group>"; };
+		FAE8183E24472410008C80EC /* MemeDetailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MemeDetailView.storyboard; sourceTree = "<group>"; };
 		FAE95C71242D85B8003AD3AD /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		FAF5911F242CC13200EED00B /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
 		FAF59121242CC9B100EED00B /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
@@ -195,7 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				FA3E68E0243AE7A800A3EFD6 /* SplashViewController.swift */,
-				FA3E68E2243AE81100A3EFD6 /* Splash.storyboard */,
+				FA3E68E2243AE81100A3EFD6 /* SplashView.storyboard */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -266,9 +296,10 @@
 			isa = PBXGroup;
 			children = (
 				FADEDB1724285E770071C1BB /* HomeViewController.swift */,
-				FA80722E243031860050BC8D /* HomeContentViewController.swift */,
 				FA80722C24302A860050BC8D /* HomeTabBarCell.swift */,
 				FA015DED242C6A15007CBDBC /* HomeTableViewCell.swift */,
+				FA80722E243031860050BC8D /* HomeContentViewController.swift */,
+				FA90EC2E243DAC6600E3F391 /* HomeContentView.storyboard */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -331,6 +362,31 @@
 			path = Library;
 			sourceTree = "<group>";
 		};
+		FACA4D1C2443F71400FFF859 /* Meme */ = {
+			isa = PBXGroup;
+			children = (
+				FAE818372446E601008C80EC /* MemeViewModel.swift */,
+			);
+			path = Meme;
+			sourceTree = "<group>";
+		};
+		FACA4D1D2443F72000FFF859 /* Meme */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Meme;
+			sourceTree = "<group>";
+		};
+		FACA4D1E2443F72500FFF859 /* Meme */ = {
+			isa = PBXGroup;
+			children = (
+				FADB8679244421CC00DD24BD /* NewMeme */,
+				FACA4D1F2443F76B00FFF859 /* MemeViewController.swift */,
+				FAE81839244720F2008C80EC /* MemeCollectionViewCell.swift */,
+			);
+			path = Meme;
+			sourceTree = "<group>";
+		};
 		FACBBC39243C3B750023FB92 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +400,7 @@
 			children = (
 				FA2E52C82434502500966AB5 /* LibraryDetailViewController.swift */,
 				FA60397E24346ED700CE4659 /* LibraryDetailTableViewCell.swift */,
+				FADB867524441D1E00DD24BD /* LibraryDetailView.storyboard */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -355,6 +412,28 @@
 				FAD709F02429B11300E48D31 /* HeaderImageModel.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		FADB8679244421CC00DD24BD /* NewMeme */ = {
+			isa = PBXGroup;
+			children = (
+				FAE8183B244723AF008C80EC /* Detail */,
+				FADB867A244421D200DD24BD /* FromVideos */,
+				FADB86862444758500DD24BD /* NewMemeViewController.swift */,
+				FADB86832444750700DD24BD /* NewMemeView.storyboard */,
+			);
+			path = NewMeme;
+			sourceTree = "<group>";
+		};
+		FADB867A244421D200DD24BD /* FromVideos */ = {
+			isa = PBXGroup;
+			children = (
+				FADB867B244426EF00DD24BD /* NewMemeFromVideosViewController.swift */,
+				FADB867D244428AC00DD24BD /* NewMemeFromVideosContentViewController.swift */,
+				FADB867F2444340C00DD24BD /* NewMemePickedVideoViewController.swift */,
+				FADB86772444211500DD24BD /* NewMemeFromVideosView.storyboard */,
+			);
+			path = FromVideos;
 			sourceTree = "<group>";
 		};
 		FADEDB0724285E770071C1BB = {
@@ -411,6 +490,7 @@
 		FADEDB38242866C20071C1BB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FACA4D1D2443F72000FFF859 /* Meme */,
 				FAE11CF72432C8B30077B5B2 /* Player */,
 				FAC58679243179290091F0E8 /* Library */,
 				FAC58678243179250091F0E8 /* Home */,
@@ -422,6 +502,7 @@
 		FADEDB39242866F70071C1BB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FACA4D1E2443F72500FFF859 /* Meme */,
 				FAE11CF52432C8A70077B5B2 /* Player */,
 				FAC58675243178DC0091F0E8 /* Library */,
 				FABC8E842431589D00038987 /* Home */,
@@ -435,6 +516,7 @@
 		FADEDB3A242866FC0071C1BB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				FACA4D1C2443F71400FFF859 /* Meme */,
 				FAE11CF62432C8AE0077B5B2 /* Player */,
 				FAC58677243178EF0091F0E8 /* Library */,
 				FAC58676243178E80091F0E8 /* Home */,
@@ -450,9 +532,10 @@
 			children = (
 				FA1A63FF2434A20D00A3212E /* YoutubePlayerView */,
 				FA2E529D2433FABF00966AB5 /* CustomAlerts */,
-				FADEDB4C2428717A0071C1BB /* AppConstants.swift */,
 				FA13DC10242C7CE20031826A /* InsetLabel.swift */,
+				FADEDB4C2428717A0071C1BB /* AppConstants.swift */,
 				FAE95C71242D85B8003AD3AD /* Util.swift */,
+				FA72743424459E6100CD7BD8 /* IQLabelView+Extensions.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -471,6 +554,7 @@
 				FAF59121242CC9B100EED00B /* PlayerViewController.swift */,
 				FA3E68DE243AD30B00A3EFD6 /* PlayerViewController+UITableViewDataSource.swift */,
 				FA3E68DC243AD28000A3EFD6 /* PlayerViewController+UICollectionViewDataSource.swift */,
+				FA90EC2C243DA9DC00E3F391 /* PlayerView.storyboard */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -489,6 +573,15 @@
 				FAE11CF32432C3490077B5B2 /* VideoItemModel.swift */,
 			);
 			path = Player;
+			sourceTree = "<group>";
+		};
+		FAE8183B244723AF008C80EC /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				FAE8183C244723C3008C80EC /* MemeDetailViewController.swift */,
+				FAE8183E24472410008C80EC /* MemeDetailView.storyboard */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -577,9 +670,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FADEDB2324285E7A0071C1BB /* LaunchScreen.storyboard in Resources */,
+				FADB86842444750700DD24BD /* NewMemeView.storyboard in Resources */,
+				FADB867624441D1E00DD24BD /* LibraryDetailView.storyboard in Resources */,
+				FA90EC2F243DAC6600E3F391 /* HomeContentView.storyboard in Resources */,
 				FADEDB2024285E7A0071C1BB /* Assets.xcassets in Resources */,
+				FA90EC2D243DA9DD00E3F391 /* PlayerView.storyboard in Resources */,
+				FAE8183F24472410008C80EC /* MemeDetailView.storyboard in Resources */,
 				FADEDB1B24285E770071C1BB /* Main.storyboard in Resources */,
-				FA3E68E3243AE81100A3EFD6 /* Splash.storyboard in Resources */,
+				FADB86782444211500DD24BD /* NewMemeFromVideosView.storyboard in Resources */,
+				FA3E68E3243AE81100A3EFD6 /* SplashView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,11 +787,15 @@
 				FA1EFBCD24384D590022D6C6 /* YoutubeContentDetails.swift in Sources */,
 				FA2E52B32433FABF00966AB5 /* UITextField+Extensions.swift in Sources */,
 				FADEDB4A24286F100071C1BB /* YoutubeThumbnailModel.swift in Sources */,
+				FAE8183D244723C3008C80EC /* MemeDetailViewController.swift in Sources */,
 				FADEDB4624286E130071C1BB /* YoutubeItemModel.swift in Sources */,
+				FAE818382446E601008C80EC /* MemeViewModel.swift in Sources */,
 				FA22A7102435B76A0051FAF7 /* PlaylistModel.swift in Sources */,
 				FA1A64022434A20D00A3212E /* YoutubePlayerView.swift in Sources */,
 				FADEDB1824285E770071C1BB /* HomeViewController.swift in Sources */,
+				FADB867C244426EF00DD24BD /* NewMemeFromVideosViewController.swift in Sources */,
 				FA2E52AF2433FABF00966AB5 /* UIView+Extensions.swift in Sources */,
+				FA72743524459E6100CD7BD8 /* IQLabelView+Extensions.swift in Sources */,
 				FAD709F32429B14200E48D31 /* BrandingSettingsModel.swift in Sources */,
 				FADEDB3E242868FB0071C1BB /* ViewModelDelegate.swift in Sources */,
 				FA015DEE242C6A15007CBDBC /* HomeTableViewCell.swift in Sources */,
@@ -707,10 +810,13 @@
 				FADEDB4824286F040071C1BB /* YoutubeThumbnailsModel.swift in Sources */,
 				FAE11CF0243292B70077B5B2 /* LibraryTableViewCell.swift in Sources */,
 				FA1A64032434A20D00A3212E /* YoutubePlayerExtras.swift in Sources */,
+				FADB867E244428AC00DD24BD /* NewMemeFromVideosContentViewController.swift in Sources */,
 				FA60397F24346ED700CE4659 /* LibraryDetailTableViewCell.swift in Sources */,
+				FADB86872444758500DD24BD /* NewMemeViewController.swift in Sources */,
 				FAE11CF42432C3490077B5B2 /* VideoItemModel.swift in Sources */,
 				FACBBC3D243C3CD60023FB92 /* BaseViewModel.swift in Sources */,
 				FAE95C72242D85B8003AD3AD /* Util.swift in Sources */,
+				FAE8183A244720F2008C80EC /* MemeCollectionViewCell.swift in Sources */,
 				FA2E52C92434502500966AB5 /* LibraryDetailViewController.swift in Sources */,
 				FADEDB4424286CE60071C1BB /* YoutubeVideoIdModel.swift in Sources */,
 				FAF59122242CC9B100EED00B /* PlayerViewController.swift in Sources */,
@@ -719,6 +825,7 @@
 				FADEDB1424285E770071C1BB /* AppDelegate.swift in Sources */,
 				FADEDB4024286A6D0071C1BB /* YoutubeListModel.swift in Sources */,
 				FADEDB1624285E770071C1BB /* SceneDelegate.swift in Sources */,
+				FACA4D202443F76B00FFF859 /* MemeViewController.swift in Sources */,
 				FAE11CF92432C8C50077B5B2 /* PlayerViewModel.swift in Sources */,
 				FADEDB3C242868A20071C1BB /* HomeViewModel.swift in Sources */,
 				FAD709F12429B11300E48D31 /* HeaderImageModel.swift in Sources */,
@@ -729,6 +836,7 @@
 				FA22A7302435DD410051FAF7 /* Playlist+CoreDataProperties.swift in Sources */,
 				FACBBC3B243C3B980023FB92 /* SplashViewModel.swift in Sources */,
 				FA22A7342435DD410051FAF7 /* Recent+CoreDataProperties.swift in Sources */,
+				FADB86802444340C00DD24BD /* NewMemePickedVideoViewController.swift in Sources */,
 				FA22A7322435DD410051FAF7 /* PlaylistVideo+CoreDataClass.swift in Sources */,
 				FA22A7312435DD410051FAF7 /* PlaylistVideo+CoreDataProperties.swift in Sources */,
 				FA3E68DD243AD28000A3EFD6 /* PlayerViewController+UICollectionViewDataSource.swift in Sources */,
@@ -897,6 +1005,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = B78Z6M42G4;
 				INFOPLIST_FILE = "Pengsoo-Tube/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -917,6 +1026,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = B78Z6M42G4;
 				INFOPLIST_FILE = "Pengsoo-Tube/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

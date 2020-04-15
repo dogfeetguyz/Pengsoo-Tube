@@ -119,10 +119,6 @@ class HomeViewModel: BaseViewModel {
         }
     }
     
-    func getHeaderUrl() -> String? {
-        return UserDefaults.standard.string(forKey: AppConstants.key_user_default_home_header_url)
-    }
-    
     func getItemsList(for requestType: RequestType) -> [VideoItemModel]? {
         switch requestType {
         case .pengsooTv:
@@ -211,7 +207,7 @@ class HomeViewModel: BaseViewModel {
             toPlaylist.updatedAt = Date()
             do {
                 try managedOC.save()
-                delegate?.success(type: .playlistUpdate)
+                delegate?.success(type: .playlistUpdate, message: "Added to \(toPlaylist.title!)")
             } catch {
                 delegate?.showError(type: .playlistUpdate, error: .fail, message: "Something went wrong. Please try again.")
             }

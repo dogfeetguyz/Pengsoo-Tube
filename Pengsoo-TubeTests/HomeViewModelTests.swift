@@ -128,11 +128,6 @@ class HomeViewModelTests: XCTestCase {
         XCTAssertEqual(errorOccurred, ViewModelDelegateError.networkError)
     }
     
-    func testGetHeaderUrl() {
-        let headerUrl = sut.getHeaderUrl()
-        XCTAssertGreaterThan(headerUrl!.count, 0)
-    }
-    
     func testGetItemsListForRequestType() {
         let tvListItems = sut.getItemsList(for: .pengsooTv)
         XCTAssertEqual(tvListItems, sut.tvListItems)

@@ -105,7 +105,7 @@ class LibraryDetailViewController: UIViewController {
     
     @IBAction func playButtonAction(_ sender: Any) {
         if let playItems = viewModel?.playItems {
-            Util.openPlayer(videoItems: playItems, playingIndex: 0)
+            Util.openPlayer(videoItems: playItems, playingIndex: 0, requestType: .playlistDetail)
         }
     }
     
@@ -166,7 +166,7 @@ extension LibraryDetailViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let playItems = viewModel?.playItems {
-            Util.openPlayer(videoItems: playItems, playingIndex: indexPath.row)
+            Util.openPlayer(videoItems: playItems, playingIndex: indexPath.row, requestType: .playlistDetail)
         }
     }
     
@@ -206,6 +206,7 @@ extension LibraryDetailViewController: UITableViewDelegate, UITableViewDataSourc
 extension LibraryDetailViewController: ViewModelDelegate {
     func success(type: RequestType, message: String) {
         if type == .playlistDelete {
+            Util.createToast(message: message)
             navigationController?.popViewController(animated: true)
         } else if type == .playlistUpdate {
             self.title = viewModel?.title

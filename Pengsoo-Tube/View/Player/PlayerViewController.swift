@@ -24,7 +24,6 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var contentStack: UIStackView!
     
     @IBOutlet weak var shareButton: UIButton!
-    @IBOutlet weak var youtubeButton: UIButton!
     @IBOutlet weak var fullscreenButton: UIButton!
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -53,7 +52,9 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var contentViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var contentViewBttomConstraint: NSLayoutConstraint!
     
-    private var isPausedWhenSeekStarted = false
+    @IBOutlet weak var shareButtonWidthConstraint: NSLayoutConstraint!
+    
+    private var isPlayingWhenSeekStarted = false
     private var pendingRequestWorkItem: DispatchWorkItem?
     
     weak var youtubeView: YoutubePlayerView!
@@ -130,7 +131,6 @@ class PlayerViewController: UIViewController {
         detailButton.setBackgroundImage(Util.generateImageWithColor(color), for: .highlighted)
         
         shareButton.setBackgroundImage(Util.generateImageWithColor(color), for: .highlighted)
-        youtubeButton.setBackgroundImage(Util.generateImageWithColor(color), for: .highlighted)
         fullscreenButton.setBackgroundImage(Util.generateImageWithColor(color), for: .highlighted)
         
         backwardButton.setBackgroundImage(Util.generateImageWithColor(color), for: .highlighted)
@@ -257,6 +257,8 @@ class PlayerViewController: UIViewController {
             view.cornerRadius = 10
             view.backgroundColor = .systemBackground
             
+            shareButtonWidthConstraint!.constant = 30
+            shareButton.isHidden = false
             contentStack.isHidden = false
             setControllerViewsHidden(hidden: true)
             
@@ -292,6 +294,8 @@ class PlayerViewController: UIViewController {
             UIDevice.current.setValue(value, forKey: "orientation")
             UINavigationController.attemptRotationToDeviceOrientation()
             
+            shareButtonWidthConstraint!.constant = 0
+            shareButton.isHidden = true
             contentStack.isHidden = true
             callPendingRequestWorkItem()
             
@@ -379,17 +383,82 @@ class PlayerViewController: UIViewController {
     
     @IBAction func shareButtonAction(_ sender: Any) {
         if let item = viewModel?.getPlayingItem() {
-            let textToShare = [ Util.generateYoutubeUrl(videoId: item.videoId), "Shared from Peng-Ha Tube" ]
-            let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-            activityViewController.popoverPresentationController?.sourceView = self.view
-            activityViewController.excludedActivityTypes = [.airDrop]
-            self.present(activityViewController, animated: true, completion: nil)
-        }
-    }
-    
-    @IBAction func youtubeButtonAction(_ sender: Any) {
-        if let item = viewModel?.getPlayingItem() {
-            Util.openYoutube(videoId: item.videoId)
+            let alert = UIAlertController(style: .actionSheet)
+                alert.addAction(title: "Cancel", style: .cancel) //.cancel action will always be at the end
+                alert.addAction(image: UIImage(systemName: "play.rectangle.fill"), title: "Watch on Youtube", color: .systemRed, style: .default, isEnabled: true) { (_) in
+
+                Util.openYoutube(videoId: item.videoId)
+            }
+
+            alert.addAction(image: UIImage(systemName: "square.and.arrow.up.on.square"), title: "Share", color: .label, style: .default, isEnabled: true) { (_) in
+                let textToShare = [ Util.generateYoutubeUrl(videoId: item.videoId), "Shared from Peng-Ha Tube" ]
+                let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView = self.view
+                activityViewController.excludedActivityTypes = [.airDrop]
+                self.present(activityViewController, animated: true, completion: nil)
+            }
+
+            alert.addAction(image: UIImage(systemName: "t.bubble"), title: "Create Meme", color: .label, style: .default, isEnabled: true) { (_) in
+                if let navigationController = UIStoryboard(name: "NewMemeFromVideosView", bundle: nil).instantiateViewController(identifier: "PickedVideoNavigationView") as? UINavigationController {
+                    if let viewController = navigationController.viewControllers.first as? NewMemePickedVideoViewController {
+                        viewController.videoItem = item
+                        self.present(navigationController, animated: true)
+                    }
+                }
+            }
+
+
+            if viewModel!.requestType == RequestType.pengsooTv || viewModel!.requestType == RequestType.pengsooYoutube || viewModel!.requestType == RequestType.pengsooOutside {
+
+                let homeViewModel = HomeViewModel()
+                homeViewModel.delegate = self
+                
+                if viewModel!.requestType == RequestType.pengsooTv {
+                    homeViewModel.tvListItems.append(contentsOf:(viewModel?.getQueueItems())!)
+                } else if viewModel!.requestType == RequestType.pengsooYoutube {
+                    homeViewModel.youtubeListItems.append(contentsOf:(viewModel?.getQueueItems())!)
+                } else if viewModel!.requestType == RequestType.pengsooOutside {
+                    homeViewModel.outsideListItems.append(contentsOf:(viewModel?.getQueueItems())!)
+                }
+                
+                alert.addAction(image: UIImage(systemName: "folder.badge.plus"), title: "Add to New Playlist", color: .label, style: .default, isEnabled: true) { (_) in
+                    let textFieldAlert = UIAlertController(style: .alert, title: "New Playlist", message: "Please input a name for a new playlist")
+
+                    weak var weakTextField: TextField?
+                    let textFieldConfiguration: TextField.Config = { textField in
+                        textField.left(image: UIImage(systemName: "pencil.and.ellipsis.rectangle"), color: .label)
+                        textField.leftViewPadding = 12
+                        textField.becomeFirstResponder()
+                        textField.borderWidth = 1
+                        textField.cornerRadius = 8
+                        textField.borderColor = UIColor.lightGray.withAlphaComponent(0.5)
+                        textField.backgroundColor = nil
+                        textField.textColor = .label
+                        textField.keyboardAppearance = .default
+                        textField.keyboardType = .default
+                        textField.returnKeyType = .done
+                        weakTextField = textField
+                    }
+
+                    textFieldAlert.addOneTextField(configuration: textFieldConfiguration)
+                    textFieldAlert.addAction(title: "Cancel", style: .cancel)
+                    textFieldAlert.addAction(title: "OK", style: .default) { (_) in
+                        guard let textField = weakTextField else { return }
+                        homeViewModel.addtoNewPlaylist(title: textField.text!, at: self.viewModel!.playingIndex, listOf: self.viewModel!.requestType!)
+                    }
+                    self.present(textFieldAlert, animated: true, completion: nil)
+                }
+
+                if let playlistItems = homeViewModel.getPlaylistItems() {
+                    for playlist in playlistItems {
+                        alert.addAction(image: UIImage(systemName: "plus.square.on.square"), title: "Add to \(playlist.title)", color: .label, style: .default, isEnabled: true) { (_) in
+                            homeViewModel.addToPlaylist(at: self.viewModel!.playingIndex, listOf: self.viewModel!.requestType!, toPlaylist: playlist)
+                        }
+                    }
+                }
+            }
+
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -460,14 +529,30 @@ class PlayerViewController: UIViewController {
         if let touchEvent = event.allTouches?.first {
             switch touchEvent.phase {
             case .began:
-                isPausedWhenSeekStarted = viewModel!.isPaused
-                if !isPausedWhenSeekStarted {
+                isPlayingWhenSeekStarted = (viewModel!.isPaused != true && viewModel!.isEnded != true)
+                if isPlayingWhenSeekStarted {
                     youtubeView.pause()
                 }
             case .moved:
-                youtubeView.seek(to: (viewModel?.getDuration())!*progressBar.value, allowSeekAhead: true)
+                let duration = viewModel?.getDuration()
+                let playTime = duration!*progressBar.value
+                
+                if duration! >= 3600.0 {
+                    let hour = Int(playTime / 3600.0)
+                    let min = (Int(playTime) % 3600) / 60
+                    let sec = (Int(playTime) % 3600) % 60
+
+                    playTimeLabel.text = String(format: "%20d:%02d:%02d", hour, min, sec)
+                } else {
+                    let min = Int(playTime) / 60
+                    let sec = Int(playTime) % 60
+
+                    playTimeLabel.text = String(format: "%02d:%02d", min, sec)
+                }
+                
+                youtubeView.seek(to: playTime, allowSeekAhead: true)
             case .ended:
-                if !isPausedWhenSeekStarted {
+                if isPlayingWhenSeekStarted {
                     youtubeView.play()
                 }
             default:
@@ -484,6 +569,21 @@ class PlayerViewController: UIViewController {
     @objc func foregroundAction() {
         if viewModel!.isFullscreen {
             updateOrientation(isLandscape: viewModel!.isFullscreen)
+        }
+    }
+}
+
+
+extension PlayerViewController: ViewModelDelegate {
+    func success(type: RequestType, message: String) {
+        if type == .playlistUpdate {
+            Util.createToast(message: message)
+        }
+    }
+    
+    func showError(type: RequestType, error: ViewModelDelegateError, message: String) {
+        if message.count > 0 {
+            Util.createToast(message: message)
         }
     }
 }

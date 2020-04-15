@@ -92,7 +92,7 @@ class LibraryViewModel: BaseViewModel {
                 do {
                     try managedOC.save()
                     playlistItems.insert(PlaylistModel(title: playlist.title!, videos: playlist.playlistVideos!.array as! [PlaylistVideo]), at: 0)
-                    delegate?.success(type: .playlistCreate)
+                    delegate?.success(type: .playlistCreate, message: "\(playlist.title!) is created.")
                 } catch {
                     delegate?.showError(type: .playlistCreate, error: .fail, message: "Something went wrong. Please try again.")
                 }

@@ -58,6 +58,10 @@ class Util {
         return image
     }
     
+    static func getHeaderUrl() -> String? {
+        return UserDefaults.standard.string(forKey: AppConstants.key_user_default_home_header_url)
+    }
+    
     static func processDate(dateString: String) -> String {
         let splittedStrings = dateString.split(separator: "T")
         
@@ -106,10 +110,11 @@ class Util {
         return "https://www.youtube.com/watch?v=\(videoId)"
     }
     
-    static func openPlayer(videoItems: [VideoItemModel], playingIndex: Int) {
+    static func openPlayer(videoItems: [VideoItemModel], playingIndex: Int, requestType: RequestType) {
         var dictionary:[String:Any] = [:]
         dictionary[AppConstants.notification_userInfo_video_items] = videoItems
         dictionary[AppConstants.notification_userInfo_playing_index] = playingIndex
+        dictionary[AppConstants.notification_userInfo_request_type] = requestType
         NotificationCenter.default.post(name: AppConstants.notification_show_miniplayer, object: nil, userInfo: dictionary)
     }
     
@@ -117,6 +122,13 @@ class Util {
         var dictionary:[String:Any] = [:]
         dictionary[AppConstants.notification_userInfo_playing_index] = at
         NotificationCenter.default.post(name: AppConstants.notification_play_quque, object: nil, userInfo: dictionary)
+    }
+    
+    static func updateQueue(canRequestMore: Bool, videoItems: [VideoItemModel]? = nil) {
+        var dictionary:[String:Any] = [:]
+        dictionary[AppConstants.notification_userInfo_can_request_more] = canRequestMore
+        dictionary[AppConstants.notification_userInfo_video_items] = videoItems
+        NotificationCenter.default.post(name: AppConstants.notification_add_to_queue, object: nil, userInfo: dictionary)
     }
     
     static func getAvailableThumbnailImageUrl(currentItem: VideoItemModel) -> String {
@@ -199,20 +211,5 @@ class Util {
                 delegate.orientationLock = orientation
             }
         }
-    }
-
-    struct Page {
-        var name = ""
-        var vc = HomeContentViewController()
-        
-        init(with _name: String, _vc: HomeContentViewController) {
-            name = _name
-            vc = _vc
-        }
-    }
-
-    struct PageCollection {
-        var pages = [Page]()
-        var selectedPageIndex = 0 //The first page is selected by default in the beginning
     }
 }
