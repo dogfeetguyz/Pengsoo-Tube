@@ -40,7 +40,3 @@ Configuring the Xcode project requires a few steps in Terminal.
 
 ## Unit Tests
 Pengsoo-Tube has unit tests that can be run on an iOS target. These tests are in **Pengsoo-TubeTests**. To run the unit tests, hold the Run button down and select the "**Test**" option, or press **Command+u** to run the tests.
-
-
-## Release
-You can find this on App Store<br />
