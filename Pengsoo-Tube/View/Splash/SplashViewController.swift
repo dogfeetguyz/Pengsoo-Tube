@@ -31,8 +31,18 @@ class SplashViewControll: UIViewController, ViewModelDelegate {
     }
     
     func showError(type: RequestType, error: ViewModelDelegateError, message: String) {
-        Util.noNetworkPopup(isCancelable: false) { (_) in            
-            self.viewModel.dispatchHeaderInfo()
+        if error == .fail {
+            DispatchQueue.main.async {
+                let alert = UIAlertController(style: .alert)
+                alert.title = ""
+                alert.message = message
+                alert.addAction(title: "OK")
+                alert.show()
+            }
+        } else {
+            Util.noNetworkPopup(isCancelable: false) { (_) in
+                self.viewModel.dispatchHeaderInfo()
+            }
         }
     }
 }
