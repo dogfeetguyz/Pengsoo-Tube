@@ -39,18 +39,27 @@ class NewMemePickedVideoViewController: UIViewController {
         loadVideo()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        indicator?.stopAnimating()
+        indicator = nil
+        player = nil
+    }
+    
     func loadVideo() {
         indicator?.startAnimating()
         XCDYouTubeClient.default().getVideoWithIdentifier(videoItem!.videoId) { (video, error) in
             
-            self.player = AVPlayer(url: video!.streamURL)
-            self.player!.isMuted = true
-            self.player!.addObserver(self, forKeyPath: "status", options: [.new], context: nil)
-            self.player!.pause()
-            
-            let playerLayer = AVPlayerLayer(player: self.player!)
-            playerLayer.frame = self.playerView!.bounds
-            self.playerView!.layer.insertSublayer(playerLayer, at: 0)
+            if self.player != nil {
+                self.player = AVPlayer(url: video!.streamURL)
+                self.player!.isMuted = true
+                self.player!.addObserver(self, forKeyPath: "status", options: [.new], context: nil)
+                self.player!.pause()
+                
+                let playerLayer = AVPlayerLayer(player: self.player!)
+                playerLayer.frame = self.playerView!.bounds
+                self.playerView!.layer.insertSublayer(playerLayer, at: 0)
+            }
         }
     }
 

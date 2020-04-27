@@ -10,6 +10,7 @@ import UIKit
 import Photos
 import MobileCoreServices
 import CropViewController
+import NVActivityIndicatorView
 
 class MemeViewController: UIViewController {
 
@@ -18,6 +19,8 @@ class MemeViewController: UIViewController {
     @IBOutlet weak var pengsooVideosBgImageView: UIImageView!
     @IBOutlet weak var memePhotosCollectionView: UICollectionView!
     
+    @IBOutlet weak var loadingIndicator: NVActivityIndicatorView!
+
     let viewModel = MemeViewModel()
     let imageManager = PHCachingImageManager()
     
@@ -45,6 +48,8 @@ class MemeViewController: UIViewController {
     }
     
     @IBAction func photoLibraryButtonAction(_ sender: Any) {
+        loadingIndicator!.startAnimating()
+        
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = .photoLibrary
         
@@ -57,7 +62,9 @@ class MemeViewController: UIViewController {
 
         imagePicker.allowsEditing = false
         imagePicker.delegate = self
-        self.present(imagePicker, animated: true, completion: nil)
+        self.present(imagePicker, animated: true) {
+            self.loadingIndicator!.stopAnimating()
+        }
     }
     
     @IBAction func pengsooVideosButtonAction(_ sender: Any) {
@@ -112,14 +119,14 @@ extension MemeViewController: UICollectionViewDataSource, UICollectionViewDelega
 extension MemeViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
+        loadingIndicator?.startAnimating()
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         picker.dismiss(animated: true, completion: nil)
-        
+
         let cropController = CropViewController(croppingStyle: .default, image: image)
         cropController.delegate = self
-        picker.present(cropController, animated: true) {
-            
+        self.present(cropController, animated: true) {
+            self.loadingIndicator?.stopAnimating()
         }
     }
 }

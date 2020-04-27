@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YrZ-4a-7dI">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -433,6 +433,23 @@
                                     <outlet property="delegate" destination="bE4-ZQ-rIX" id="ebe-UY-911"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bXu-QS-XQ6" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="187" y="386" width="40" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="0U5-3y-NgI"/>
+                                    <constraint firstAttribute="height" constant="40" id="dpa-5l-eKf"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="ballPulse"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -442,6 +459,8 @@
                             <constraint firstItem="WBv-fw-b2k" firstAttribute="leading" secondItem="ct7-7N-frb" secondAttribute="leading" id="RhS-RO-wY6"/>
                             <constraint firstItem="WBv-fw-b2k" firstAttribute="top" secondItem="0Ry-eO-2Ob" secondAttribute="bottom" id="THb-CZ-8DH"/>
                             <constraint firstItem="0Ry-eO-2Ob" firstAttribute="top" secondItem="il7-8B-84h" secondAttribute="top" id="Xa6-jR-pJX"/>
+                            <constraint firstItem="bXu-QS-XQ6" firstAttribute="centerX" secondItem="il7-8B-84h" secondAttribute="centerX" id="dil-GI-Uth"/>
+                            <constraint firstItem="bXu-QS-XQ6" firstAttribute="centerY" secondItem="il7-8B-84h" secondAttribute="centerY" id="dyG-Xs-WnY"/>
                             <constraint firstAttribute="trailing" secondItem="0Ry-eO-2Ob" secondAttribute="trailing" id="eXS-Ey-DhS"/>
                             <constraint firstItem="ct7-7N-frb" firstAttribute="top" secondItem="0Ry-eO-2Ob" secondAttribute="bottom" id="w7R-Ef-oA2"/>
                             <constraint firstItem="ct7-7N-frb" firstAttribute="trailing" secondItem="pyR-XM-cJk" secondAttribute="trailing" id="wLq-1b-j4l"/>
@@ -452,6 +471,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Meme" image="t.bubble.fill" catalog="system" id="L26-Sl-Kcu"/>
                     <connections>
+                        <outlet property="loadingIndicator" destination="bXu-QS-XQ6" id="cC0-wz-JZ8"/>
                         <outlet property="memePhotosCollectionView" destination="pyR-XM-cJk" id="a2l-3q-z6C"/>
                         <outlet property="pengsooVideosBgImageView" destination="rpL-tf-wHU" id="J8z-sA-vct"/>
                         <outlet property="pengsooVideosButton" destination="vpo-lv-M3l" id="6NM-NY-50R"/>
