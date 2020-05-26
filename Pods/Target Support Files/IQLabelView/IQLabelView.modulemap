@@ -1,0 +1,6 @@
+framework module IQLabelView {
+  umbrella header "IQLabelView-umbrella.h"
+
+  export *
+  module * { export * }
+}

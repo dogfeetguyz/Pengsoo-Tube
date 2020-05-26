@@ -20,7 +20,7 @@ struct AppConstants {
     static let keyBrandingId        : String = "id"
     static let keyPageToken         : String = "pageToken"
     
-    static let valueApiKey          : String = Bundle.main.object(forInfoDictionaryKey: "GoogleSecretKey") as! String
+    static let valueApiKey          : String = "AIzaSyBompOLCe0ujNkYPELVHg5JzqlXadzAG5I"
     static let valueMaxResult       : Int = 50
     static let valuePlaylistGiantTV : String = "PLwGaGJBBtgFdm2f6aDXTxjgrRsj6D9eJ-"
     static let valuePlaylistYoutube : String = "PLwGaGJBBtgFfTN_ofhz-rdmeyStn5818M"
